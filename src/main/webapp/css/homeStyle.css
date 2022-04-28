@@ -1,0 +1,85 @@
+body{
+    background-color: #130a23;
+    color: #f3e7cd;
+}
+
+#navBar{
+    background-color: #601194;
+    width: 100%;
+    height: 54px;
+    border-radius: 6px;
+}
+
+#navBar div{
+    float: left;
+}
+
+#logo{
+    width: 70px;
+    text-align: center;
+    border: 1px solid #601194;
+    border-radius: 6px;
+}
+
+#navBar div.button:hover{
+    border: 1px solid #f3e7cd;
+    border-radius: 6px;
+}
+
+#search{
+    width: 600px;
+    text-align: center;
+}
+
+#searchBarForm{
+    padding-top: 12px;
+    font-size: 0px;
+}
+
+#searchBar{
+    width: 300px;
+    height: 25px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border: 1px solid black;
+}
+
+#searchButton{
+    height: 29px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border: 1px solid black;
+    background-image: url("pictures/lente.png");
+    background-repeat: no-repeat;
+}
+
+#carrello{
+    width: 80px;
+    text-align: center;
+    border: 1px solid #601194;
+    border-radius: 6px;
+}
+
+#login{
+    font-family: "copperplate", fantasy;
+    letter-spacing: 0px;
+    width: 50px;
+    padding-top: 15px;
+}
+
+#login a{
+    display: block;
+    color: #f3e7cd;
+    text-align: center;
+    text-decoration: none;
+}
+
+#login a:hover{
+    border: 1px solid #f3e7cd;
+    border-radius: 6px;
+}
+
+
+
+
+
