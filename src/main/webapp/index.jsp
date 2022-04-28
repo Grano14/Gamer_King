@@ -25,6 +25,7 @@
     </div>
 </div>
 <!-- this is a comment-->
+
 <div id="ddmenu"></div>
 <div id="content"></div>
 <footer></footer>
