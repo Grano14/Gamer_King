@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
 </head>
 <body>
+<!-- creazione barra di navigazione-->
 <div id="navBar">
     <div id="logo" class="button">
         <img src="css/pictures/logo.png">

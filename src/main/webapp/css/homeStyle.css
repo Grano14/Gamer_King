@@ -3,10 +3,12 @@ body{
     color: #f3e7cd;
 }
 
+/*css riferito alla barra di navigazione e i suoi elementi*/
+
 #navBar{
     background-color: #601194;
     width: 100%;
-    height: 54px;
+    height: 52px;
     border-radius: 6px;
 }
 
@@ -17,12 +19,11 @@ body{
 #logo{
     width: 70px;
     text-align: center;
-    border: 1px solid #601194;
     border-radius: 6px;
 }
 
-#navBar div.button:hover{
-    border: 1px solid #f3e7cd;
+.button:hover{
+    background-color: mediumpurple;
     border-radius: 6px;
 }
 
@@ -56,7 +57,6 @@ body{
 #carrello{
     width: 80px;
     text-align: center;
-    border: 1px solid #601194;
     border-radius: 6px;
 }
 
@@ -75,11 +75,11 @@ body{
 }
 
 #login a:hover{
-    border: 1px solid #f3e7cd;
     border-radius: 6px;
+    background-color: mediumpurple;
 }
 
-
+/*fine css barra di navigazione*/
 
 
 
