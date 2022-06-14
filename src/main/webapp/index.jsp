@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>GamerKing | Home</title>
-    <link rel="stylesheet" type="text/css" href="css/homeStyle.css">
+    <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
 </head>
 <body>
@@ -27,7 +27,9 @@
 </div>
 <!-- this is a comment-->
 
-<div id="ddmenu"></div>
+<div id="porcodio"> hhj</div>
+
+<div id="ddmenu">lhbjk</div>
 <div id="content"></div>
 <footer></footer>
 </body>
