@@ -1,0 +1,234 @@
+body{
+    background-color: #130a23;
+    color: #f3e7cd;
+}
+
+/*css riferito alla barra di navigazione e i suoi elementi*/
+
+#navBar{
+    background-color: #601194;
+    width: 100%;
+    height: 52px;
+    top: 8px;
+    left: 6px;
+    border-radius: 6px;
+    position: fixed;
+    z-index: 3;
+}
+
+#navBar div{
+    float: left;
+    position: absolute;
+}
+
+#logo{
+    width: 70px;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.button:hover{
+    background-color: mediumpurple;
+    border-radius: 6px;
+}
+
+#search{
+    left: 20%;
+    width: 35%;
+    height: 100%;
+    text-align: center;
+}
+
+#searchBarForm{
+    height: 100%;
+    width: 100%;
+    font-size: 0px;
+}
+
+#searchBar{
+    width: 75%;
+    height: 35px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid black;
+}
+
+#searchBar:focus{
+    outline: none;
+}
+
+#searchButton{
+    height: 29px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border: 1px solid black;
+    background-image: url("pictures/lente.png");
+    background-repeat: no-repeat;
+}
+
+#carrello{
+    right: 0px;
+    width: 80px;
+    text-align: center;
+    border-radius: 6px;
+}
+
+#login{
+    right: 80px;
+    font-family: "copperplate", fantasy;
+    letter-spacing: 0px;
+    width: 50px;
+    padding-top: 15px;
+}
+
+#login a{
+    display: block;
+    color: #f3e7cd;
+    text-align: center;
+    text-decoration: none;
+}
+
+#login a:hover{
+    border-radius: 6px;
+    background-color: mediumpurple;
+}
+
+#cerca{
+    left: 50px;
+    height: 40px;
+    width: 40px;
+    border-radius: 25px;
+    border-style: none;
+    transition: .2s;
+    transition-timing-function: ease-in;
+}
+
+#cerca:focus{
+    outline: none;
+}
+
+#ricercaAvanzata{
+    height: 100%;
+    background-color: #601194;
+    background-image: url("pictures/freccia.png");
+    background-repeat: no-repeat;
+    border-style: none;
+    background-position: center;
+    margin-left: 4px;
+}
+
+#ricercaAvanzata:hover{
+    background-color: mediumpurple;
+    border-radius: 6px;
+}
+
+#menuRicerca{
+    width: 550px;
+    height: 230px;
+    background-color: mediumpurple;
+    border-radius: 6px;
+    margin-left: 20%;
+    font-family: "copperplate", fantasy;
+    visibility: hidden;
+    position: fixed;
+    top: 60px;
+    z-index: 3;
+}
+
+#menuRicerca div{
+    display: inline-block;
+    height: 60px;
+    width: 200px;
+    padding-top: 20px;
+    padding-left: 40px;
+}
+
+#menuRicerca div select{
+    border-radius: 6px;
+    height: 25px;
+    background-color: dimgrey;
+    width: 160px;
+
+}
+
+#prezzo input{
+    width: 30px;
+    height: 25px;
+    border-radius: 6px;
+    background-color: dimgrey;
+    border-style: none;
+}
+
+#tastoCerca{
+    font-family: "copperplate", fantasy;
+    background-color: yellow;
+    border-style: none;
+    border-color: black;
+    height: 25px;
+    width: 100px;
+    font-size: 20px;
+    border-radius: 6px;
+}
+
+/*fine css barra di navigazionem*/
+
+#corpo{
+    height: 2500px;
+    width: 99%;
+    display: inline;
+    position: absolute;
+    top: 65px;
+}
+
+#primoPiano{
+    width: 100%;
+    height: 500px;
+    border-radius: 6px;
+    margin-top: 0px;
+    text-align: center;
+}
+
+#primoPiano img{
+    width: 85%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.section{
+    font-size: 40px;
+}
+
+.elemento{
+    display: inline-block;
+    height: 200px;
+    width: 300px;
+    margin: 40px 50px;
+    border-radius: 6px;
+    text-align: left;
+    transition: 0.2s;
+}
+
+.elemento:hover{
+    transform: scale(1.05);
+}
+
+.elemento a{
+    width: 100%;
+    height: 80%;
+}
+
+.elemento a img{
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+}
+
+
+#footer{
+    background-color: rgb(22, 18, 39);
+    left: 0;
+    right: 0;
+    height: 100px;
+    position: absolute;
+    top: 2600px;
+}

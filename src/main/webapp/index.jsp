@@ -103,6 +103,7 @@
 
 <div id="footer">
     footer
+    <a href="ProductPage.jsp">prodotto</a>
 </div>
 </body>
 </html>
