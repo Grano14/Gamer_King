@@ -32,38 +32,50 @@
 
 <!-- creazione menù ricerca avanzata-->
 
-<div id="menuRicerca">
+
+
+<div id="menuAvanzato">
     <form>
-        <div id="piattaforma">
-            <label for="s1">Piattaforma</label>
-            <select id="s1">
-                <option>1</option>
-                <option>1</option>
+        <div class="sezione">
+            <p>Scegli una piattaforma</p>
+            <input type="button" class="bottone" style="background-image: url('css/pictures/playstation.png')" onclick="selectedPiattaforma(this, 'playstation')">
+            <input type="hidden" id="playstation" value="false">
+            <input type="button" class="bottone" style="background-image: url('css/pictures/xbox.png')" onclick="selectedPiattaforma(this, 'xbox')">
+            <input type="hidden" id="xbox" value="false">
+            <input type="button" class="bottone" style="background-image: url('css/pictures/nintendo.png')" onclick="selectedPiattaforma(this, 'nintendo')">
+            <input type="hidden" id="nintendo" value="false">
+        </div>
+        <div class="sezione">
+            <p>scegli un genere</p>
+            <input type="button" class="bottone" style="background-image: url('css/pictures/avventura.png')" title="Avventura" onclick="selectedPiattaforma(this, 'avventura')">
+            <input type="hidden" id="avventura" value="false">
+            <input type="button" class="bottone" style="background-image: url('css/pictures/fantasy.png')" title="Fantasy" onclick="selectedPiattaforma(this, 'fantasy')">
+            <input type="hidden" id="fantasy" value="false">
+            <input type="button" class="bottone" style="background-image: url('css/pictures/sparatutto.png')" title="Sparatutto" onclick="selectedPiattaforma(this, 'sparatutto')">
+            <input type="hidden" id="sparatutto" value="false">
+        </div>
+        <div id="annoPrezzo" class="sezione">
+            Anno
+            <select>
+                <option>2009</option>
+                <option>2010</option>
+                <option>2011</option>
+                <option>2012</option>
+                <option>2013</option>
+                <option>2014</option>
             </select>
-        </div>
-        <div id="genere">
-            <label for="s2">Genere</label>
-            <select id="s2">
-                <option>1</option>
-                <option>1</option>
-            </select>
-        </div>
-        <div id="anno">
-            <label for="s3">Anno</label><br>
-            <select id="s3">
-                <option>1</option>
-                <option>1</option>
-            </select>
-        </div>
-        <div id="prezzo">
-            <label for="maxprice">Inserisci il prezzo massimo</label>
-            <input type="text" id="maxprice">
-        </div>
-        <div>
-            <input type="submit" id="tastoCerca" value="Cerca">
+            <p>Prezzo minimo</p>
+            <input type="range" id="rangemin" min="0" max="150" value="75" onchange="showminmax(value, 'minrange')"><label for="rangemin" id="minrange"></label>
+            <p>Prezzo massmo</p>
+            <input type="range" id="rangemax" min="0" max="150" value="75" onchange="showminmax(value, 'maxrange')"><label for="rangemin" id="maxrange"></label>
+            <br><br>scontati
+            <input type="checkbox" value="true"><br><br><br><br>
+            <input type="submit" id="ricercaavButton" value="cerca">
         </div>
     </form>
 </div>
+
+
 
 <!-- contenuto homepage-->
 
@@ -82,7 +94,7 @@
         <p class="section">giochi di avventura</p>
         <%for(int i=0; i<6; i++){%>
         <div class="elemento">
-            <a href="#game"><img src="css/pictures/avventura.avif"> </a>
+            <a href="#game"><img src="css/pictures/avventuragame.jpg"> </a>
             GAME
         </div>
         <%}%>
