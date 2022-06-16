@@ -9,6 +9,8 @@ body{
     background-color: #601194;
     width: 100%;
     height: 52px;
+    top: 8px;
+    left: 6px;
     border-radius: 6px;
     position: fixed;
     z-index: 3;
@@ -170,17 +172,70 @@ body{
 
 /*fine css barra di navigazionem*/
 
-#content{
-    width: 100%;
-    height: 300px;
-    border-radius: 6px;
-    background-color: blue;
-    position: relative;
+#corpo{
+    height: 2500px;
+    width: 99%;
+    display: inline;
+    position: absolute;
     top: 65px;
+}
+
+#primoPiano{
+    width: 100%;
+    height: 500px;
+    border-radius: 6px;
+    margin-top: 0px;
+    text-align: center;
+}
+
+#primoPiano img{
+    width: 85%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.section{
+    font-size: 40px;
 }
 
 #giochi{
     width: 100%;
-    height: 1000px;
-    border: 1px solid red;
+    height: 2000px;
+    text-align: center;
+    font-family: "copperplate", fantasy;
+}
+
+.elemento{
+    display: inline-block;
+    height: 200px;
+    width: 300px;
+    margin: 40px 50px;
+    border-radius: 6px;
+    text-align: left;
+    transition: 0.2s;
+}
+
+.elemento:hover{
+    transform: scale(1.05);
+}
+
+.elemento a{
+    width: 100%;
+    height: 80%;
+}
+
+.elemento a img{
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+}
+
+
+#footer{
+    background-color: rgb(22, 18, 39);
+    left: 0;
+    right: 0;
+    height: 100px;
+    position: absolute;
+    top: 2600px;
 }

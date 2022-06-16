@@ -1,0 +1,63 @@
+body{
+    background-color: #130A23;
+}
+
+a:visited{
+    color: yellow;
+}
+
+#accesso{
+    width: 500px;
+    height: 350px;
+    line-height: 70px;
+    margin: auto;
+    margin-top: 10%;
+    background-color: rebeccapurple;
+    border-radius: 6px;
+    font-family: "copperplate",fantasy;
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+    color: white;
+}
+
+form{
+    text-align: center;
+}
+
+#forms input{
+    width: 150px;
+}
+
+#id{
+    width: 150px;
+    border-radius: 6px;
+    border: 1px solid black;
+}
+
+#pass{
+    width: 150px;
+    border-radius: 6px;
+    border: 1px solid black;
+}
+
+#bottone{
+    height: 35px;
+    border-radius: 6px;
+    background-color: yellow;
+    font-family: "copperplate",fantasy;
+    font-size: 25px;
+    margin-left: 65%;
+}
+
+#bottone:hover{
+    background-color: khaki;
+}
+
+#footer{
+    color: white;
+    font-size: 15px;
+    position: fixed;
+    bottom: 0px;
+    right: 10px;
+}
+
+

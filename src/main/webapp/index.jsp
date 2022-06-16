@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
     <script type="text/javascript" src="HomeScript.js"></script>
 </head>
-<body>
+<body onscroll="barEffect()">
 
 <!-- creazione barra di navigazione-->
 <div id="navBar">
@@ -25,7 +25,7 @@
         <img src="css/pictures/carrello.png">
     </div>
     <div id="login" style="float: right">
-        <a href="#login">LOGIN</a>
+        <a href="loginPage.jsp">LOGIN</a>
     </div>
 </div>
 <!-- this is a comment-->
@@ -65,12 +65,32 @@
     </form>
 </div>
 
-<div id="content">
-    ciao
+<!-- contenuto homepage-->
+
+<div id="corpo">
+    <div id="primoPiano">
+        <img src="css/pictures/primoPiano.png">
+    </div>
+    <div id="giochi">
+        <p class="section">i più popolari</p><br>
+        <%for(int i=0; i<6; i++){%>
+        <div class="elemento">
+            <a href="#game"><img src="css/pictures/eldenRing.jpg"> </a>
+            GAME
+        </div>
+        <%}%>
+        <p class="section">giochi di avventura</p>
+        <%for(int i=0; i<6; i++){%>
+        <div class="elemento">
+            <a href="#game"><img src="css/pictures/avventura.avif"> </a>
+            GAME
+        </div>
+        <%}%>
+    </div>
 </div>
-<div id="giochi">
-    giochi
+
+<div id="footer">
+    footer
 </div>
-<footer></footer>
 </body>
 </html>
