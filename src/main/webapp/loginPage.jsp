@@ -19,10 +19,10 @@
     <form>
         <div id="forms">
             <label for="id">ID Utente</label><br>
-            <input type="text" id="id"><br>
+            <input type="text" class="serch" id="id"><br>
             <label for="pass">Password</label><br>
-            <input type="password" id="pass"><br>
-            Se non sei registrato <a href="registrazione.html">crea un account</a>
+            <input type="password" class="serch" id="pass"><br>
+            Se non sei registrato <a href="RegistrationPage.jsp">crea un account</a>
             <input type="submit" value="ACCEDI" id="bottone">
         </div>
     </form>
