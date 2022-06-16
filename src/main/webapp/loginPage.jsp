@@ -21,13 +21,13 @@
             <label for="id">ID Utente</label><br>
             <input type="text" id="id"><br>
             <label for="pass">Password</label><br>
-            <input type="password" id="pass">
+            <input type="password" id="pass"><br>
+            Se non sei registrato <a href="registrazione.html">crea un account</a>
             <input type="submit" value="ACCEDI" id="bottone">
         </div>
     </form>
 </div>
 <div id="footer">
-    Se non sei registrato <a href="registrazione.html">crea un account</a>
 </div>
 </body>
 </html>
