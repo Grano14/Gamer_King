@@ -108,18 +108,64 @@ body{
 }
 
 #ricercaAvanzata{
+    left: 52%;
     height: 100%;
     background-color: #601194;
-    background-image: url("pictures/freccia.png");
+    padding-left: 5px;
+    width: 100px;
     background-repeat: no-repeat;
     border-style: none;
     background-position: center;
     margin-left: 4px;
 }
 
+#categorie{
+    left: 60%;
+    height: 100%;
+    background-color: #601194;
+    padding-left: 5px;
+    width: 100px;
+    visibility: visible;
+    background-repeat: no-repeat;
+    border-style: none;
+    background-position: center;
+    margin-left: 4px;
+}
+
+
+
+#categorie:hover{
+    background-color: mediumpurple;
+    border-radius: 6px;
+}
+
+#categorie div{
+    display: inline-block;
+    margin-top: 15px;
+    font-family: "copperplate", fantasy;
+}
+
 #ricercaAvanzata:hover{
     background-color: mediumpurple;
     border-radius: 6px;
+}
+
+#freccia{
+    margin-left: 67px;
+    transform: rotate(0deg);
+    transition-duration: 0.5s;
+}
+
+#freccia1{
+    margin-left: 67px;
+    transform: rotate(0deg);
+    transition-duration: 0.5s;
+}
+
+#ricercaAvanzata div{
+    display: inline-block;
+    margin-top: 15px;
+    font-family: "copperplate", fantasy;
 }
 
 #menuRicerca{
@@ -151,6 +197,30 @@ body{
     position: fixed;
     top: 60px;
     z-index: 3;
+}
+
+#categorieMenu{
+    width: 200px;
+    height: 350px;
+    border-radius: 6px;
+    background-color: mediumpurple;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 57%;
+    font-family: "copperplate", fantasy;
+    visibility: hidden;
+    position: fixed;
+    top: 60px;
+    z-index: 3;
+}
+
+#categorieMenu div{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#categorieMenu div:hover{
+    background-color: #601194;
 }
 
 #menuAvanzato form{
@@ -280,4 +350,16 @@ body{
     height: 100px;
     position: absolute;
     top: 2600px;
+}
+
+@media only screen and (max-width: 1200px) {
+    #categorie{
+        visibility: hidden;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    #primoPiano{
+        height: 300px;
+    }
 }

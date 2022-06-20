@@ -18,8 +18,15 @@
         <form action="#cer" id="searchBarForm">
             <input type="text" id="searchBar" placeholder="cerca...">
             <!--<input type="submit" id="searchButton" value="       ">-->
-            <input type="button" value="  " id="ricercaAvanzata" onclick="mostraAVmenu()">
         </form>
+    </div>
+    <div id="ricercaAvanzata" onclick="mostraMenu('menuAvanzato', 'freccia')">
+        <div>Strumenti</div>
+        <div id="freccia"><img src="css/pictures/freccia.png"></div>
+    </div>
+    <div id="categorie" onclick="mostraMenu('categorieMenu', 'freccia1')">
+        <div>Categorie</div>
+        <div id="freccia1"><img src="css/pictures/freccia.png"></div>
     </div>
     <div id="carrello" class="button" style="float: right">
         <img src="css/pictures/carrello.png">
@@ -73,6 +80,13 @@
             <input type="submit" id="ricercaavButton" value="cerca">
         </div>
     </form>
+</div>
+
+<div id="categorieMenu">
+    <div>I più venduti</div>
+    <div>I giochi del momento</div>
+    <div>Scontati</div>
+    <div>I più popolari</div>
 </div>
 
 

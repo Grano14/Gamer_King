@@ -1,8 +1,14 @@
-function mostraAVmenu(){
-    if(document.getElementById("menuAvanzato").style.visibility == "hidden")
-        document.getElementById("menuAvanzato").style.visibility = "visible";
+function mostraMenu(idmenu, idfreccia){
+    if(document.getElementById(idmenu).style.visibility == "hidden") {
+        document.getElementById(idmenu).style.visibility = "visible";
+    }
+    else {
+        document.getElementById(idmenu).style.visibility = "hidden";
+    }
+    if(document.getElementById(idfreccia).style.transform == "rotate(0deg)")
+        document.getElementById(idfreccia).style.transform = "rotate(180deg)"
     else
-        document.getElementById("menuAvanzato").style.visibility = "hidden";
+        document.getElementById(idfreccia).style.transform = "rotate(0deg)"
 }
 
 function barEffect(){
