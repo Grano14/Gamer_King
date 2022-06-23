@@ -9,7 +9,7 @@
 <body>
 
 <!-- creazione barra di navigazione-->
-
+<%@include file="NavBar.jsp" %>
 <!-- contenuto homepage-->
 
 <div id="corpo">
