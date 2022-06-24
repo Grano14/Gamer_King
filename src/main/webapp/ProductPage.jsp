@@ -20,15 +20,18 @@
     <div class="info">
         <div class="foto">
             <img src="css/pictures/eldenRing.jpg">
+
+            <div id="acquistoECarrello">
+                <p id="nomeGioco">Nome Gioco</p>
+                <p id="prezzoGioco">00.00€</p>
+                <div class="bottone" id="acquisto">
+                    <a href="#acquisto">acquisto</a><br>
+                    <a href="#carrello">carrello</a>
+                </div>
         </div>
-        <div id="acquisto">
-            <p id="nomeGioco">Nome Gioco</p>
-            <p id="prezzoGioco">00.00€</p>
-            <div class="bottone" id="acquisto/carrello">
-                <form>
-                    <input type="submit" value="acquista">
-                </form>
-            </div>
+
+
+
         </div>
     </div>
 
