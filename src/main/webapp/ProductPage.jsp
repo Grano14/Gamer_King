@@ -16,6 +16,8 @@
 <body>
 <%@include file="NavBar.jsp" %>
 <!--creiamo la presentazione del prodotto-->
+<div id="sfondo">
+</div>
 <div id="prodotto">
     <div class="info">
         <div class="foto">
@@ -26,9 +28,15 @@
             <div id="acquistoECarrello">
                 <p id="nomeGioco">Nome Gioco</p>
                 <p id="prezzoGioco">00.00€</p>
-                <div class="bottone" id="acquisto">
-                    <a href="#acquisto">acquisto</a><br>
-                    <a href="#carrello">carrello</a>
+                <div id="acquisto">
+
+                    <div class="tasto">
+                        <a href="#acquisto">acquisto</a>
+                    </div><br><br>
+                    <div class="tasto">
+                        <a href="#carrello">carrello</a>
+                    </div>
+
                 </div>
         </div>
 

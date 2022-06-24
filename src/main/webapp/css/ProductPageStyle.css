@@ -2,16 +2,26 @@ body{
     background-image: url(pictures/background.jpg);
     background-size: 100% auto;
     background-repeat: no-repeat;
+    font-family: "copperplate", fantasy;
 }
 
+#sfondo{
+    background-image: url(pictures/sfondo.PNG);
+    background-size: 100% auto;
+    border: 1px solid purple;
+    left : 0px;
+    margin-top:10%;
+    position:absolute;
+}
 
 #prodotto{
-    background-image: url(pictures/sfondo.PNG);
     background-size: 100% auto;
     background-repeat: no-repeat;
     text-align:center;
     margin-top: 300px;
     width: 100%;
+    border: 1px solid red;
+    position:absolute;
 }
 
 .info{
@@ -23,8 +33,9 @@ body{
 }
 
 .foto{
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 300px;
+    border: 1px solid orange;
 }
 
 .foto img{
@@ -45,11 +56,22 @@ body{
 }
 
 #acquistoECarrello{
-    position: absolute;
+    float:right;
+    height: 300px;
+    width: 450px;
+    text-align:center;
+    font-size: 30px;
+    color:  white;
     display: inline-block;
     border: 1px solid yellow;
 }
 
+div.tasto a{
+    background-color:orange;
+    width:90%;
+    height:40px;
+    border-radius:6px;
+}
 
 #footer{
     left: 0;
