@@ -19,7 +19,9 @@
 <div id="prodotto">
     <div class="info">
         <div class="foto">
-            <img src="css/pictures/eldenRing.jpg">
+            <div id="contenitoreImmagine">
+                <img src="css/pictures/eldenRing.jpg">
+            </div>
 
             <div id="acquistoECarrello">
                 <p id="nomeGioco">Nome Gioco</p>
