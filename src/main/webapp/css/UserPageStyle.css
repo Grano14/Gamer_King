@@ -127,6 +127,35 @@
     margin: 20px;
 }
 
+#buttonsection{
+    width: 100%;
+    height: 30px;
+    text-align: right;
+}
+
+#testo{
+    width: 100%;
+    height: 170px;
+}
+
+.bottoneRecensione{
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    margin: 3px;
+    border-style: none;
+}
+
+#delete{
+    background-color: red;
+    background-image: url("pictures/elimina.png");
+}
+
+#editbutton{
+    background-color: cornflowerblue;
+    background-image: url("pictures/matita.png");
+}
+
 @media only screen and (max-width: 1200px){
     .bottoneImpostazioni{
         height: 60px;

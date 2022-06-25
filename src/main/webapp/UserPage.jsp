@@ -56,7 +56,15 @@
     <div id="m2" class="hiddenMenu">
         <%for(int i=0; i<8; i++){%>
             <div id="recensione">
-                questa è una recensione
+                <div id="buttonsection">
+                    <button class="bottoneRecensione" id="delete">
+                    </button>
+                    <button class="bottoneRecensione" id="editbutton">
+                    </button>
+                </div>
+                <div id="testo">
+                    testo recensione
+                </div>
             </div>
         <%}%>
     </div>
