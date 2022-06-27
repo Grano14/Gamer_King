@@ -34,9 +34,9 @@
         <div>Categorie</div>
         <div id="freccia1"><img src="css/pictures/freccia.png"></div>
     </div>
-    <div id="carrello" class="button" style="float: right">
+    <a id="carrello" class="button" style="float: right" href="Carrello.jsp">
         <img src="css/pictures/carrello.png">
-    </div>
+    </a>
     <div id="login" style="float: right">
         <a href="loginPage.jsp">LOGIN</a>
     </div>
