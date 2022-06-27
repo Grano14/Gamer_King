@@ -76,7 +76,6 @@
         <%}%>
     </div>
     <div id="m3" class="hiddenMenu">
-        <p class="testo">Modifica elementi</p>
         <div class="bottoneImpostazioni" onclick="showMenu('m4')">
             <p class="testo">Dati Personali</p>
         </div>
@@ -84,27 +83,18 @@
             <p class="testo">Password</p>
         </div>
         <div class="bottoneImpostazioni" onclick="showMenu('m6')">
-            <p class="testo">Estremi di fatturazione</p>
+            <p class="testo">Carta di Credito</p>
         </div>
+    </div>
+
+    <div id="m4" class="hiddenMenu">
+        <%@include file="FormDati.jsp" %>
     </div>
 
     </div>
 
 <div id="impostazioniInfo">
-    <div id="m4" class="hiddenMenu">
-        <form>
-            <div class="forms">
-                <label for="firstName">Nome</label><br>
-                <input type="text" class="serch" id="firstName"><br>
-                <label for="lastName">Cognome</label><br>
-                <input type="text" class="serch" id="lastName"><br>
-                <label for="mail">Email</label><br>
-                <input type="text" class="serch" id="mail"><br>
-                <label for="phone">Telefono</label><br>
-                <input type="text" class="serch" id="phone"><br>
-            </div>
-        </form>
-    </div>
+
 
 <!--
     <div id="m5" class="hiddenMenu">
