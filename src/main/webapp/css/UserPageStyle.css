@@ -48,21 +48,6 @@
     width: 100%;
     height: 100%;
     position: absolute;
-}
-
-#m{
-    visibility: hidden;
-}
-
-#m1{
-    visibility: hidden;
-}
-
-#m2{
-    visibility: hidden;
-}
-
-#m3{
     visibility: hidden;
 }
 
@@ -154,6 +139,12 @@
 #editbutton{
     background-color: cornflowerblue;
     background-image: url("pictures/matita.png");
+}
+
+.bottoneImpostazioni p{
+    color:white;
+    font-family: "copperplate", fantasy;
+    font-size: 30px;
 }
 
 @media only screen and (max-width: 1200px){

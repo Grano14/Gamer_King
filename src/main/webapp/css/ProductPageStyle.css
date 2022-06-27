@@ -5,13 +5,12 @@ body{
     font-family: "copperplate", fantasy;
 }
 
-#sfondo{
-    background-image: url(pictures/sfondo.PNG);
-    background-size: 100% auto;
-    border: 1px solid purple;
-    left : 0px;
-    margin-top:10%;
-    position:absolute;
+#sfondo img{
+    width:100%;
+    heigth:100%;
+    left:0px;
+    right:0px;
+    position:relative;
 }
 
 #prodotto{
@@ -21,7 +20,6 @@ body{
     margin-top: 300px;
     width: 100%;
     border: 1px solid red;
-    position:absolute;
 }
 
 .info{

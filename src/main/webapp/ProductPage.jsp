@@ -16,8 +16,7 @@
 <body>
 <%@include file="NavBar.jsp" %>
 <!--creiamo la presentazione del prodotto-->
-<div id="sfondo">
-</div>
+
 <div id="prodotto">
     <div class="info">
         <div class="foto">
