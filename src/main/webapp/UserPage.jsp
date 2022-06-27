@@ -36,7 +36,9 @@
         </div>
     </div>
 </div>
+
 <div id="menuUtente">
+
     <div id="m" class="hiddenMenu">
         <%for(int i=0; i<4; i++){%>
             <div class="acquisto">
@@ -73,24 +75,23 @@
             </div>
         <%}%>
     </div>
+    <div id="m3" class="hiddenMenu">
+        <p class="testo">Modifica elementi</p>
+        <div class="bottoneImpostazioni" onclick="showMenu('m4')">
+            <p class="testo">Dati Personali</p>
+        </div>
+        <div class="bottoneImpostazioni" onclick="showMenu('m5')">
+            <p class="testo">Password</p>
+        </div>
+        <div class="bottoneImpostazioni" onclick="showMenu('m6')">
+            <p class="testo">Estremi di fatturazione</p>
+        </div>
+    </div>
 
-       <div id="m3" class="hiddenMenu">
-           <p class="testo">Modifica elementi</p>
-           <form>
-               <div class="bottoneImpostazioni" onclick="showMenu('m4')">
-                   <p class="testo">Dati Personali</p>
-               </div>
-               <div class="bottoneImpostazioni" onclick="showMenu('m5')">
-                   <p class="testo">Password</p>
-               </div>
-               <div class="bottoneImpostazioni" onclick="showMenu('m6')">
-                   <p class="testo">Estremi di fatturazione</p>
-               </div>
-           </form>
-       </div>
+    </div>
 
+<div id="impostazioniInfo">
     <div id="m4" class="hiddenMenu">
-        <p>Dati personali</p>
         <form>
             <div class="forms">
                 <label for="firstName">Nome</label><br>
@@ -105,6 +106,7 @@
         </form>
     </div>
 
+<!--
     <div id="m5" class="hiddenMenu">
         <p>Nuova Password</p>
         <form>
@@ -117,8 +119,8 @@
             </div>
         </form>
     </div>
-
-
+-->
+<!--
     <div id="m6" class="hiddenMenu">
         <p>Estremi di fatturazione</p>
         <form>
@@ -136,6 +138,8 @@
             </div>
         </form>
     </div>
+
+    -->
 </div>
 <p id="ttt"></p>
 </body>

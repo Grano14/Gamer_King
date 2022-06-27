@@ -17,7 +17,7 @@
 <div id="accesso">
     <h1 style="text-align: center;margin-bottom: 10px">GAMER-KING <img src="css/pictures/logo.png"></h1>
     <form>
-        <div id="forms">
+        <div class="forms">
             <label for="id">ID Utente</label><br>
             <input type="text" class="serch" id="id"><br>
             <label for="pass">Password</label><br>

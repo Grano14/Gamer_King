@@ -16,7 +16,7 @@
 <div id="registration">
     <h1 style="text-align: center;margin-bottom: 10px">GAMER-KING <img src="css/pictures/logo.png"></h1>
     <form>
-        <div id="forms">
+        <div class="forms">
             <label for="firstName">Nome</label><br>
             <input type="text" class="serch" id="firstName"><br>
             <label for="lastName">Cognome</label><br>
