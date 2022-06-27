@@ -51,6 +51,9 @@
     visibility: hidden;
 }
 
+#m4{
+    width:80%;
+}
 
 #m div{
     position: relative;
@@ -145,7 +148,7 @@
 .bottoneImpostazioni p{
     color:white;
     font-family: "copperplate", fantasy;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 @media only screen and (max-width: 1200px){
