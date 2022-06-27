@@ -18,7 +18,7 @@
 <%@include file="NavBar.jsp" %>
 <div id="oggettiCarrello">
     <p id="testoCarrello"></p>
-    <% int i=6; if(i == 0){%>
+    <% int i=7; if(i == 0){%>
     <script>corpoCarrello(0)</script>
     <%} else{%>
     <script>corpoCarrello(6)</script>
@@ -35,10 +35,10 @@
         </div>
         <hr>
     <%}%>
-    <%}%>
     <div>
         <button id="acquistaButton">ACQUISTA</button>
     </div>
+    <%}%>
 </div>
 
 </body>
