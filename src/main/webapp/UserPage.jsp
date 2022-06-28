@@ -76,29 +76,8 @@
         <%}%>
     </div>
     <div id="m3" class="hiddenMenu">
-        <div class="bottoneImpostazioni" onclick="showMenu('m4')">
-            <p class="testo">Dati Personali</p>
-        </div>
-        <div class="bottoneImpostazioni" onclick="showMenu('m5')">
-            <p class="testo">Password</p>
-        </div>
-        <div class="bottoneImpostazioni" onclick="showMenu('m6')">
-            <p class="testo">Carta di Credito</p>
-        </div>
+        <a href="ImpostazioniPage.jsp">ciao</a>
     </div>
-
-    <div id="m4" class="hiddenMenu">
-        <%@include file="FormDati.jsp" %>
-    </div>
-
-    <div id="m5" class="hiddenMenu">
-        <%@include file="CambioPassword.jsp"%>
-    </div>
-
-    <div id="m6" class="hiddenMenu">
-        <%@include file="EstremiFatturazione.jsp" %>
-    </div>
-
     </div>
 </body>
 </html>

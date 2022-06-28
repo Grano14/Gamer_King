@@ -12,18 +12,18 @@
     <link rel="stylesheet" type="text/css" href="css/FormDatiStyle.css">
 </head>
 <body>
+
+<div class="corpo">
     <form>
-        <div class="forms">
-            <label for="firstName">Nome</label><br>
-            <input type="text" class="serch" id="firstName"><br>
-            <label for="lastName">Cognome</label><br>
-            <input type="text" class="serch" id="lastName"><br>
-            <label for="mail">Email</label><br>
-            <input type="text" class="serch" id="mail"><br>
-            <label for="phone">Telefono</label><br>
-            <input type="text" class="serch" id="phone"><br><br>
-            <input type="submit" id="modificaDati" value="modifica">
-        </div>
+        <label for="userName">Nome utente</label><br>
+        <input type="text" class="serch" id="userName"><br>
+        <label for="mail">Email</label><br>
+        <input type="text" class="serch" id="mail"><br>
+        <label for="phone">Telefono</label><br>
+        <input type="text" class="serch" id="phone"><br><br>
+        <input type="submit" id="modificaDati" value="modifica">
     </form>
+</div>
+
 </body>
 </html>

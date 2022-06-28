@@ -9,15 +9,19 @@
 <html>
 <head>
   <title>Title</title>
-  <link rel="stylesheet" type="text/css" href="css/FormDatiStyle.css">
+    <link rel="stylesheet" type="text/css" href="css/FormDatiStyle.css">
 </head>
 <body>
-        <form>
-                <label for="pass">Vecchia password</label><br>
-                <input type="password" class="serch" id="pass"><br>
-                <label for="passConf">Conferma nuova password</label><br>
-                <input type="password" class="serch" id="passConf"><br>
-                <input type="submit" value="PROCEDI" id="bottone">
-        </form>
+
+<div class="corpo">
+    <form>
+        <label for="pass">Vecchia password</label><br>
+        <input type="password" class="serch" id="pass"><br>
+        <label for="passConf">Conferma nuova password</label><br>
+        <input type="password" class="serch" id="passConf"><br><br>
+        <input type="submit" value="Modifica" id="bottone">
+    </form>
+</div>
+
 </body>
 </html>
