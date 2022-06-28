@@ -91,46 +91,14 @@
         <%@include file="FormDati.jsp" %>
     </div>
 
-    </div>
-
-<div id="impostazioniInfo">
-
-
-<!--
     <div id="m5" class="hiddenMenu">
-        <p>Nuova Password</p>
-        <form>
-            <div class="forms">
-                <label for="pass">Password</label><br>
-                <input type="password" class="serch" id="pass"><br>
-                <label for="passConf">Conferma nuova password</label><br>
-                <input type="password" class="serch" id="passConf"><br>
-                <input type="submit" value="PROCEDI" id="bottone">
-            </div>
-        </form>
-    </div>
--->
-<!--
-    <div id="m6" class="hiddenMenu">
-        <p>Estremi di fatturazione</p>
-        <form>
-            <div class="forms">
-                <label for="card">Nome</label><br>
-                <input type="text" class="serch" id="card"><br>
-                <label for="numeroVer">Cognome</label><br>
-                <input type="" class="serch" id="numeroVer"><br>
-                <label for="scade">Email</label><br>
-                <input type="text" class="serch" id="scade"><br>
-                <label for="proprietarioNome">Telefono</label><br>
-                <input type="text" class="serch" id="proprietarioNome"><br>
-                <label for="proprietarioCognome">Telefono</label><br>
-                <input type="text" class="serch" id="proprietarioCognome"><br>
-            </div>
-        </form>
+        <%@include file="CambioPassword.jsp"%>
     </div>
 
-    -->
-</div>
-<p id="ttt"></p>
+    <div id="m6" class="hiddenMenu">
+        <%@include file="EstremiFatturazione.jsp" %>
+    </div>
+
+    </div>
 </body>
 </html>
