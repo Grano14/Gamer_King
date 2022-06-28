@@ -1,5 +1,5 @@
 body{
-    background-color: #130A23;
+    background-color: rgb(27, 27, 27);
 }
 
 a:visited{
@@ -57,7 +57,7 @@ input[type=text], input[type=password]{
 #registration{
     text-align:center;
     width: 50%;
-    height: 850px;
+    height: 875px;
     line-height: 70px;
     margin: auto;
     margin-top: 10%;
@@ -73,4 +73,10 @@ input[type=text], input[type=password]{
     width: 70%;
     height: 30px;
     text-align: center;
+}
+
+@media only screen and (max-width: 1000px){
+    #registration, #accesso{
+        width: 450px;
+    }
 }
