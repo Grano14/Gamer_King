@@ -42,6 +42,23 @@
 
 <div id="menuUtente">
 
+    <div id="m4" class="hiddenMenu">
+        <%for(int i=0; i<4; i++){%>
+        <div class="acquisto">
+            <a href="#game"><img src="css/pictures/eldenRing.jpg"> </a>
+            <div id="descrizione">
+                Recenzione
+            </div>
+            <div id="buttonsection">
+                <button class="bottoneRecensione" id="delete">
+                </button>
+                <button class="bottoneRecensione" id="editbutton">
+                </button>
+            </div>
+        </div>
+        <%}%>
+    </div>
+
 
 </div>
 
