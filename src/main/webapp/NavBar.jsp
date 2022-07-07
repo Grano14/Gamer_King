@@ -56,6 +56,8 @@
             <input type="hidden" id="xbox" value="false">
             <input type="button" class="bottone" style="background-image: url('css/pictures/nintendo.png')" onclick="selectedPiattaforma(this, 'nintendo')">
             <input type="hidden" id="nintendo" value="false">
+            <input type="button" class="bottone" style="background-image: url('css/pictures/pc.png')" onclick="selectedPiattaforma(this, 'pc')">
+            <input type="hidden" id="pc" value="false">
         </div>
         <div class="sezione">
             <p>scegli un genere</p>

@@ -17,6 +17,7 @@
 }
 
 #logo{
+    height: 100%;
     width: 70px;
     text-align: center;
     border-radius: 6px;
@@ -62,6 +63,7 @@
 }
 
 #carrello{
+    height: 100%;
     right: 0px;
     width: 80px;
     text-align: center;
@@ -112,6 +114,7 @@
     border-style: none;
     background-position: center;
     margin-left: 4px;
+    visibility: visible;
 }
 
 #categorie{
@@ -272,7 +275,7 @@
 }
 
 @media only screen and (max-width: 1200px) {
-    #categorie{
+    #ricercaAvanzata{
         visibility: hidden;
     }
 }

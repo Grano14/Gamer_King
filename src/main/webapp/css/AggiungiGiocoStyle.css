@@ -1,0 +1,87 @@
+body{
+    background-color: rgb(27, 27, 27);
+    color: #f3e7cd;
+    font-family: "copperplate", fantasy;
+}
+
+#admin{
+    border-radius: 6px;
+    background-color: rebeccapurple;
+    width: 200px;
+    height: 50px;
+    position: fixed;
+    right: 5px;
+    top: 5px;
+    font-family: "copperplate", fantasy;
+    margin-top: 0;
+    font-size: 40px;
+    text-align: center;
+    display: inline-block;
+}
+
+h1{
+    font-family: "copperplate", fantasy;
+}
+
+#dati{
+    width: 100%;
+    height: 600px;
+    text-align: center;
+}
+
+#dati div{
+    display: inline-block;
+}
+
+#piattaforma{
+    width: 100%;
+    height: 600px;
+    text-align: center;
+}
+
+#gioco input{
+    margin-top: 10px;
+}
+
+#descrizione{
+    width: 300px;
+    height: 400px;
+    margin-top: 15px;
+    border-radius: 6px;
+}
+
+#titolo{
+    width: 300px;
+    height: 30px;
+    border-radius: 6px;
+}
+
+.tasto{
+    display: inline-block;
+    width: 300px;
+    height: 70px;
+    background-color: mediumpurple;
+    border-radius: 6px;
+    transition-duration: 0.3s;
+}
+
+.piattaformaname{
+    font-size: 30px;
+    font-family: "copperplate", fantasy;
+    margin-top: 5px;
+}
+
+.prezzo\/data\/copie{
+    visibility: hidden;
+}
+
+.prezzo\/data\/copie input{
+    border-radius: 6px;
+    margin-top: 5px;
+}
+
+@media only screen and (max-width: 600px){
+    h1{
+        font-size: 25px;
+    }
+}

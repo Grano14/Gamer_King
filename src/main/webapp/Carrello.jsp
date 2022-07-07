@@ -32,6 +32,9 @@
             <div id="prezzo">
                 50$
             </div>
+            <buttton id="delete">
+                X
+            </buttton>
         </div>
         <hr>
     <%}%>
