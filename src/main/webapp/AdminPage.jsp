@@ -41,19 +41,22 @@
 </div>
 
 <div id="menuUtente">
+    <div id="m" class="hiddenMenu"></div>
+    <div id="m1" class="hiddenMenu"></div>
+    <div id="m2" class="hiddenMenu"></div>
+    <div id="m3" class="hiddenMenu"></div>
+
 
     <div id="m4" class="hiddenMenu">
         <%for(int i=0; i<4; i++){%>
         <div class="acquisto">
             <a href="#game"><img src="css/pictures/eldenRing.jpg"> </a>
-            <div id="descrizione">
-                Recenzione
-            </div>
-            <div id="buttonsection">
+            <div id="buttonDelate">
                 <button class="bottoneRecensione" id="delete">
                 </button>
-                <button class="bottoneRecensione" id="editbutton">
-                </button>
+            <div id="descrizione">
+                Recenzione
+                </div>
             </div>
         </div>
         <%}%>
