@@ -1,5 +1,4 @@
 package model;
-import java.util.GregorianCalendar;
 
 public class Carta {
 

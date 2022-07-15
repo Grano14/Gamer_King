@@ -2,7 +2,7 @@ package model;
 
 public class Videogioco {
 
-    String codice,titolo,descrizione;
+    private String codice,titolo,descrizione;
 
     public Videogioco(String codice,String titolo,String descrizione) {
         this.codice = codice;
