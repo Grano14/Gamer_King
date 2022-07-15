@@ -10,7 +10,7 @@
 <head>
     <title>NavBar</title>
     <link rel="stylesheet" type="text/css" href="css/NavBarStyle.css">
-    <script type="text/javascript" src="HomeScript.js"></script>
+    <script type="text/javascript" src="javaScript/HomeScript.js"></script>
 
 </head>
 <body onscroll="barEffect()">

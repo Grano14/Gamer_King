@@ -74,7 +74,7 @@
     right: 80px;
     font-family: "copperplate", fantasy;
     letter-spacing: 0px;
-    width: 50px;
+    min-width: 50px;
     padding-top: 15px;
 }
 
