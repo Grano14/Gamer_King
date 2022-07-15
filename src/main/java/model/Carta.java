@@ -3,10 +3,9 @@ import java.util.GregorianCalendar;
 
 public class Carta {
 
-    String nome,cognome,numero,via,cap,numCivico,citta,verifica;
-    GregorianCalendar scadenza;
+    String nome,cognome,numero,via,cap,numCivico,citta,verifica,scadenza;
 
-    public Carta(String nome,String cognome,String numero,String via,String cap,String numCivico,String citta,String verifica,GregorianCalendar scadenza) {
+    public Carta(String nome,String cognome,String numero,String via,String cap,String numCivico,String citta,String verifica,String scadenza) {
         this.nome = nome;
         this.cognome = cognome;
         this.numero = numero;
@@ -50,11 +49,11 @@ public class Carta {
         return verifica;
     }
 
-    public GregorianCalendar getScadenza() {
+    public String getScadenza() {
         return scadenza;
     }
 
-    public void setScadenza(GregorianCalendar scadenza) {
+    public void setScadenza(String scadenza) {
         this.scadenza = scadenza;
     }
 
