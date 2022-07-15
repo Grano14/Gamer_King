@@ -39,7 +39,7 @@ public class AdminDAO {
 
     public static void doRemoveByNomeUtente(String nomeUtente){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("delete * from amministratore where nomeUtente=?");
+            PreparedStatement ps = con.prepareStatement("delete from amministratore where nomeUtente=?");
             ps.setString(1, nomeUtente);
             ps.execute();
         }

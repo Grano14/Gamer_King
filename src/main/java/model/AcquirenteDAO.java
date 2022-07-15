@@ -37,7 +37,7 @@ public class AcquirenteDAO {
 
     public static void doRemoveByNomeUtente(String nomeUtente){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("delete * from acquirente where nomeUtente=?");
+            PreparedStatement ps = con.prepareStatement("delete from acquirente where nomeUtente=?");
             ps.setString(1, nomeUtente);
             ps.execute();
         }

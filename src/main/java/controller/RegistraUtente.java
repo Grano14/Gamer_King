@@ -17,6 +17,7 @@ public class RegistraUtente extends HttpServlet {
         String pass = request.getParameter("pass");
         Utente u = new Utente(nome, mail, pass);
         UtenteDAO.doSave(u);
+        UtenteDAO.doRemoveByNomeUtente(nome);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
         requestDispatcher.forward(request, response);
