@@ -15,20 +15,20 @@
 <body>
 <div id="registration">
     <h1 style="text-align: center;margin-bottom: 10px">GAMER-KING <img src="css/pictures/logo.png"></h1>
-    <form>
+    <form action="RegistraUtente">
         <div class="forms">
             <label for="userName">Nome utente</label><br>
-            <input type="text" class="serch" id="userName"><br>
+            <input type="text" class="serch" id="userName" name="userName"><br>
             <label for="firstName">Nome</label><br>
-            <input type="text" class="serch" id="firstName"><br>
+            <input type="text" class="serch" id="firstName" name="firstName"><br>
             <label for="lastName">Cognome</label><br>
-            <input type="text" class="serch" id="lastName"><br>
+            <input type="text" class="serch" id="lastName" name="lastName"><br>
             <label for="email">Email</label><br>
-            <input type="text" class="serch" id="email"><br>
+            <input type="text" class="serch" id="email" name="email"><br>
             <label for="phone">Telefono</label><br>
-            <input type="text" class="serch" id="phone"><br>
+            <input type="text" class="serch" id="phone" name="phone"><br>
             <label for="pass">Password</label><br>
-            <input type="password" class="serch" id="pass"><br><br>
+            <input type="password" class="serch" id="pass" name="pass"><br><br>
             <input type="submit" value="PROCEDI" id="bottone">
         </div>
     </form>

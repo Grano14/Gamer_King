@@ -1,5 +1,6 @@
 function mostraMenu(idmenu, idfreccia){
-    if(document.getElementById(idmenu).style.visibility == "hidden") {
+    var j = document.getElementById(idmenu).style.visibility
+    if( j == "hidden") {
         document.getElementById(idmenu).style.visibility = "visible";
     }
     else {
