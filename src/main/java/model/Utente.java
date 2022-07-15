@@ -21,4 +21,17 @@ public class Utente {
     public String getPass() {
         return pass;
     }
+
+    public void setNomeUtente(String nomeUtente){
+        this.nomeUtente=nomeUtente;
+    }
+
+    public void setPass(String password){
+        this.pass=password;
+    }
+
+    public void setEmail(String email){
+
+        this.email=email;
+    }
 }

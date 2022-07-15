@@ -14,13 +14,15 @@
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
 </head>
 <body>
-<%@include file="NavBar.jsp" %>
+
+<svg width="600" height="400">
+    <mask id="svgmask1">
+        <polygon fill="#ffffff" points="0 0,1920 0, 1920 350, 0 250"></polygon>
+    </mask>
+    <image xlink:href="css/pictures/eldenRing.jpg" mask="url(#svgmask1)"></image>
+</svg>
 
 <div id="prodotto">
-
-    <div class="imagine">
-        <img id="principale" src="css/pictures/eldenRing.jpg">
-    </div>
 
     <div class="immagineEAcquisto">
 
@@ -28,9 +30,9 @@
             <img id="secondaria" src="css/pictures/eldenRing.jpg">
         </div>
 
-        <div>
+        <div class="acquisto">
             <p classe="titolo">Nome Gioco</p>
-            <p classe="titolo">Prezzo</p>
+            <p classe="prezzo">Prezzo</p>
             <div class="bottoneAcquisto" onclick="">
                 <p>Acquista</p>
             </div>
