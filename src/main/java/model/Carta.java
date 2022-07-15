@@ -2,7 +2,7 @@ package model;
 
 public class Carta {
 
-    String nome,cognome,numero,via,cap,numCivico,citta,verifica,scadenza;
+    private String nome,cognome,numero,via,cap,numCivico,citta,verifica,scadenza;
 
     public Carta(String nome,String cognome,String numero,String via,String cap,String numCivico,String citta,String verifica,String scadenza) {
         this.nome = nome;
