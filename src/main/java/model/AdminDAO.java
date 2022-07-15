@@ -1,7 +1,5 @@
 package model;
 
-import com.mysql.cj.protocol.Resultset;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,16 +7,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class UtenteDAO {
+public class AdminDAO {
 
-    public static Utente doretriveByNomeUtente(String nomeUtente){
+    public static Admin doRetriveByNomeUtente(String nomeUtente){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select nomeUtente, mail, pass from utente where nomeUtente=?");
+            PreparedStatement ps = con.prepareStatement("select adm, nomeUtente from Amministratore where nomeUtente=?");
             ps.setString(1, nomeUtente);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                Utente u = new Utente(rs.getString(1), rs.getString(2), rs.getString(3));
-                return u;
+                Admin a = new Admin(rs.getBoolean(1), rs.getString(2));
+                return a;
             }
             return null;
         }
@@ -27,12 +25,11 @@ public class UtenteDAO {
         }
     }
 
-    public static void doSave(Utente u){
+    public static void doSave(Admin a){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("insert into utente (nomeUtente, mail, pass) values (?,?,?)", Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, u.getNomeUtente());
-            ps.setString(2, u.getEmail());
-            ps.setString(3, u.getPass());
+            PreparedStatement ps = con.prepareStatement("insert into Amministratore (adm, nomeUtente) values (?,?)");
+            ps.setBoolean(1, a.getAdm());
+            ps.setString(2, a.getnomeUtente());
             ps.execute();
         }
         catch (SQLException e){
@@ -42,7 +39,7 @@ public class UtenteDAO {
 
     public static void doRemoveByNomeUtente(String nomeUtente){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("delete from utente where nomeUtente=?");
+            PreparedStatement ps = con.prepareStatement("delete from amministratore where nomeUtente=?");
             ps.setString(1, nomeUtente);
             ps.execute();
         }
@@ -51,19 +48,19 @@ public class UtenteDAO {
         }
     }
 
-    public static ArrayList<Utente> doRetriveAll(){
-        ArrayList<Utente> l = new ArrayList<>();
+    public static ArrayList<Admin> doRetriveAll(){
+        ArrayList<Admin> l = new ArrayList<>();
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select nomeUtente, mail, pass from utente");
+            PreparedStatement ps = con.prepareStatement("select adm, nomeUtente from amministratore");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                Utente u = new Utente(rs.getString(1), rs.getString(2), rs.getString(3));
-                l.add(u);
+                Admin a = new Admin(rs.getBoolean(1), rs.getString(2));
+                l.add(a);
             }
             return l;
         }
         catch (SQLException e){
-            throw  new RuntimeException(e);
+            throw new RuntimeException(e);
         }
     }
 

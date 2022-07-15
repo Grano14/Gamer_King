@@ -1,24 +1,21 @@
 package model;
 
-import com.mysql.cj.protocol.Resultset;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
-public class UtenteDAO {
+public class AcquirenteDAO {
 
-    public static Utente doretriveByNomeUtente(String nomeUtente){
+    public static Acquirente doRetriveByNomeUtente(String nomeUtente){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select nomeUtente, mail, pass from utente where nomeUtente=?");
+            PreparedStatement ps = con.prepareStatement("select nomeUtente from acquirente where nomeUtente=?");
             ps.setString(1, nomeUtente);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                Utente u = new Utente(rs.getString(1), rs.getString(2), rs.getString(3));
-                return u;
+                Acquirente a = new Acquirente(rs.getString(1));
+                return a;
             }
             return null;
         }
@@ -27,12 +24,10 @@ public class UtenteDAO {
         }
     }
 
-    public static void doSave(Utente u){
+    public static void doSave(Acquirente a){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("insert into utente (nomeUtente, mail, pass) values (?,?,?)", Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, u.getNomeUtente());
-            ps.setString(2, u.getEmail());
-            ps.setString(3, u.getPass());
+            PreparedStatement ps = con.prepareStatement("insert into acquirente (nomeUtente) values (?)");
+            ps.setString(1, a.getNomeUtente());
             ps.execute();
         }
         catch (SQLException e){
@@ -42,7 +37,7 @@ public class UtenteDAO {
 
     public static void doRemoveByNomeUtente(String nomeUtente){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("delete from utente where nomeUtente=?");
+            PreparedStatement ps = con.prepareStatement("delete from acquirente where nomeUtente=?");
             ps.setString(1, nomeUtente);
             ps.execute();
         }
@@ -51,14 +46,14 @@ public class UtenteDAO {
         }
     }
 
-    public static ArrayList<Utente> doRetriveAll(){
-        ArrayList<Utente> l = new ArrayList<>();
+    public static ArrayList<Acquirente> doRetriveAll(){
+        ArrayList<Acquirente> l = new ArrayList<>();
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select nomeUtente, mail, pass from utente");
+            PreparedStatement ps = con.prepareStatement("select nomeUtente from acquirente");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                Utente u = new Utente(rs.getString(1), rs.getString(2), rs.getString(3));
-                l.add(u);
+                Acquirente a = new Acquirente(rs.getString(1));
+                l.add(a);
             }
             return l;
         }
