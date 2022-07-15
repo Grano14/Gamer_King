@@ -15,33 +15,30 @@
 </head>
 <body>
 <%@include file="NavBar.jsp" %>
-<!--creiamo la presentazione del prodotto-->
 
 <div id="prodotto">
-    <div class="info">
-        <div class="foto">
-            <div id="contenitoreImmagine">
-                <img src="css/pictures/eldenRing.jpg">
+
+    <div class="imagine">
+        <img id="principale" src="css/pictures/eldenRing.jpg">
+    </div>
+
+    <div class="immagineEAcquisto">
+
+        <div class="immagine2">
+            <img id="secondaria" src="css/pictures/eldenRing.jpg">
+        </div>
+
+        <div>
+            <p classe="titolo">Nome Gioco</p>
+            <p classe="titolo">Prezzo</p>
+            <div class="bottoneAcquisto" onclick="">
+                <p>Acquista</p>
             </div>
-
-            <div id="acquistoECarrello">
-                <p id="nomeGioco">Nome Gioco</p>
-                <p id="prezzoGioco">00.00€</p>
-                <div id="acquisto">
-
-                    <div class="tasto">
-                        <a href="#acquisto">acquisto</a>
-                    </div><br><br>
-                    <div class="tasto">
-                        <a href="#carrello">carrello</a>
-                    </div>
-
-                </div>
+            <div class="carrello">
+                <img src="css/pictures/carrello.png">
+            </div>
         </div>
 
-
-
-        </div>
     </div>
 
 </div>
