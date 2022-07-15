@@ -6,6 +6,11 @@ public class Admin {
         this.nomeUtente = nomeUtente;
     }
 
+    public Admin(boolean adm,String nomeUtente) {
+        this.adm=adm;
+        this.nomeUtente=nomeUtente;
+    }
+
     public boolean getAdm(){
         return adm;
     }
