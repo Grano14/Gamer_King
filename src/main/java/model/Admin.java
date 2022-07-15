@@ -1,6 +1,10 @@
 package model;
 
 public class Admin {
+    public Admin(boolean adm, String nomeUtente) {
+        this.adm = adm;
+        this.nomeUtente = nomeUtente;
+    }
 
     public boolean getAdm(){
         return adm;
