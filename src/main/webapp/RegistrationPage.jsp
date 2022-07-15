@@ -13,6 +13,8 @@
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
 </head>
 <body>
+<%if(request.getAttribute("errore") == null){}else{%>
+<p style="color: crimson; text-align: center; font-family: 'copperplate', fantasy"><%=request.getAttribute("errore")%></p><%request.setAttribute("errore", null);}%>
 <div id="registration">
     <h1 style="text-align: center;margin-bottom: 10px">GAMER-KING <img src="css/pictures/logo.png"></h1>
     <form action="RegistraUtente">

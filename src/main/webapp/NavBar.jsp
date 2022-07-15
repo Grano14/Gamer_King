@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.mysql.cj.Session" %><%--
   Created by IntelliJ IDEA.
   User: utente
   Date: 21/06/2022
@@ -18,7 +18,7 @@
 <!-- creazione barra di navigazione-->
 <div id="navBar">
     <div id="logo" class="button">
-        <img src="css/pictures/logo.png">
+        <a href="HomePage.jsp"><img src="css/pictures/logo.png"></a>
     </div>
     <div id="search">
         <form action="#cer" id="searchBarForm">
@@ -37,9 +37,18 @@
     <a id="carrello" class="button" style="float: right" href="Carrello.jsp">
         <img src="css/pictures/carrello.png">
     </a>
+    <%
+        String nome = (String) session.getAttribute("nomeUtente");
+        if(nome.equals("LOGIN")){
+    %>
     <div id="login" style="float: right">
         <a href="loginPage.jsp">LOGIN</a>
     </div>
+    <%}else{%>
+    <div id="login" style="float: right">
+        <a href="UserPage.jsp"> <%=nome%> </a>
+    </div>
+    <%}%>
 </div>
 
 <!-- creazione menù ricerca avanzata-->
