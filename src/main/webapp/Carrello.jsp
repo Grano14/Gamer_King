@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/CarrelloStyle.css">
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
-    <script type="text/javascript" src="CarrelloScript.js"></script>
+    <script type="text/javascript" src="javaScript/CarrelloScript.js"></script>
 </head>
 <body>
 <%@include file="NavBar.jsp" %>

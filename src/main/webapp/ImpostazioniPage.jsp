@@ -11,7 +11,7 @@
     <titlee>Impostazioni</titlee>
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/UserPageStyle.css">
-    <script type="text/javascript" src="UserPageScript.js"></script>
+    <script type="text/javascript" src="javaScript/UserPageScript.js"></script>
 </head>
 <body>
 <%@include file="NavBar.jsp" %>

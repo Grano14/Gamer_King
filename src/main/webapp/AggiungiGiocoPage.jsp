@@ -10,7 +10,7 @@
 <head>
     <title>Admin | Aggiungi gioco</title>
     <link rel="stylesheet" type="text/css" href="css/AggiungiGiocoStyle.css">
-    <script type="text/javascript" src="AggiungiGiocoScript.js"></script>
+    <script type="text/javascript" src="javaScript/AggiungiGiocoScript.js"></script>
 </head>
 <body>
 <h1>AGGIUNGI VIDEOGIOCO</h1>

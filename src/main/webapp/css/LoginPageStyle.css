@@ -40,6 +40,7 @@ input[type=text], input[type=password]{
     font-family: "copperplate",fantasy;
     font-size: 25px;
     margin-left: 65%;
+    visibility: hidden;
 }
 
 #bottone:hover{
@@ -57,7 +58,7 @@ input[type=text], input[type=password]{
 #registration{
     text-align:center;
     width: 50%;
-    height: 875px;
+    height: 925px;
     line-height: 70px;
     margin: auto;
     margin-top: 10%;

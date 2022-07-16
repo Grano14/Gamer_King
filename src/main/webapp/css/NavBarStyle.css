@@ -29,7 +29,7 @@
 }
 
 #search{
-    left: 20%;
+    left: 10%;
     width: 35%;
     height: 100%;
     text-align: center;
@@ -74,7 +74,7 @@
     right: 80px;
     font-family: "copperplate", fantasy;
     letter-spacing: 0px;
-    width: 50px;
+    min-width: 50px;
     padding-top: 15px;
 }
 
@@ -105,7 +105,7 @@
 }
 
 #ricercaAvanzata{
-    left: 52%;
+    left: 42%;
     height: 100%;
     background-color: #601194;
     padding-left: 5px;
@@ -118,7 +118,7 @@
 }
 
 #categorie{
-    left: 60%;
+    left: 50%;
     height: 100%;
     background-color: #601194;
     padding-left: 5px;
