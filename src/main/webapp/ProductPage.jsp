@@ -15,12 +15,7 @@
 </head>
 <body>
 
-<svg width="600" height="400">
-    <mask id="svgmask1">
-        <polygon fill="#ffffff" points="0 0,1920 0, 1920 350, 0 250"></polygon>
-    </mask>
-    <image xlink:href="css/pictures/eldenRing.jpg" mask="url(#svgmask1)"></image>
-</svg>
+<%@include file="NavBar.jsp" %>
 
 <div id="prodotto">
 
@@ -31,18 +26,26 @@
         </div>
 
         <div class="acquisto">
-            <p classe="titolo">Nome Gioco</p>
-            <p classe="prezzo">Prezzo</p>
+            <p class="titolo">Nome Gioco</p>
+            <p class="prezzo">Prezzo</p>
             <div class="bottoneAcquisto" onclick="">
                 <p>Acquista</p>
             </div>
-            <div class="carrello">
-                <img src="css/pictures/carrello.png">
+            <div class="bottoneAcquisto" onclick="">
+                <p>Carrello</p>
             </div>
         </div>
 
     </div>
-
+    <div id="setImmagini">
+        <img src="css/pictures/sinistra.png">
+        <%for(int i=0; i<6; i++){%>
+        <div class="altreFoto">
+            <img src="css/pictures/avventuragame.jpg">
+        </div>
+        <%}%>
+        <img src="css/pictures/destra.png">
+    </div>
 </div>
 
 </body>

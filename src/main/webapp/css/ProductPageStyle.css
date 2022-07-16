@@ -1,13 +1,69 @@
 
 #prodotto{
+    margin-top:75px;
     text-align:center;
     width:100%;
 }
 
 .immagineEAcquisto{
     width:100%;
-    position:absolute;
     border: 1px solid black;
+    padding-bottom:75px;
+}
+
+#secondaria{
+    margin-left:20px;
+    border-radius:10px;
+    float:left;
+    width:50%;
+    heigth:650px;
+    border: 15px solid white;
+}
+
+#setImmagini{
+    display:inline-block;
+    float:left;
+}
+
+.altreFoto{
+    display:inline-block;
+}
+
+.altreFoto img{
+    width:50px;
+    height:50px;
+    border-radius:6px;
+}
+
+p{
+    color:white;
+    font-family: "copperplate", fantasy;
+    font-size: 40px;
+}
+
+.bottoneAcquisto{
+    display: inline-block;
+}
+
+.bottoneAcquisto p{
+    margin: 20px 30px;
+    height: 40px;
+    width: 200px;
+    border-radius: 6px;
+    background-color:#601194;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    font-size: 30px;
+    display: inline-block;
+}
+
+#bottoneCarrello{
+    height: 40px;
+    width: 50px;
+    border-radius: 6px;
+    background-color:#601194;
+    margin-top: 15px;
+    display: inline-block;
 }
 
 /*
