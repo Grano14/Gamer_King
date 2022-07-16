@@ -7,8 +7,11 @@
 
 .immagineEAcquisto{
     width:100%;
-    border: 1px solid black;
     padding-bottom:75px;
+}
+
+.acquisto{
+    float:right;
 }
 
 #secondaria{
@@ -25,11 +28,32 @@
     float:left;
 }
 
-.altreFoto{
-    display:inline-block;
+
+.fotoProdotto li{
+    display: block;
 }
 
-.altreFoto img{
+.fotoProdotto{
+    positin:left;
+}
+
+ul{
+    left:20px;
+    background-color:white;
+    border-radius:20px;
+
+}
+
+li{
+    padding-right:40px;
+    margin-top:2px;
+}
+
+#sopra{
+    transform: rotate(180deg);
+}
+
+ul img{
     width:50px;
     height:50px;
     border-radius:6px;
@@ -66,78 +90,10 @@ p{
     display: inline-block;
 }
 
-/*
-#sfondo img{
-    width:100%;
-    heigth:100%;
-    left:0px;
-    right:0px;
-    position:relative;
+#setImmagini{
+    margin-left:20px;
 }
 
-#prodotto{
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    text-align:center;
-    margin-top: 300px;
-    width: 100%;
-    border: 1px solid red;
+#descrizione{
+    margin-top:50px;
 }
-
-.info{
-    display: inline-block;
-    text-align:left;
-    background-color:rgb(16, 12, 33);
-    height:750px;
-    width:80%;
-}
-
-.foto{
-    width: 100%;
-    height: 300px;
-    border: 1px solid orange;
-}
-
-.foto img{
-    border-radius: 6px;
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.foto div{
-    display: inline-block;
-}
-
-#contenitoreImmagine{
-    height: 300px;
-    width: 450px;
-    border: 1px solid red;
-}
-
-#acquistoECarrello{
-    float:right;
-    height: 300px;
-    width: 450px;
-    text-align:center;
-    font-size: 30px;
-    color:  white;
-    display: inline-block;
-    border: 1px solid yellow;
-}
-
-div.tasto a{
-    background-color:orange;
-    width:90%;
-    height:40px;
-    border-radius:6px;
-}
-
-#footer{
-    left: 0;
-    right: 0;
-    height: 100px;
-    position: absolute;
-    top: 2600px;
-}
-*/

@@ -21,6 +21,29 @@
 
     <div class="immagineEAcquisto">
 
+        <div id="setImmagini">
+            <ul class="fotoProdotto">
+
+                <li>
+                    <img classe="direzione" id="sopra" src="css/pictures/freccia.png">
+                </li>
+
+                <%for(int i=0; i<5; i++){%>
+
+                <li>
+                    <img class="altreFoto" src="css/pictures/avventuragame.jpg">
+                </li>
+
+                <%}%>
+
+                <li>
+                    <img classe="direzione" src="css/pictures/freccia.png">
+                </li>
+
+            </ul>
+
+        </div>
+
         <div class="immagine2">
             <img id="secondaria" src="css/pictures/eldenRing.jpg">
         </div>
@@ -37,16 +60,22 @@
         </div>
 
     </div>
-    <div id="setImmagini">
-        <img src="css/pictures/sinistra.png">
-        <%for(int i=0; i<6; i++){%>
-        <div class="altreFoto">
-            <img src="css/pictures/avventuragame.jpg">
-        </div>
-        <%}%>
-        <img src="css/pictures/destra.png">
-    </div>
-</div>
 
+    <div id="descrizione">
+        <h2>Descrizione</h2>
+        <p class="summary">
+            Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+            Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+            Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+            Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+            Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+            Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+            Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+            Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+            Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+        </p>
+    </div>
+
+</div>
 </body>
 </html>
