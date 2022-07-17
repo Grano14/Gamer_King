@@ -61,21 +61,48 @@
 
     </div>
 
-    <div id="descrizione">
-        <h2>Descrizione</h2>
-        <p class="summary">
-            Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
-            Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
-            Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
-            Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
-            Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
-            Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
-            Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
-            Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
-            Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
-        </p>
-    </div>
-
 </div>
+
+<div id="descrizione">
+    <p class="titolo">Descrizione</p>
+    <p class="summary">
+        Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+        Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+        Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+        Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+        Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+        Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+        Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+        Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+        Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+    </p>
+</div>
+
+<div>
+    <form class="recensione">
+
+        <div class="voti">
+            <input name="voto" type="radio" id="v1" value="1" />
+            <label for="v1"></label>
+
+            <input name="voto" type="radio" id="v2" value="2" />
+            <label for="v2"></label>
+
+            <input name="voto" type="radio" id="v3" value="3" />
+            <label for="v3"></label>
+
+            <input name="voto" type="radio" id="v4" value="4" />
+            <label for="v4"></label>
+
+            <input name="voto" type="radio" id="v5" value="5" checked />
+            <label for="v5"></label>
+        </div>
+
+        <textarea id="testoRecensione" name="recensione" rows="4" cols="50">Scrivi la tua recensione...</textarea>
+
+        <input type="submit" value="Pubblica">
+    </form>
+</div>
+
 </body>
 </html>

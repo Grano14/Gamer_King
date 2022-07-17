@@ -3,6 +3,7 @@
     margin-top:75px;
     text-align:center;
     width:100%;
+    display:block;
 }
 
 .immagineEAcquisto{
@@ -95,5 +96,54 @@ p{
 }
 
 #descrizione{
-    margin-top:50px;
+    text-align:center;
+    position:relative;
+    margin-top:350px;
+}
+
+.titolo{
+    font-size:60px;
+}
+
+.summary{
+    text-align:left;
+    font-size:25px;
+}
+
+.recensione{
+    margin-left:40px;
+    width:70%
+
+}
+
+textarea{
+    color:white;
+    background-color: rgb(27, 27, 27);
+    margin-left:30px;
+    width:80%;
+    height: 150px;
+    border-radius: 6px;
+    text-align:left;
+    font-size:15px;
+    resize: none;
+}
+
+input[type=submit]{
+    background-color:#601194;
+    width:85px;
+    height:50px;
+    border-radius:6px;
+    border:0px;
+    color:white;
+    font-family: "copperplate", fantasy;
+    font-size:20px;
+}
+
+.recensione{
+    margin-top:70px;
+    padding:10px 10px;
+    border-radius:10px;
+    width:60%;
+    heigth:400px;
+    background-color: rgb(100,100,100);
 }
