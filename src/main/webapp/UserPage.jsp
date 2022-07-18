@@ -11,7 +11,10 @@
     <titlee>User1</titlee>
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/UserPageStyle.css">
+
     <script type="text/javascript" src="javaScript/UserPageScript.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
 </head>
 <body>
 <%@include file="NavBar.jsp" %>
@@ -22,16 +25,20 @@
         <p id="email">ciaociao@ciao.com</p>
         <div id="impostazioniUtente">
             <div class="bottoneImpostazioni" onclick="showMenu('m')">
-                <p>I miei ordini</p>
-            </div>
-            <div class="bottoneImpostazioni" onclick="showMenu('m1')">
                 <p>Libreria</p>
             </div>
-            <div class="bottoneImpostazioni" onclick="showMenu('m2')">
+            <div class="bottoneImpostazioni" onclick="showMenu('m1')">
                 <p>Review</p>
             </div>
-            <div class="bottoneImpostazioni" onclick="showMenu('m3')">
-                <p>impostazioni</p>
+
+            <a href="ImpostazioniPage.jsp">
+                <div class="bottoneImpostazioni">
+                    <p>Impostazioni</p>
+                </div>
+            </a>
+
+            <div class="bottoneImpostazioni" onclick="">
+                <p>Logout</p>
             </div>
         </div>
     </div>
@@ -40,19 +47,6 @@
 <div id="menuUtente">
 
     <div id="m" class="hiddenMenu">
-        <%for(int i=0; i<4; i++){%>
-            <div class="acquisto">
-                <a href="#game"><img src="css/pictures/eldenRing.jpg"> </a>
-                <div id="descrizione">
-                    descrizione gioco
-                </div>
-                <div id="prezzo">
-                    50$
-                </div>
-            </div>
-        <%}%>
-    </div>
-    <div id="m1" class="hiddenMenu">
         <%for(int i=0; i<6; i++){%>
         <div class="elemento">
             <a href="#game"><img src="css/pictures/eldenRing.jpg"> </a>
@@ -60,7 +54,7 @@
         </div>
         <%}%>
     </div>
-    <div id="m2" class="hiddenMenu">
+    <div id="m1" class="hiddenMenu">
         <%for(int i=0; i<8; i++){%>
             <div id="recensione">
                 <div id="buttonsection">
@@ -75,9 +69,7 @@
             </div>
         <%}%>
     </div>
-    <div id="m3" class="hiddenMenu">
-        <a href="ImpostazioniPage.jsp">ciao</a>
-    </div>
+
     </div>
 </body>
 </html>

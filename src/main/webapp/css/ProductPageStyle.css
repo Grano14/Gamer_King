@@ -150,3 +150,33 @@ input[type=submit]{
     heigth:400px;
     background-color: rgb(100,100,100);
 }
+
+#STAR_RATING ul
+{
+    width:350px;
+    margin: 0px;
+    padding: 0px;
+    height: 20px;
+    list-style: none;
+}
+#STAR_RATING li
+{
+    margin-left: 10px;
+    width: 19px;
+    height: 16px;
+    display: block;
+    float: left;
+    background-image: url('pictures/stella0.png');
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+#STAR_RATING li.on
+{
+    background-image: url('pictures/stella1.png');
+}
+#STAR_RATING span.output
+{
+    padding: 3px;
+    color: white;
+    font-family: "copperplate", fantasy;
+}

@@ -156,6 +156,12 @@ body{
     font-size: 25px;
 }
 
+a:link, a:visited{
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
 @media only screen and (max-width: 1200px){
     .bottoneImpostazioni{
         height: 60px;
