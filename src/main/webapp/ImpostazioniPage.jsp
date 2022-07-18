@@ -11,7 +11,10 @@
     <titlee>Impostazioni</titlee>
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/UserPageStyle.css">
+
     <script type="text/javascript" src="javaScript/UserPageScript.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
 </head>
 <body>
 <%@include file="NavBar.jsp" %>
@@ -28,8 +31,14 @@
                 <p class="testo">Password</p>
             </div>
             <div class="bottoneImpostazioni" onclick="showMenu('m2')">
-                <p class="testo">Carta di Credito</p>
+                <p class="testo">Aggiungi di Credito</p>
             </div>
+
+            <a href="ModificaCartePage.jsp">
+                <div class="bottoneImpostazioni">
+                    <p class="testo">Modifica di Credito</p>
+                </div>
+            </a>
         </div>
     </div>
 </div>
