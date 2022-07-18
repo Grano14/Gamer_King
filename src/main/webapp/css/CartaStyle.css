@@ -21,46 +21,33 @@ p{
 }
 
 .cartaItem div{
-    display: inline-block;
     font-family: "copperplate", fantasy;
     font-size: 25px;
 }
 
 #descrizione{
+    text-align:left;
     position: absolute;
-    left: 230px;
-}
-
-#delete,#modifica{
-    height: 25px;
-    width: 25px;
-    background-color: rebeccapurple;
-    position: absolute;
-    right: 30px;
-    border-radius: 6px;
-    font-size: 20px;
-    font-family: "copperplate", fantasy;
-    margin-top: 40px;
+    left: 15px;
 }
 
 hr{
+    width:100%;
     box-shadow: 0 0 10px yellow;
-    border: 1px  solid yellow;
+    border: 1px solid yellow;
 }
 
-.bottoneModifica{
-    display: block;
+.bottoni{
+    float:right;
 }
 
 .bottoneModifica p{
-    float:right;
     margin: 20px 20px;
-    height: 40px;
-    width: 200px;
+    height: 20px;
+    width: 80px;
     border-radius: 6px;
     background-color:#601194;
     padding-top: 10px;
     padding-bottom: 15px;
-    font-size: 30px;
-    display: inline-block;
+    font-size: 18px;
 }

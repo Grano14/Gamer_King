@@ -29,21 +29,21 @@
 
         </div>
 
-        <div class="bottoneModifica" onclick="">
+        <div class="bottoni">
+            <div class="bottoneModifica" onclick="">
 
-            <p>Modifica</p>
+                <p>Modifica</p>
 
+            </div>
+            <div id="elimina" class="bottoneModifica" onclick="">
+
+                <p>Elimina</p>
+
+            </div>
         </div>
-
-        <div class="bottoneModifica" onclick="">
-
-            <p>Elimina</p>
-
-        </div>
-
-        <hr>
-
     </div>
+
+    <hr>
     <%}%>
 </div>
 </body>
