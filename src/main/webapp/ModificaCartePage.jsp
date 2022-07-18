@@ -30,15 +30,17 @@
         </div>
 
         <div class="bottoni">
-            <div class="bottoneModifica" onclick="">
-
-                <p>Modifica</p>
-
+            <div>
+                <form class="bottoneModifica" action="">
+                    <input type="hidden" name="id" value="">
+                    <input type="submit" value="Modifica">
+                </form>
             </div>
-            <div id="elimina" class="bottoneModifica" onclick="">
-
-                <p>Elimina</p>
-
+            <div>
+                <form class="bottoneModifica" action="">
+                    <input type="hidden" name="id" value="">
+                    <input type="submit" value="Elimina">
+                </form>
             </div>
         </div>
     </div>
