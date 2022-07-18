@@ -21,21 +21,42 @@
         <textarea id="descrizione">
             Inserisci una descrizione...
         </textarea><br>
+        <p>Seleziona generi</p>
         <input type="checkbox" value="avventura" id="avventura">
         <label for="avventura">Avventura</label>
         <input type="checkbox" value="fantasy" id="fantasy">
-        <label for="avventura">Fantasy</label><br>
+        <label for="fantasy">Fantasy</label>
+        <input type="checkbox" value="horror" id="horror">
+        <label for="horror">Horror</label><br>
+        <input type="checkbox" value="sci-fa" id="sci-fi">
+        <label for="sci-fi">Sci-Fi</label>
         <input type="checkbox" value="sparatutto" id="sparatutto">
-        <label for="avventura">Sparatutto</label><br>
-        <label for="inputimmagine">Scegli una immagine principale</label>
-        <input type="file" id="inputimmagine"><br>
-        <label for="inputimmagini">Scegli le immagini secondarie</label>
-        <input type="file" id="inputimmagini">
+        <label for="sparatutto">Sparatutto</label>
+        <input type="checkbox" value="picchiaduro" id="picchiaduro">
+        <label for="picchiaduro">Picchiaduro</label><br>
+        <input type="checkbox" value="sopravvivenza" id="sopravvivenza">
+        <label for="sopravvivenza">Sopravvivenza</label>
+        <input type="checkbox" value="stelth" id="stelth">
+        <label for="stelth">Stelth</label>
+        <input type="checkbox" value="rpg" id="rpg">
+        <label for="rpg">Rpg</label><br>
+        <input type="checkbox" value="jrpg" id="jrpg">
+        <label for="jrpg">J-Rpg</label>
+        <input type="checkbox" value="action" id="action">
+        <label for="action">Action</label>
+        <input type="checkbox" value="simulazione" id="simulazione">
+        <label for="simulazione">Simulazione</label><br>
+        <input type="checkbox" value="strategia" id="strategia">
+        <label for="strategia">strategia</label>
+        <input type="checkbox" value="roughlik" id="roughlik">
+        <label for="roughlik">Roughlik</label>
+        <input type="checkbox" value="openworld" id="openworld">
+        <label for="openworld">Open World</label><br>
     </div>
 </div>
 <div id="piattaforma">
-    <div id="pc" onclick="seeInput('pc', 'pcdate')" class="tasto">
-        <p class="piattaformaname">PC</p>
+    <div id="pc" class="tasto">
+        <p class="piattaformaname" onclick="seeInput('pc', 'pcdate')">PC</p>
         <div class="prezzo/data/copie" id="pcdate">
             <p>Prezzo</p>
             <input type="text"><br>
@@ -45,8 +66,8 @@
             <input type="number"><br>
         </div>
     </div>
-    <div id="playstation" onclick="seeInput('playstation', 'playstationdate')" class="tasto">
-        <p class="piattaformaname">Playstation</p>
+    <div id="playstation" class="tasto">
+        <p class="piattaformaname" onclick="seeInput('playstation', 'playstationdate')">Playstation</p>
         <div class="prezzo/data/copie" id="playstationdate">
             <p>Prezzo</p>
             <input type="text"><br>
@@ -56,8 +77,8 @@
             <input type="number"><br>
         </div>
     </div>
-    <div id="nintendo" onclick="seeInput('nintendo', 'nintendodate')" class="tasto">
-        <p class="piattaformaname">Switch</p>
+    <div id="nintendo" class="tasto">
+        <p class="piattaformaname" onclick="seeInput('nintendo', 'nintendodate')">Switch</p>
         <div class="prezzo/data/copie" id="nintendodate">
             <p>Prezzo</p>
             <input type="text"><br>
@@ -67,8 +88,8 @@
             <input type="number"><br>
         </div>
     </div>
-    <div id="xbox" onclick="seeInput('xbox', 'xboxdate')" class="tasto">
-        <p class="piattaformaname">Xbox</p>
+    <div id="xbox" class="tasto">
+        <p class="piattaformaname" onclick="seeInput('xbox', 'xboxdate')">Xbox</p>
         <div class="prezzo/data/copie" id="xboxdate">
             <p>Prezzo</p>
             <input type="text"><br>

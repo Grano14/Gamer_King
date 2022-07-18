@@ -3,33 +3,28 @@ function validateID(){
     var numeroREGX = /[0-9]/;
     var letteraMaiuscREGX = /[A-Z]/;
     if(numeroREGX.test(nomeUtente) && letteraMaiuscREGX.test(nomeUtente) && nomeUtente.length > 5) {
-        document.getElementById("1").setAttribute("style", "color: green");
-        document.getElementById("1").innerHTML = "ok";
+        document.getElementById("userName").style.backgroundColor = "green";
     }
     else{
-        document.getElementById("1").setAttribute("style", "color: red");
-        document.getElementById("1").innerHTML = "formato incorretto";
+        document.getElementById("userName").style.backgroundColor = "red";
     }
 }
 
-function validateName(idInput, idLabel){
+function validateName(idInput){
     var nome = document.getElementById(idInput).value;
     var numeroREGX = /[0-9]/;
     if(nome.length > 1 && !numeroREGX.test(nome)){
-        document.getElementById(idLabel).setAttribute("style", "color: green");
-        document.getElementById(idLabel).innerHTML = "ok";
+        document.getElementById(idInput).style.backgroundColor = "green";
     }
     else{
-        document.getElementById(idLabel).setAttribute("style", "color: red");
-        document.getElementById(idLabel).innerHTML = "formato incorretto";
+        document.getElementById(idInput).style.backgroundColor = "red";
     }
 }
 
 function checkButton(){
-    if(document.getElementById("1").innerHTML == "ok" && document.getElementById("2").innerHTML == "ok" && document.getElementById("3").innerHTML == "ok"
-    && document.getElementById("4").innerHTML == "ok" && document.getElementById("5").innerHTML == "ok" && document.getElementById("6").innerHTML == "ok") {
+    if(document.getElementById("userName").style.backgroundColor == "green" && document.getElementById("firstName").style.backgroundColor == "green" && document.getElementById("lastName").style.backgroundColor == "green"
+    && document.getElementById("email").style.backgroundColor == "green" && document.getElementById("phone").style.backgroundColor == "green" && document.getElementById("pass").style.backgroundColor == "green") {
         document.getElementById("bottone").style.visibility = "visible";
-        document.getElementById("registration").style.height = "1000px";
     }
     else
         document.getElementById("bottone").style.visibility = "hidden";
@@ -39,12 +34,10 @@ function validateMail(){
     var emailREGX = /[@]/;
     var mail = document.getElementById("email").value;
     if(emailREGX.test(mail) && mail.length > 7){
-        document.getElementById(4).setAttribute("style", "color: green");
-        document.getElementById(4).innerHTML = "ok";
+        document.getElementById("email").style.backgroundColor = "green";
     }
     else{
-        document.getElementById(4).setAttribute("style", "color: red");
-        document.getElementById(4).innerHTML = "formato incorretto";
+        document.getElementById("email").style.backgroundColor = "red";
     }
 
 }
@@ -53,12 +46,10 @@ function validateNum(){
     var lettereREGX = /[a-z]/;
     var numero = document.getElementById("phone").value;
     if(!lettereREGX.test(numero) && numero.length > 9){
-        document.getElementById(5).setAttribute("style", "color: green");
-        document.getElementById(5).innerHTML = "ok";
+        document.getElementById("phone").style.backgroundColor = "green";
     }
     else{
-        document.getElementById(5).setAttribute("style", "color: red");
-        document.getElementById(5).innerHTML = "formato incorretto";
+        document.getElementById("phone").style.backgroundColor = "red";
     }
 }
 
@@ -68,11 +59,24 @@ function validatePass(){
     var lettereMaiuscREGX = /[A-Z]/;
     var numeroREGX = /[0-9]/;
     if(lettereMaiuscREGX.test(pass) && lettereMinREGX.test(pass) && numeroREGX.test(pass) && pass.length > 6){
-        document.getElementById(6).setAttribute("style", "color: green");
-        document.getElementById(6).innerHTML = "ok";
+        document.getElementById("pass").style.backgroundColor = "green";
     }
     else{
-        document.getElementById(6).setAttribute("style", "color: red");
-        document.getElementById(6).innerHTML = "formato incorretto";
+        document.getElementById("pass").style.backgroundColor = "red";
     }
+}
+
+function infoForm(){
+    alert("Formato nome utente: \n" +
+        "- lunghezza minima:6 caratteri\n" +
+        "- almeno un numero e una lettera maiuscola\n" +
+        "Formato nome e cognome:\n" +
+        "x nessun numero\n" +
+        "Formato password:\n" +
+        "- almeno 7 caratteri\n" +
+        "- almeno una lettera maiuscola e un numero\n")
+}
+
+function hideButton(){
+    document.getElementById("bottone").style.visibility = "hidden";
 }

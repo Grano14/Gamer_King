@@ -1,5 +1,9 @@
 /*css riferito alla barra di navigazione e i suoi elementi*/
 
+body{
+    color: white;
+}
+
 #navBar{
     background-color: #601194;
     width: 100%;
@@ -183,8 +187,8 @@
 
 
 #menuAvanzato{
-    width: 920px;
-    height: 320px;
+    width: 850px;
+    height: 450px;
     border-radius: 6px;
     background-color: mediumpurple;
 
@@ -195,6 +199,10 @@
     position: fixed;
     top: 60px;
     z-index: 3;
+}
+
+.paragrafiReserch{
+    font-size: 15px;
 }
 
 #categorieMenu{
@@ -261,6 +269,10 @@
     background-color: dimgrey;
 }
 
+#annoPrezzo{
+    width: 200px;
+}
+
 #annoPrezzo p{
     margin-top: 10px;
 }
@@ -272,6 +284,14 @@
     border-radius: 6px;
     border: 1px solid black;
     font-family: "copperplate", fantasy;
+}
+
+#generi{
+    text-align: left;
+}
+
+#generi input{
+    margin: 6px;
 }
 
 @media only screen and (max-width: 1200px) {

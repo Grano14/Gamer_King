@@ -1,3 +1,7 @@
+body{
+    color: white;
+}
+
 #testo{
     display: inline-block;
     height: 400px;

@@ -1,5 +1,6 @@
 body{
     background-color: rgb(27, 27, 27);
+    color: white;
 }
 
 a:visited{
@@ -40,7 +41,8 @@ input[type=text], input[type=password]{
     font-family: "copperplate",fantasy;
     font-size: 25px;
     margin-left: 65%;
-    visibility: hidden;
+    margin-top: 15px;
+
 }
 
 #bottone:hover{
@@ -58,7 +60,7 @@ input[type=text], input[type=password]{
 #registration{
     text-align:center;
     width: 50%;
-    height: 925px;
+    height: 875px;
     line-height: 70px;
     margin: auto;
     margin-top: 10%;

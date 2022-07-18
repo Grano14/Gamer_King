@@ -24,6 +24,7 @@ public class index extends HttpServlet {
         if(session == null){
             session = request.getSession();
             session.setAttribute("nomeUtente", "LOGIN");
+            session.setMaxInactiveInterval(-1);
         }
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("HomePage.jsp");

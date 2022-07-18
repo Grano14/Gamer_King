@@ -13,7 +13,7 @@
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
     <script type="text/javascript" src="javaScript/RegistrationPageJS.js"></script>
 </head>
-<body>
+<body onload="hideButton()">
 <%if(request.getAttribute("errore") == null){}else{%>
 <p style="color: crimson; text-align: center; font-family: 'copperplate', fantasy"><%=request.getAttribute("errore")%></p><%request.setAttribute("errore", null);}%>
 <div id="registration">
@@ -21,18 +21,19 @@
     <form action="RegistraUtente">
         <div class="forms">
             <label for="userName" >Nome utente</label><br>
-            <input type="text" class="serch" id="userName" name="userName" onkeyup="validateID(), checkButton()"> <label for="userName" id="1" style="color: black"></label><br>
+            <input type="text" class="serch" id="userName" name="userName" onkeyup="validateID(), checkButton()"><br>
             <label for="firstName">Nome</label><br>
-            <input type="text" class="serch" id="firstName" name="firstName" onkeyup="validateName('firstName', '2'), checkButton()"><label for="firstName" id="2" style="color: black"></label><br>
+            <input type="text" class="serch" id="firstName" name="firstName" onkeyup="validateName('firstName'), checkButton()"><br>
             <label for="lastName">Cognome</label><br>
-            <input type="text" class="serch" id="lastName" name="lastName" onkeyup="validateName('lastName', '3'), checkButton()"><label for="lastName" id="3" style="color: black"></label><br>
+            <input type="text" class="serch" id="lastName" name="lastName" onkeyup="validateName('lastName'), checkButton()"><br>
             <label for="email">Email</label><br>
-            <input type="text" class="serch" id="email" name="email" onkeyup="validateMail(), checkButton()"><label for="email" id="4" style="color: black"></label><br>
+            <input type="text" class="serch" id="email" name="email" onkeyup="validateMail(), checkButton()"><br>
             <label for="phone">Telefono</label><br>
-            <input type="text" class="serch" id="phone" name="phone" onkeyup="validateNum(), checkButton()"><label for="phone" id="5" style="color: black"></label><br>
+            <input type="text" class="serch" id="phone" name="phone" onkeyup="validateNum(), checkButton()"><br>
             <label for="pass">Password</label><br>
-            <input type="password" class="serch" id="pass" name="pass" onkeyup="validatePass(), checkButton()"><label for="pass" id="6" style="color: black"></label><br>
+            <input type="password" class="serch" id="pass" name="pass" onkeyup="validatePass(), checkButton()"><br>
             <input type="submit" value="PROCEDI" id="bottone">
+            <button style="background-color: gray" onclick="infoForm()">?</button>
         </div>
     </form>
 </div>
