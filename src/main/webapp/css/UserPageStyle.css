@@ -43,6 +43,23 @@ body{
     padding-top: 15px;
 }
 
+.bottoneLogout{
+    display: inline-block;
+    margin: 20px 30px;
+}
+
+.bottoneLogout input[type=submit]{
+    height: 75px;
+    width: 200px;
+    border-radius: 6px;
+    background-color: rebeccapurple;
+    color:white;
+    font-family: "copperplate", fantasy;
+    font-size: 25px;
+    border:0px;
+    padding-bottom: 10px;
+}
+
 .bottoneImpostazioni:hover{
     opacity: 0.7;
 }
@@ -68,7 +85,7 @@ body{
     display: inline-block;
 }
 
-.acquisto:hover{
+.acquisto:hover, .bottoneLogout input[type=submit]:hover{
     opacity: 0.8;
 }
 
@@ -168,6 +185,11 @@ a:link, a:visited{
         width: 160px;
     }
 
+    .bottoneLogout input[type=submit]{
+        font-size: 20px;
+        width: 160px;
+
+    }
     #user p{
         font-size: 20px;
     }
