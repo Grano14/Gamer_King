@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class CartaDAO {
 
@@ -58,6 +59,23 @@ public class CartaDAO {
         }
         catch (SQLException e){
             throw new RuntimeException(e);
+        }
+    }
+
+    public static ArrayList<Carta> doRetriveAll(){
+        ArrayList<Carta> l = new ArrayList<>();
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("select nome, cognome, numero, scadenza, verifica, via, cap, numCivico, citta from Carta");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Carta c = new Carta(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+                        rs.getString(6), rs.getString(7), rs.getString(8),rs.getString(9));
+                l.add(c);
+            }
+            return l;
+        }
+        catch (SQLException e){
+            throw  new RuntimeException(e);
         }
     }
 
