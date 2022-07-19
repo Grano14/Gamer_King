@@ -23,35 +23,35 @@
         <input type="text" id="titolo" name="titolo" placeholder="Titolo del gioco"><br>
         <textarea id="descrizione" name="desc" placeholder="Inserisci una descrizione..."></textarea><br>
         <p>Seleziona generi</p>
-        <input type="checkbox" value="avventura" id="avventura" name="c1">
+        <input type="checkbox" value="Avventura" id="avventura" name="c1">
         <label for="avventura">Avventura</label>
-        <input type="checkbox" value="fantasy" id="fantasy" name="c2">
+        <input type="checkbox" value="Fantasy" id="fantasy" name="c2">
         <label for="fantasy">Fantasy</label>
-        <input type="checkbox" value="horror" id="horror" name="c3">
+        <input type="checkbox" value="Horror" id="horror" name="c3">
         <label for="horror">Horror</label><br>
-        <input type="checkbox" value="sci-fi" id="sci-fi" name="c4">
+        <input type="checkbox" value="Sci-fi" id="sci-fi" name="c4">
         <label for="sci-fi">Sci-Fi</label>
-        <input type="checkbox" value="sparatutto" id="sparatutto" name="c5">
+        <input type="checkbox" value="Sparatutto" id="sparatutto" name="c5">
         <label for="sparatutto">Sparatutto</label>
-        <input type="checkbox" value="picchiaduro" id="picchiaduro" name="c6">
+        <input type="checkbox" value="Picchiaduro" id="picchiaduro" name="c6">
         <label for="picchiaduro">Picchiaduro</label><br>
-        <input type="checkbox" value="sopravvivenza" id="sopravvivenza" name="c7">
+        <input type="checkbox" value="Sopravvivenza" id="sopravvivenza" name="c7">
         <label for="sopravvivenza">Sopravvivenza</label>
-        <input type="checkbox" value="stelth" id="stelth" name="c8">
+        <input type="checkbox" value="Stelth" id="stelth" name="c8">
         <label for="stelth">Stelth</label>
-        <input type="checkbox" value="rpg" id="rpg" name="c9">
+        <input type="checkbox" value="Rpg" id="rpg" name="c9">
         <label for="rpg">Rpg</label><br>
-        <input type="checkbox" value="jrpg" id="jrpg" name="c10">
+        <input type="checkbox" value="J-rpg" id="jrpg" name="c10">
         <label for="jrpg">J-Rpg</label>
-        <input type="checkbox" value="action" id="action" name="c11">
+        <input type="checkbox" value="Action" id="action" name="c11">
         <label for="action">Action</label>
-        <input type="checkbox" value="simulazione" id="simulazione" name="c12">
+        <input type="checkbox" value="Simulazione" id="simulazione" name="c12">
         <label for="simulazione">Simulazione</label><br>
-        <input type="checkbox" value="strategia" id="strategia" name="c13">
+        <input type="checkbox" value="Strategia" id="strategia" name="c13">
         <label for="strategia">strategia</label>
-        <input type="checkbox" value="roughlik" id="roughlik" name="c14">
+        <input type="checkbox" value="Roughlik" id="roughlik" name="c14">
         <label for="roughlik">Roughlik</label>
-        <input type="checkbox" value="openworld" id="openworld" name="c15">
+        <input type="checkbox" value="Open world" id="openworld" name="c15">
         <label for="openworld">Open World</label><br>
         Carica immagine 1
         <input type="file" name="immagine1" multiple>
@@ -85,7 +85,7 @@
             <p>Numero di copie</p>
             <input type="number" name="nCopiepc"><br>
             <p>Codice copia</p><br>
-            <input type="text" name="idCopiapc">
+            <input type="text" name="idcopiapc">
             <input type="submit" value="pc" name="submit">
         </div>
     </div>

@@ -34,8 +34,17 @@ public class AggiungiCopia extends HttpServlet {
         String prezzo = request.getParameter("prezzo"+piattafprma);
         String nCopie = request.getParameter("nCopie"+piattafprma);
         String codice = request.getParameter("gioco");
-        Prodotto p = new Prodotto(piattafprma, data, codice, true, true, Double.parseDouble(prezzo), Integer.parseInt(nCopie));
-        ProdottoDAO.doSave(p);
+        ArrayList<Prodotto> l = ProdottoDAO.doRetriveAll();
+        boolean flag = true;
+        int k = 0;
+        for(k=0; k<l.size(); k++){
+            if(l.get(k).getVideogioco().equals(codice) && l.get(k).getPiattaforma().equals(piattafprma))
+                flag = false;
+        }
+        if(flag == true){
+            Prodotto p = new Prodotto(piattafprma, data, codice, true, true, Double.parseDouble(prezzo), Integer.parseInt(nCopie));
+            ProdottoDAO.doSave(p);
+        }
 
         //inserimento copia nella tabella
         String copia = request.getParameter("idcopia"+piattafprma);

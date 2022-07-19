@@ -23,42 +23,6 @@ public class AggiungiGioco extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        //creazione cartella per le immagini del videogioco + salvataggio delle immagini nella cartella
-        response.setContentType("text/html;charset=UTF-8");
-        try {
-            String nome = request.getParameter("titolo");
-            String dirPath = "C:\\Users\\Giuseppe Grano\\IdeaProjects\\Gamer_King\\src\\main\\webapp\\css\\gameImages\\" + nome;
-            File f = new File(dirPath);
-            f.mkdir();
-
-            int i;
-            for(i=0;i<3;i++){
-                String name = "immagine" + (i+1);
-                Part part = request.getPart(name);
-                String fileName = part.getSubmittedFileName();
-
-                String path = dirPath + "\\" + fileName;
-
-                InputStream is = part.getInputStream();
-                boolean test = uploadFile(is, path);
-            }
-            //fetch form data
-            /*
-            Part part = request.getPart("immagine");
-            String fileName = part.getSubmittedFileName();
-
-            String path = dirPath + "\\" + fileName;
-            //String path = getServletContext().getRealPath("/"+"files"+File.separator+fileName);
-
-
-            InputStream is = part.getInputStream();
-            boolean test = uploadFile(is, path);
-            */
-        }
-        catch (Exception e){
-            System.out.println(e);
-        }
-
         //salvataggio gioco nella tabella videogioco + creazione random del codice gioco
         Double c = 0.0;
         Integer codice = 0;
@@ -92,14 +56,45 @@ public class AggiungiGioco extends HttpServlet {
             }
         }
 
-        //inserimento prodotto nella tabella
-        //Prodotto p = new Prodotto(request.getParameter("submit"), request.getParameter("data"), codice.toString(), true, true);
-        //ProdottoDAO.doSave(p);
+        //creazione cartella per le immagini del videogioco + salvataggio delle immagini nella cartella
+        response.setContentType("text/html;charset=UTF-8");
+        try {
+            String nomeGioco = request.getParameter("titolo");
+            String dirPath = "C:\\Users\\Giuseppe Grano\\IdeaProjects\\Gamer_King\\src\\main\\webapp\\css\\gameImages\\" + nomeGioco;
+            File f = new File(dirPath);
+            f.mkdir();
 
-        //inserimento immagine nella tabella immagini(path, codiceGioco)
-        String dirPath = "C:\\Users\\Giuseppe Grano\\IdeaProjects\\Gamer_King\\src\\main\\webapp\\css\\gameImages\\" + nome;
-        Immagine imm = new Immagine(dirPath, codice.toString());
-        ImmagineDAO.doSave(imm);
+            int i;
+            for(i=0;i<3;i++){
+                String name = "immagine" + (i+1);
+                Part part = request.getPart(name);
+                String fileName = part.getSubmittedFileName();
+
+                String path = dirPath + "\\" + fileName;
+
+                //inserimento immagine nella tabella immagini(path, codiceGioco)
+                Immagine imm = new Immagine(path, codice.toString());
+                ImmagineDAO.doSave(imm);
+
+                InputStream is = part.getInputStream();
+                boolean test = uploadFile(is, path);
+            }
+            //fetch form data
+            /*
+            Part part = request.getPart("immagine");
+            String fileName = part.getSubmittedFileName();
+
+            String path = dirPath + "\\" + fileName;
+            //String path = getServletContext().getRealPath("/"+"files"+File.separator+fileName);
+
+
+            InputStream is = part.getInputStream();
+            boolean test = uploadFile(is, path);
+            */
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("AggiungiGiocoPage.jsp");
         requestDispatcher.forward(request, response);

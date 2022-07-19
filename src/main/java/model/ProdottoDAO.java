@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ProdottoDAO {
 
@@ -52,6 +53,22 @@ public class ProdottoDAO {
         }
         catch (SQLException e){
             throw new RuntimeException(e);
+        }
+    }
+
+    public static ArrayList<Prodotto> doRetriveAll(){
+        ArrayList<Prodotto> l = new ArrayList<>();
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("select piattaforma, visibilita, datauscita, disponibilita, videogioco, nCopie, prezzo from Prodotto");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Prodotto p = new Prodotto(rs.getString(1), rs.getString(3), rs.getString(5), rs.getBoolean(2), rs.getBoolean(4), rs.getDouble(7), rs.getInt(6));
+                l.add(p);
+            }
+            return l;
+        }
+        catch (SQLException e){
+            throw  new RuntimeException(e);
         }
     }
 
