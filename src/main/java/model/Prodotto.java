@@ -3,14 +3,20 @@ package model;
 public class Prodotto {
 
     private String piattaforma,dataUscita,videogioco;
+
+    private Double prezzo;
+
+    private Integer nCopie;
     private boolean visibilita,disponibilita;
 
-    public Prodotto(String piattaforma,String dataUscita,String videogioco,boolean visibilita,boolean disponibilita) {
+    public Prodotto(String piattaforma,String dataUscita,String videogioco,boolean visibilita,boolean disponibilita, Double prezzo, Integer nCopie) {
         this.piattaforma = piattaforma;
         this.dataUscita = dataUscita;
         this.videogioco = videogioco;
         this.visibilita = visibilita;
         this.disponibilita = disponibilita;
+        this.prezzo = prezzo;
+        this.nCopie = nCopie;
     }
 
     public String getPiattaforma() {
@@ -31,6 +37,14 @@ public class Prodotto {
 
     public boolean isDisponibilita() {
         return disponibilita;
+    }
+
+    public Double getPrezzo() {
+        return prezzo;
+    }
+
+    public Integer getnCopie() {
+        return nCopie;
     }
 
     public void setDisponibilita(boolean disponibilita) {

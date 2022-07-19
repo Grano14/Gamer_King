@@ -9,7 +9,7 @@ public class ImmagineDAO {
 
     public static Immagine doRetriveById(String path){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select pathGame, videogioco from Immagine where path=?");
+            PreparedStatement ps = con.prepareStatement("select path, videogioco from Immagine where path=?");
             ps.setString(1, path);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
@@ -25,9 +25,9 @@ public class ImmagineDAO {
 
     public static void doSave(Immagine i){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("insert into Immagine (pathGame, videogioco) value (?,?)");
+            PreparedStatement ps = con.prepareStatement("insert into Immagine (path, videogioco) values (?,?)");
             ps.setString(1, i.getPath());
-            ps.setString(2, "106");
+            ps.setString(2, i.getVideogioco());
             ps.execute();
         }
         catch (SQLException e){

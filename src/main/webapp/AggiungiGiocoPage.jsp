@@ -1,4 +1,6 @@
-<%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="model.Videogioco" %>
+<%@ page import="model.VideogiocoDAO" %><%--
   Created by IntelliJ IDEA.
   User: Giuseppe Grano
   Date: 07/07/2022
@@ -19,8 +21,7 @@
 <div id="dati">
     <div id="gioco">
         <input type="text" id="titolo" name="titolo" placeholder="Titolo del gioco"><br>
-        <textarea id="descrizione" name="desc" placeholder="Inserisci una descrizione...">
-        </textarea><br>
+        <textarea id="descrizione" name="desc" placeholder="Inserisci una descrizione..."></textarea><br>
         <p>Seleziona generi</p>
         <input type="checkbox" value="avventura" id="avventura" name="c1">
         <label for="avventura">Avventura</label>
@@ -58,54 +59,99 @@
         <input type="file" name="immagine2" multiple>
         Carica immagine 3
         <input type="file" name="immagine3" multiple>
+        <input type="submit" value="Aggiungi gioco">
     </div>
 </div>
+</form>
+<form action="AggiungiCopia" method="post">
 <div id="piattaforma">
     <div id="pc" class="tasto">
         <p class="piattaformaname" onclick="seeInput('pc', 'pcdate')">PC</p>
         <div class="prezzo/data/copie" id="pcdate">
+            <p>Seleziona gioco</p>
+            <select name="gioco">
+                <%
+                    int i = 0;
+                    ArrayList<Videogioco> l = VideogiocoDAO.doRetriveAll();
+                    for(i=0; i<l.size(); i++){
+                %>
+                <option value="<%=l.get(i).getCodice()%>"><%=l.get(i).getTitolo()%></option>
+                <%}%>
+            </select>
             <p>Prezzo</p>
-            <input type="text"><br>
+            <input type="text" name="prezzopc"><br>
             <p>Data uscita</p>
-            <input type="date" name="data"><br>
+            <input type="date" name="datapc"><br>
             <p>Numero di copie</p>
-            <input type="number"><br>
+            <input type="number" name="nCopiepc"><br>
+            <p>Codice copia</p><br>
+            <input type="text" name="idCopiapc">
             <input type="submit" value="pc" name="submit">
         </div>
     </div>
     <div id="playstation" class="tasto">
         <p class="piattaformaname" onclick="seeInput('playstation', 'playstationdate')">Playstation</p>
         <div class="prezzo/data/copie" id="playstationdate">
+            <p>Seleziona gioco</p>
+            <select name="gioco">
+                <%
+                    for(i=0; i<l.size(); i++){
+                %>
+                <option value="<%=l.get(i).getCodice()%>"><%=l.get(i).getTitolo()%></option>
+                <%}%>
+            </select>
             <p>Prezzo</p>
-            <input type="text"><br>
+            <input type="text" name="prezzoplaystation"><br>
             <p>Data uscita</p>
-            <input type="date"><br>
+            <input type="date" name="dataplaystation"><br>
             <p>Numero di copie</p>
-            <input type="number"><br>
+            <input type="number" name="nCopieplaystation"><br>
+            <p>Codice copia</p><br>
+            <input type="text" name="idcopiaplaystation">
             <input type="submit" value="playstation" name="submit">
         </div>
     </div>
     <div id="nintendo" class="tasto">
         <p class="piattaformaname" onclick="seeInput('nintendo', 'nintendodate')">Switch</p>
         <div class="prezzo/data/copie" id="nintendodate">
+            <p>Seleziona gioco</p>
+            <select name="gioco">
+                <%
+                    for(i=0; i<l.size(); i++){
+                %>
+                <option value="<%=l.get(i).getCodice()%>"><%=l.get(i).getTitolo()%></option>
+                <%}%>
+            </select>
             <p>Prezzo</p>
-            <input type="text"><br>
+            <input type="text" name="prezzonintendo"><br>
             <p>Data uscita</p>
-            <input type="date"><br>
+            <input type="date" name="datanintendo"><br>
             <p>Numero di copie</p>
-            <input type="number"><br>
+            <input type="number" name="nCopienintendo"><br>
+            <p>Codice copia</p><br>
+            <input type="text" name="idcopianintendo">
             <input type="submit" value="nintendo" name="submit">
         </div>
     </div>
     <div id="xbox" class="tasto">
         <p class="piattaformaname" onclick="seeInput('xbox', 'xboxdate')">Xbox</p>
         <div class="prezzo/data/copie" id="xboxdate">
+            <p>Seleziona gioco</p>
+            <select name="gioco">
+                <%
+                    for(i=0; i<l.size(); i++){
+                %>
+                <option value="<%=l.get(i).getCodice()%>"><%=l.get(i).getTitolo()%></option>
+                <%}%>
+            </select>
             <p>Prezzo</p>
-            <input type="text"><br>
+            <input type="text" name="prezzoxbox"><br>
             <p>Data uscita</p>
-            <input type="date"><br>
+            <input type="date" name="dataxbox"><br>
             <p>Numero di copie</p>
-            <input type="number"><br>
+            <input type="number" name="nCopiexbox"><br>
+            <p>Codice copia</p><br>
+            <input type="text" name="idcopiaxbox">
             <input type="submit" value="xbox" name="submit">
         </div>
     </div>

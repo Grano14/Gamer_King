@@ -65,7 +65,7 @@ public class AggiungiGioco extends HttpServlet {
         ArrayList<Videogioco> l = VideogiocoDAO.doRetriveAll();
         Boolean flag = false;
         while (flag == false){
-            c = Math.random()*1000;
+            c = (Math.random()*10000) + 10000;
             codice = c.intValue();
             flag = true;
             int i;
@@ -92,14 +92,17 @@ public class AggiungiGioco extends HttpServlet {
             }
         }
 
-        //inserimento immagine nella tabella immagini(path, codiceGioco)
-       // String dirPath = "C:\\Users\\Giuseppe Grano\\IdeaProjects\\Gamer_King\\src\\main\\webapp\\css\\gameImages\\" + nome;
-        //Immagine imm = new Immagine(dirPath, codice.toString());
-       // ImmagineDAO.doSave(imm);
-
         //inserimento prodotto nella tabella
         //Prodotto p = new Prodotto(request.getParameter("submit"), request.getParameter("data"), codice.toString(), true, true);
         //ProdottoDAO.doSave(p);
+
+        //inserimento immagine nella tabella immagini(path, codiceGioco)
+        String dirPath = "C:\\Users\\Giuseppe Grano\\IdeaProjects\\Gamer_King\\src\\main\\webapp\\css\\gameImages\\" + nome;
+        Immagine imm = new Immagine(dirPath, codice.toString());
+        ImmagineDAO.doSave(imm);
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("AggiungiGiocoPage.jsp");
+        requestDispatcher.forward(request, response);
 
     }
 
