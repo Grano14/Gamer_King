@@ -5,8 +5,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
-import model.Videogioco;
-import model.VideogiocoDAO;
+import model.*;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -24,6 +23,7 @@ public class AggiungiGioco extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        //creazione cartella per le immagini del videogioco + salvataggio delle immagini nella cartella
         response.setContentType("text/html;charset=UTF-8");
         try {
             String nome = request.getParameter("titolo");
@@ -59,6 +59,7 @@ public class AggiungiGioco extends HttpServlet {
             System.out.println(e);
         }
 
+        //salvataggio gioco nella tabella videogioco + creazione random del codice gioco
         Double c = 0.0;
         Integer codice = 0;
         ArrayList<Videogioco> l = VideogiocoDAO.doRetriveAll();
@@ -78,6 +79,27 @@ public class AggiungiGioco extends HttpServlet {
         String nome = request.getParameter("titolo");
         Videogioco v = new Videogioco(codice.toString(), nome, descrizione);
         VideogiocoDAO.doSave(v);
+
+        //controllo dei generi selezionati ed inserimento record nella tabella appartenere(codiceGioco, genere)
+        int j;
+        for(j=0;j<15;j++){
+            String n = "c" + (j+1);
+            if(request.getParameter(n) == null)
+                ;
+            else{
+                Appartenere a = new Appartenere(codice.toString(), request.getParameter(n));
+                AppartenereDAO.doSave(a);
+            }
+        }
+
+        //inserimento immagine nella tabella immagini(path, codiceGioco)
+       // String dirPath = "C:\\Users\\Giuseppe Grano\\IdeaProjects\\Gamer_King\\src\\main\\webapp\\css\\gameImages\\" + nome;
+        //Immagine imm = new Immagine(dirPath, codice.toString());
+       // ImmagineDAO.doSave(imm);
+
+        //inserimento prodotto nella tabella
+        //Prodotto p = new Prodotto(request.getParameter("submit"), request.getParameter("data"), codice.toString(), true, true);
+        //ProdottoDAO.doSave(p);
 
     }
 

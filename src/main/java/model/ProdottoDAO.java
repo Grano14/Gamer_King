@@ -32,6 +32,7 @@ public class ProdottoDAO {
             ps.setString(3, p.getDataUscita());
             ps.setBoolean(4, p.isDisponibilita());
             ps.setString(5, p.getVideogioco());
+            System.out.println(44);
             ps.execute();
         }
         catch (SQLException e){
