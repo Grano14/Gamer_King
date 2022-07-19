@@ -37,9 +37,11 @@
                 </div>
             </a>
 
-            <form action="Logout">
-                <input type="submit" style="border-style: none; color: white; font-family: 'copperplate', family; font-size: 25px" class="bottoneImpostazioni" value="LOGOUT">
-            </form>
+            <div class="bottoneLogout">
+                <form class="bottoneModifica" action="Logout">
+                    <input type="submit" value="Logout">
+                </form>
+            </div>
             <!--<div class="bottoneImpostazioni">
                 <p>Logout</p>
             </div>-->
