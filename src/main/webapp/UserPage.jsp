@@ -31,7 +31,7 @@
                 <p>Review</p>
             </div>
 
-            <a href="ImpostazioniPage.jsp">
+            <a href="ImpostazioniPage.jsp" style="text-decoration:none">
                 <div class="bottoneImpostazioni">
                     <p>Impostazioni</p>
                 </div>

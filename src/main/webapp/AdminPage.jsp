@@ -22,20 +22,17 @@
         <p id="email">ciaociao@ciao.com</p>
         <div id="impostazioniUtente">
             <div class="bottoneImpostazioni" onclick="showMenu('m')">
-                <p>Feedback</p>
-            </div>
-            <div class="bottoneImpostazioni" onclick="showMenu('m1')">
                 <p>Statistiche vendite</p>
             </div>
-            <!--
-            <div class="bottoneImpostazioni" onclick="showMenu('m2')">
-                <p>Aggiungi prodotto</p>
-            </div>-->
-            <a href="AggiungiGiocoPage.jsp" class="bottoneImpostazioni"><p>Aggiungi prodotto</p></a>
-            <div class="bottoneImpostazioni" onclick="showMenu('m3')">
+            <a href="AggiungiGiocoPage.jsp" style="text-decoration:none">
+                <div class="bottoneImpostazioni">
+                    <p>Aggiungi prodotto</p>
+                </div>
+            </a>
+            <div class="bottoneImpostazioni" onclick="showMenu('m1')">
                 <p>Rimuovi prodotto</p>
             </div>
-            <div class="bottoneImpostazioni" onclick="showMenu('m4')">
+            <div class="bottoneImpostazioni" onclick="showMenu('m2')">
                 <p>Review</p>
             </div>
         </div>
@@ -46,25 +43,6 @@
     <div id="m" class="hiddenMenu"></div>
     <div id="m1" class="hiddenMenu"></div>
     <div id="m2" class="hiddenMenu"></div>
-    <div id="m3" class="hiddenMenu"></div>
-
-
-    <div id="m4" class="hiddenMenu">
-        <%for(int i=0; i<4; i++){%>
-        <div class="acquisto">
-            <a href="#game"><img src="css/pictures/eldenRing.jpg"> </a>
-            <div id="buttonDelate">
-                <button class="bottoneRecensione" id="delete">
-                </button>
-            <div id="descrizione">
-                Recenzione
-                </div>
-            </div>
-        </div>
-        <%}%>
-    </div>
-
-
 </div>
 
 </body>

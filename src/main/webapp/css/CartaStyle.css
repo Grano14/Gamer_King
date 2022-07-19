@@ -52,3 +52,7 @@ hr{
     background-color:#601194;
     font-size: 18px;
 }
+
+input[type=submit]:hover{
+    background-color:rebeccapurple;
+}

@@ -26,10 +26,6 @@
         <div id="setImmagini">
             <ul class="fotoProdotto">
 
-                <li>
-                    <img classe="direzione" id="sopra" src="css/pictures/freccia.png">
-                </li>
-
                 <%for(int i=0; i<5; i++){%>
 
                 <li>
@@ -37,10 +33,6 @@
                 </li>
 
                 <%}%>
-
-                <li>
-                    <img classe="direzione" src="css/pictures/freccia.png">
-                </li>
 
             </ul>
 
@@ -53,11 +45,18 @@
         <div class="acquisto">
             <p class="titolo">Nome Gioco</p>
             <p class="prezzo">Prezzo</p>
-            <div class="bottoneAcquisto" onclick="">
-                <p>Acquista</p>
-            </div>
-            <div class="bottoneAcquisto" onclick="">
-                <p>Carrello</p>
+
+            <div class="bottoniAM">
+            <form class="bottoneAcquisto" action="">
+                <input type="hidden" name="id" value="">
+                <input type="submit" value="Acquisto">
+            </form>
+        </div>
+        <div>
+            <form class="bottoneAcquisto" action="">
+                <input type="hidden" name="id" value="">
+                <input type="submit" value="Carrello">
+            </form>
             </div>
         </div>
 
