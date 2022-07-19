@@ -16,13 +16,14 @@ body{
 
 .acquisto{
     float:right;
+    margin-right:40px;
 }
 
 #secondaria{
-    margin-left:20px;
+    margin-left:5px;
     border-radius:10px;
     float:left;
-    width:50%;
+    width:750px;
     heigth:650px;
     border: 15px solid white;
 }
@@ -37,24 +38,14 @@ body{
     display: block;
 }
 
-.fotoProdotto{
-    positin:left;
-}
-
 ul{
     left:20px;
-    background-color:white;
-    border-radius:20px;
 
 }
 
 li{
-    padding-right:40px;
+    padding-right:5px;
     margin-top:2px;
-}
-
-#sopra{
-    transform: rotate(180deg);
 }
 
 ul img{
@@ -67,31 +58,6 @@ p{
     color:white;
     font-family: "copperplate", fantasy;
     font-size: 40px;
-}
-
-.bottoneAcquisto{
-    display: inline-block;
-}
-
-.bottoneAcquisto p{
-    margin: 20px 30px;
-    height: 40px;
-    width: 200px;
-    border-radius: 6px;
-    background-color:#601194;
-    padding-top: 10px;
-    padding-bottom: 15px;
-    font-size: 30px;
-    display: inline-block;
-}
-
-#bottoneCarrello{
-    height: 40px;
-    width: 50px;
-    border-radius: 6px;
-    background-color:#601194;
-    margin-top: 15px;
-    display: inline-block;
 }
 
 #setImmagini{
@@ -142,6 +108,19 @@ input[type=submit]{
     font-size:20px;
 }
 
+.bottoneAcquisto input[type=submit]{
+    height: 40px;
+    width: 200px;
+    border-radius: 6px;
+    background-color:#601194;
+    padding-bottom: 15px;
+    font-size: 30px;
+}
+
+input[type=submit]:hover{
+    background-color:rebeccapurple;
+}
+
 .recensione{
     margin-top:70px;
     padding:10px 10px;
@@ -179,4 +158,88 @@ input[type=submit]{
     padding: 3px;
     color: white;
     font-family: "copperplate", fantasy;
+}
+
+@media only screen and (max-width: 1300px){
+
+    #setImmagini{
+        margin-left:100px;
+    }
+
+    #secondaria{
+        float:none;
+    }
+
+    .acquisto{
+        text-align:center;
+        float:none;
+    }
+
+    .summary{
+        text-align:center;
+    }
+
+    #descrizione{
+        margin-top:30px;
+    }
+
+}
+
+
+@media only screen and (max-width: 1200px){
+
+    #setImmagini{
+        margin-left:80px;
+    }
+}
+
+@media only screen and (max-width: 1000px){
+
+    #setImmagini{
+        margin-left:10px;
+    }
+
+    ul img{
+        width:40px;
+        height:40px;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        margin-bottom:5px;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a{
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 16px;
+        text-decoration: none;
+    }
+}
+
+@media only screen and (max-width: 850px){
+
+    ul{
+        left:5px;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    #secondaria{
+        width:400px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .recensione{
+        width:400px;
+    }
 }

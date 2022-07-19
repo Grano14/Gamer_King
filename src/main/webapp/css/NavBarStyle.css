@@ -95,9 +95,10 @@ body{
 }
 
 #cerca{
+    color:black;
     left: 50px;
     height: 40px;
-    width: 40px;
+    width: 45px;
     border-radius: 25px;
     border-style: none;
     transition: .2s;
