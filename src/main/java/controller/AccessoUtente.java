@@ -7,10 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.Acquirente;
-import model.AcquirenteDAO;
-import model.Utente;
-import model.UtenteDAO;
+import model.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,18 +21,25 @@ public class AccessoUtente extends HttpServlet {
         String pass = request.getParameter("pass");
         ArrayList<Utente> l = UtenteDAO.doRetriveAll();
         int i;
+        String address = "loginPage.jsp";
+        request.setAttribute("errore","Nome utente o password errati");
         for(i=0;i<l.size();i++){
             if(l.get(i).getNomeUtente().equals(nome) && l.get(i).getPass().equals(pass)){
                 HttpSession session = request.getSession();
                 session.setAttribute("nomeUtente", nome);
 
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("HomePage.jsp");
-                requestDispatcher.forward(request, response);
+                Admin a = AdminDAO.doRetriveByNomeUtente(nome);
+
+                if(a instanceof Admin){
+                    address = "AdminPage.jsp";
+                }
+                else{
+                    address = "HomePage.jsp";
+                }
             }
         }
 
-        request.setAttribute("errore","Nome utente o password errati");
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("loginPage.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(address);
         requestDispatcher.forward(request, response);
 
     }

@@ -27,9 +27,11 @@
             <div class="bottoneImpostazioni" onclick="showMenu('m1')">
                 <p>Statistiche vendite</p>
             </div>
+            <!--
             <div class="bottoneImpostazioni" onclick="showMenu('m2')">
                 <p>Aggiungi prodotto</p>
-            </div>
+            </div>-->
+            <a href="AggiungiGiocoPage.jsp" class="bottoneImpostazioni"><p>Aggiungi prodotto</p></a>
             <div class="bottoneImpostazioni" onclick="showMenu('m3')">
                 <p>Rimuovi prodotto</p>
             </div>

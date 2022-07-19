@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class VideogiocoDAO {
 
@@ -44,6 +45,22 @@ public class VideogiocoDAO {
         }
         catch (SQLException e){
             throw new RuntimeException(e);
+        }
+    }
+
+    public static ArrayList<Videogioco> doRetriveAll(){
+        ArrayList<Videogioco> l = new ArrayList<>();
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("select codice, titolo, descrizione from videogioco");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Videogioco v = new Videogioco(rs.getString(1), rs.getString(2), rs.getString(3));
+                l.add(v);
+            }
+            return l;
+        }
+        catch (SQLException e){
+            throw  new RuntimeException(e);
         }
     }
 

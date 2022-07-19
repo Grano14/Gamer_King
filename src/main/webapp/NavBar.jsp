@@ -38,15 +38,14 @@
         <img src="css/pictures/carrello.png">
     </a>
     <%
-        String nome = (String) session.getAttribute("nomeUtente");
-        if(nome.equals("LOGIN")){
+        if(session.getAttribute("nomeUtente").equals("LOGIN")){
     %>
     <div id="login" style="float: right">
         <a href="loginPage.jsp">LOGIN</a>
     </div>
     <%}else{%>
     <div id="login" style="float: right">
-        <a href="UserPage.jsp"> <%=nome%> </a>
+        <a href="UserPage.jsp"> <%=(String)session.getAttribute("nomeUtente")%> </a>
     </div>
     <%}%>
 </div>

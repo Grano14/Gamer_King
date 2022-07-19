@@ -15,11 +15,11 @@
 <body>
 <h1>AGGIUNGI VIDEOGIOCO</h1>
 <p id="admin">Admin</p>
+<form action="AggiungiGioco" method="post" enctype="multipart/form-data" >
 <div id="dati">
     <div id="gioco">
-        <input type="text" id="titolo" placeholder="Titolo del gioco"><br>
-        <textarea id="descrizione">
-            Inserisci una descrizione...
+        <input type="text" id="titolo" name="titolo" placeholder="Titolo del gioco"><br>
+        <textarea id="descrizione" name="desc" placeholder="Inserisci una descrizione...">
         </textarea><br>
         <p>Seleziona generi</p>
         <input type="checkbox" value="avventura" id="avventura">
@@ -52,6 +52,12 @@
         <label for="roughlik">Roughlik</label>
         <input type="checkbox" value="openworld" id="openworld">
         <label for="openworld">Open World</label><br>
+        Carica immagine 1
+        <input type="file" name="immagine1" multiple>
+        Carica immagine 2
+        <input type="file" name="immagine2" multiple>
+        Carica immagine 3
+        <input type="file" name="immagine3" multiple>
     </div>
 </div>
 <div id="piattaforma">
@@ -64,6 +70,7 @@
             <input type="date"><br>
             <p>Numero di copie</p>
             <input type="number"><br>
+            <input type="submit" value="pc" name="submit">
         </div>
     </div>
     <div id="playstation" class="tasto">
@@ -75,6 +82,7 @@
             <input type="date"><br>
             <p>Numero di copie</p>
             <input type="number"><br>
+            <input type="submit" value="playstation" name="submit">
         </div>
     </div>
     <div id="nintendo" class="tasto">
@@ -86,6 +94,7 @@
             <input type="date"><br>
             <p>Numero di copie</p>
             <input type="number"><br>
+            <input type="submit" value="nintendo" name="submit">
         </div>
     </div>
     <div id="xbox" class="tasto">
@@ -97,8 +106,10 @@
             <input type="date"><br>
             <p>Numero di copie</p>
             <input type="number"><br>
+            <input type="submit" value="xbox" name="submit">
         </div>
     </div>
 </div>
+</form>
 </body>
 </html>
