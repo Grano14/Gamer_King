@@ -2,16 +2,11 @@ package model;
 
 public class Videogioco {
 
-    private String codice,titolo,descrizione;
+    private String titolo,descrizione;
 
-    public Videogioco(String codice,String titolo,String descrizione) {
-        this.codice = codice;
+    public Videogioco(String titolo,String descrizione) {
         this.titolo = titolo;
         this.descrizione = descrizione;
-    }
-
-    public String getCodice() {
-        return codice;
     }
 
     public String getTitolo() {
@@ -28,9 +23,5 @@ public class Videogioco {
 
     public void setTitolo(String titolo) {
         this.titolo = titolo;
-    }
-
-    public void setCodice(String codice) {
-        this.codice = codice;
     }
 }

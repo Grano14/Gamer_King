@@ -66,7 +66,7 @@
 
 <div id="descrizione">
     <p class="titolo">Descrizione</p>
-    <p class="summary">
+    <p class="summary" id="trama">
         Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
         Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
         Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
@@ -76,6 +76,12 @@
         Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
         Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
         Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+    </p>
+    <p class="summary" id="dataUscita">
+        Data Uscita
+    </p>
+    <p class="summary" id="generi">
+        Generi
     </p>
 </div>
 

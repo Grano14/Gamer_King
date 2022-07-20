@@ -17,31 +17,25 @@ public class AggiungiGioco extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
         //salvataggio gioco nella tabella videogioco + creazione random del codice gioco
         Double c = 0.0;
         Integer codice = 0;
         ArrayList<Videogioco> l = VideogiocoDAO.doRetriveAll();
+
+        String descrizione = request.getParameter("desc");
+        String nome = request.getParameter("titolo");
+
         Boolean flag = false;
         while (flag == false){
-            c = (Math.random()*10000) + 10000;
-            codice = c.intValue();
             flag = true;
             int i;
-            for(i=0; i<l.size();i++){
-                if(l.get(i).getCodice().equals(codice.toString()))
+            for(Videogioco e:l){
+                if(e.getTitolo().equals(nome))
                     flag = false;
             }
         }
 
-        String descrizione = request.getParameter("desc");
-        String nome = request.getParameter("titolo");
-        Videogioco v = new Videogioco(codice.toString(), nome, descrizione);
+        Videogioco v = new Videogioco(nome, descrizione);
         VideogiocoDAO.doSave(v);
 
         //controllo dei generi selezionati ed inserimento record nella tabella appartenere(codiceGioco, genere)
@@ -51,7 +45,7 @@ public class AggiungiGioco extends HttpServlet {
             if(request.getParameter(n) == null)
                 ;
             else{
-                Appartenere a = new Appartenere(codice.toString(), request.getParameter(n));
+                Appartenere a = new Appartenere(v.getTitolo(), request.getParameter(n));
                 AppartenereDAO.doSave(a);
             }
         }
@@ -72,8 +66,8 @@ public class AggiungiGioco extends HttpServlet {
 
                 String path = dirPath + "\\" + fileName;
 
-                //inserimento immagine nella tabella immagini(path, codiceGioco)
-                Immagine imm = new Immagine(path, codice.toString());
+                //inserimento immagine nella tabella immagini(path, titoloGioco)
+                Immagine imm = new Immagine(path, nomeGioco);
                 ImmagineDAO.doSave(imm);
 
                 InputStream is = part.getInputStream();
@@ -98,7 +92,11 @@ public class AggiungiGioco extends HttpServlet {
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("AggiungiGiocoPage.jsp");
         requestDispatcher.forward(request, response);
+    }
 
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
     }
 
     public boolean uploadFile(InputStream is, String path){
