@@ -1,7 +1,31 @@
 body{
     background-color: rgb(27, 27, 27);
-    color: #f3e7cd;
+    color: white;
     font-family: "copperplate", fantasy;
+}
+
+input[type=text]{
+    height: 30px;
+    border-radius: 6px;
+    border: 1px solid black;
+    text-align:left;
+    font-size:15px;
+}
+
+#aggiuntaTitolo{
+    text-align:center;
+    width:300px;
+    heigth:95px;
+    background-color:#601194;
+    border-radius:10px;
+}
+
+#aggiuntaTitolo p{
+    font-size:25px;
+}
+
+#aggiuntaTitolo:hover{
+    background-color:rebeccapurple;
 }
 
 #admin{
@@ -39,15 +63,41 @@ h1{
     text-align: center;
 }
 
+#fg{
+    display:none
+}
+
 #gioco input{
     margin-top: 10px;
 }
 
 #descrizione{
-    width: 300px;
-    height: 400px;
-    margin-top: 15px;
+    margin-top:10px;
+    width:750px;
+    height: 300px;
+    border-radius: 16px;
+    text-align:left;
+    font-size:15px;
+    resize: none;
+}
+
+#caricaImmagini{
+    text-align:center;
+}
+
+input[type=file]{
+    display:none;
+}
+
+.custom-file-upload, input[type=submit]{
+    color:white;
+    font-family: "copperplate", fantasy;
+    border:0px;
+    margin: 20px 20px;
+    padding: 10px 10px;
     border-radius: 6px;
+    background-color:#601194;
+    font-size: 18px;
 }
 
 #titolo{
@@ -60,7 +110,7 @@ h1{
     display: inline-block;
     width: 300px;
     height: 70px;
-    background-color: mediumpurple;
+    background-color:#601194;
     border-radius: 6px;
     transition-duration: 0.3s;
 }
@@ -72,7 +122,7 @@ h1{
 }
 
 .piattaformaname:hover{
-    background-color: #601194;
+    background-color: rebeccapurple;
 }
 
 .prezzo\/data\/copie{

@@ -13,13 +13,28 @@
     <title>Admin | Aggiungi gioco</title>
     <link rel="stylesheet" type="text/css" href="css/AggiungiGiocoStyle.css">
     <script type="text/javascript" src="javaScript/AggiungiGiocoScript.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#aggiuntaTitolo").click(function(){
+                $("#fg").toggle();
+            });
+        });
+    </script>
 </head>
 <body>
 <h1>AGGIUNGI VIDEOGIOCO</h1>
 <p id="admin">Admin</p>
-<form action="AggiungiGioco" method="post" enctype="multipart/form-data" >
 <div id="dati">
+
+    <div id="aggiuntaTitolo" onclick="mostraENascondi('fg')">
+        <p>Aggiungi un nuovo titolo</p>
+    </div>
+
+<form id="fg" action="AggiungiGioco" method="post" enctype="multipart/form-data" >
+
     <div id="gioco">
+
         <input type="text" id="titolo" name="titolo" placeholder="Titolo del gioco"><br>
         <textarea id="descrizione" name="desc" placeholder="Inserisci una descrizione..."></textarea><br>
         <p>Seleziona generi</p>
@@ -53,15 +68,26 @@
         <label for="roughlik">Roughlik</label>
         <input type="checkbox" value="Open world" id="openworld" name="c15">
         <label for="openworld">Open World</label><br>
-        Carica immagine 1
-        <input type="file" name="immagine1" multiple>
-        Carica immagine 2
-        <input type="file" name="immagine2" multiple>
-        Carica immagine 3
-        <input type="file" name="immagine3" multiple>
-        <input type="submit" value="Aggiungi gioco">
+        <p>Carica immagine 1</p>
+            <label class="custom-file-upload">
+                <input type="file" name="immagine1" multiple>
+                Aggiungi
+            </label>
+            <p>Carica immagine 2</p>
+            <label class="custom-file-upload">
+                <input type="file" name="immagine2" multiple>
+                Aggiungi
+            </label>
+            <p>Carica immagine 3</p>
+            <label class="custom-file-upload">
+                <input type="file" name="immagine3" multiple>
+                Aggiungi
+            </label><br><br>
+        <div id="bottoneGioco">
+            <input type="submit" value="Aggiungi gioco">
+        </div>
+
     </div>
-</div>
 </form>
 <form action="AggiungiCopia" method="post">
 <div id="piattaforma">
@@ -75,7 +101,7 @@
                     ArrayList<Videogioco> l = VideogiocoDAO.doRetriveAll();
                     for(i=0; i<l.size(); i++){
                 %>
-                <option value="<%=l.get(i).getCodice()%>"><%=l.get(i).getTitolo()%></option>
+                <option value="<%=l.get(i).getTitolo()%>"><%=l.get(i).getTitolo()%></option>
                 <%}%>
             </select>
             <p>Prezzo</p>
@@ -97,7 +123,7 @@
                 <%
                     for(i=0; i<l.size(); i++){
                 %>
-                <option value="<%=l.get(i).getCodice()%>"><%=l.get(i).getTitolo()%></option>
+                <option value="<%=l.get(i).getTitolo()%>"><%=l.get(i).getTitolo()%></option>
                 <%}%>
             </select>
             <p>Prezzo</p>
@@ -119,7 +145,7 @@
                 <%
                     for(i=0; i<l.size(); i++){
                 %>
-                <option value="<%=l.get(i).getCodice()%>"><%=l.get(i).getTitolo()%></option>
+                <option value="<%=l.get(i).getTitolo()%>"><%=l.get(i).getTitolo()%></option>
                 <%}%>
             </select>
             <p>Prezzo</p>
@@ -141,7 +167,7 @@
                 <%
                     for(i=0; i<l.size(); i++){
                 %>
-                <option value="<%=l.get(i).getCodice()%>"><%=l.get(i).getTitolo()%></option>
+                <option value="<%=l.get(i).getTitolo()%>"><%=l.get(i).getTitolo()%></option>
                 <%}%>
             </select>
             <p>Prezzo</p>
@@ -157,5 +183,6 @@
     </div>
 </div>
 </form>
+</div>
 </body>
 </html>
