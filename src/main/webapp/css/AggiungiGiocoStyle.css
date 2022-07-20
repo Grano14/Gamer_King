@@ -4,15 +4,30 @@ body{
     font-family: "copperplate", fantasy;
 }
 
-input[type=text]{
+input[type=text],input[type=date],input[type=number],select{
     height: 30px;
+    width:150px;
     border-radius: 6px;
     border: 1px solid black;
     text-align:left;
     font-size:15px;
+    margin-top:10px;
 }
 
-#aggiuntaTitolo{
+label{
+    font-size:18px;
+}
+
+#selectGioco{
+    font-size:18px;
+}
+
+#formProdotto{
+    display:none;
+}
+
+.aggiunta{
+    margin-top:20px;
     text-align:center;
     width:300px;
     heigth:95px;
@@ -20,17 +35,17 @@ input[type=text]{
     border-radius:10px;
 }
 
-#aggiuntaTitolo p{
+.aggiunta p{
     font-size:25px;
 }
 
-#aggiuntaTitolo:hover{
+.aggiunta:hover{
     background-color:rebeccapurple;
 }
 
 #admin{
     border-radius: 6px;
-    background-color: rebeccapurple;
+    background-color:#601194;
     width: 200px;
     height: 50px;
     position: fixed;
@@ -41,6 +56,10 @@ input[type=text]{
     font-size: 40px;
     text-align: center;
     display: inline-block;
+}
+
+#admin:hover{
+    background-color:rebeccapurple;
 }
 
 h1{
@@ -57,13 +76,7 @@ h1{
     display: inline-block;
 }
 
-#piattaforma{
-    width: 100%;
-    height: 600px;
-    text-align: center;
-}
-
-#fg{
+#formGioco{
     display:none
 }
 
@@ -123,21 +136,6 @@ input[type=file]{
 
 .piattaformaname:hover{
     background-color: rebeccapurple;
-}
-
-.prezzo\/data\/copie{
-    visibility: hidden;
-}
-
-.prezzo\/data\/copie input{
-    border-radius: 6px;
-    margin-top: 5px;
-}
-
-.prezzo\/data\/copie select{
-    border-radius: 6px;
-    margin-top: 5px;
-    width: 175px;
 }
 
 @media only screen and (max-width: 600px){
