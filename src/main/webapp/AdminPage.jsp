@@ -8,13 +8,12 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
-    <titlee>User1</titlee>
+    <title>UserPage </title>
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/UserPageStyle.css">
     <script type="text/javascript" src="javaScript/UserPageScript.js"></script>
 </head>
 <body>
-<%@include file="NavBar.jsp" %>
 <div id="user">
     <div id="utenteInfo">
         <img id="utenteimage" src="css/pictures/utenteGenerico.png">
@@ -34,6 +33,11 @@
             </div>
             <div class="bottoneImpostazioni" onclick="showMenu('m2')">
                 <p>Review</p>
+            </div>
+            <div class="bottoneLogout">
+                <form class="bottoneModifica" action="Logout">
+                    <input type="submit" value="Logout">
+                </form>
             </div>
         </div>
     </div>
