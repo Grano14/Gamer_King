@@ -97,6 +97,7 @@ public class AggiungiGioco extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        this.doGet(request,response);
     }
 
     public boolean uploadFile(InputStream is, String path){
