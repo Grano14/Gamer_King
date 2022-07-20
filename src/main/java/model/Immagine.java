@@ -3,10 +3,12 @@ package model;
 public class Immagine {
 
     private String path,videogioco;
+    private boolean principale;
 
-    public Immagine(String path,String videogioco) {
+    public Immagine(String path,String videogioco,boolean principale) {
         this.path = path;
         this.videogioco = videogioco;
+        this.principale = principale;
     }
 
     public String getPath() {
@@ -15,6 +17,14 @@ public class Immagine {
 
     public String getVideogioco() {
         return videogioco;
+    }
+
+    public boolean isPrincipale() {
+        return principale;
+    }
+
+    public void setPrincipale(boolean principale) {
+        this.principale = principale;
     }
 
     public void setVideogioco(String videogioco) {

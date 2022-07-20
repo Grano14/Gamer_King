@@ -9,11 +9,11 @@ public class ImmagineDAO {
 
     public static Immagine doRetriveById(String path){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select path, videogioco from Immagine where path=?");
+            PreparedStatement ps = con.prepareStatement("select path, videogioco, principale from Immagine where path=?");
             ps.setString(1, path);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                Immagine i = new Immagine(rs.getString(1), rs.getString(2));
+                Immagine i = new Immagine(rs.getString(1), rs.getString(2), rs.getBoolean(3));
                 return i;
             }
             return null;
@@ -25,9 +25,10 @@ public class ImmagineDAO {
 
     public static void doSave(Immagine i){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("insert into Immagine (path, videogioco) values (?,?)");
+            PreparedStatement ps = con.prepareStatement("insert into Immagine (path, videogioco,principale) values (?,?,?)");
             ps.setString(1, i.getPath());
             ps.setString(2, i.getVideogioco());
+            ps.setBoolean(3, i.isPrincipale());
             ps.execute();
         }
         catch (SQLException e){

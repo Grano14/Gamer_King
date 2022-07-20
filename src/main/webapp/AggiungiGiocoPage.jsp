@@ -13,13 +13,28 @@
     <title>Admin | Aggiungi gioco</title>
     <link rel="stylesheet" type="text/css" href="css/AggiungiGiocoStyle.css">
     <script type="text/javascript" src="javaScript/AggiungiGiocoScript.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#aggiuntaTitolo").click(function(){
+                $("#fg").toggle();
+            });
+        });
+    </script>
 </head>
 <body>
 <h1>AGGIUNGI VIDEOGIOCO</h1>
 <p id="admin">Admin</p>
-<form action="AggiungiGioco" method="post" enctype="multipart/form-data" >
 <div id="dati">
+
+    <div class="aggiunta" onclick="mostraENascondi('formGioco')">
+        <p>Aggiungi un nuovo titolo</p>
+    </div>
+
+<form id="formGioco" action="AggiungiGioco" method="post" enctype="multipart/form-data" >
+
     <div id="gioco">
+
         <input type="text" id="titolo" name="titolo" placeholder="Titolo del gioco"><br>
         <textarea id="descrizione" name="desc" placeholder="Inserisci una descrizione..."></textarea><br>
         <p>Seleziona generi</p>
@@ -53,109 +68,65 @@
         <label for="roughlik">Roughlik</label>
         <input type="checkbox" value="Open world" id="openworld" name="c15">
         <label for="openworld">Open World</label><br>
-        Carica immagine 1
-        <input type="file" name="immagine1" multiple>
-        Carica immagine 2
-        <input type="file" name="immagine2" multiple>
-        Carica immagine 3
-        <input type="file" name="immagine3" multiple>
-        <input type="submit" value="Aggiungi gioco">
+        <p>Carica immagine 1</p>
+            <label class="custom-file-upload">
+                <input type="file" name="immagine1" multiple>
+                Aggiungi
+            </label>
+            <p>Carica immagine 2</p>
+            <label class="custom-file-upload">
+                <input type="file" name="immagine2" multiple>
+                Aggiungi
+            </label>
+            <p>Carica immagine 3</p>
+            <label class="custom-file-upload">
+                <input type="file" name="immagine3" multiple>
+                Aggiungi
+            </label><br><br>
+        <div id="bottoneGioco">
+            <input type="submit" value="Aggiungi gioco">
+        </div>
+
     </div>
-</div>
+
 </form>
-<form action="AggiungiCopia" method="post">
-<div id="piattaforma">
-    <div id="pc" class="tasto">
-        <p class="piattaformaname" onclick="seeInput('pc', 'pcdate')">PC</p>
-        <div class="prezzo/data/copie" id="pcdate">
-            <p>Seleziona gioco</p>
-            <select name="giocopc">
-                <%
-                    int i = 0;
-                    ArrayList<Videogioco> l = VideogiocoDAO.doRetriveAll();
-                    for(i=0; i<l.size(); i++){
-                %>
-                <option value="<%=l.get(i).getTitolo()%>"><%=l.get(i).getTitolo()%></option>
-                <%}%>
-            </select>
-            <p>Prezzo</p>
-            <input type="text" name="prezzopc"><br>
-            <p>Data uscita</p>
-            <input type="date" name="datapc"><br>
-            <p>Numero di copie</p>
-            <input type="number" name="nCopiepc"><br>
-            <p>Codice copia</p><br>
-            <input type="text" name="idcopiapc">
-            <input type="submit" value="pc" name="submit">
-        </div>
+
+    <br>
+
+    <div class="aggiunta" onclick="mostraENascondi('formProdotto')">
+        <p>Aggiungi un prodotto</p>
     </div>
-    <div id="playstation" class="tasto">
-        <p class="piattaformaname" onclick="seeInput('playstation', 'playstationdate')">Playstation</p>
-        <div class="prezzo/data/copie" id="playstationdate">
-            <p>Seleziona gioco</p>
-            <select name="giocoplaystation">
-                <%
-                    for(i=0; i<l.size(); i++){
-                %>
-                <option value="<%=l.get(i).getTitolo()%>"><%=l.get(i).getTitolo()%></option>
-                <%}%>
-            </select>
-            <p>Prezzo</p>
-            <input type="text" name="prezzoplaystation"><br>
-            <p>Data uscita</p>
-            <input type="date" name="dataplaystation"><br>
-            <p>Numero di copie</p>
-            <input type="number" name="nCopieplaystation"><br>
-            <p>Codice copia</p><br>
-            <input type="text" name="idcopiaplaystation">
-            <input type="submit" value="playstation" name="submit">
-        </div>
-    </div>
-    <div id="nintendo" class="tasto">
-        <p class="piattaformaname" onclick="seeInput('nintendo', 'nintendodate')">Switch</p>
-        <div class="prezzo/data/copie" id="nintendodate">
-            <p>Seleziona gioco</p>
-            <select name="gioconintendo">
-                <%
-                    for(i=0; i<l.size(); i++){
-                %>
-                <option value="<%=l.get(i).getTitolo()%>"><%=l.get(i).getTitolo()%></option>
-                <%}%>
-            </select>
-            <p>Prezzo</p>
-            <input type="text" name="prezzonintendo"><br>
-            <p>Data uscita</p>
-            <input type="date" name="datanintendo"><br>
-            <p>Numero di copie</p>
-            <input type="number" name="nCopienintendo"><br>
-            <p>Codice copia</p><br>
-            <input type="text" name="idcopianintendo">
-            <input type="submit" value="nintendo" name="submit">
-        </div>
-    </div>
-    <div id="xbox" class="tasto">
-        <p class="piattaformaname" onclick="seeInput('xbox', 'xboxdate')">Xbox</p>
-        <div class="prezzo/data/copie" id="xboxdate">
-            <p>Seleziona gioco</p>
-            <select name="giocoxbox">
-                <%
-                    for(i=0; i<l.size(); i++){
-                %>
-                <option value="<%=l.get(i).getTitolo()%>"><%=l.get(i).getTitolo()%></option>
-                <%}%>
-            </select>
-            <p>Prezzo</p>
-            <input type="text" name="prezzoxbox"><br>
-            <p>Data uscita</p>
-            <input type="date" name="dataxbox"><br>
-            <p>Numero di copie</p>
-            <input type="number" name="nCopiexbox"><br>
-            <p>Codice copia</p><br>
-            <input type="text" name="idcopiaxbox">
-            <input type="submit" value="xbox" name="submit">
-        </div>
-    </div>
+
+    <form id="formProdotto" action="AggiungiCopia" method="post">
+        <p  id="selectGioco">Seleziona gioco</p>
+        <select name="gioco">
+            <%
+                int i = 0;
+                ArrayList<Videogioco> l = VideogiocoDAO.doRetriveAll();
+                for(i=0; i<l.size(); i++){
+            %>
+            <option value="<%=l.get(i).getTitolo()%>"><%=l.get(i).getTitolo()%></option>
+            <%}%>
+        </select><br>
+
+        <select name="piattaforma">
+            <option value="switch">Nintendo Switch</option>
+            <option value="playstation4">Playstation 4</option>
+            <option value="playstation5">Playstation 5</option>
+            <option value="xbox1">Xbox One</option>
+            <option value="xboxX">Xbox Series X</option>
+            <option value="pc">PC</option>
+        </select><br>
+
+        <label for="prezzo">Prezzo</label><br>
+        <input type="text" id="prezzo" name="prezzo" placeholder="Prezzo"><br>
+        <label for="datapc">Prezzo</label><br>
+        <input id="datapc" type="date" name="datapc"><br>
+        <label for="copie">Numero copie</label><br>
+        <input id="copie" type="number" name="nCopiepc"><br>
+        <input type="submit" name="submit">
+    </form>
+
 </div>
-</form>
 </body>
 </html>

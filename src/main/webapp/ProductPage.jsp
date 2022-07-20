@@ -92,7 +92,7 @@
             <script type="text/javascript">star(3);</script>
         </div>
 
-        <textarea id="testoRecensione" name="recensione" rows="4" cols="50">Scrivi la tua recensione...</textarea>
+        <textarea id="testoRecensione" name="recensione" rows="4" cols="50" placeholder="Scrivi la tua recensione..."></textarea>
 
         <input type="submit" value="Pubblica">
     </form>
