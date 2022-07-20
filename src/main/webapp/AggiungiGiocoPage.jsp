@@ -69,13 +69,13 @@
         <p class="piattaformaname" onclick="seeInput('pc', 'pcdate')">PC</p>
         <div class="prezzo/data/copie" id="pcdate">
             <p>Seleziona gioco</p>
-            <select name="gioco">
+            <select name="giocopc">
                 <%
                     int i = 0;
                     ArrayList<Videogioco> l = VideogiocoDAO.doRetriveAll();
                     for(i=0; i<l.size(); i++){
                 %>
-                <option value="<%=l.get(i).getCodice()%>"><%=l.get(i).getTitolo()%></option>
+                <option value="<%=l.get(i).getTitolo()%>"><%=l.get(i).getTitolo()%></option>
                 <%}%>
             </select>
             <p>Prezzo</p>
@@ -93,11 +93,11 @@
         <p class="piattaformaname" onclick="seeInput('playstation', 'playstationdate')">Playstation</p>
         <div class="prezzo/data/copie" id="playstationdate">
             <p>Seleziona gioco</p>
-            <select name="gioco">
+            <select name="giocoplaystation">
                 <%
                     for(i=0; i<l.size(); i++){
                 %>
-                <option value="<%=l.get(i).getCodice()%>"><%=l.get(i).getTitolo()%></option>
+                <option value="<%=l.get(i).getTitolo()%>"><%=l.get(i).getTitolo()%></option>
                 <%}%>
             </select>
             <p>Prezzo</p>
@@ -115,11 +115,11 @@
         <p class="piattaformaname" onclick="seeInput('nintendo', 'nintendodate')">Switch</p>
         <div class="prezzo/data/copie" id="nintendodate">
             <p>Seleziona gioco</p>
-            <select name="gioco">
+            <select name="gioconintendo">
                 <%
                     for(i=0; i<l.size(); i++){
                 %>
-                <option value="<%=l.get(i).getCodice()%>"><%=l.get(i).getTitolo()%></option>
+                <option value="<%=l.get(i).getTitolo()%>"><%=l.get(i).getTitolo()%></option>
                 <%}%>
             </select>
             <p>Prezzo</p>
@@ -137,11 +137,11 @@
         <p class="piattaformaname" onclick="seeInput('xbox', 'xboxdate')">Xbox</p>
         <div class="prezzo/data/copie" id="xboxdate">
             <p>Seleziona gioco</p>
-            <select name="gioco">
+            <select name="giocoxbox">
                 <%
                     for(i=0; i<l.size(); i++){
                 %>
-                <option value="<%=l.get(i).getCodice()%>"><%=l.get(i).getTitolo()%></option>
+                <option value="<%=l.get(i).getTitolo()%>"><%=l.get(i).getTitolo()%></option>
                 <%}%>
             </select>
             <p>Prezzo</p>

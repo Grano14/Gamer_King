@@ -8,10 +8,10 @@ import java.util.ArrayList;
 
 public class VideogiocoDAO {
 
-    public static Videogioco doRetriveById(String codice){
+    public static Videogioco doRetriveById(String titolo){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select titolo, descrizione from Videogioco where codice=?");
-            ps.setString(1, codice);
+            PreparedStatement ps = con.prepareStatement("select titolo, descrizione from Videogioco where titolo=?");
+            ps.setString(1, titolo);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
                 Videogioco v = new Videogioco(rs.getString(1), rs.getString(2));

@@ -17,9 +17,7 @@ public class AggiungiGioco extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //salvataggio gioco nella tabella videogioco + creazione random del codice gioco
-        Double c = 0.0;
-        Integer codice = 0;
+        //salvataggio gioco nella tabella videogioco
         ArrayList<Videogioco> l = VideogiocoDAO.doRetriveAll();
 
         String descrizione = request.getParameter("desc");
@@ -56,22 +54,28 @@ public class AggiungiGioco extends HttpServlet {
             String nomeGioco = request.getParameter("titolo");
             String dirPath = "C:\\Users\\Giuseppe Grano\\IdeaProjects\\Gamer_King\\src\\main\\webapp\\css\\gameImages\\" + nomeGioco;
             File f = new File(dirPath);
+            f.setWritable(true);
+            System.out.println(f.canWrite());
             f.mkdir();
 
             int i;
             for(i=0;i<3;i++){
                 String name = "immagine" + (i+1);
+                if(name == null)
+                    continue;
                 Part part = request.getPart(name);
                 String fileName = part.getSubmittedFileName();
 
-                String path = dirPath + "\\" + fileName;
+                String path = "css\\gameImages\\" + nomeGioco + "\\" + fileName;
+                //String pathCompleto = "C:/Users/Giuseppe Grano/IdeaProjects/Gamer_King/src/main/webapp/css/gameImages/" + fileName;
+                String pathCompleto = dirPath + "\\" + fileName;
 
                 //inserimento immagine nella tabella immagini(path, titoloGioco)
                 Immagine imm = new Immagine(path, nomeGioco);
                 ImmagineDAO.doSave(imm);
 
                 InputStream is = part.getInputStream();
-                boolean test = uploadFile(is, path);
+                boolean test = uploadFile(is, pathCompleto);
             }
             //fetch form data
             /*

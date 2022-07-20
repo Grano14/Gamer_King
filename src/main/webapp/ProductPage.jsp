@@ -29,7 +29,7 @@
                 <%for(int i=0; i<5; i++){%>
 
                 <li>
-                    <img class="altreFoto" src="css/pictures/avventuragame.jpg" onclick="">
+                    <img class="altreFoto" src="css/gameImages/The Last of Us part II/avventuragame.jpg" onclick="">
                 </li>
 
                 <%}%>

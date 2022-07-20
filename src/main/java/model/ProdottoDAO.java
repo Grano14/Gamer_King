@@ -27,7 +27,7 @@ public class ProdottoDAO {
 
     public static void doSave(Prodotto p){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("insert into Prodotto (piattaforma, visibilita, dataUscita, disponibilita, videogioco, nCopie, prezzo) values (?,?,?,?,?,?,?)");
+            PreparedStatement ps = con.prepareStatement("insert into Prodotto (piattaforma, visibilita, dataUscita, disponibilita, videogioco, numeroCopie, prezzo) values (?,?,?,?,?,?,?)");
             ps.setString(1, p.getPiattaforma());
             ps.setBoolean(2, p.isVisibilita());
             ps.setString(3, p.getDataUscita());
@@ -59,7 +59,7 @@ public class ProdottoDAO {
     public static ArrayList<Prodotto> doRetriveAll(){
         ArrayList<Prodotto> l = new ArrayList<>();
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select piattaforma, visibilita, datauscita, disponibilita, videogioco, nCopie, prezzo from Prodotto");
+            PreparedStatement ps = con.prepareStatement("select piattaforma, visibilita, datauscita, disponibilita, videogioco, numeroCopie, prezzo from Prodotto");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 Prodotto p = new Prodotto(rs.getString(1), rs.getString(3), rs.getString(5), rs.getBoolean(2), rs.getBoolean(4), rs.getDouble(7), rs.getInt(6));

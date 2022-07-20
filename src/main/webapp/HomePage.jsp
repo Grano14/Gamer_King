@@ -1,3 +1,5 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="model.Videogioco" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -17,17 +19,21 @@
         <img src="css/pictures/primoPiano.png">
     </div>
     <div id="giochi">
-        <p class="section">i più popolari</p><br>
-        <%for(int i=0; i<6; i++){%>
+        <p class="section">I più popolari</p><br>
+        <%
+            ArrayList<Videogioco> l = (ArrayList<Videogioco>) request.getAttribute("listaGiochi");
+            ArrayList<String> lImm = (ArrayList<String>) request.getAttribute("listaImmagini");
+            for(int i=0; i<l.size(); i++){
+        %>
         <div class="elemento">
-            <a href="#game"><img src="css/pictures/eldenRing.jpg"> </a>
-            GAME
+            <a href="#game"><img src="<%=lImm.get(i)%>"> </a>
+            <%=l.get(i).getTitolo()%>
         </div>
         <%}%>
         <p class="section">giochi di avventura</p>
         <%for(int i=0; i<6; i++){%>
         <div class="elemento">
-            <a href="#game"><img src="css/pictures/avventuragame.jpg"> </a>
+            <a href="#game"><img src="css/gameImages/The Last of Us part II/avventuragame.jpg"> </a>
             GAME
         </div>
         <%}%>
