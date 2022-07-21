@@ -90,7 +90,7 @@ function checkButtonProdotto(){
     if(document.getElementById("prezzo").style.backgroundColor == "lightgreen"
         && document.getElementById("selectPiattaforma").style.backgroundColor == "lightgreen"
         && document.getElementById("selectGioco").style.backgroundColor == "lightgreen"
-        && document.getElementById("datapc").style.backgroundColor == "lightgreen"
+        && document.getElementById("data").style.backgroundColor == "lightgreen"
         && document.getElementById("copie").style.backgroundColor == "lightgreen"
     )
     {

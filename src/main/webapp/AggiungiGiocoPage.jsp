@@ -128,10 +128,10 @@
             <input type="text" id="prezzo" name="prezzo" placeholder="Prezzo" onkeyup="validateNumeri('prezzo'),
             checkButtonProdotto()"><br>
 
-            <label for="datapc">Prezzo</label><br>
-            <input id="datapc" type="date" name="datapc" oninput="verdeData('datapc'),checkButtonProdotto()"><br>
+            <label for="data">Prezzo</label><br>
+            <input id="data" type="date" name="data" oninput="verdeData('data'),checkButtonProdotto()"><br>
             <label for="copie">Numero copie</label><br>
-            <input id="copie" type="number" name="nCopiepc" onkeyup="validateNumeri('copie'),checkButtonProdotto()"><br>
+            <input id="copie" type="number" name="nCopie" onkeyup="validateNumeri('copie'),checkButtonProdotto()"><br>
             <input id="bottoneProdotto" type="submit" name="submit">
         </form>
     </div>
