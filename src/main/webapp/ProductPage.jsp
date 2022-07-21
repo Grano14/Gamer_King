@@ -80,7 +80,11 @@
         Data Uscita <%=p.getDataUscita()%>
     </p>
     <p class="summary" id="generi">
-        Generi
+        <%
+            ArrayList<String> l = (ArrayList<String>)request.getAttribute("generi");
+            for(int i=0; i<l.size(); i++){
+        %>
+        <%=l.get(i)%>, <%}%>
     </p>
 </div>
 

@@ -25,6 +25,8 @@ public class CaricaProdotto extends HttpServlet {
         Prodotto p = ProdottoDAO.doRetriveById(titolo, piattaforma);
         ArrayList lImm = ImmagineDAO.getImagesByVideogame(titolo);
         String immaginePrincipale = ImmagineDAO.getMainImageByVideogame(titolo);
+        ArrayList<String> listaGeneri = AppartenereDAO.doRetriveGenereByVideogioco(titolo);
+        request.setAttribute("generi", listaGeneri);
         request.setAttribute("gioco", p);
         request.setAttribute("immagini", lImm);
         request.setAttribute("immPrincipale", immaginePrincipale);
