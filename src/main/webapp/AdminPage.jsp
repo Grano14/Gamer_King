@@ -11,6 +11,7 @@
     <title>UserPage </title>
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/UserPageStyle.css">
+    <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
     <script type="text/javascript" src="javaScript/UserPageScript.js"></script>
 </head>
 <body>

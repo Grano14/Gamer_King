@@ -17,3 +17,7 @@ function mostraENascondi(id){
         document.getElementById(id).style.display = "none"
     }
 }
+
+function verde(id){
+    document.getElementById(id).style.backgroundColor = "green";
+}

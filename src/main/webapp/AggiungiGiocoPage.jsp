@@ -12,19 +12,15 @@
 <head>
     <title>Admin | Aggiungi gioco</title>
     <link rel="stylesheet" type="text/css" href="css/AggiungiGiocoStyle.css">
+    <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
     <script type="text/javascript" src="javaScript/AggiungiGiocoScript.js"></script>
-
-    <script>
-        $(document).ready(function(){
-            $("#aggiuntaTitolo").click(function(){
-                $("#fg").toggle();
-            });
-        });
-    </script>
 </head>
 <body>
 <h1>AGGIUNGI VIDEOGIOCO</h1>
-<p id="admin">Admin</p>
+<a href="AdminPage.jsp" style="text-decoration:none;">
+    <p id="admin">Admin</p>
+</a>
+
 <div id="dati">
 
     <div class="aggiunta" onclick="mostraENascondi('formGioco')">
@@ -33,7 +29,7 @@
 
 <form id="formGioco" action="AggiungiGioco" method="post" enctype="multipart/form-data" >
 
-    <div id="gioco">
+    <div id="gioco" class="forms">
 
         <input type="text" id="titolo" name="titolo" placeholder="Titolo del gioco"><br>
         <textarea id="descrizione" name="desc" placeholder="Inserisci una descrizione..."></textarea><br>
@@ -69,18 +65,18 @@
         <input type="checkbox" value="Open world" id="openworld" name="c15">
         <label for="openworld">Open World</label><br>
         <p>Carica immagine 1</p>
-            <label class="custom-file-upload">
-                <input type="file" name="immagine1" multiple>
+            <label id="labl1" class="custom-file-upload">
+                <input type="file" name="immagine1" multiple oninput="verde('labl1')" >
                 Aggiungi
             </label>
             <p>Carica immagine 2</p>
-            <label class="custom-file-upload">
-                <input type="file" name="immagine2" multiple>
+            <label id="labl2" class="custom-file-upload">
+                <input type="file" name="immagine2" multiple oninput="verde('labl2')">
                 Aggiungi
             </label>
             <p>Carica immagine 3</p>
-            <label class="custom-file-upload">
-                <input type="file" name="immagine3" multiple>
+            <label id="labl3" class="custom-file-upload">
+                <input type="file" name="immagine3" multiple oninput="verde('labl3')">
                 Aggiungi
             </label><br><br>
         <div id="bottoneGioco">
@@ -95,37 +91,40 @@
 
     <div class="aggiunta" onclick="mostraENascondi('formProdotto')">
         <p>Aggiungi un prodotto</p>
+    </div><br>
+
+    <div id="prodotto" class="forms">
+        <form id="formProdotto" action="AggiungiCopia" method="post">
+            <p  id="selectGioco">Seleziona gioco</p>
+            <select name="gioco">
+                <%
+                    int i = 0;
+                    ArrayList<Videogioco> l = VideogiocoDAO.doRetriveAll();
+                    for(i=0; i<l.size(); i++){
+                %>
+                <option value="<%=l.get(i).getTitolo()%>"><%=l.get(i).getTitolo()%></option>
+                <%}%>
+            </select><br>
+
+            <select name="piattaforma">
+                <option value="switch">Nintendo Switch</option>
+                <option value="playstation4">Playstation 4</option>
+                <option value="playstation5">Playstation 5</option>
+                <option value="xbox1">Xbox One</option>
+                <option value="xboxX">Xbox Series X</option>
+                <option value="pc">PC</option>
+            </select><br>
+
+            <label for="prezzo">Prezzo</label><br>
+            <input type="text" id="prezzo" name="prezzo" placeholder="Prezzo"><br>
+            <label for="datapc">Prezzo</label><br>
+            <input id="datapc" type="date" name="datapc"><br>
+            <label for="copie">Numero copie</label><br>
+            <input id="copie" type="number" name="nCopiepc"><br>
+            <input type="submit" name="submit">
+        </form>
     </div>
 
-    <form id="formProdotto" action="AggiungiCopia" method="post">
-        <p  id="selectGioco">Seleziona gioco</p>
-        <select name="gioco">
-            <%
-                int i = 0;
-                ArrayList<Videogioco> l = VideogiocoDAO.doRetriveAll();
-                for(i=0; i<l.size(); i++){
-            %>
-            <option value="<%=l.get(i).getTitolo()%>"><%=l.get(i).getTitolo()%></option>
-            <%}%>
-        </select><br>
-
-        <select name="piattaforma">
-            <option value="switch">Nintendo Switch</option>
-            <option value="playstation4">Playstation 4</option>
-            <option value="playstation5">Playstation 5</option>
-            <option value="xbox1">Xbox One</option>
-            <option value="xboxX">Xbox Series X</option>
-            <option value="pc">PC</option>
-        </select><br>
-
-        <label for="prezzo">Prezzo</label><br>
-        <input type="text" id="prezzo" name="prezzo" placeholder="Prezzo"><br>
-        <label for="datapc">Prezzo</label><br>
-        <input id="datapc" type="date" name="datapc"><br>
-        <label for="copie">Numero copie</label><br>
-        <input id="copie" type="number" name="nCopiepc"><br>
-        <input type="submit" name="submit">
-    </form>
 
 </div>
 </body>
