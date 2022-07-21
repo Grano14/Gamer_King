@@ -66,20 +66,10 @@ function checkButtonGame(){
         document.getElementById("bottoneGioco").style.visibility = "hidden";
 }
 
-function validatePrezzo(id){
+function validateNumeri(id){
     var numero = document.getElementById(id).value;
-    if(!(isNaN(numero))) {
-        document.getElementById(id).style.backgroundColor = "ligthgreen";
-    }
-    else{
-        document.getElementById(id).style.backgroundColor = "lightpink";
-    }
-}
-
-function validateCopie(id){
-    var numero = document.getElementById(id).value;
-    if(Integer.parseInt(numero) >= 0) {
-        document.getElementById(id).style.backgroundColor = "ligthgreen";
+    if(numero >= 0 && !(isNaN(numero))) {
+        document.getElementById(id).style.backgroundColor = "lightgreen";
     }
     else{
         document.getElementById(id).style.backgroundColor = "lightpink";
@@ -98,7 +88,8 @@ function validateLista(id){
 
 function checkButtonProdotto(){
     if(document.getElementById("prezzo").style.backgroundColor == "lightgreen"
-        && document.getElementById("lpiattaforma").style.backgroundColor == "lightgreen"
+        && document.getElementById("selectPiattaforma").style.backgroundColor == "lightgreen"
+        && document.getElementById("selectGioco").style.backgroundColor == "lightgreen"
         && document.getElementById("datapc").style.backgroundColor == "lightgreen"
         && document.getElementById("copie").style.backgroundColor == "lightgreen"
     )

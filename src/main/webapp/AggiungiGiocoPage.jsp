@@ -14,20 +14,7 @@
     <link rel="stylesheet" type="text/css" href="css/AggiungiGiocoStyle.css">
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
     <script type="text/javascript" src="javaScript/AggiungiGiocoScript.js"></script>
-    <script>
-        $(document).ready(function(){
-            $("#mostraGioco").click(function(){
-                $("#formGioco").toggle();
-            });
-        });
-    </script>
-    <script>
-        $(document).ready(function(){
-            $("#mostraProdotto").click(function(){
-                $("#formProdotto").toggle();
-            });
-        });
-    </script>
+
 </head>
 <body>
 <h1>AGGIUNGI VIDEOGIOCO</h1>
@@ -37,7 +24,7 @@
 
 <div id="dati">
 
-    <div id="mostraGioco" class="aggiunta">
+    <div id="mostraGioco" class="aggiunta" onclick="mostraENascondi('formGioco')">
         <p>Aggiungi un nuovo titolo</p>
     </div>
 
@@ -107,14 +94,14 @@
 
     <br>
 
-    <div id="mostraProdotto" class="aggiunta">
+    <div class="aggiunta" onclick="mostraENascondi('formProdotto')">
         <p>Aggiungi un prodotto</p>
     </div><br>
 
     <div id="prodotto" class="forms">
         <form id="formProdotto" action="AggiungiCopia" method="post">
-            <p  id="selectGioco">Seleziona gioco</p>
-            <select name="gioco">
+            <label for="selectGioco">Seleziona gioco</label><br>
+            <select id="selectGioco" name="gioco" oninput="validateLista('selectGioco'),checkButtonProdotto()">
                 <option value="none"> </option>
                 <%
                     int i = 0;
@@ -125,8 +112,8 @@
                 <%}%>
             </select><br>
 
-            <label for="lpiattaforma">Piattaforma</label><br>
-            <select id="lpiattaforma" name="piattaforma" oninput="validateLista('lpiattaforma'),checkButtonGame()">
+            <label for="selectPiattaforma">Piattaforma</label><br>
+            <select id="selectPiattaforma" name="piattaforma" oninput="validateLista('lpiattaforma'),checkButtonProdotto()">
                 <option value="none"> </option>
                 <option value="switch">Nintendo Switch</option>
                 <option value="playstation4">Playstation 4</option>
@@ -138,13 +125,13 @@
 
             <label for="prezzo">Prezzo</label><br>
 
-            <input type="text" id="prezzo" name="prezzo" placeholder="Prezzo" onkeyup="validatePrezzo('prezzo'),
-            checkButtonGame()"><br>
+            <input type="text" id="prezzo" name="prezzo" placeholder="Prezzo" onkeyup="validateNumeri('prezzo'),
+            checkButtonProdotto()"><br>
 
             <label for="datapc">Prezzo</label><br>
-            <input id="datapc" type="date" name="datapc" oninput="verdeData('datapc'),checkButtonGame()"><br>
+            <input id="datapc" type="date" name="datapc" oninput="verdeData('datapc'),checkButtonProdotto()"><br>
             <label for="copie">Numero copie</label><br>
-            <input id="copie" type="number" name="nCopiepc" onkeyup="validatePrezzo('copie')"><br>
+            <input id="copie" type="number" name="nCopiepc" onkeyup="validateNumeri('copie'),checkButtonProdotto()"><br>
             <input id="bottoneProdotto" type="submit" name="submit">
         </form>
     </div>
