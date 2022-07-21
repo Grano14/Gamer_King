@@ -78,7 +78,7 @@ function validateNumeri(id){
 
 function validateLista(id){
     var nome = document.getElementById(id).value;
-    if(nome.length > 2){
+    if(nome.length > 1){
         document.getElementById(id).style.backgroundColor = "lightgreen";
     }
     else{
