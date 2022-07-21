@@ -4,6 +4,20 @@ body{
     font-family: "copperplate", fantasy;
 }
 
+#gioco{
+    width:70%;
+}
+
+#prodotto{
+    width:300px;
+}
+
+.forms{
+    background-color: rgb(70,70,70);
+    border-radius:30px;
+    margin-top:20px;
+}
+
 input[type=text],input[type=date],input[type=number],select{
     height: 30px;
     width:150px;
@@ -56,10 +70,6 @@ label{
     font-size: 40px;
     text-align: center;
     display: inline-block;
-}
-
-#admin:hover{
-    background-color:rebeccapurple;
 }
 
 h1{
@@ -134,8 +144,18 @@ input[type=file]{
     margin-top: 5px;
 }
 
-.piattaformaname:hover{
+.piattaformaname:hover, #admin:hover, input[type=submit]:hover,.custom-file-upload:hover{
     background-color: rebeccapurple;
+}
+
+a p{
+    color:white;
+}
+
+a:link, a:visited{
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }
 
 @media only screen and (max-width: 600px){

@@ -59,6 +59,7 @@ public class AggiungiGioco extends HttpServlet {
             f.mkdir();
 
             int i;
+            boolean principale=true;
             for(i=0;i<3;i++){
                 String name = "immagine" + (i+1);
                 Part part = request.getPart(name);
@@ -67,11 +68,12 @@ public class AggiungiGioco extends HttpServlet {
                 String path = dirPath + "\\" + fileName;
 
                 //inserimento immagine nella tabella immagini(path, titoloGioco)
-                Immagine imm = new Immagine(path, nomeGioco);
+                Immagine imm = new Immagine(path, nomeGioco, principale);
                 ImmagineDAO.doSave(imm);
 
                 InputStream is = part.getInputStream();
-                boolean test = uploadFile(is, path);
+                boolean test = uploadFile(is, path, principale);
+                principale=false;
             }
             //fetch form data
             /*
@@ -100,7 +102,7 @@ public class AggiungiGioco extends HttpServlet {
         this.doGet(request,response);
     }
 
-    public boolean uploadFile(InputStream is, String path){
+    public boolean uploadFile(InputStream is, String path, boolean principale){
         boolean test = false;
         try{
             byte[] byt = new byte[is.available()];
