@@ -54,8 +54,10 @@
 
         <div class="acquisto">
             <p class="titolo"><%=p.getVideogioco()%></p>
-            <p class="prezzo"><%=p.getPrezzo()%>€</p>
-
+            <p class="prezzo"><%String s = p.getPrezzo().toString();
+                if(!(s.contains("."))){s=s+".00";}
+                else{if(s.indexOf(".")==(s.length()-2)){s=s+"0";}}%><%=s%>€</p>
+            <p class="prezzo" id="piattaforma"><%=p.getPiattaforma()%></p>
             <div class="bottoniAM">
             <form class="bottoneAcquisto" action="">
                 <input type="hidden" name="id" value="">
@@ -87,7 +89,7 @@
             ArrayList<String> l = (ArrayList<String>)request.getAttribute("generi");
             for(int i=0; i<l.size(); i++){
         %>
-        <%=l.get(i)%>, <%}%>
+        <%=l.get(i)%> <%if(i!=l.size()-1){%>,<%}%> <%}%>
     </p>
 </div>
 
