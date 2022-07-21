@@ -8,10 +8,10 @@ import java.util.ArrayList;
 
 public class VideogiocoDAO {
 
-    public static Videogioco doRetriveById(String codice){
+    public static Videogioco doRetriveById(String titolo){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select titolo, descrizione from Videogioco where codice=?");
-            ps.setString(1, codice);
+            PreparedStatement ps = con.prepareStatement("select titolo, descrizione from Videogioco where titolo=?");
+            ps.setString(1, titolo);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
                 Videogioco v = new Videogioco(rs.getString(1), rs.getString(2));
@@ -60,6 +60,23 @@ public class VideogiocoDAO {
         }
         catch (SQLException e){
             throw  new RuntimeException(e);
+        }
+    }
+
+    public static ArrayList<Videogioco> doRetriveByGenere(String genere){
+        ArrayList<Videogioco> l = new ArrayList<>();
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("select titolo, descrizione from videogioco g, appartenere a where g.titolo=a.videogioco and a.genere=?");
+            ps.setString(1, genere);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Videogioco v = new Videogioco(rs.getString(1), rs.getString(2));
+                l.add(v);
+            }
+            return l;
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
         }
     }
 

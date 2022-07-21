@@ -7,12 +7,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.Acquirente;
-import model.AcquirenteDAO;
-import model.Utente;
-import model.UtenteDAO;
+import model.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet(name = "index", value = "/index.jsp")
 public class index extends HttpServlet {
@@ -25,6 +23,26 @@ public class index extends HttpServlet {
             session = request.getSession();
             session.setAttribute("nomeUtente", "LOGIN");
         }
+
+        ArrayList<Videogioco> lPrincipali = VideogiocoDAO.doRetriveAll();
+
+        ArrayList<String> listPath = new ArrayList<>();
+        int i;
+        for(i=0; i<lPrincipali.size();i++){
+            listPath.add(ImmagineDAO.getMainImageByVideogame(lPrincipali.get(i).getTitolo()));
+        }
+
+        request.setAttribute("listaGiochi", lPrincipali);
+        request.setAttribute("listaImmagini", listPath);
+
+        ArrayList<Videogioco> lAvventura = VideogiocoDAO.doRetriveByGenere("Avventura");
+        ArrayList<String> lPathAvv = new ArrayList<>();
+        for(i=0; i<lAvventura.size(); i++){
+            lPathAvv.add(ImmagineDAO.getMainImageByVideogame(lAvventura.get(i).getTitolo()));
+        }
+
+        request.setAttribute("listaGiochiAvv", lAvventura);
+        request.setAttribute("listaImmaginiAvv", lPathAvv);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("HomePage.jsp");
         requestDispatcher.forward(request, response);

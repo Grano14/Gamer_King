@@ -18,7 +18,7 @@
 <!-- creazione barra di navigazione-->
 <div id="navBar">
     <div id="logo" class="button">
-        <a href="HomePage.jsp"><img src="css/pictures/logo.png"></a>
+        <a href="index.jsp"><img src="css/pictures/logo.png"></a>
     </div>
     <div id="search">
         <form action="#cer" id="searchBarForm">

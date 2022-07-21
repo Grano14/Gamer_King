@@ -33,7 +33,7 @@ public class RegistraUtente extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("nomeUtente", nome);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("HomePage.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
         requestDispatcher.forward(request, response);
 
     }

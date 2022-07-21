@@ -29,7 +29,7 @@ public class AggiungiCopia extends HttpServlet {
         String data = request.getParameter("data"+piattafprma);
         String prezzo = request.getParameter("prezzo"+piattafprma);
         String nCopie = request.getParameter("nCopie"+piattafprma);
-        String titolo = request.getParameter("gioco");
+        String titolo = request.getParameter("gioco"+piattafprma);
         ArrayList<Prodotto> l = ProdottoDAO.doRetriveAll();
         boolean flag = true;
         int k = 0;

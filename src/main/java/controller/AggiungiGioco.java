@@ -17,9 +17,7 @@ public class AggiungiGioco extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //salvataggio gioco nella tabella videogioco + creazione random del codice gioco
-        Double c = 0.0;
-        Integer codice = 0;
+        //salvataggio gioco nella tabella videogioco
         ArrayList<Videogioco> l = VideogiocoDAO.doRetriveAll();
 
         String descrizione = request.getParameter("desc");
@@ -56,24 +54,34 @@ public class AggiungiGioco extends HttpServlet {
             String nomeGioco = request.getParameter("titolo");
             String dirPath = "C:\\Users\\Giuseppe Grano\\IdeaProjects\\Gamer_King\\src\\main\\webapp\\css\\gameImages\\" + nomeGioco;
             File f = new File(dirPath);
+            f.setWritable(true);
+            System.out.println(f.canWrite());
             f.mkdir();
 
             int i;
-            boolean principale=true;
             for(i=0;i<3;i++){
                 String name = "immagine" + (i+1);
                 Part part = request.getPart(name);
                 String fileName = part.getSubmittedFileName();
+                if(fileName.equals(""))
+                    continue;
 
-                String path = dirPath + "\\" + fileName;
+                String path = "css\\gameImages\\" + nomeGioco + "\\" + fileName;
+                //String pathCompleto = "C:/Users/Giuseppe Grano/IdeaProjects/Gamer_King/src/main/webapp/css/gameImages/" + fileName;
+                String pathCompleto = dirPath + "\\" + fileName;
 
                 //inserimento immagine nella tabella immagini(path, titoloGioco)
-                Immagine imm = new Immagine(path, nomeGioco, principale);
-                ImmagineDAO.doSave(imm);
+                if(i == 0){
+                    Immagine imm = new Immagine(path, nomeGioco, true);
+                    ImmagineDAO.doSave(imm);
+                }
+                else{
+                    Immagine imm = new Immagine(path, nomeGioco, false);
+                    ImmagineDAO.doSave(imm);
+                }
 
                 InputStream is = part.getInputStream();
-                boolean test = uploadFile(is, path, principale);
-                principale=false;
+                boolean test = uploadFile(is, pathCompleto);
             }
             //fetch form data
             /*
@@ -102,7 +110,7 @@ public class AggiungiGioco extends HttpServlet {
         this.doGet(request,response);
     }
 
-    public boolean uploadFile(InputStream is, String path, boolean principale){
+    public boolean uploadFile(InputStream is, String path){
         boolean test = false;
         try{
             byte[] byt = new byte[is.available()];

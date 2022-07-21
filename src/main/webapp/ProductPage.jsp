@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="model.Videogioco" %><%--
   Created by IntelliJ IDEA.
   User: utente
   Date: 16/06/2022
@@ -26,10 +27,13 @@
         <div id="setImmagini">
             <ul class="fotoProdotto">
 
-                <%for(int i=0; i<5; i++){%>
+                <%
+                    Videogioco v = (Videogioco) request.getAttribute("gioco");
+                    ArrayList<String> lImm = (ArrayList<String>) request.getAttribute("immagini");
+                    for(int i=0; i<lImm.size(); i++){%>
 
                 <li>
-                    <img class="altreFoto" src="css/pictures/avventuragame.jpg" onclick="">
+                    <img class="altreFoto" src="<%=lImm.get(i)%>" onclick="">
                 </li>
 
                 <%}%>
@@ -39,11 +43,13 @@
         </div>
 
         <div class="immagine2">
-            <img id="secondaria" src="css/pictures/eldenRing.jpg">
+            <%String path = (String) request.getAttribute("immPrincipale");
+            System.out.println(path);%>
+            <img id="secondaria" src="<%=path%>">
         </div>
 
         <div class="acquisto">
-            <p class="titolo">Nome Gioco</p>
+            <p class="titolo"><%=v.getTitolo()%></p>
             <p class="prezzo">Prezzo</p>
 
             <div class="bottoniAM">
@@ -67,15 +73,7 @@
 <div id="descrizione">
     <p class="titolo">Descrizione</p>
     <p class="summary" id="trama">
-        Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
-        Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
-        Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
-        Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
-        Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
-        Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
-        Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
-        Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
-        Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione
+        <%=v.getDescrizione()%>
     </p>
     <p class="summary" id="dataUscita">
         Data Uscita
