@@ -19,12 +19,16 @@ public class CaricaProdotto extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String titolo = request.getParameter("titolo");
+        String piattaforma = request.getParameter("piattaforma");
         Videogioco v = VideogiocoDAO.doRetriveById(titolo);
+        String d = v.getDescrizione();
+        Prodotto p = ProdottoDAO.doRetriveById(titolo, piattaforma);
         ArrayList lImm = ImmagineDAO.getImagesByVideogame(titolo);
         String immaginePrincipale = ImmagineDAO.getMainImageByVideogame(titolo);
-        request.setAttribute("gioco", v);
+        request.setAttribute("gioco", p);
         request.setAttribute("immagini", lImm);
         request.setAttribute("immPrincipale", immaginePrincipale);
+        request.setAttribute("descrizione", d);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("ProductPage.jsp");
         requestDispatcher.forward(request, response);

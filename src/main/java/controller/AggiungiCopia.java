@@ -25,26 +25,40 @@ public class AggiungiCopia extends HttpServlet {
             throws ServletException, IOException {
 
         //inserimento prodotto nella tabella
-        String piattafprma = request.getParameter("submit");
-        String data = request.getParameter("data"+piattafprma);
-        String prezzo = request.getParameter("prezzo"+piattafprma);
-        String nCopie = request.getParameter("nCopie"+piattafprma);
-        String titolo = request.getParameter("gioco"+piattafprma);
+        String piattaforma = request.getParameter("piattaforma");
+        String data = request.getParameter("data");
+        String prezzo = request.getParameter("prezzo");
+        String nCopie = request.getParameter("nCopie");
+        String titolo = request.getParameter("gioco");
         ArrayList<Prodotto> l = ProdottoDAO.doRetriveAll();
         boolean flag = true;
         int k = 0;
         for(k=0; k<l.size(); k++){
-            if(l.get(k).getVideogioco().equals(titolo) && l.get(k).getPiattaforma().equals(piattafprma))
+            if(l.get(k).getVideogioco().equals(titolo) && l.get(k).getPiattaforma().equals(piattaforma))
                 flag = false;
         }
         if(flag == true){
-            Prodotto p = new Prodotto(piattafprma, data, titolo, true, true, Double.parseDouble(prezzo), Integer.parseInt(nCopie));
+            Prodotto p = new Prodotto(piattaforma, data, titolo, true, true, Double.parseDouble(prezzo), Integer.parseInt(nCopie));
             ProdottoDAO.doSave(p);
         }
 
         //inserimento copia nella tabella
-        String copia = request.getParameter("idcopia"+piattafprma);
-        Copia c = new Copia(copia, titolo, piattafprma);
+        Integer codice = 0;
+        flag = false;
+        while (flag == false){
+            flag = true;
+            Double c = 0.0;
+            c = Math.random()*20000+20000;
+            codice = c.intValue();
+            ArrayList<Copia> lCopia = CopiaDAO.doRetriveAll();
+            for(int p=0; p<lCopia.size(); p++){
+                if(lCopia.get(p).getIdCopia().equals(codice.toString())){
+                    flag = false;
+                }
+            }
+        }
+
+        Copia c = new Copia(codice.toString(), titolo, piattaforma);
         CopiaDAO.doSave(c);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("AggiungiGiocoPage.jsp");

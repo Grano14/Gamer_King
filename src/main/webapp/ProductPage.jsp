@@ -1,5 +1,5 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="model.Videogioco" %><%--
+<%@ page import="model.*" %><%--
   Created by IntelliJ IDEA.
   User: utente
   Date: 16/06/2022
@@ -28,7 +28,8 @@
             <ul class="fotoProdotto">
 
                 <%
-                    Videogioco v = (Videogioco) request.getAttribute("gioco");
+                    String d = (String)request.getAttribute("descrizione");
+                    Prodotto p = (Prodotto) request.getAttribute("gioco");
                     ArrayList<String> lImm = (ArrayList<String>) request.getAttribute("immagini");
                     for(int i=0; i<lImm.size(); i++){%>
 
@@ -49,8 +50,8 @@
         </div>
 
         <div class="acquisto">
-            <p class="titolo"><%=v.getTitolo()%></p>
-            <p class="prezzo">Prezzo</p>
+            <p class="titolo"><%=p.getVideogioco()%></p>
+            <p class="prezzo"><%=p.getPrezzo()%>€</p>
 
             <div class="bottoniAM">
             <form class="bottoneAcquisto" action="">
@@ -73,10 +74,10 @@
 <div id="descrizione">
     <p class="titolo">Descrizione</p>
     <p class="summary" id="trama">
-        <%=v.getDescrizione()%>
+        <%=d%>
     </p>
     <p class="summary" id="dataUscita">
-        Data Uscita
+        Data Uscita <%=p.getDataUscita()%>
     </p>
     <p class="summary" id="generi">
         Generi
