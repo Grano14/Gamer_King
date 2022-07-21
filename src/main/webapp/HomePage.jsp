@@ -20,7 +20,7 @@
         <img src="css/pictures/primoPiano.png">
     </div>
     <div id="giochi">
-        <p class="section">I più popolari</p><br>
+        <p class="section">I PIù POPOLARI</p><br>
         <%
             ArrayList<Prodotto> l = (ArrayList<Prodotto>) request.getAttribute("listaGiochi");
             ArrayList<String> lImm = (ArrayList<String>) request.getAttribute("listaImmagini");
@@ -28,17 +28,29 @@
         %>
         <div class="elemento">
             <a href="CaricaProdotto?titolo=<%=l.get(i).getVideogioco()%>&piattaforma=<%=l.get(i).getPiattaforma()%>"><img src="<%=lImm.get(i)%>"> </a>
-            <%=l.get(i).getVideogioco()%> | <%=l.get(i).getPiattaforma()%>  <%=l.get(i).getPrezzo()%>€
+           <%=l.get(i).getVideogioco()%> |  <%=l.get(i).getPrezzo()%>€ <%String pia = l.get(i).getPiattaforma();
+                if(pia.equals("playstation5")){%><img style="margin-top: 5px" src="css/pictures/ps530.png"> <%}%>
+            <%if(pia.equals("playstation4")){%><img style="margin-top: 5px" src="css/pictures/ps430.png"> <%}%>
+            <%if(pia.equals("pc")){%><img style="margin-top: 5px" src="css/pictures/pc30.png"> <%}%>
+            <%if(pia.equals("switch")){%><img style="margin-top: 5px" src="css/pictures/switch30.png"> <%}%>
+            <%if(pia.equals("xbox1")){%><img style="margin-top: 5px" src="css/pictures/xboxone30.png"> <%}%>
+            <%if(pia.equals("xboxX")){%><img style="margin-top: 5px" src="css/pictures/xboxonex30.png"> <%}%>
         </div>
         <%}%>
-        <p class="section">giochi di avventura</p>
+        <p class="section">ULTIME USCITE</p>
         <%
-            ArrayList<Videogioco> lAvv = (ArrayList<Videogioco>) request.getAttribute("listaGiochiAvv");
-            ArrayList<String> lImmAvv = (ArrayList<String>) request.getAttribute("listaImmaginiAvv");
-            for(int i=0; i<lAvv.size(); i++){%>
+            ArrayList<Prodotto> lRecenti = (ArrayList<Prodotto>) request.getAttribute("listaGiochiRecenti");
+            ArrayList<String> lImmRecenti = (ArrayList<String>) request.getAttribute("listaImmaginiRecenti");
+            for(int i=0; i<lRecenti.size(); i++){%>
         <div class="elemento">
-            <a href="CaricaProdotto"><img src="<%=lImmAvv.get(i)%>"> </a>
-            <%=lAvv.get(i).getTitolo()%>
+            <a href="CaricaProdotto?titolo=<%=lRecenti.get(i).getVideogioco()%>&piattaforma=<%=lRecenti.get(i).getPiattaforma()%>"><img src="<%=lImmRecenti.get(i)%>"> </a>
+            <%=lRecenti.get(i).getVideogioco()%> |  <%=l.get(i).getPrezzo()%>€ <%String pia = l.get(i).getPiattaforma();
+            if(pia.equals("playstation5")){%><img style="margin-top: 5px" src="css/pictures/ps530.png"> <%}%>
+            <%if(pia.equals("playstation4")){%><img style="margin-top: 5px" src="css/pictures/ps430.png"> <%}%>
+            <%if(pia.equals("pc")){%><img style="margin-top: 5px" src="css/pictures/pc30.png"> <%}%>
+            <%if(pia.equals("switch")){%><img style="margin-top: 5px" src="css/pictures/switch30.png"> <%}%>
+            <%if(pia.equals("xbox1")){%><img style="margin-top: 5px" src="css/pictures/xboxone30.png"> <%}%>
+            <%if(pia.equals("xboxX")){%><img style="margin-top: 5px" src="css/pictures/xboxonex30.png"> <%}%>
         </div>
         <%}%>
     </div>

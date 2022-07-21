@@ -35,14 +35,14 @@ public class index extends HttpServlet {
         request.setAttribute("listaGiochi", lPrincipali);
         request.setAttribute("listaImmagini", listPath);
 
-        ArrayList<Videogioco> lAvventura = VideogiocoDAO.doRetriveByGenere("Avventura");
+        ArrayList<Prodotto> lAvventura = ProdottoDAO.doRetriveByData();
         ArrayList<String> lPathAvv = new ArrayList<>();
         for(i=0; i<lAvventura.size(); i++){
-            lPathAvv.add(ImmagineDAO.getMainImageByVideogame(lAvventura.get(i).getTitolo()));
+            lPathAvv.add(ImmagineDAO.getMainImageByVideogame(lAvventura.get(i).getVideogioco()));
         }
 
-        request.setAttribute("listaGiochiAvv", lAvventura);
-        request.setAttribute("listaImmaginiAvv", lPathAvv);
+        request.setAttribute("listaGiochiRecenti", lAvventura);
+        request.setAttribute("listaImmaginiRecenti", lPathAvv);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("HomePage.jsp");
         requestDispatcher.forward(request, response);

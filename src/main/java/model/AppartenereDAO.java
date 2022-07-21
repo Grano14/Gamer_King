@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class AppartenereDAO {
 
@@ -42,6 +43,22 @@ public class AppartenereDAO {
             ps.setString(1, videogioco);
             ps.setString(2, genere);
             ps.execute();
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static ArrayList<String> doRetriveGenereByVideogioco(String videogioco){
+        ArrayList<String> l = new ArrayList<>();
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("select genere from appartenere where videogioco=?");
+            ps.setString(1, videogioco);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                l.add(rs.getString(1));
+            }
+            return l;
         }
         catch (SQLException e){
             throw new RuntimeException(e);
