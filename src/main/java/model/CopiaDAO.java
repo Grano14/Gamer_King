@@ -52,4 +52,20 @@ public class CopiaDAO {
         }
     }
 
+    public static ArrayList<Copia> doRetriveAll(){
+        ArrayList<Copia> l = new ArrayList<>();
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("select IdCopia, videogioco, piattaforma from Copia");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Copia c = new Copia(rs.getString(1), rs.getString(2), rs.getString(3));
+                l.add(c);
+            }
+            return l;
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 }

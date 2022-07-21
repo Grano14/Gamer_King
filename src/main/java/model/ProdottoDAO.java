@@ -10,7 +10,7 @@ public class ProdottoDAO {
 
     public static Prodotto doRetriveById(String videogioco, String piattaforma){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select piattaforma, visibilita, datauscita, disponibilita, videogioco, nCopie, prezzo from Prodotto where videogioco=? and piattaforma=?");
+            PreparedStatement ps = con.prepareStatement("select piattaforma, visibilita, datauscita, disponibilita, videogioco, numeroCopie, prezzo from Prodotto where videogioco=? and piattaforma=?");
             ps.setString(1, videogioco);
             ps.setString(2, piattaforma);
             ResultSet rs = ps.executeQuery();

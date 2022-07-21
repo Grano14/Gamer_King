@@ -24,12 +24,12 @@ public class index extends HttpServlet {
             session.setAttribute("nomeUtente", "LOGIN");
         }
 
-        ArrayList<Videogioco> lPrincipali = VideogiocoDAO.doRetriveAll();
+        ArrayList<Prodotto> lPrincipali = ProdottoDAO.doRetriveAll();
 
         ArrayList<String> listPath = new ArrayList<>();
         int i;
         for(i=0; i<lPrincipali.size();i++){
-            listPath.add(ImmagineDAO.getMainImageByVideogame(lPrincipali.get(i).getTitolo()));
+            listPath.add(ImmagineDAO.getMainImageByVideogame(lPrincipali.get(i).getVideogioco()));
         }
 
         request.setAttribute("listaGiochi", lPrincipali);

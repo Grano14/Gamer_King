@@ -1,5 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="model.Videogioco" %>
+<%@ page import="model.Prodotto" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -21,13 +22,13 @@
     <div id="giochi">
         <p class="section">I più popolari</p><br>
         <%
-            ArrayList<Videogioco> l = (ArrayList<Videogioco>) request.getAttribute("listaGiochi");
+            ArrayList<Prodotto> l = (ArrayList<Prodotto>) request.getAttribute("listaGiochi");
             ArrayList<String> lImm = (ArrayList<String>) request.getAttribute("listaImmagini");
             for(int i=0; i<l.size(); i++){
         %>
         <div class="elemento">
-            <a href="CaricaProdotto?titolo=<%=l.get(i).getTitolo()%>"><img src="<%=lImm.get(i)%>"> </a>
-            <%=l.get(i).getTitolo()%>
+            <a href="CaricaProdotto?titolo=<%=l.get(i).getVideogioco()%>&piattaforma=<%=l.get(i).getPiattaforma()%>"><img src="<%=lImm.get(i)%>"> </a>
+            <%=l.get(i).getVideogioco()%> | <%=l.get(i).getPiattaforma()%>  <%=l.get(i).getPrezzo()%>€
         </div>
         <%}%>
         <p class="section">giochi di avventura</p>

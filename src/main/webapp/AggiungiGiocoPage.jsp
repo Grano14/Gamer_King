@@ -7,7 +7,6 @@
   Time: 17:48
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Admin | Aggiungi gioco</title>
@@ -117,15 +116,16 @@
 
             <label for="prezzo">Prezzo</label><br>
             <input type="text" id="prezzo" name="prezzo" placeholder="Prezzo"><br>
-            <label for="datapc">Prezzo</label><br>
-            <input id="datapc" type="date" name="datapc"><br>
+            <label for="data">Prezzo</label><br>
+            <input id="data" type="date" name="data"><br>
             <label for="copie">Numero copie</label><br>
-            <input id="copie" type="number" name="nCopiepc"><br>
+            <input id="copie" type="number" name="nCopie"><br>
             <input type="submit" name="submit">
         </form>
     </div>
 
 
 </div>
+
 </body>
 </html>
