@@ -113,7 +113,7 @@
             </select><br>
 
             <label for="selectPiattaforma">Piattaforma</label><br>
-            <select id="selectPiattaforma" name="piattaforma" oninput="validateLista('lpiattaforma'),checkButtonProdotto()">
+            <select id="selectPiattaforma" name="piattaforma" oninput="validateLista('selectPiattaforma'),checkButtonProdotto()">
                 <option value="none"> </option>
                 <option value="switch">Nintendo Switch</option>
                 <option value="playstation4">Playstation 4</option>
