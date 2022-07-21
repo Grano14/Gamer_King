@@ -16,6 +16,7 @@
 </head>
 <body>
 
+<script type="text/javascript" src="javaScript/ProdottoScript.js"></script>
 <script type="text/javascript" src="javaScript/StelleScript.js"></script>
 
 <%@include file="NavBar.jsp" %>
@@ -34,7 +35,9 @@
                     for(int i=0; i<lImm.size(); i++){%>
 
                 <li>
-                    <img class="altreFoto" src="<%=lImm.get(i)%>" onclick="">
+                    <img class="altreFoto" id="immagine<%=i%>" src="<%=lImm.get(i)%>"
+                         onclick="changeImmagine('immagine<%=i%>','secondaria')">
+
                 </li>
 
                 <%}%>
