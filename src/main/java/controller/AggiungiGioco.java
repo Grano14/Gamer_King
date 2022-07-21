@@ -67,7 +67,7 @@ public class AggiungiGioco extends HttpServlet {
                     continue;
 
                 String path = "css\\gameImages\\" + nomeGioco + "\\" + fileName;
-                //String pathCompleto = "C:/Users/Giuseppe Grano/IdeaProjects/Gamer_King/src/main/webapp/css/gameImages/" + fileName;
+                //String pathCompleto = "C:/Users/Giuseppe utente/IdeaProjects/Gamer_King/src/main/webapp/css/gameImages/" + fileName;
                 String pathCompleto = dirPath + "\\" + fileName;
 
                 //inserimento immagine nella tabella immagini(path, titoloGioco)
