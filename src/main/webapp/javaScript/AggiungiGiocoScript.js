@@ -1,11 +1,12 @@
 
 function mostraENascondi(id){
-    if(document.getElementById(id).style.display == "none") {
-        document.getElementById(id).style.display = "block";
-    }
-    else {
-        document.getElementById(id).style.display = "none";
-    }
+    var style = document.getElementById(id).style.display;
+    if(style == "block")
+        style = "none";
+    else
+        style = "block";
+
+        document.getElementById(id).style.display=style;
 }
 
 function verde(id){
