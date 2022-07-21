@@ -24,16 +24,25 @@ public class index extends HttpServlet {
             session.setAttribute("nomeUtente", "LOGIN");
         }
 
-        ArrayList<Videogioco> l = VideogiocoDAO.doRetriveAll();
+        ArrayList<Videogioco> lPrincipali = VideogiocoDAO.doRetriveAll();
 
         ArrayList<String> listPath = new ArrayList<>();
         int i;
-        for(i=0; i<l.size();i++){
-            listPath.add(ImmagineDAO.getMainImageByVideogame(l.get(i).getTitolo()));
+        for(i=0; i<lPrincipali.size();i++){
+            listPath.add(ImmagineDAO.getMainImageByVideogame(lPrincipali.get(i).getTitolo()));
         }
 
-        request.setAttribute("listaGiochi", l);
+        request.setAttribute("listaGiochi", lPrincipali);
         request.setAttribute("listaImmagini", listPath);
+
+        ArrayList<Videogioco> lAvventura = VideogiocoDAO.doRetriveByGenere("Avventura");
+        ArrayList<String> lPathAvv = new ArrayList<>();
+        for(i=0; i<lAvventura.size(); i++){
+            lPathAvv.add(ImmagineDAO.getMainImageByVideogame(lAvventura.get(i).getTitolo()));
+        }
+
+        request.setAttribute("listaGiochiAvv", lAvventura);
+        request.setAttribute("listaImmaginiAvv", lPathAvv);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("HomePage.jsp");
         requestDispatcher.forward(request, response);

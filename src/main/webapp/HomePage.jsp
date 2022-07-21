@@ -26,15 +26,18 @@
             for(int i=0; i<l.size(); i++){
         %>
         <div class="elemento">
-            <a href="#game"><img src="<%=lImm.get(i)%>"> </a>
+            <a href="CaricaProdotto?titolo=<%=l.get(i).getTitolo()%>"><img src="<%=lImm.get(i)%>"> </a>
             <%=l.get(i).getTitolo()%>
         </div>
         <%}%>
         <p class="section">giochi di avventura</p>
-        <%for(int i=0; i<6; i++){%>
+        <%
+            ArrayList<Videogioco> lAvv = (ArrayList<Videogioco>) request.getAttribute("listaGiochiAvv");
+            ArrayList<String> lImmAvv = (ArrayList<String>) request.getAttribute("listaImmaginiAvv");
+            for(int i=0; i<lAvv.size(); i++){%>
         <div class="elemento">
-            <a href="#game"><img src="css/gameImages/The Last of Us part II/avventuragame.jpg"> </a>
-            GAME
+            <a href="CaricaProdotto"><img src="<%=lImmAvv.get(i)%>"> </a>
+            <%=lAvv.get(i).getTitolo()%>
         </div>
         <%}%>
     </div>

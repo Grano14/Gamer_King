@@ -63,4 +63,21 @@ public class VideogiocoDAO {
         }
     }
 
+    public static ArrayList<Videogioco> doRetriveByGenere(String genere){
+        ArrayList<Videogioco> l = new ArrayList<>();
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("select titolo, descrizione from videogioco g, appartenere a where g.titolo=a.videogioco and a.genere=?");
+            ps.setString(1, genere);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Videogioco v = new Videogioco(rs.getString(1), rs.getString(2));
+                l.add(v);
+            }
+            return l;
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 }

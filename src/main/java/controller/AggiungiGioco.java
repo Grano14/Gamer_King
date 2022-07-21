@@ -61,18 +61,24 @@ public class AggiungiGioco extends HttpServlet {
             int i;
             for(i=0;i<3;i++){
                 String name = "immagine" + (i+1);
-                if(name == null)
-                    continue;
                 Part part = request.getPart(name);
                 String fileName = part.getSubmittedFileName();
+                if(fileName.equals(""))
+                    continue;
 
                 String path = "css\\gameImages\\" + nomeGioco + "\\" + fileName;
                 //String pathCompleto = "C:/Users/Giuseppe Grano/IdeaProjects/Gamer_King/src/main/webapp/css/gameImages/" + fileName;
                 String pathCompleto = dirPath + "\\" + fileName;
 
                 //inserimento immagine nella tabella immagini(path, titoloGioco)
-                Immagine imm = new Immagine(path, nomeGioco);
-                ImmagineDAO.doSave(imm);
+                if(i == 0){
+                    Immagine imm = new Immagine(path, nomeGioco, true);
+                    ImmagineDAO.doSave(imm);
+                }
+                else{
+                    Immagine imm = new Immagine(path, nomeGioco, false);
+                    ImmagineDAO.doSave(imm);
+                }
 
                 InputStream is = part.getInputStream();
                 boolean test = uploadFile(is, pathCompleto);

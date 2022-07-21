@@ -34,7 +34,7 @@ public class AccessoUtente extends HttpServlet {
                     address = "AdminPage.jsp";
                 }
                 else{
-                    address = "HomePage.jsp";
+                    address = "index.jsp";
                 }
             }
         }
