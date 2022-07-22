@@ -27,7 +27,7 @@ function barEffect(){
 
 function selectedPiattaforma(bottone, piattaforma){
     if(document.getElementById(piattaforma).value == "false"){
-        document.getElementById(piattaforma).value = "true";
+        document.getElementById(piattaforma).value = piattaforma;
         bottone.style.opacity = "0.5";
     }
     else{

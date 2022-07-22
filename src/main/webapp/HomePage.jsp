@@ -20,7 +20,7 @@
         <img src="css/pictures/primoPiano.png">
     </div>
     <div id="giochi">
-        <p class="section">I PIù POPOLARI</p><br>
+        <p class="section">I PIÙ POPOLARI</p><br>
         <%
             ArrayList<Prodotto> l = (ArrayList<Prodotto>) request.getAttribute("listaGiochi");
             ArrayList<String> lImm = (ArrayList<String>) request.getAttribute("listaImmagini");

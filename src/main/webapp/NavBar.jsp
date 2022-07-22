@@ -55,21 +55,21 @@
 
 
 <div id="menuAvanzato">
-    <form>
+    <form action="RisultatoFiltro">
         <div class="sezione">
             <p class="paragrafiReserch">Scegli una piattaforma</p>
             <input type="button" class="bottone" title="playstation 5" style="background-image: url('css/pictures/playstation5.png')" onclick="selectedPiattaforma(this, 'playstation5')">
-            <input type="hidden" id="playstation5" value="false">
+            <input type="hidden" id="playstation5" name="hide1" value="false">
             <input type="button" class="bottone" title="playstation 4" style="background-image: url('css/pictures/playstation4.png')" onclick="selectedPiattaforma(this, 'playstation4')">
-            <input type="hidden" id="playstation4" value="false">
-            <input type="button" class="bottone" title="xbox one" style="background-image: url('css/pictures/xbox.png')" onclick="selectedPiattaforma(this, 'xbox one')">
-            <input type="hidden" id="xbox one" value="false">
-            <input type="button" class="bottone" title="xbox one x" style="background-image: url('css/pictures/xboxonex.png')" onclick="selectedPiattaforma(this, 'xbox one x')">
-            <input type="hidden" id="xbox one x" value="false">
-            <input type="button" class="bottone" title="nintendo switch" style="background-image: url('css/pictures/nintendo.png')" onclick="selectedPiattaforma(this, 'nintendo')">
-            <input type="hidden" id="nintendo" value="false">
+            <input type="hidden" id="playstation4" name="hide2" value="false">
+            <input type="button" class="bottone" title="xbox one" style="background-image: url('css/pictures/xbox.png')" onclick="selectedPiattaforma(this, 'xbox1')">
+            <input type="hidden" id="xbox1" name="hide3" value="false">
+            <input type="button" class="bottone" title="xbox one x" style="background-image: url('css/pictures/xboxonex.png')" onclick="selectedPiattaforma(this, 'xboxX')">
+            <input type="hidden" id="xboxX" name="hide4" value="false">
+            <input type="button" class="bottone" title="nintendo switch" style="background-image: url('css/pictures/nintendo.png')" onclick="selectedPiattaforma(this, 'switch')">
+            <input type="hidden" id="switch" name="hide5" value="false">
             <input type="button" class="bottone" title="pc" style="background-image: url('css/pictures/pc.png')" onclick="selectedPiattaforma(this, 'pc')">
-            <input type="hidden" id="pc" value="false">
+            <input type="hidden" id="pc" name="hide6" value="false">
         </div>
         <div class="sezione" id="generi">
             <p class="paragrafiReserch" style="text-align: center">Scegli un genere</p>
@@ -80,35 +80,35 @@
             <input type="hidden" id="fantasy" value="false">
             <input type="button" class="bottone" style="background-image: url('css/pictures/sparatutto.png')" title="Sparatutto" onclick="selectedPiattaforma(this, 'sparatutto')">
             <input type="hidden" id="sparatutto" value="false">-->
-            <input type="checkbox" value="avventura" id="avventura">
+            <input type="checkbox" value="Avventura" name="check1" id="avventura">
             <label for="avventura">Avventura</label><br>
-            <input type="checkbox" value="fantasy" id="fantasy">
+            <input type="checkbox" value="Fantasy" name="check2" id="fantasy">
             <label for="fantasy">Fantasy</label><br>
-            <input type="checkbox" value="horror" id="horror">
+            <input type="checkbox" value="Horror" name="check3" id="horror">
             <label for="horror">Horror</label><br>
-            <input type="checkbox" value="sci-fa" id="sci-fi">
+            <input type="checkbox" value="Sci-fi" name="check4" id="sci-fi">
             <label for="sci-fi">Sci-Fi</label><br>
-            <input type="checkbox" value="sparatutto" id="sparatutto">
+            <input type="checkbox" value="Sparatutto" name="check5" id="sparatutto">
             <label for="sparatutto">Sparatutto</label><br>
-            <input type="checkbox" value="picchiaduro" id="picchiaduro">
+            <input type="checkbox" value="Picchiaduro" name="check6" id="picchiaduro">
             <label for="picchiaduro">Picchiaduro</label><br>
-            <input type="checkbox" value="sopravvivenza" id="sopravvivenza">
+            <input type="checkbox" value="Sopravvivenza" name="check7" id="sopravvivenza">
             <label for="sopravvivenza">Sopravvivenza</label><br>
-            <input type="checkbox" value="stelth" id="stelth">
+            <input type="checkbox" value="Stelth" name="check8" id="stelth">
             <label for="stelth">Stelth</label><br>
-            <input type="checkbox" value="rpg" id="rpg">
+            <input type="checkbox" value="Rpg" name="check9" id="rpg">
             <label for="rpg">Rpg</label><br>
-            <input type="checkbox" value="jrpg" id="jrpg">
+            <input type="checkbox" value="J-rpg" name="check10" id="jrpg">
             <label for="jrpg">J-Rpg</label><br>
-            <input type="checkbox" value="action" id="action">
+            <input type="checkbox" value="Action" name="check11" id="action">
             <label for="action">Action</label><br>
-            <input type="checkbox" value="simulazione" id="simulazione">
+            <input type="checkbox" value="Simulazione" name="check12" id="simulazione">
             <label for="simulazione">Simulazione</label><br>
-            <input type="checkbox" value="strategia" id="strategia">
+            <input type="checkbox" value="Strategia" name="check13" id="strategia">
             <label for="strategia">strategia</label><br>
-            <input type="checkbox" value="roughlik" id="roughlik">
+            <input type="checkbox" value="Roughlik" name="check14" id="roughlik">
             <label for="roughlik">Roughlik</label><br>
-            <input type="checkbox" value="openworld" id="openworld">
+            <input type="checkbox" value="Open world" name="check15" id="openworld">
             <label for="openworld">Open World</label><br>
         </div>
         <div id="annoPrezzo" class="sezione">
