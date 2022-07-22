@@ -6,10 +6,11 @@ var staron = new Image(); staron.src = "star-on.gif";
 function star_vota(QT)
 {
     // Creo una variabile con l'output da restituire al momento del voto
-    var star_output = '<span class="output">Hai votato ' + QT + ' stelle!</span>';
+    var star_output = QT;
     // Cambio dinamicamente il contenuto del DIV contenitore con il messaggio di
     // conferma di votazione avvenuta
     document.getElementById('STAR_RATING').innerHTML = star_output;
+    document.getElementById('nStelle').value = star_output;
 }
 
 // Definisco la funzione per "accendere" dinamicamente le stelle

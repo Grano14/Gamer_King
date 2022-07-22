@@ -20,6 +20,12 @@ public class CaricaProdotto extends HttpServlet {
 
         String titolo = request.getParameter("titolo");
         String piattaforma = request.getParameter("piattaforma");
+
+        if(titolo==null){
+            titolo = (String)request.getAttribute("titolo");
+            piattaforma = (String)request.getAttribute("piattaforma");
+        }
+
         Videogioco v = VideogiocoDAO.doRetriveById(titolo);
         String d = v.getDescrizione();
         Prodotto p = ProdottoDAO.doRetriveById(titolo, piattaforma);
@@ -38,8 +44,8 @@ public class CaricaProdotto extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        this.doGet(request,response);
     }
 
 }

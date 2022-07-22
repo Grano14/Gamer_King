@@ -94,17 +94,33 @@
 </div>
 
 <div>
-    <form class="recensione">
+    <form class="recensione" action="AggiungiRecensione">
 
         <div id="stelle">
             <script type="text/javascript">star(3);</script>
         </div>
 
-        <textarea id="testoRecensione" name="recensione" rows="4" cols="50" placeholder="Scrivi la tua recensione..."></textarea>
+        <input type="hidden" id="nStelle" name="nStelle">
+        <input type="hidden" name="videogioco" value="<%=p.getVideogioco() %>">
+        <input type="hidden" name="piattaforma" value="<%=p.getPiattaforma() %>">
+
+        <textarea id="testoRecensione" name="recensione" placeholder="Scrivi la tua recensione..."></textarea>
 
         <input type="submit" value="Pubblica">
     </form>
 </div>
+
+</script>
+<script src="${pageContext.request.contextPath}/zoomsl.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/zoomsl.min.js" type="text/javascript"></script>
+<script>
+    $("document").ready(function(){
+        $("#secondaria").imagezoomsl({
+            zoomrange:[2,2],
+            innerzoom:true,
+        });
+    });
+</script>
 
 </body>
 </html>
