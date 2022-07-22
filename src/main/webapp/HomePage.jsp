@@ -28,7 +28,12 @@
         %>
         <div class="elemento">
             <a href="CaricaProdotto?titolo=<%=l.get(i).getVideogioco()%>&piattaforma=<%=l.get(i).getPiattaforma()%>"><img src="<%=lImm.get(i)%>"> </a>
-           <%=l.get(i).getVideogioco()%> |  <%=l.get(i).getPrezzo()%>€ <%String pia = l.get(i).getPiattaforma();
+           <%=l.get(i).getVideogioco()%> |
+            <%String s = l.get(i).getPrezzo().toString();
+            if(!(s.contains("."))){s=s+".00";}
+            else{if(s.indexOf(".")==(s.length()-2)){s=s+"0";}}%>
+            <%=s%>€
+            <%String pia = l.get(i).getPiattaforma();
                 if(pia.equals("playstation5")){%><img style="margin-top: 5px" src="css/pictures/ps530.png"> <%}%>
             <%if(pia.equals("playstation4")){%><img style="margin-top: 5px" src="css/pictures/ps430.png"> <%}%>
             <%if(pia.equals("pc")){%><img style="margin-top: 5px" src="css/pictures/pc30.png"> <%}%>
@@ -56,9 +61,5 @@
     </div>
 </div>
 
-<div id="footer">
-    footer
-    <a href="ProductPage.jsp">prodotto</a>
-</div>
 </body>
 </html>

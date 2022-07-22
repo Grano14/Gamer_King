@@ -15,6 +15,21 @@
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
     <script type="text/javascript" src="javaScript/AggiungiGiocoScript.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#mostraGioco").click(function(){
+                $("#formGioco").slideToggle('slow');
+            });
+        });
+
+        $(document).ready(function(){
+            $("#mostraProdotto").click(function(){
+                $("#formProdotto").slideToggle('slow');
+            });
+        });
+    </script>
+
 </head>
 <body>
 <h1>AGGIUNGI VIDEOGIOCO</h1>
@@ -24,7 +39,7 @@
 
 <div id="dati">
 
-    <div id="mostraGioco" class="aggiunta" onclick="mostraENascondi('formGioco')">
+    <div id="mostraGioco" class="aggiunta" >
         <p>Aggiungi un nuovo titolo</p>
     </div>
 
@@ -94,7 +109,7 @@
 
     <br>
 
-    <div class="aggiunta" onclick="mostraENascondi('formProdotto')">
+    <div id="mostraProdotto" class="aggiunta">
         <p>Aggiungi un prodotto</p>
     </div><br>
 
