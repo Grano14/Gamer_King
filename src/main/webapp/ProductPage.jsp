@@ -13,11 +13,10 @@
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/ProductPageStyle.css">
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
+    <script type="text/javascript" src="javaScript/ProdottoScript.js"></script>
+    <script type="text/javascript" src="javaScript/StelleScript.js"></script>
 </head>
 <body>
-
-<script type="text/javascript" src="javaScript/ProdottoScript.js"></script>
-<script type="text/javascript" src="javaScript/StelleScript.js"></script>
 
 <%@include file="NavBar.jsp" %>
 
@@ -96,31 +95,20 @@
 <div>
     <form class="recensione" action="AggiungiRecensione">
 
-        <div id="stelle">
+        <div id="stelle" onclick="checkRecensione()">
             <script type="text/javascript">star(3);</script>
         </div>
 
-        <input type="hidden" id="nStelle" name="nStelle">
+        <input type="hidden" id="nStelle" name="nStelle" value="0">
         <input type="hidden" name="videogioco" value="<%=p.getVideogioco() %>">
         <input type="hidden" name="piattaforma" value="<%=p.getPiattaforma() %>">
 
-        <textarea id="testoRecensione" name="recensione" placeholder="Scrivi la tua recensione..."></textarea>
+        <textarea id="testoRecensione" name="recensione" placeholder="Scrivi la tua recensione..."
+         onkeyup="validateRecensione('testoRecensione'),checkRecensione()"></textarea>
 
-        <input type="submit" value="Pubblica">
+        <input id="submitRecensione" type="submit" value="Pubblica">
     </form>
 </div>
-
-</script>
-<script src="${pageContext.request.contextPath}/zoomsl.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/zoomsl.min.js" type="text/javascript"></script>
-<script>
-    $("document").ready(function(){
-        $("#secondaria").imagezoomsl({
-            zoomrange:[2,2],
-            innerzoom:true,
-        });
-    });
-</script>
 
 </body>
 </html>

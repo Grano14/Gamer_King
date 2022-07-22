@@ -138,6 +138,10 @@ ul img:hover{
     background-color: rgb(100,100,100);
 }
 
+#submitRecensione{
+    visibility:hidden;
+}
+
 #STAR_RATING ul
 {
     width:350px;
