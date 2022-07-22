@@ -38,6 +38,10 @@ public class CaricaProdotto extends HttpServlet {
         request.setAttribute("immPrincipale", immaginePrincipale);
         request.setAttribute("descrizione", d);
 
+        ArrayList<Recensione> listaRec = RecensioneDAO.doRetriveByProduct(titolo, piattaforma);
+
+        request.setAttribute("listaRec", listaRec);
+
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("ProductPage.jsp");
         requestDispatcher.forward(request, response);
 

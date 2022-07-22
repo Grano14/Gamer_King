@@ -31,6 +31,7 @@
                     String d = (String)request.getAttribute("descrizione");
                     Prodotto p = (Prodotto) request.getAttribute("gioco");
                     ArrayList<String> lImm = (ArrayList<String>) request.getAttribute("immagini");
+                    ArrayList<Recensione> lRec = (ArrayList<Recensione>) request.getAttribute("listaRec");
                     for(int i=0; i<lImm.size(); i++){%>
 
                 <li>
@@ -93,6 +94,12 @@
 </div>
 
 <div>
+
+    <% String utente =(String) request.getSession().getAttribute("nomeUtente");
+    if(utente!="LOGIN"){
+        if(!RecensioneDAO.contains(utente, p.getVideogioco(), p.getPiattaforma())){
+    %>
+
     <form class="recensione" action="AggiungiRecensione">
 
         <div id="stelle" onclick="checkRecensione()">
@@ -108,6 +115,10 @@
 
         <input id="submitRecensione" type="submit" value="Pubblica">
     </form>
+
+    <%}
+    }%>
+
 </div>
 
 </body>
