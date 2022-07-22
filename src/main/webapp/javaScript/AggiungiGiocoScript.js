@@ -1,14 +1,4 @@
 
-function mostraENascondi(id){
-    var style = document.getElementById(id).style.display;
-    if(style == "block")
-        style = "none";
-    else
-        style = "block";
-
-        document.getElementById(id).style.display=style;
-}
-
 function verde(id){
     document.getElementById(id).style.backgroundColor = "green";
 }
