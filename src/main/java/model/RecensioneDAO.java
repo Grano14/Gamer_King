@@ -75,20 +75,20 @@ public class RecensioneDAO {
     public static ArrayList<Recensione> doRetriveByProduct(String videogioco, String piattaforma){
         ArrayList<Recensione> l = new ArrayList<>();
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select * from Recensione where videogioco=? and piattaforma=?");
-            ps.setString(1, videogioco);
-            ps.setString(2, piattaforma);
-            ResultSet rs = ps.executeQuery();
+        PreparedStatement ps = con.prepareStatement("select * from Recensione where videogioco=? and piattaforma=?");
+        ps.setString(1, videogioco);
+        ps.setString(2, piattaforma);
+        ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                Recensione rec = new Recensione(rs.getString(1), rs.getString(2),rs.getString(3), rs.getString(4),rs.getString(5), rs.getInt(6));
-                l.add(rec);
+                Recensione r = new Recensione(rs.getString(1), rs.getString(2), rs.getString(3),rs.getString(4), rs.getString(5), rs.getInt(6));
+                l.add(r);
             }
-            return null;
+            return l;
         }
         catch (SQLException e){
-            throw new RuntimeException(e);
-        }
+        throw new RuntimeException(e);
     }
+}
 
     public static boolean contains(String nomeUtente, String videogioco, String piattaforma){
        Recensione rec = RecensioneDAO.doRetriveById(nomeUtente, videogioco, piattaforma);

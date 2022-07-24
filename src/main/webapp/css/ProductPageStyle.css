@@ -85,7 +85,7 @@ p{
 
 .recensione{
     margin-left:40px;
-    width:70%
+    width:70%;
 
 }
 
@@ -97,7 +97,8 @@ textarea{
     height: 150px;
     border-radius: 6px;
     text-align:left;
-    font-size:15px;
+    font-family: "copperplate", fantasy;
+    font-size:24px;
     resize: none;
 }
 
@@ -119,6 +120,45 @@ input[type=submit]{
     background-color:#601194;
     padding-bottom: 15px;
     font-size: 30px;
+}
+
+.Utente{
+    display:inline-block;
+}
+
+#utenteimage{
+    margin-top:10px;
+    width:60px;
+    float:left;
+}
+
+.Utente p{
+    margin-left:15px;
+    font-size:25px;
+    float:left;
+}
+
+#stelleVotate{
+    margin-left:10px;
+    float:left;
+}
+
+.stelleRec{
+    margin-left:2px;
+    margin-top:32px;
+}
+
+#recensioneRegistrata{
+    width:90%;
+    background-color: rgb(27, 27, 27);
+    height: 150px;
+    border-radius: 6px;
+    overflow: auto;
+}
+
+#recensioneInserita{
+    margin-left:10px;
+    font-size: 20px;
 }
 
 input[type=submit]:hover{

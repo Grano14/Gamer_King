@@ -121,5 +121,38 @@
 
 </div>
 
+<div class="lisaRec">
+
+    <%if(lRec!=null){
+        for(int x=0;x<lRec.size();x++){
+            Recensione rec = lRec.get(x);
+    %>
+
+    <div id="listaRecensioni" class="recensione">
+
+
+        <div class="Utente">
+            <img id="utenteimage" src="css/pictures/utenteGenerico.png">
+            <p id="NomeUtente"><%=rec.getNomeUtente()%></p>
+
+            <div id="stelleVotate">
+                <%for(int j=0;j<5;j++){
+                    if(j<rec.getNstelle()){%>
+                <img class="stelleRec" src="css/pictures/stella1.png">
+                <%} else{%>
+                <img class="stelleRec" src="css/pictures/stella0.png">
+                <%}%>
+                <%}%>
+            </div>
+
+        </div>
+        <div id="recensioneRegistrata">
+            <p id="recensioneInserita"><%=rec.getContenuto()%></p>
+        </div>
+    </div>
+    <%}
+    }%>
+</div>
+
 </body>
 </html>

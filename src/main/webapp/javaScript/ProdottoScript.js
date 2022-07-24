@@ -9,7 +9,7 @@ var controllo1,controllo2;
 
 function validateRecensione(idInput){
     var nome = document.getElementById(idInput).value;
-    if(nome.length > 2){
+    if(nome.length > 2 && nome.length < 300){
         controllo1 = 1;
     }
     else{
