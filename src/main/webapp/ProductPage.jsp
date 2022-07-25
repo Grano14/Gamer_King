@@ -13,11 +13,10 @@
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/ProductPageStyle.css">
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
+    <script type="text/javascript" src="javaScript/ProdottoScript.js"></script>
+    <script type="text/javascript" src="javaScript/StelleScript.js"></script>
 </head>
 <body>
-
-<script type="text/javascript" src="javaScript/ProdottoScript.js"></script>
-<script type="text/javascript" src="javaScript/StelleScript.js"></script>
 
 <%@include file="NavBar.jsp" %>
 
@@ -32,6 +31,7 @@
                     String d = (String)request.getAttribute("descrizione");
                     Prodotto p = (Prodotto) request.getAttribute("gioco");
                     ArrayList<String> lImm = (ArrayList<String>) request.getAttribute("immagini");
+                    ArrayList<Recensione> lRec = (ArrayList<Recensione>) request.getAttribute("listaRec");
                     for(int i=0; i<lImm.size(); i++){%>
 
                 <li>
@@ -94,16 +94,64 @@
 </div>
 
 <div>
-    <form class="recensione">
 
-        <div id="stelle">
+    <% String utente =(String) request.getSession().getAttribute("nomeUtente");
+    if(utente!="LOGIN"){
+        if(!RecensioneDAO.contains(utente, p.getVideogioco(), p.getPiattaforma())){
+    %>
+
+    <form class="recensione" action="AggiungiRecensione">
+
+        <div id="stelle" onclick="checkRecensione()">
             <script type="text/javascript">star(3);</script>
         </div>
 
-        <textarea id="testoRecensione" name="recensione" rows="4" cols="50" placeholder="Scrivi la tua recensione..."></textarea>
+        <input type="hidden" id="nStelle" name="nStelle" value="0">
+        <input type="hidden" name="videogioco" value="<%=p.getVideogioco() %>">
+        <input type="hidden" name="piattaforma" value="<%=p.getPiattaforma() %>">
 
-        <input type="submit" value="Pubblica">
+        <textarea id="testoRecensione" name="recensione" placeholder="Scrivi la tua recensione..."
+         onkeyup="validateRecensione('testoRecensione'),checkRecensione()"></textarea>
+
+        <input id="submitRecensione" type="submit" value="Pubblica">
     </form>
+
+    <%}
+    }%>
+
+</div>
+
+<div class="lisaRec">
+
+    <%if(lRec!=null){
+        for(int x=0;x<lRec.size();x++){
+            Recensione rec = lRec.get(x);
+    %>
+
+    <div id="listaRecensioni" class="recensione">
+
+
+        <div class="Utente">
+            <img id="utenteimage" src="css/pictures/utenteGenerico.png">
+            <p id="NomeUtente"><%=rec.getNomeUtente()%></p>
+
+            <div id="stelleVotate">
+                <%for(int j=0;j<5;j++){
+                    if(j<rec.getNstelle()){%>
+                <img class="stelleRec" src="css/pictures/stella1.png">
+                <%} else{%>
+                <img class="stelleRec" src="css/pictures/stella0.png">
+                <%}%>
+                <%}%>
+            </div>
+
+        </div>
+        <div id="recensioneRegistrata">
+            <p id="recensioneInserita"><%=rec.getContenuto()%></p>
+        </div>
+    </div>
+    <%}
+    }%>
 </div>
 
 </body>

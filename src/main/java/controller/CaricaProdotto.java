@@ -20,6 +20,12 @@ public class CaricaProdotto extends HttpServlet {
 
         String titolo = request.getParameter("titolo");
         String piattaforma = request.getParameter("piattaforma");
+
+        if(titolo==null){
+            titolo = (String)request.getAttribute("titolo");
+            piattaforma = (String)request.getAttribute("piattaforma");
+        }
+
         Videogioco v = VideogiocoDAO.doRetriveById(titolo);
         String d = v.getDescrizione();
         Prodotto p = ProdottoDAO.doRetriveById(titolo, piattaforma);
@@ -32,14 +38,18 @@ public class CaricaProdotto extends HttpServlet {
         request.setAttribute("immPrincipale", immaginePrincipale);
         request.setAttribute("descrizione", d);
 
+        ArrayList<Recensione> listaRec = RecensioneDAO.doRetriveByProduct(titolo, piattaforma);
+
+        request.setAttribute("listaRec", listaRec);
+
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("ProductPage.jsp");
         requestDispatcher.forward(request, response);
 
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        this.doGet(request,response);
     }
 
 }
