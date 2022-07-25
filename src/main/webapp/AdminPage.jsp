@@ -29,9 +29,11 @@
                     <p>Aggiungi prodotto</p>
                 </div>
             </a>
-            <div class="bottoneImpostazioni" onclick="showMenu('m1')">
-                <p>Rimuovi prodotto</p>
-            </div>
+            <a href="CaricaPaginaRimozioneAggiunta" style="text-decoration: none">
+                <div class="bottoneImpostazioni">
+                    <p>Aggiorna prodotto</p>
+                </div>
+            </a>
             <div class="bottoneImpostazioni" onclick="showMenu('m2')">
                 <p>Review</p>
             </div>

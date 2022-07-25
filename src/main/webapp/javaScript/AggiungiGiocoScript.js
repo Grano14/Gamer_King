@@ -57,6 +57,35 @@ function checkButtonGame(){
         document.getElementById("bottoneGioco").style.visibility = "hidden";
 }
 
+
+function checkButtonUpdateGame(){
+    if(document.getElementById("descrizione").style.backgroundColor == "lightgreen"
+        && document.getElementById("prezzo").style.backgroundColor == "lightgreen"
+        && document.getElementById("data").style.backgroundColor == "lightgreen"
+        && (document.getElementById("avventura").checked
+            || document.getElementById("fantasy").checked
+            || document.getElementById("horror").checked
+            || document.getElementById("sci-fi").checked
+            || document.getElementById("sparatutto").checked
+            || document.getElementById("picchiaduro").checked
+            || document.getElementById("sopravvivenza").checked
+            || document.getElementById("stelth").checked
+            || document.getElementById("rpg").checked
+            ||document.getElementById("jrpg").checked
+            ||document.getElementById("action").checked
+            ||document.getElementById("simulazione").checked
+            ||document.getElementById("strategia").checked
+            ||document.getElementById("roughlik").checked
+            ||document.getElementById("openworld").checked
+        )
+    )
+    {
+        document.getElementById("bottoneGioco").style.visibility = "visible";
+    }
+    else
+        document.getElementById("bottoneGioco").style.visibility = "hidden";
+}
+
 function validateNumeri(id){
     var numero = document.getElementById(id).value;
     if(numero >= 0 && !(isNaN(numero))) {
@@ -89,4 +118,24 @@ function checkButtonProdotto(){
     }
     else
         document.getElementById("bottoneProdotto").style.visibility = "hidden";
+}
+
+function checkPicture(){
+    document.getElementById("cc").innerText = document.getElementById("ii").value;
+}
+
+function readURL(input, id) {
+    var idJQuery = "#"+id;
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $(idJQuery)
+                .attr('src', e.target.result)
+                .width(150)
+                .height(100);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
 }

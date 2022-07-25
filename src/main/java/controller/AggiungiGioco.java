@@ -52,7 +52,7 @@ public class AggiungiGioco extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try {
             String nomeGioco = request.getParameter("titolo");
-            String dirPath = "C:\\Users\\Giuseppe Grano\\IdeaProjects\\Gamer_King\\src\\main\\webapp\\css\\gameImages\\" + nomeGioco;
+            String dirPath = "C:/Users/Giuseppe Grano/IdeaProjects/Gamer_King/src/main/webapp/css/gameImages/" + nomeGioco;
             File f = new File(dirPath);
             f.setWritable(true);
             System.out.println(f.canWrite());
@@ -66,9 +66,9 @@ public class AggiungiGioco extends HttpServlet {
                 if(fileName.equals(""))
                     continue;
 
-                String path = "css\\gameImages\\" + nomeGioco + "\\" + fileName;
+                String path = "css/gameImages/" + nomeGioco + "/" + fileName;
                 //String pathCompleto = "C:/Users/Giuseppe utente/IdeaProjects/Gamer_King/src/main/webapp/css/gameImages/" + fileName;
-                String pathCompleto = dirPath + "\\" + fileName;
+                String pathCompleto = dirPath + "/" + fileName;
 
                 //inserimento immagine nella tabella immagini(path, titoloGioco)
                 if(i == 0){

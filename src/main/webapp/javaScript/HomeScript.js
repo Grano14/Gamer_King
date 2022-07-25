@@ -1,15 +1,18 @@
 function mostraMenu(idmenu, idfreccia){
     var j = document.getElementById(idmenu).style.visibility
-    if( j == "hidden") {
-        document.getElementById(idmenu).style.visibility = "visible";
+    var f = document.getElementById(idfreccia).style.transform
+    if( j == "visible") {
+        j = "hidden";
     }
     else {
-        document.getElementById(idmenu).style.visibility = "hidden";
+        j = "visible";
     }
-    if(document.getElementById(idfreccia).style.transform == "rotate(0deg)")
-        document.getElementById(idfreccia).style.transform = "rotate(180deg)"
+    if(f == "rotate(180deg)")
+        f = "rotate(0deg)"
     else
-        document.getElementById(idfreccia).style.transform = "rotate(0deg)"
+        f = "rotate(180deg)"
+    document.getElementById(idmenu).style.visibility = j
+    document.getElementById(idfreccia).style.transform = f
 }
 
 function barEffect(){
