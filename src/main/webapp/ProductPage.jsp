@@ -128,7 +128,9 @@
             Recensione rec = lRec.get(x);
     %>
 
-    <div id="listaRecensioni" class="recensione">
+
+
+    <div id="listaRecensioni" class="<%if(x<3){%>recensioneVisibile<%}else{%>recensioneNonVisibile<%}%>">
 
 
         <div class="Utente">
@@ -153,6 +155,15 @@
     <%}
     }%>
 </div>
+
+<div id="mostraRecensioni" class="aggiunta" onclick="mostraRecensioni()">
+    <p>Mostra tutto</p>
+</div>
+
+<div id="nascondiRecensioni" class="aggiunta" onclick="nascondiRecensioni()">
+    <p>Nascondi</p>
+</div>
+
 
 </body>
 </html>
