@@ -26,39 +26,3 @@ function checkRecensione(){
         document.getElementById("submitRecensione").style.visibility = "hidden";
 }
 
-function mostraRecensioni(){
-
-    const rec = document.getElementsByClassName("recensioneNonVisibile");
-    var bottone = document.getElementById("nascondiRecensioni").style.display;
-    var bottone1 = document.getElementById("mostraRecensioni").style.display;
-
-    bottone = "block";
-    bottone1 = "none";
-
-    for (let i = 0; i < rec.length; i++) {
-        rec[i].style.display = "block";
-    }
-
-    document.getElementById("nascondiRecensioni").style.display = bottone;
-    document.getElementById("mostraRecensioni").style.display = bottone1;
-
-}
-
-function nascondiRecensioni(){
-
-    const rec = document.getElementsByClassName("recensioneNonVisibile");
-    var bottone = document.getElementById("mostraRecensioni").style.display;
-    var bottone1 = document.getElementById("nascondiRecensioni").style.display;
-
-    bottone = "block";
-    bottone1 = "none";
-
-    for (let i = 0; i < rec.length; i++) {
-        rec[i].style.display = "none";
-    }
-
-    document.getElementById("mostraRecensioni").style.display = bottone;
-    document.getElementById("nascondiRecensioni").style.display = bottone1;
-
-}
-
