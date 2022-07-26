@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import java.time.format.DateTimeFormatter;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @MultipartConfig
 @WebServlet(name = "AggiungiRecensione", value = "/AggiungiRecensione")
@@ -26,10 +26,9 @@ public class AggiungiRecensione extends HttpServlet{
         String nomeUtente = request.getSession().getAttribute("nomeUtente").toString();
         String videogioco = request.getParameter("videogioco");
 
-        LocalDate date = LocalDate.now();
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 
-        String pubblicazione = dtf.format(date);
+        String pubblicazione = dtf.format(LocalDateTime.now());
 
         int nStelle = Integer.parseInt(request.getParameter("nStelle"));
 
