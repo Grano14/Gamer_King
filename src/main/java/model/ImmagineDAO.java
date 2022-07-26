@@ -39,7 +39,7 @@ public class ImmagineDAO {
 
     public static void doRemoveById(String path){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("delete from Immagine where pathGame=?");
+            PreparedStatement ps = con.prepareStatement("delete from Immagine where path=?");
             ps.setString(1, path);
             ps.execute();
         }
@@ -67,6 +67,22 @@ public class ImmagineDAO {
         ArrayList<String> l = new ArrayList<>();
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("select path from immagine i, videogioco v where i.videogioco=v.titolo and v.titolo=?");
+            ps.setString(1, videogioco);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                l.add(rs.getString(1));
+            }
+            return l;
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static ArrayList<String> getSecondaryImagesByVideogame(String videogioco){
+        ArrayList<String> l = new ArrayList<>();
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("select path from immagine i, videogioco v where i.videogioco=v.titolo and v.titolo=? and principale=false");
             ps.setString(1, videogioco);
             ResultSet rs = ps.executeQuery();
             while(rs.next()) {

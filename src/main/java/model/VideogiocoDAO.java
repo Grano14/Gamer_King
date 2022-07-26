@@ -80,4 +80,16 @@ public class VideogiocoDAO {
         }
     }
 
+    public static void doUpdateById(String titolo, String descrizione){
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("update videogioco set descrizione=? where titolo=?");
+            ps.setString(1, descrizione);
+            ps.setString(2, titolo);
+            ps.execute();
+        }
+        catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 }

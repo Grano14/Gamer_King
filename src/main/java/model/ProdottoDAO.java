@@ -113,4 +113,18 @@ public class ProdottoDAO {
         }
     }
 
+    public static void doUpdateById(String titolo, String piattaforma, String data, Double prezzo){
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("update prodotto set datauscita=?, prezzo=? where videogioco=? and piattaforma=?");
+            ps.setString(1, data);
+            ps.setDouble(2, prezzo);
+            ps.setString(3, titolo);
+            ps.setString(4, piattaforma);
+            ps.execute();
+        }
+        catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 }
