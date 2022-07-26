@@ -49,6 +49,17 @@ public class AppartenereDAO {
         }
     }
 
+    public static void doRemoveByVideogioco(String videogioco){
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("delete from appartenere where videogioco=?");
+            ps.setString(1, videogioco);
+            ps.execute();
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     public static ArrayList<String> doRetriveGenereByVideogioco(String videogioco){
         ArrayList<String> l = new ArrayList<>();
         try(Connection con = ConPool.getConnection()){

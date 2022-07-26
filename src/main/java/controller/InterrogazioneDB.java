@@ -28,7 +28,8 @@ public class InterrogazioneDB extends HttpServlet {
 
         Prodotto p = ProdottoDAO.doRetriveById(titolo, piattaforma);
         Videogioco v = VideogiocoDAO.doRetriveById(p.getVideogioco());
-        ArrayList<String> i = ImmagineDAO.getImagesByVideogame(p.getVideogioco());
+        String mainImage = ImmagineDAO.getMainImageByVideogame(p.getVideogioco());
+        ArrayList<String> i = ImmagineDAO.getSecondaryImagesByVideogame(p.getVideogioco());
         ArrayList<String> g = AppartenereDAO.doRetriveGenereByVideogioco(p.getVideogioco());
         String generi = "";
         int k;
@@ -37,8 +38,7 @@ public class InterrogazioneDB extends HttpServlet {
         }
         String testo = "";
         if(type.equals("dati")){
-            System.out.println(i.get(0));
-            testo = "{\"dataUscita\":\"" + p.getDataUscita() + "\", \"prezzo\":\"" + p.getPrezzo() + "\", \"immagine1\":\"" + i.get(0) + "\", \"immagine2\":\"" + i.get(1) + "\", \"immagine3\":\"" + i.get(2) + "\", \"generi\":\"" + generi +"\"}";
+            testo = "{\"dataUscita\":\"" + p.getDataUscita() + "\", \"prezzo\":\"" + p.getPrezzo() + "\", \"immagine1\":\"" + mainImage + "\", \"immagine2\":\"" + i.get(0) + "\", \"immagine3\":\"" + i.get(1) + "\", \"generi\":\"" + generi +"\"}";
         }
         else{
             testo = v.getDescrizione();

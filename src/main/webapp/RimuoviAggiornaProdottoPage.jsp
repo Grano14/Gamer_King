@@ -35,7 +35,10 @@
     </select>
     <button id="bb" onclick="uu()">CARICA</button><br>
 
-<form id="formGioco" STYLE="display: block" enctype="multipart/form-data" >
+<form  action="UpdateProdotto" method="post" id="formGioco" STYLE="display: block" enctype="multipart/form-data" >
+
+    <input type="hidden" id="titolo" name="titolo" value="">
+    <input type="hidden" id="piattaforma" name="piattaforma" value="">
 
     <div id="gioco" class="forms">
 
@@ -100,7 +103,7 @@
         <label for="data">Data di uscita</label><br>
         <input id="data" type="date" name="data" oninput="verdeData('data'),checkButtonUpdateGame()"><br>
         <div id="bottoneGioco">
-            <input type="submit" value="Aggiungi gioco">
+            <input type="submit" value="Aggiorna gioco">
         </div>
 
     </div>
@@ -110,7 +113,9 @@
     function uu(){
         var nome = document.getElementById("nomeGioco").value;
         var t = nome.substr(0, nome.indexOf(","));
+        document.getElementById("titolo").value = t;
         var p = nome.substr(nome.indexOf(",")+1, nome.length)
+        document.getElementById("piattaforma").value = p;
         $.ajax({
             url: "InterrogazioneDB",
             type: 'POST',
