@@ -28,7 +28,7 @@ public class RecensioneDAO {
 
     public static void doSave(Recensione r){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("insert into Recensione (nomeUtente, videogioco, piattaforma, pubblicazione, contenuo, nstelle) values (?,?,?,?,?,?)");
+            PreparedStatement ps = con.prepareStatement("insert into Recensione (nomeUtente, videogioco, piattaforma, pubblicazione, contenuto, nstelle) values (?,?,?,?,?,?)");
             ps.setString(1, r.getNomeUtente());
             ps.setString(2, r.getVideogioco());
             ps.setString(3, r.getPiattaforma());
@@ -59,7 +59,7 @@ public class RecensioneDAO {
     public static ArrayList<Recensione> doRetriveAll(){
         ArrayList<Recensione> l = new ArrayList<>();
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select nomeUtente, videogioco, piattaforma, pubblicazione, contenuo, nstelle from Recensione ");
+            PreparedStatement ps = con.prepareStatement("select nomeUtente, videogioco, piattaforma, pubblicazione, contenuto, nstelle from Recensione ");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 Recensione rec = new Recensione(rs.getString(1), rs.getString(2),rs.getString(3), rs.getString(4),rs.getString(5), rs.getInt(6));
@@ -75,13 +75,13 @@ public class RecensioneDAO {
     public static ArrayList<Recensione> doRetriveByProduct(String videogioco, String piattaforma){
         ArrayList<Recensione> l = new ArrayList<>();
         try(Connection con = ConPool.getConnection()){
-        PreparedStatement ps = con.prepareStatement("select * from Recensione where videogioco=? and piattaforma=?");
+        PreparedStatement ps = con.prepareStatement("select * from Recensione where videogioco=? and piattaforma=? order by pubblicazione desc");
         ps.setString(1, videogioco);
         ps.setString(2, piattaforma);
         ResultSet rs = ps.executeQuery();
-            if(rs.next()){
-                Recensione r = new Recensione(rs.getString(1), rs.getString(2), rs.getString(3),rs.getString(4), rs.getString(5), rs.getInt(6));
-                l.add(r);
+            while(rs.next()){
+                Recensione rec = new Recensione(rs.getString(1), rs.getString(2),rs.getString(3), rs.getString(4),rs.getString(5), rs.getInt(6));
+                l.add(rec);
             }
             return l;
         }
