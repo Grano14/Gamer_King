@@ -16,12 +16,12 @@
 <div class="corpo">
     <form>
         <label for="userName">Nome utente</label><br>
-        <input type="text" class="serch" id="userName"><br>
+        <input class="dati" type="text" class="serch" id="userName"><br>
         <label for="mail">Email</label><br>
-        <input type="text" class="serch" id="mail"><br>
+        <input class="dati" type="text" class="serch" id="mail"><br>
         <label for="phone">Telefono</label><br>
-        <input type="text" class="serch" id="phone"><br><br>
-        <input type="submit" id="modificaDati" value="modifica">
+        <input class="dati" type="text" class="serch" id="phone"><br><br>
+        <input class="mod" type="submit" id="modificaDati" value="modifica">
     </form>
 </div>
 

@@ -52,7 +52,7 @@ public class AggiungiGioco extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try {
             String nomeGioco = request.getParameter("titolo");
-            String dirPath = "C:/Users/Giuseppe Grano/IdeaProjects/Gamer_King/src/main/webapp/css/gameImages/" + nomeGioco;
+            String dirPath = "C:/Users/utente/IdeaProjects/Gamer_King/sr/main/webapp/css/gameImages" + nomeGioco;
             File f = new File(dirPath);
             f.setWritable(true);
             System.out.println(f.canWrite());
