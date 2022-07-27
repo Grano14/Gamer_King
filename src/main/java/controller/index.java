@@ -24,7 +24,7 @@ public class index extends HttpServlet {
             session.setAttribute("nomeUtente", "LOGIN");
         }
 
-        ArrayList<Prodotto> lPrincipali = ProdottoDAO.doRetriveAll();
+        ArrayList<Prodotto> lPrincipali = ProdottoDAO.doRetriveAllVisible();
 
         ArrayList<String> listPath = new ArrayList<>();
         int i;

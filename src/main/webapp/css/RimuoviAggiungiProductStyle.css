@@ -1,3 +1,14 @@
 body{
     background-color: rgb(27, 27, 27);
 }
+
+.bottoniCarica{
+    background-color: #601194;
+    border-radius: 6px;
+    border-style: none;
+    height: 30px;
+    width: 100px;
+    font-family: "copperplate", fantasy;
+    font-size: 20px;
+    color: white;
+}

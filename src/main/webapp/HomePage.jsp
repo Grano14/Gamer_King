@@ -49,7 +49,7 @@
             for(int i=0; i<lRecenti.size(); i++){%>
         <div class="elemento">
             <a href="CaricaProdotto?titolo=<%=lRecenti.get(i).getVideogioco()%>&piattaforma=<%=lRecenti.get(i).getPiattaforma()%>"><img src="<%=lImmRecenti.get(i)%>"> </a>
-            <%=lRecenti.get(i).getVideogioco()%> |  <%=l.get(i).getPrezzo()%>€ <%String pia = l.get(i).getPiattaforma();
+            <%=lRecenti.get(i).getVideogioco()%> |  <%=lRecenti.get(i).getPrezzo()%>€ <%String pia = lRecenti.get(i).getPiattaforma();
             if(pia.equals("playstation5")){%><img style="margin-top: 5px" src="css/pictures/ps530.png"> <%}%>
             <%if(pia.equals("playstation4")){%><img style="margin-top: 5px" src="css/pictures/ps430.png"> <%}%>
             <%if(pia.equals("pc")){%><img style="margin-top: 5px" src="css/pictures/pc30.png"> <%}%>

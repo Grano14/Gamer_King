@@ -30,10 +30,13 @@
             int i;
             for(i=0; i<l.size(); i++){
         %>
-        <option value="<%=l.get(i).getVideogioco()%>,<%=l.get(i).getPiattaforma()%>"><%=l.get(i).getVideogioco()%> per <%=l.get(i).getPiattaforma()%></option>
+        <option value="<%=l.get(i).getVideogioco()%>,<%=l.get(i).getPiattaforma()%>"><%=l.get(i).getVideogioco()%> per <%=l.get(i).getPiattaforma()%> <%if(l.get(i).isVisibilita()){%>(VISIBILE)<%}else{%>(NASCOSTO)<%}%></option>
         <%}%>
     </select>
-    <button id="bb" onclick="uu()">CARICA</button><br>
+    <input type="button" class="bottoniCarica" onclick="uu()" value="CARICA"><br>
+    <a href="" id="nascondi" class="bottoniCarica" style="visibility: hidden;margin-top: 5px">NASCONDI</a>
+    <a href="" id="mostra" class="bottoniCarica" style="visibility: hidden;margin-top: 5px">MOSTRA</a>
+    <br>
 
 <form  action="UpdateProdotto" method="post" id="formGioco" STYLE="display: block" enctype="multipart/form-data" >
 
@@ -80,19 +83,19 @@
         <p>Carica immagine 1</p>
         <label id="labl1" class="custom-file-upload">
             <input type="file" name="immagine1" id="ii" multiple oninput="verde('labl1'),checkButtonGame(), checkPicture(), readURL(this, 'img1')" >
-            Aggiungi
+            Aggiorna
         </label>
         <img id="img1" style="border-radius: 6px" src="">
         <p>Carica immagine 2</p>
         <label id="labl2" class="custom-file-upload">
             <input type="file" name="immagine2" multiple oninput="verde('labl2'),checkButtonGame(), readURL(this, 'img2')">
-            Aggiungi
+            Aggiorna
         </label>
         <img id="img2" style="border-radius: 6px" src="">
         <p>Carica immagine 3</p>
         <label id="labl3" class="custom-file-upload">
             <input type="file" name="immagine3" multiple oninput="verde('labl3'),checkButtonGame(), readURL(this, 'img3')">
-            Aggiungi
+            Aggiorna
         </label>
         <img id="img3" style="border-radius: 6px" src=""><br><br>
 
@@ -124,6 +127,8 @@
                 piattaforma: p,
                 tipo: "dati"},
             success: function (data) {
+                document.getElementById("nascondi").style.visibility = "hidden";
+                document.getElementById("mostra").style.visibility = "hidden";
                 var n = JSON.parse(data);
                 document.getElementById("img1").style.height = "100px";
                 document.getElementById("img2").style.height = "100px";
@@ -136,6 +141,14 @@
                 document.getElementById("img3").src = n.immagine3;
                 document.getElementById("prezzo").value = n.prezzo;
                 document.getElementById("data").value = n.dataUscita;
+                if(n.visibilita == "true"){
+                    document.getElementById("nascondi").style.visibility = "visible";
+                    document.getElementById("nascondi").href = "GestioneVisibilita?titolo=" + t + "&piattaforma=" + p + "&visibilita=nascondi";
+                }
+                else{
+                    document.getElementById("mostra").style.visibility = "visible";
+                    document.getElementById("mostra").href = "GestioneVisibilita?titolo=" + t + "&piattaforma=" + p + "&visibilita=mostra";
+                }
                 if(n.generi.includes("Avventura")){
                     document.getElementById("avventura").checked = true;
                 }
