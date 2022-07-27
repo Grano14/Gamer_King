@@ -38,7 +38,7 @@ public class InterrogazioneDB extends HttpServlet {
         }
         String testo = "";
         if(type.equals("dati")){
-            testo = "{\"dataUscita\":\"" + p.getDataUscita() + "\", \"prezzo\":\"" + p.getPrezzo() + "\", \"immagine1\":\"" + mainImage + "\", \"immagine2\":\"" + i.get(0) + "\", \"immagine3\":\"" + i.get(1) + "\", \"generi\":\"" + generi +"\"}";
+            testo = "{\"dataUscita\":\"" + p.getDataUscita() + "\", \"prezzo\":\"" + p.getPrezzo() + "\", \"immagine1\":\"" + mainImage + "\", \"immagine2\":\"" + i.get(0) + "\", \"immagine3\":\"" + i.get(1) + "\", \"generi\":\"" + generi +"\",\"visibilita\":\"" + p.isVisibilita() + "\"}";
         }
         else{
             testo = v.getDescrizione();

@@ -72,10 +72,26 @@ public class ProdottoDAO {
         }
     }
 
+    public static ArrayList<Prodotto> doRetriveAllVisible(){
+        ArrayList<Prodotto> l = new ArrayList<>();
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("select piattaforma, visibilita, datauscita, disponibilita, videogioco, numeroCopie, prezzo from Prodotto where visibilita=true");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Prodotto p = new Prodotto(rs.getString(1), rs.getString(3), rs.getString(5), rs.getBoolean(2), rs.getBoolean(4), rs.getDouble(7), rs.getInt(6));
+                l.add(p);
+            }
+            return l;
+        }
+        catch (SQLException e){
+            throw  new RuntimeException(e);
+        }
+    }
+
     public static ArrayList<Prodotto> doRetriveByData(){
         ArrayList<Prodotto> l = new ArrayList<>();
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select piattaforma, visibilita, datauscita, disponibilita, videogioco, numeroCopie, prezzo from prodotto order by dataUscita desc");
+            PreparedStatement ps = con.prepareStatement("select piattaforma, visibilita, datauscita, disponibilita, videogioco, numeroCopie, prezzo from prodotto where visibilita=true order by dataUscita desc");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 Prodotto p = new Prodotto(rs.getString(1), rs.getString(3), rs.getString(5), rs.getBoolean(2), rs.getBoolean(4), rs.getDouble(7), rs.getInt(6));
@@ -92,8 +108,8 @@ public class ProdottoDAO {
         ArrayList<Prodotto> l = new ArrayList<>();
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("select distinct p.piattaforma, p.visibilita, p.datauscita, p.disponibilita, p.videogioco, p.numeroCopie, p.prezzo from prodotto p, appartenere a\n" +
-                    "where p.videogioco=a.videogioco and (a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=?" +
-                    "or a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=?) and (p.piattaforma=? or p.piattaforma=? or p.piattaforma=? or p.piattaforma=? or p.piattaforma=? or p.piattaforma=?)");
+                    "where p.videogioco=a.videogioco and p.visibilita=true and (a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=?" +
+                    "or a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=?) or (p.piattaforma=? or p.piattaforma=? or p.piattaforma=? or p.piattaforma=? or p.piattaforma=? or p.piattaforma=?)");
             int i;
             for(i=0; i<lGeneri.size(); i++){
                 ps.setString(i+1, lGeneri.get(i));
@@ -120,6 +136,19 @@ public class ProdottoDAO {
             ps.setDouble(2, prezzo);
             ps.setString(3, titolo);
             ps.setString(4, piattaforma);
+            ps.execute();
+        }
+        catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void doUpdateVisibilitaById(String titolo, String piattaforma, boolean visibilita){
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("update prodotto set visibilita=? where videogioco=? and piattaforma=?");
+            ps.setBoolean(1, visibilita);
+            ps.setString(2, titolo);
+            ps.setString(3, piattaforma);
             ps.execute();
         }
         catch(SQLException e){
