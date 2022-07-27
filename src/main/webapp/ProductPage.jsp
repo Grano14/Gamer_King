@@ -48,7 +48,7 @@
 
         <div class="immagine2">
             <%String path = (String) request.getAttribute("immPrincipale");
-            System.out.println(path);%>
+            //System.out.println(path);%>
             <img id="secondaria" src="<%=path%>">
         </div>
 
