@@ -45,7 +45,10 @@
     </div>
     <%}else{%>
     <div id="login" style="float: right">
-        <a href="UserPage.jsp"> <%=(String)session.getAttribute("nomeUtente")%> </a>
+
+        <form  method="post" action="PaginaUtente">
+            <input type="submit" id="paginaUtente" value="<%=(String)session.getAttribute("nomeUtente")%>">
+        </form>
     </div>
     <%}%>
 </div>

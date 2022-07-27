@@ -19,7 +19,7 @@
         <input type="password" class="serch" id="pass"><br>
         <label for="passConf">Conferma nuova password</label><br>
         <input type="password" class="serch" id="passConf"><br><br>
-        <input type="submit" value="Modifica" id="bottone">
+        <input class="mod" type="submit" value="Modifica" id="bottone">
     </form>
 </div>
 

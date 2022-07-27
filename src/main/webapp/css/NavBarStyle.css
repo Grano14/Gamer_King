@@ -109,6 +109,19 @@ body{
     outline: none;
 }
 
+#paginaUtente{
+    background:none;
+    color:white;
+    font-family: "copperplate", fantasy;
+    font-size: 15px;
+    border:0px;
+    border-radius:6px;
+}
+
+#paginaUtente:hover{
+    background-color:mediumpurple;
+}
+
 #ricercaAvanzata{
     left: 42%;
     height: 100%;

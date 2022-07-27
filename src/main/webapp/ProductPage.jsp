@@ -61,13 +61,13 @@
             <div class="bottoniAM">
             <form class="bottoneAcquisto" action="">
                 <input type="hidden" name="id" value="">
-                <input type="submit" value="Acquisto">
+                <input class="bottoneAC" type="submit" value="Acquisto">
             </form>
         </div>
         <div>
             <form class="bottoneAcquisto" action="">
                 <input type="hidden" name="id" value="">
-                <input type="submit" value="Carrello">
+                <input class="bottoneAC" type="submit" value="Carrello">
             </form>
             </div>
         </div>
