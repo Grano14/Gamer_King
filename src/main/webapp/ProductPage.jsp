@@ -75,7 +75,7 @@
     </div>
 <br>
 </div>
-
+<hr>
 <div id="descrizione">
     <p class="titolo">Descrizione</p>
     <p class="summary" id="trama">
@@ -93,13 +93,14 @@
     </p>
 </div>
 
-<div>
 
-    <% String utente =(String) request.getSession().getAttribute("nomeUtente");
+<% String utente =(String) request.getSession().getAttribute("nomeUtente");
     if(utente!="LOGIN"){
         if(!RecensioneDAO.contains(utente, p.getVideogioco(), p.getPiattaforma())){
-    %>
-
+%>
+<div>
+    <hr>
+    <p class="datiRec">Inserisci la tua Recensione</p>
     <form class="recensione" action="AggiungiRecensione">
 
         <div id="stelle" onclick="checkRecensione()">
@@ -116,15 +117,17 @@
         <input id="submitRecensione" type="submit" value="Pubblica">
     </form>
 
-    <%}
-    }%>
-
 </div>
+<%}
+}%>
 
 <div class="lisaRec">
 
-    <%if(lRec!=null){
-        for(int x=0;x<lRec.size();x++){
+    <%if(lRec!=null){%>
+    <hr>
+        <p class="datiRec">Recensioni</p>
+    <%
+            for(int x=0;x<lRec.size();x++){
             Recensione rec = lRec.get(x);
     %>
 
@@ -153,16 +156,20 @@
         </div>
     </div>
     <%}
+        if(lRec.size()>3){%>
+
+    <div id="mostraRecensioni" class="aggiunta" onclick="mostraRecensioni()">
+        <p>Mostra tutto</p>
+    </div>
+
+    <div id="nascondiRecensioni" class="aggiunta" onclick="nascondiRecensioni()">
+        <p>Nascondi</p>
+    </div>
+
+    <%}
     }%>
 </div>
 
-<div id="mostraRecensioni" class="aggiunta" onclick="mostraRecensioni()">
-    <p>Mostra tutto</p>
-</div>
-
-<div id="nascondiRecensioni" class="aggiunta" onclick="nascondiRecensioni()">
-    <p>Nascondi</p>
-</div>
 
 
 </body>

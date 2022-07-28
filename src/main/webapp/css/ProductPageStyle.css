@@ -208,6 +208,11 @@ ul img:hover{
     display:none;
 }
 
+hr{
+    width:100%;
+    border:1px solid grey;
+}
+
 #STAR_RATING ul
 {
     width:350px;
