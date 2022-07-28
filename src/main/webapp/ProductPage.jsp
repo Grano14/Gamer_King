@@ -98,8 +98,8 @@
     if(utente!="LOGIN"){
         if(!RecensioneDAO.contains(utente, p.getVideogioco(), p.getPiattaforma())){
 %>
+<hr>
 <div>
-    <hr>
     <p class="datiRec">Inserisci la tua Recensione</p>
     <form class="recensione" action="AggiungiRecensione">
 
@@ -123,7 +123,7 @@
 
 <div class="lisaRec">
 
-    <%if(lRec!=null){%>
+    <%if(lRec.size()>0){%>
     <hr>
         <p class="datiRec">Recensioni</p>
     <%

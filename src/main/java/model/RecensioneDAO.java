@@ -42,13 +42,12 @@ public class RecensioneDAO {
         }
     }
 
-    public static void doRemoveById(String nomeUtente, String videogioco, String piattaforma, String pubblicazione){
+    public static void doRemoveById(String nomeUtente, String videogioco, String piattaforma){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("delete from Recensione where nomeUtente=? and videogioco=? and piattaforma=? and pubblicazione=?");
+            PreparedStatement ps = con.prepareStatement("delete from Recensione where nomeUtente=? and videogioco=? and piattaforma=?");
             ps.setString(1, nomeUtente);
             ps.setString(2, videogioco);
             ps.setString(3, piattaforma);
-            ps.setString(4, pubblicazione);
             ps.execute();
         }
         catch (SQLException e){
@@ -114,5 +113,20 @@ public class RecensioneDAO {
             if(rec != null)
                 return true;
         return false;
+    }
+
+    public static void updateContent(String nomeUtente, String videogioco, String piattaforma,String contenuto, int nStelle){
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("update Recensione set contenuto=?, nstelle=? where nomeUtente=? and videogioco=? and piattaforma=?");
+            ps.setString(1, contenuto);
+            ps.setInt(2, nStelle);
+            ps.setString(3, nomeUtente);
+            ps.setString(4, videogioco);
+            ps.setString(5, piattaforma);
+            ps.execute();
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
     }
 }

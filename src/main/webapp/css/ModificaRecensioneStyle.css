@@ -1,0 +1,154 @@
+textarea{
+    color:white;
+    background-color: rgb(27, 27, 27);
+    margin-left:30px;
+    width:80%;
+    height: 150px;
+    border-radius: 6px;
+    text-align:left;
+    font-family: "copperplate", fantasy;
+    font-size:24px;
+    resize: none;
+}
+
+#gioco div {
+    text-align:center;
+}
+
+.nome{
+    font-size:40px;
+}
+
+p{
+    color:white;
+    font-family: "copperplate", fantasy;
+    font-size: 25px;
+}
+
+#prodotto{
+    margin-top:90px;
+}
+
+#immagine{
+    text-align:center;
+}
+
+#immagine img{
+    margin-left:5px;
+    border-radius:10px;
+    width: 600px;
+    border: 15px solid white;
+}
+
+.recensione{
+    margin-top:70px;
+    padding:10px 10px;
+    border-radius:10px;
+    width:60%;
+    heigth:400px;
+    background-color: rgb(100,100,100);
+}
+
+#submitRecensione{
+    color:white;
+    font-family: "copperplate", fantasy;
+    border:0px;
+    height: 35px;
+    width: 80px;
+    border-radius: 6px;
+    background-color:#601194;
+    font-size: 18px;
+    visibility:hidden;
+}
+
+#submitRecensione:hover{
+    background-color:rebeccapurple;
+}
+
+#stelleVotate{
+    margin-left:10px;
+    float:left;
+}
+
+.stelleRec{
+    margin-left:2px;
+    margin-top:32px;
+}
+
+#recensioneRegistrata{
+    width:90%;
+    background-color: rgb(27, 27, 27);
+    height: 150px;
+    border-radius: 6px;
+    overflow: auto;
+}
+
+
+#STAR_RATING ul
+{
+    width:350px;
+    margin: 0px;
+    padding: 0px;
+    height: 20px;
+    list-style: none;
+}
+#STAR_RATING li
+{
+    margin-left: 10px;
+    width: 19px;
+    height: 16px;
+    display: block;
+    float: left;
+    background-image: url('pictures/stella0.png');
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+#STAR_RATING li.on
+{
+    background-image: url('pictures/stella1.png');
+}
+#STAR_RATING span.output
+{
+    padding: 3px;
+    color: white;
+    font-family: "copperplate", fantasy;
+}
+
+@media only screen and (max-width: 1200px){
+
+    #immagine img{
+        width:550px;
+    }
+
+}
+
+@media only screen and (max-width: 1000px){
+
+    #immagine img{
+        width:500px;
+    }
+
+    .nome{
+        font-size:30px;
+    }
+
+    p{
+        color:white;
+        font-family: "copperplate", fantasy;
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 952px){
+
+    #immagine img{
+        width:450px;
+    }
+}
+
+@media only screen and (max-width: 800px){
+
+    #immagine img{
+        width:400px;
+    }
+}
