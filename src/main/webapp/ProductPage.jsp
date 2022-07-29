@@ -65,10 +65,29 @@
             </form>
         </div>
         <div>
-            <form class="bottoneAcquisto" action="">
-                <input type="hidden" name="id" value="">
-                <input class="bottoneAC" type="submit" value="Carrello">
-            </form>
+            <div class="bottoneAcquisto">
+                <input type="hidden" id="nomeG" name="nomeGioco" value="<%=p.getVideogioco()%>">
+                <input type="hidden" id="nomeP" name="nomePiattaforma" value="<%=p.getPiattaforma()%>">
+                <button class="bottoneAC" style="font-size: 23px" onclick="addToCarrello()">Aggiungi al carrello</button>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script>
+                function addToCarrello(){
+                    var t = document.getElementById("nomeG").value;
+                    var p = document.getElementById("nomeP").value;
+                    $.ajax({
+                        url: "CaricaProdottoCarrello",
+                        type: 'GET',
+                        data:{
+                            nomeGioco: t,
+                            nomePiattaforma: p
+                        },
+                        success: function(data){
+                            document.getElementById("numeroCarrello").src = "css/pictures/cerchio" + data + ".png";
+                        }
+                    })
+                }
+            </script>
             </div>
         </div>
 
@@ -163,7 +182,6 @@
 <div id="nascondiRecensioni" class="aggiunta" onclick="nascondiRecensioni()">
     <p>Nascondi</p>
 </div>
-
-
+</script>
 </body>
 </html>

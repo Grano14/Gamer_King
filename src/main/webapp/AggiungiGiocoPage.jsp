@@ -37,6 +37,12 @@
     <p id="admin">Admin</p>
 </a>
 
+<%if(request.getAttribute("messaggio") != null){
+    String mex = (String) request.getAttribute("messaggio");
+    request.removeAttribute("messaggio");
+%>
+<p style="text-align: center"><%=mex%></p><%}%>
+
 <div id="dati">
 
     <div id="mostraGioco" class="aggiunta" >

@@ -46,4 +46,16 @@ public class CarrelloDAO {
         }
     }
 
+    public static void doUpdatePrezzo(Float prezzo, String nomeUtente){
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("update Carrello set prezzoTotale=? where nomeUtente=?");
+            ps.setFloat(1, prezzo);
+            ps.setString(2, nomeUtente);
+            ps.execute();
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 }

@@ -5,7 +5,7 @@ public class Carrello {
     private String nomeUtente;
     private float prezzoTotale;
 
-    public Carrello(String nomeUtente,float prezzoTotale) {
+    public Carrello(String nomeUtente, Float prezzoTotale) {
         this.nomeUtente = nomeUtente;
         this.prezzoTotale=prezzoTotale;
     }
