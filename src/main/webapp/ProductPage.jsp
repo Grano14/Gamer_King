@@ -94,7 +94,7 @@
     </div>
 <br>
 </div>
-
+<hr>
 <div id="descrizione">
     <p class="titolo">Descrizione</p>
     <p class="summary" id="trama">
@@ -114,11 +114,13 @@
 
 <div>
 
-    <% String utente =(String) request.getSession().getAttribute("nomeUtente");
-    if(utente!="LOGIN"){
-        if(!RecensioneDAO.contains(utente, p.getVideogioco(), p.getPiattaforma())){
-    %>
-
+<% int idUtente = Integer.parseInt(request.getSession().getAttribute("idUtente").toString());
+    if(idUtente!=-1){
+        if(!RecensioneDAO.contains(idUtente, p.getVideogioco(), p.getPiattaforma())){
+%>
+<hr>
+<div>
+    <p class="datiRec">Inserisci la tua Recensione</p>
     <form class="recensione" action="AggiungiRecensione">
 
         <div id="stelle" onclick="checkRecensione()">
@@ -130,7 +132,7 @@
         <input type="hidden" name="piattaforma" value="<%=p.getPiattaforma() %>">
 
         <textarea id="testoRecensione" name="recensione" placeholder="Scrivi la tua recensione..."
-         onkeyup="validateRecensione('testoRecensione'),checkRecensione()"></textarea>
+                  onkeyup="validateRecensione('testoRecensione'),checkRecensione()"></textarea>
 
         <input id="submitRecensione" type="submit" value="Pubblica">
     </form>
@@ -139,11 +141,16 @@
     }%>
 
 </div>
+<%}
+}%>
 
 <div class="lisaRec">
 
-    <%if(lRec!=null){
-        for(int x=0;x<lRec.size();x++){
+    <%if(lRec.size()>0){%>
+    <hr>
+        <p class="datiRec">Recensioni</p>
+    <%
+            for(int x=0;x<lRec.size();x++){
             Recensione rec = lRec.get(x);
     %>
 
@@ -172,16 +179,21 @@
         </div>
     </div>
     <%}
+        if(lRec.size()>3){%>
+
+    <div id="mostraRecensioni" class="aggiunta" onclick="mostraRecensioni()">
+        <p>Mostra tutto</p>
+    </div>
+
+    <div id="nascondiRecensioni" class="aggiunta" onclick="nascondiRecensioni()">
+        <p>Nascondi</p>
+    </div>
+
+    <%}
     }%>
 </div>
 
-<div id="mostraRecensioni" class="aggiunta" onclick="mostraRecensioni()">
-    <p>Mostra tutto</p>
-</div>
 
-<div id="nascondiRecensioni" class="aggiunta" onclick="nascondiRecensioni()">
-    <p>Nascondi</p>
-</div>
-</script>
+
 </body>
 </html>
