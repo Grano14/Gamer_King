@@ -112,10 +112,16 @@
                 </div>
                 <div id="modificaElimina">
                     <form class="modificaRec" action="ModificaRecensione">
+                        <input type="hidden" name="azione" value="modifica">
+                        <input type="hidden" name="videogioco" value="<%=rec.getVideogioco()%>">
+                        <input type="hidden" name="piattaforma" value="<%=rec.getPiattaforma()%>">
                         <input type="submit" value="Modifica">
                     </form>
 
-                    <form class="modificaRec" action="EliminaRecensione">
+                    <form class="modificaRec" action="ModificaRecensione">
+                        <input type="hidden" name="azione" value="elimina">
+                        <input type="hidden" name="videogioco" value="<%=rec.getVideogioco()%>">
+                        <input type="hidden" name="piattaforma" value="<%=rec.getPiattaforma()%>">
                         <input type="submit" value="Elimina">
                     </form>
                 </div>

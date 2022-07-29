@@ -18,9 +18,15 @@ body{
     margin-right:40px;
 }
 
-immagine2{
-    width:100%;
-    heigth:550px;
+#submitRecensione{
+    color:white;
+    font-family: "copperplate", fantasy;
+    border:0px;
+    height: 35px;
+    width: 80px;
+    border-radius: 6px;
+    background-color:#601194;
+    font-size: 18px;
 }
 
 #secondaria{
@@ -206,6 +212,11 @@ ul img:hover{
 
 #nascondiRecensioni{
     display:none;
+}
+
+hr{
+    width:100%;
+    border:1px solid grey;
 }
 
 #STAR_RATING ul
