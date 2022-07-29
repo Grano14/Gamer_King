@@ -65,17 +65,36 @@
             </form>
         </div>
         <div>
-            <form class="bottoneAcquisto" action="">
-                <input type="hidden" name="id" value="">
-                <input class="bottoneAC" type="submit" value="Carrello">
-            </form>
+            <div class="bottoneAcquisto">
+                <input type="hidden" id="nomeG" name="nomeGioco" value="<%=p.getVideogioco()%>">
+                <input type="hidden" id="nomeP" name="nomePiattaforma" value="<%=p.getPiattaforma()%>">
+                <button class="bottoneAC" style="font-size: 23px" onclick="addToCarrello()">Aggiungi al carrello</button>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script>
+                function addToCarrello(){
+                    var t = document.getElementById("nomeG").value;
+                    var p = document.getElementById("nomeP").value;
+                    $.ajax({
+                        url: "CaricaProdottoCarrello",
+                        type: 'GET',
+                        data:{
+                            nomeGioco: t,
+                            nomePiattaforma: p
+                        },
+                        success: function(data){
+                            document.getElementById("numeroCarrello").src = "css/pictures/cerchio" + data + ".png";
+                        }
+                    })
+                }
+            </script>
             </div>
         </div>
 
     </div>
 <br>
 </div>
-<hr>
+
 <div id="descrizione">
     <p class="titolo">Descrizione</p>
     <p class="summary" id="trama">
@@ -93,14 +112,13 @@
     </p>
 </div>
 
+<div>
 
-<% String utente =(String) request.getSession().getAttribute("nomeUtente");
+    <% String utente =(String) request.getSession().getAttribute("nomeUtente");
     if(utente!="LOGIN"){
         if(!RecensioneDAO.contains(utente, p.getVideogioco(), p.getPiattaforma())){
-%>
-<hr>
-<div>
-    <p class="datiRec">Inserisci la tua Recensione</p>
+    %>
+
     <form class="recensione" action="AggiungiRecensione">
 
         <div id="stelle" onclick="checkRecensione()">
@@ -117,17 +135,15 @@
         <input id="submitRecensione" type="submit" value="Pubblica">
     </form>
 
+    <%}
+    }%>
+
 </div>
-<%}
-}%>
 
 <div class="lisaRec">
 
-    <%if(lRec.size()>0){%>
-    <hr>
-        <p class="datiRec">Recensioni</p>
-    <%
-            for(int x=0;x<lRec.size();x++){
+    <%if(lRec!=null){
+        for(int x=0;x<lRec.size();x++){
             Recensione rec = lRec.get(x);
     %>
 
@@ -156,21 +172,16 @@
         </div>
     </div>
     <%}
-        if(lRec.size()>3){%>
-
-    <div id="mostraRecensioni" class="aggiunta" onclick="mostraRecensioni()">
-        <p>Mostra tutto</p>
-    </div>
-
-    <div id="nascondiRecensioni" class="aggiunta" onclick="nascondiRecensioni()">
-        <p>Nascondi</p>
-    </div>
-
-    <%}
     }%>
 </div>
 
+<div id="mostraRecensioni" class="aggiunta" onclick="mostraRecensioni()">
+    <p>Mostra tutto</p>
+</div>
 
-
+<div id="nascondiRecensioni" class="aggiunta" onclick="nascondiRecensioni()">
+    <p>Nascondi</p>
+</div>
+</script>
 </body>
 </html>

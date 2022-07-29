@@ -1,4 +1,5 @@
-<%--
+<%@ page import="model.Utente" %>
+<%@ page import="model.UtenteDAO" %><%--
   Created by IntelliJ IDEA.
   User: utente
   Date: 28/06/2022
@@ -18,8 +19,9 @@
 <div id="user">
     <div id="utenteInfo">
         <img id="utenteimage" src="css/pictures/utenteGenerico.png">
-        <p id="userid">Nome utente</p>
-        <p id="email">ciaociao@ciao.com</p>
+        <%Utente u = UtenteDAO.doretriveByNomeUtente((String)session.getAttribute("nomeUtente"));%>
+        <p id="userid"><%=u.getNomeUtente()%></p>
+        <p id="email"><%=u.getEmail()%></p>
         <div id="impostazioniUtente">
             <div class="bottoneImpostazioni" onclick="showMenu('m')">
                 <p>Statistiche vendite</p>

@@ -34,8 +34,17 @@
         <div>Categorie</div>
         <div id="freccia1"><img src="css/pictures/freccia.png"></div>
     </div>
-    <a id="carrello" class="button" style="float: right" href="Carrello.jsp">
+    <a id="carrello" class="button" style="float: right" href="CaricaCarrello">
         <img src="css/pictures/carrello.png">
+        <%
+            Integer n = (Integer)session.getAttribute("numProdottiCarrello");
+            String pathImage = "";
+            if(n != 0)
+                pathImage = "css/pictures/" + "cerchio" + n + ".png";
+            if(n > 5)
+                pathImage = "css/pictures/" + "cerchio.png";
+        %>
+        <img id="numeroCarrello" style="margin-bottom: 20px" src="<%=pathImage%>">
     </a>
     <%
         if(session.getAttribute("nomeUtente").equals("LOGIN")){

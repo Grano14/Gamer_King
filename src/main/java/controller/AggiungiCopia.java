@@ -61,6 +61,8 @@ public class AggiungiCopia extends HttpServlet {
         Copia c = new Copia(codice.toString(), titolo, piattaforma);
         CopiaDAO.doSave(c);
 
+        request.setAttribute("messaggio", "Aggiunta copia effettuata!");
+
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("AggiungiGiocoPage.jsp");
         requestDispatcher.forward(request, response);
 

@@ -27,6 +27,8 @@ public class AccessoUtente extends HttpServlet {
             if(l.get(i).getNomeUtente().equals(nome) && l.get(i).getPass().equals(pass)){
                 HttpSession session = request.getSession();
                 session.setAttribute("nomeUtente", nome);
+                int n = SelezionareDAO.doRetriveAllByNomeUtente((String) session.getAttribute("nomeUtente")).size();
+                session.setAttribute("numProdottiCarrello", n);
 
                 Utente u = UtenteDAO.doRetriveByNomeUtente(nome);
 
