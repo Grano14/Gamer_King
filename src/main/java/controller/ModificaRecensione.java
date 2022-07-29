@@ -13,7 +13,7 @@ public class ModificaRecensione  extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String nome = (String) request.getSession().getAttribute("nomeUtente");
+        int id = Integer.parseInt(request.getSession().getAttribute("idUtente").toString());
         String videogioco = request.getParameter("videogioco");
         String piattaforma = request.getParameter("piattaforma");
         String azione = request.getParameter("azione");
@@ -22,7 +22,7 @@ public class ModificaRecensione  extends HttpServlet {
 
         Prodotto prodotto = ProdottoDAO.doRetriveById(videogioco, piattaforma);
         String img = ImmagineDAO.getMainImageByVideogame(videogioco);
-        Recensione rec = RecensioneDAO.doRetriveById(nome, videogioco, piattaforma);
+        Recensione rec = RecensioneDAO.doRetriveById(id, videogioco, piattaforma);
         Videogioco v = VideogiocoDAO.doRetriveById(videogioco);
 
         request.setAttribute("immagine", img);
@@ -35,7 +35,7 @@ public class ModificaRecensione  extends HttpServlet {
 
     }
     else{
-        RecensioneDAO.doRemoveById(nome, videogioco, piattaforma);
+        RecensioneDAO.doRemoveById(id, videogioco, piattaforma);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("PaginaUtente");
             requestDispatcher.forward(request, response);
         }

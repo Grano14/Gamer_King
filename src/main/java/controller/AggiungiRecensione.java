@@ -23,7 +23,7 @@ public class AggiungiRecensione extends HttpServlet{
 
         String contenuto = request.getParameter("recensione");;
         String piattaforma = request.getParameter("piattaforma");
-        String nomeUtente = request.getSession().getAttribute("nomeUtente").toString();
+        int idUtente = Integer.parseInt(request.getSession().getAttribute("idUtente").toString());
         String videogioco = request.getParameter("videogioco");
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -32,7 +32,7 @@ public class AggiungiRecensione extends HttpServlet{
 
         int nStelle = Integer.parseInt(request.getParameter("nStelle"));
 
-        Recensione rec = new Recensione(nomeUtente, videogioco, piattaforma, pubblicazione, contenuto, nStelle);
+        Recensione rec = new Recensione(idUtente, videogioco, piattaforma, pubblicazione, contenuto, nStelle);
         RecensioneDAO.doSave(rec);
 
         request.setAttribute("titolo",videogioco);

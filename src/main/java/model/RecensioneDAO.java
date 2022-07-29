@@ -8,15 +8,33 @@ import java.util.ArrayList;
 
 public class RecensioneDAO {
 
-    public static Recensione doRetriveById(String nomeUtente, String videogioco, String piattaforma){
+    public static Recensione doRetriveById(int idUtente, String videogioco, String piattaforma){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select * from Recensione where nomeUtente=? and videogioco=? and piattaforma=?");
-            ps.setString(1, nomeUtente);
+            PreparedStatement ps = con.prepareStatement("select * from Recensione where idUtente=? and videogioco=? and piattaforma=?");
+            ps.setInt(1, idUtente);
             ps.setString(2, videogioco);
             ps.setString(3, piattaforma);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                Recensione r = new Recensione(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), Integer.parseInt(rs.getString(6)));
+                Recensione r = new Recensione(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), Integer.parseInt(rs.getString(6)));
+                return r;
+            }
+            return null;
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static Recensione doRetriveById(String nome, String videogioco, String piattaforma){
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("select r.idUtente,r.videogioco,r.piattaforma,r.pubblicazione,r.contenuto,r.nStelle from Recensione r join Utente u on u.id=r.idUtente where nomeUtente=? and videogioco=? and piattaforma=?");
+            ps.setString(1, nome);
+            ps.setString(2, videogioco);
+            ps.setString(3, piattaforma);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                Recensione r = new Recensione(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), Integer.parseInt(rs.getString(6)));
                 return r;
             }
             return null;
@@ -28,8 +46,8 @@ public class RecensioneDAO {
 
     public static void doSave(Recensione r){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("insert into Recensione (nomeUtente, videogioco, piattaforma, pubblicazione, contenuto, nstelle) values (?,?,?,?,?,?)");
-            ps.setString(1, r.getNomeUtente());
+            PreparedStatement ps = con.prepareStatement("insert into Recensione (idUtente, videogioco, piattaforma, pubblicazione, contenuto, nstelle) values (?,?,?,?,?,?)");
+            ps.setInt(1, r.getIdUtente());
             ps.setString(2, r.getVideogioco());
             ps.setString(3, r.getPiattaforma());
             ps.setString(4, r.getPubblicazione());
@@ -42,10 +60,10 @@ public class RecensioneDAO {
         }
     }
 
-    public static void doRemoveById(String nomeUtente, String videogioco, String piattaforma){
+    public static void doRemoveById(int idUtente, String videogioco, String piattaforma){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("delete from Recensione where nomeUtente=? and videogioco=? and piattaforma=?");
-            ps.setString(1, nomeUtente);
+            PreparedStatement ps = con.prepareStatement("delete from Recensione where idUtente=? and videogioco=? and piattaforma=?");
+            ps.setInt(1, idUtente);
             ps.setString(2, videogioco);
             ps.setString(3, piattaforma);
             ps.execute();
@@ -58,10 +76,10 @@ public class RecensioneDAO {
     public static ArrayList<Recensione> doRetriveAll(){
         ArrayList<Recensione> l = new ArrayList<>();
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select nomeUtente, videogioco, piattaforma, pubblicazione, contenuto, nstelle from Recensione ");
+            PreparedStatement ps = con.prepareStatement("select idUtente, videogioco, piattaforma, pubblicazione, contenuto, nstelle from Recensione ");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                Recensione rec = new Recensione(rs.getString(1), rs.getString(2),rs.getString(3), rs.getString(4),rs.getString(5), rs.getInt(6));
+                Recensione rec = new Recensione(rs.getInt(1), rs.getString(2),rs.getString(3), rs.getString(4),rs.getString(5), rs.getInt(6));
                 l.add(rec);
             }
             return l;
@@ -79,7 +97,7 @@ public class RecensioneDAO {
         ps.setString(2, piattaforma);
         ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                Recensione rec = new Recensione(rs.getString(1), rs.getString(2),rs.getString(3), rs.getString(4),rs.getString(5), rs.getInt(6));
+                Recensione rec = new Recensione(rs.getInt(1), rs.getString(2),rs.getString(3), rs.getString(4),rs.getString(5), rs.getInt(6));
                 l.add(rec);
             }
             return l;
@@ -92,11 +110,11 @@ public class RecensioneDAO {
     public static ArrayList<Recensione> doRetriveByUser(String nomeUtente){
         ArrayList<Recensione> l = new ArrayList<>();
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select * from Recensione where nomeUtente=? order by pubblicazione desc");
+            PreparedStatement ps = con.prepareStatement("select * from Recensione r join Utente u on u.id=r.idUtente where u.nomeUtente=? order by r.pubblicazione desc");
             ps.setString(1, nomeUtente);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                Recensione rec = new Recensione(rs.getString(1), rs.getString(2),rs.getString(3), rs.getString(4),rs.getString(5), rs.getInt(6));
+                Recensione rec = new Recensione(rs.getInt(1), rs.getString(2),rs.getString(3), rs.getString(4),rs.getString(5), rs.getInt(6));
                 l.add(rec);
             }
             return l;
@@ -107,20 +125,28 @@ public class RecensioneDAO {
     }
 
 
-    public static boolean contains(String nomeUtente, String videogioco, String piattaforma){
-       Recensione rec = RecensioneDAO.doRetriveById(nomeUtente, videogioco, piattaforma);
+    public static boolean contains(int id, String videogioco, String piattaforma){
+       Recensione rec = RecensioneDAO.doRetriveById(id, videogioco, piattaforma);
 
             if(rec != null)
                 return true;
         return false;
     }
 
-    public static void updateContent(String nomeUtente, String videogioco, String piattaforma,String contenuto, int nStelle){
+    public static boolean contains(String nome, String videogioco, String piattaforma){
+        Recensione rec = RecensioneDAO.doRetriveById(nome, videogioco, piattaforma);
+
+        if(rec != null)
+            return true;
+        return false;
+    }
+
+    public static void updateContent(int idUtente, String videogioco, String piattaforma,String contenuto, int nStelle){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("update Recensione set contenuto=?, nstelle=? where nomeUtente=? and videogioco=? and piattaforma=?");
+            PreparedStatement ps = con.prepareStatement("update Recensione set contenuto=?, nstelle=? where idUtente=? and videogioco=? and piattaforma=?");
             ps.setString(1, contenuto);
             ps.setInt(2, nStelle);
-            ps.setString(3, nomeUtente);
+            ps.setInt(3, idUtente);
             ps.setString(4, videogioco);
             ps.setString(5, piattaforma);
             ps.execute();

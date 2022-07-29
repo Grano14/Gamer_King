@@ -2,12 +2,13 @@ package model;
 
 public class Acquisto {
 
-    private String numeroCarta,nomeUtente ,via,cap,numCivico,citta,IdCopia,videogioco,piattaforma;
+    private String numeroCarta ,via,cap,numCivico,citta,IdCopia,videogioco,piattaforma;
+    private int idUtente;
 
-    public Acquisto(String numeroCarta,String nomeUtente,String via,String cap,String numCivico,String citta,
+    public Acquisto(String numeroCarta,int idUtente,String via,String cap,String numCivico,String citta,
                     String IdCopia,String videogioco,String piattaforma){
         this.numeroCarta=numeroCarta;
-        this.nomeUtente=nomeUtente;
+        this.idUtente=idUtente;
         this.via=via;
         this.cap=cap;
         this.numCivico=numCivico;
@@ -21,8 +22,8 @@ public class Acquisto {
         return numeroCarta;
     }
 
-    public String getNomeUtente() {
-        return nomeUtente;
+    public int getIdUtente() {
+        return idUtente;
     }
 
     public String getVia() {
@@ -81,8 +82,8 @@ public class Acquisto {
         this.via = via;
     }
 
-    public void setNomeUtente(String nomeUtente) {
-        this.nomeUtente = nomeUtente;
+    public void setIdUtente(int idUtente) {
+        this.idUtente = idUtente;
     }
 
     public void setNumeroCarta(String numeroCarta) {

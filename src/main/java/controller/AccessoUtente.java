@@ -28,9 +28,11 @@ public class AccessoUtente extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("nomeUtente", nome);
 
-                Admin a = AdminDAO.doRetriveByNomeUtente(nome);
+                Utente u = UtenteDAO.doRetriveByNomeUtente(nome);
 
-                if(a instanceof Admin){
+                session.setAttribute("idUtente", u.getId());
+
+                if(u.isAdm()){
                     address = "AdminPage.jsp";
                 }
                 else{

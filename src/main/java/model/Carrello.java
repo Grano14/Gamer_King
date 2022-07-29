@@ -2,16 +2,16 @@ package model;
 
 public class Carrello {
 
-    private String nomeUtente;
+    private int idUtente;
     private float prezzoTotale;
 
-    public Carrello(String nomeUtente,float prezzoTotale) {
-        this.nomeUtente = nomeUtente;
+    public Carrello(int idUtente,float prezzoTotale) {
+        this.idUtente = idUtente;
         this.prezzoTotale=prezzoTotale;
     }
 
-    public String getNomeUtente() {
-        return nomeUtente;
+    public int getIdUtente() {
+        return idUtente;
     }
 
     public float getPrezzoTotale() {
@@ -22,7 +22,7 @@ public class Carrello {
         this.prezzoTotale = prezzoTotale;
     }
 
-    public void setNomeUtente(String nomeUtente) {
-        this.nomeUtente = nomeUtente;
+    public void setIdUtente(int idUtente) {
+        this.idUtente = idUtente;
     }
 }

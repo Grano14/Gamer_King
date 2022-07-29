@@ -7,18 +7,18 @@ import java.sql.SQLException;
 
 public class SottoscrivereDAO {
 
-    public static Sottoscrivere doRetriveById(String numero, String citta, String numCivico, String cap, String via, String nomeUtente){
+    public static Sottoscrivere doRetriveById(String numero, String citta, String numCivico, String cap, String via, int idUtente){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select numero, nomeUtente, via, cap, numCivico, citta from Sottoscrivere where numero=? and citta=? and numCivico=? and cap=? and via=? and nomeUtente=?");
+            PreparedStatement ps = con.prepareStatement("select * from Sottoscrivere where numero=? and citta=? and numCivico=? and cap=? and via=? and idUtente=?");
             ps.setString(1, numero);
             ps.setString(2, citta);
             ps.setString(3, numCivico);
             ps.setString(4, cap);
             ps.setString(5, via);
-            ps.setString(6, nomeUtente);
+            ps.setInt(6, idUtente);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                Sottoscrivere s = new Sottoscrivere(rs.getString(2), rs.getString(1), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+                Sottoscrivere s = new Sottoscrivere(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
                 return s;
             }
             return null;
@@ -30,9 +30,9 @@ public class SottoscrivereDAO {
 
     public static void doSave(Sottoscrivere s){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("insert into Sottoscrivere (numero, nomeUtente, via, cap, numCivico, citta) values (?,?,?,?,?,?)");
+            PreparedStatement ps = con.prepareStatement("insert into Sottoscrivere (numero, idUtente, via, cap, numCivico, citta) values (?,?,?,?,?,?)");
             ps.setString(1, s.getNumero());
-            ps.setString(2, s.getNomeUtente());
+            ps.setInt(2, s.getIdUtente());
             ps.setString(3, s.getVia());
             ps.setString(4, s.getCap());
             ps.setString(5, s.getNumCivico());
@@ -44,15 +44,15 @@ public class SottoscrivereDAO {
         }
     }
 
-    public static void doRemoveById(String numero, String citta, String numCivico, String cap, String via, String nomeUtente){
+    public static void doRemoveById(String numero, String citta, String numCivico, String cap, String via, int idUtente){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("delete from Sottoscrivere where numero=? and citta=? and numCivico=? and cap=? and via=? and nomeUtente=?");
+            PreparedStatement ps = con.prepareStatement("delete from Sottoscrivere where numero=? and citta=? and numeroCivico=? and cap=? and via=? and idUtente=?");
             ps.setString(1, numero);
             ps.setString(2, citta);
             ps.setString(3, numCivico);
             ps.setString(4, cap);
             ps.setString(5, via);
-            ps.setString(6, nomeUtente);
+            ps.setInt(6, idUtente);
             ps.execute();
         }
         catch (SQLException e){

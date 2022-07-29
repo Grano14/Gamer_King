@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/UserPageStyle.css">
 
+    <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
+
     <script type="text/javascript" src="javaScript/UserPageScript.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -32,7 +34,6 @@
         });
     </script>
 
-    <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
 </head>
 <body>
 <%@include file="NavBar.jsp" %>
@@ -55,7 +56,7 @@
             </div>
 
             <div class="bottoneLogout">
-                <form class="bottoneModifica" action="Impostazioni">
+                <form class="bottoneModifica" action="PaginaImpostazioni">
                     <input type="submit" value="Impostazioni">
                 </form>
             </div>

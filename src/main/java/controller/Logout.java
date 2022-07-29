@@ -16,6 +16,7 @@ public class Logout extends HttpServlet {
 
         HttpSession s = request.getSession();
         s.setAttribute("nomeUtente", "LOGIN");
+        s.setAttribute("idUtente", "-1");
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
         requestDispatcher.forward(request, response);

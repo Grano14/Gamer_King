@@ -7,15 +7,15 @@ import java.sql.SQLException;
 
 public class SelezionareDAO {
 
-    public static Selezionare doRetriveById(String nomeUtente, String videogioco, String piattaforma){
+    public static Selezionare doRetriveById(int idUtente, String videogioco, String piattaforma){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select nomeUtente, videogioco, piattaforma from Recensione where nomeUtente=? and videogioco=? and piattaforma=?");
-            ps.setString(1, nomeUtente);
+            PreparedStatement ps = con.prepareStatement("select idUtente, videogioco, piattaforma from Recensione where idUtente=? and videogioco=? and piattaforma=?");
+            ps.setInt(1, idUtente);
             ps.setString(2, videogioco);
             ps.setString(3, piattaforma);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                Selezionare s = new Selezionare(rs.getString(1), rs.getString(2), rs.getString(3));
+                Selezionare s = new Selezionare(rs.getInt(1), rs.getString(2), rs.getString(3));
                 return s;
             }
             return null;
@@ -27,8 +27,8 @@ public class SelezionareDAO {
 
     public static void doSave(Selezionare s){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("insert into Selezionare (nomeUtente, videogioco, piattaforma) values (?,?,?)");
-            ps.setString(1, s.getNomeUtente());
+            PreparedStatement ps = con.prepareStatement("insert into Selezionare (idUtente, videogioco, piattaforma) values (?,?,?)");
+            ps.setInt(1, s.getIdUtente());
             ps.setString(2, s.getVideogioco());
             ps.setString(3, s.getPiattaforma());
             ps.execute();
@@ -38,10 +38,10 @@ public class SelezionareDAO {
         }
     }
 
-    public static void doRemoveById(String nomeUtente, String videogioco, String piattaforma){
+    public static void doRemoveById(int idUtente, String videogioco, String piattaforma){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("delete from Selezionare where nomeUtente=? and videogioco=? and piattaforma=?");
-            ps.setString(1, nomeUtente);
+            PreparedStatement ps = con.prepareStatement("delete from Selezionare where idUtente=? and videogioco=? and piattaforma=?");
+            ps.setInt(1, idUtente);
             ps.setString(2, videogioco);
             ps.setString(3, piattaforma);
             ps.execute();

@@ -8,20 +8,18 @@ import model.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(name = "PaginaUtente", value = "/PaginaUtente")
-public class PaginaUtente extends HttpServlet {
+@WebServlet(name = "PaginaImpostazioni", value = "/PaginaImpostazioni")
+public class PaginaImpostazioni extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String nome = (String) request.getSession().getAttribute("nomeUtente");
 
         Utente user = UtenteDAO.doRetriveByNomeUtente(nome);
-        ArrayList<Recensione> listaRec = RecensioneDAO.doRetriveByUser(nome);
-//bisogna aggiungere i prodotti
-        request.setAttribute("utente", user);
-        request.setAttribute("listaRec", listaRec);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("UserPage.jsp");
+        request.setAttribute("utente", user);
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("ImpostazioniPage.jsp");
         requestDispatcher.forward(request, response);
 
     }

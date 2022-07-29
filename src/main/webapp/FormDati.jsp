@@ -21,7 +21,7 @@
         <input class="dati" type="text" class="serch" id="mail"><br>
         <label for="phone">Telefono</label><br>
         <input class="dati" type="text" class="serch" id="phone"><br><br>
-        <input class="mod" type="submit" id="modificaDati" value="modifica">
+        <input class="mod" type="submit" id="modificaDati" value="Modifica">
     </form>
 </div>
 

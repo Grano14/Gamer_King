@@ -21,6 +21,7 @@ public class index extends HttpServlet {
 
         if(session == null){
             session = request.getSession();
+            session.setAttribute("idUtente", "-1");
             session.setAttribute("nomeUtente", "LOGIN");
         }
 

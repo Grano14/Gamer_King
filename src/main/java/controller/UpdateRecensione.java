@@ -14,17 +14,17 @@ public class UpdateRecensione  extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String nome = (String) request.getSession().getAttribute("nomeUtente");
+        int id = Integer.parseInt(request.getSession().getAttribute("idUtente").toString());
         String videogioco = request.getParameter("videogioco");
         String piattaforma = request.getParameter("piattaforma");
         String contenuto = request.getParameter("recensione");
         int nStelle = Integer.parseInt(request.getParameter("nStelle"));
 
-        RecensioneDAO.updateContent( nome, videogioco, piattaforma, contenuto, nStelle);
+        RecensioneDAO.updateContent( id, videogioco, piattaforma, contenuto, nStelle);
 
         Prodotto prodotto = ProdottoDAO.doRetriveById(videogioco, piattaforma);
         String img = ImmagineDAO.getMainImageByVideogame(videogioco);
-        Recensione rec = RecensioneDAO.doRetriveById(nome, videogioco, piattaforma);
+        Recensione rec = RecensioneDAO.doRetriveById(id, videogioco, piattaforma);
         Videogioco v = VideogiocoDAO.doRetriveById(videogioco);
 
         request.setAttribute("immagine", img);
