@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class SelezionareDAO {
 
@@ -37,6 +38,24 @@ public class SelezionareDAO {
             throw new RuntimeException(e);
         }
     }
+
+    public static ArrayList<Selezionare> doRetriveAllByNomeUtente(String nome){
+        ArrayList<Selezionare> l = new ArrayList<>();
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("select s.idUtente,s.videogioco,s.piattaforma from Selezionare s join Utente u on u.id=s.idUtente where u.nomeUtente=?");
+            ps.setString(1, nome);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Selezionare s = new Selezionare(rs.getInt(1), rs.getString(2), rs.getString(3));
+                l.add(s);
+            }
+            return l;
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 
     public static void doRemoveById(int idUtente, String videogioco, String piattaforma){
         try(Connection con = ConPool.getConnection()){

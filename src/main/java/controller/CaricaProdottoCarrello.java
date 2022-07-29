@@ -25,19 +25,19 @@ public class CaricaProdottoCarrello extends HttpServlet {
             session.setAttribute("numProdottiCarrello", n+1);
         }
         else{
-            if(CarrelloDAO.doRetriveById((String) session.getAttribute("nomeUtente")) == null){
+            if(CarrelloDAO.doRetriveById(Integer.parseInt(session.getAttribute("idUtente").toString())) == null){
                 Prodotto p = ProdottoDAO.doRetriveById(titolo, piattaforma);
-                Selezionare s = new Selezionare((String) session.getAttribute("nomeUtente"), titolo, piattaforma);
-                Carrello c = new Carrello((String) session.getAttribute("nomeUtente"), Float.parseFloat(p.getPrezzo().toString()));
+                Selezionare s = new Selezionare(Integer.parseInt(session.getAttribute("idUtente").toString()), titolo, piattaforma);
+                Carrello c = new Carrello(Integer.parseInt(session.getAttribute("idUtente").toString()), Float.parseFloat(p.getPrezzo().toString()));
                 SelezionareDAO.doSave(s);
                 CarrelloDAO.doSave(c);
                 session.setAttribute("numProdottiCarrello", 1);
             }
             else{
                 Prodotto p = ProdottoDAO.doRetriveById(titolo, piattaforma);
-                Selezionare s = new Selezionare((String) session.getAttribute("nomeUtente"), titolo, piattaforma);
+                Selezionare s = new Selezionare(Integer.parseInt(session.getAttribute("idUtente").toString()), titolo, piattaforma);
                 SelezionareDAO.doSave(s);
-                Carrello c = CarrelloDAO.doRetriveById((String) session.getAttribute("nomeUtente"));
+                Carrello c = CarrelloDAO.doRetriveById(Integer.parseInt(session.getAttribute("idUtente").toString()));
                 Float prezzo = c.getPrezzoTotale();
                 prezzo += Float.parseFloat(p.getPrezzo().toString());
                 CarrelloDAO.doUpdatePrezzo(prezzo, (String) session.getAttribute("nomeUtente"));
