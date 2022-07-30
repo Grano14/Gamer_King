@@ -19,7 +19,7 @@
 <div id="user">
     <div id="utenteInfo">
         <img id="utenteimage" src="css/pictures/utenteGenerico.png">
-        <%Utente u = UtenteDAO.doretriveByNomeUtente((String)session.getAttribute("nomeUtente"));%>
+        <%Utente u = UtenteDAO.doRetriveByNomeUtente((String)session.getAttribute("nomeUtente"));%>
         <p id="userid"><%=u.getNomeUtente()%></p>
         <p id="email"><%=u.getEmail()%></p>
         <div id="impostazioniUtente">

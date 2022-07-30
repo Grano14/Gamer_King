@@ -21,23 +21,22 @@ public class CaricaProdottoCarrello extends HttpServlet {
             ArrayList<Prodotto> carrello = (ArrayList<Prodotto>) session.getAttribute("carrello");
             carrello.add(p);
             session.setAttribute("carrello", carrello);
-            Integer n = (Integer)session.getAttribute("numProdottiCarrello");
-            session.setAttribute("numProdottiCarrello", n+1);
+            session.setAttribute("numProdottiCarrello", carrello.size());
         }
         else{
-            if(CarrelloDAO.doRetriveById(Integer.parseInt(session.getAttribute("idUtente").toString())) == null){
+            if(CarrelloDAO.doRetriveById(session.getAttribute("nomeUtente").toString()) == null){
                 Prodotto p = ProdottoDAO.doRetriveById(titolo, piattaforma);
-                Selezionare s = new Selezionare(Integer.parseInt(session.getAttribute("idUtente").toString()), titolo, piattaforma);
-                Carrello c = new Carrello(Integer.parseInt(session.getAttribute("idUtente").toString()), Float.parseFloat(p.getPrezzo().toString()));
+                Selezionare s = new Selezionare(session.getAttribute("nomeUtente").toString(), titolo, piattaforma);
+                Carrello c = new Carrello(session.getAttribute("nomeUtente").toString(), Float.parseFloat(p.getPrezzo().toString()));
                 SelezionareDAO.doSave(s);
                 CarrelloDAO.doSave(c);
                 session.setAttribute("numProdottiCarrello", 1);
             }
             else{
                 Prodotto p = ProdottoDAO.doRetriveById(titolo, piattaforma);
-                Selezionare s = new Selezionare(Integer.parseInt(session.getAttribute("idUtente").toString()), titolo, piattaforma);
+                Selezionare s = new Selezionare(session.getAttribute("nomeUtente").toString(), titolo, piattaforma);
                 SelezionareDAO.doSave(s);
-                Carrello c = CarrelloDAO.doRetriveById(Integer.parseInt(session.getAttribute("idUtente").toString()));
+                Carrello c = CarrelloDAO.doRetriveById(session.getAttribute("nomeUtente").toString());
                 Float prezzo = c.getPrezzoTotale();
                 prezzo += Float.parseFloat(p.getPrezzo().toString());
                 CarrelloDAO.doUpdatePrezzo(prezzo, (String) session.getAttribute("nomeUtente"));

@@ -7,13 +7,13 @@ import java.sql.SQLException;
 
 public class CarrelloDAO {
 
-    public static Carrello doRetriveById(int idUtente){
+    public static Carrello doRetriveById(String nomeUtente){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("select idUtente, prezzoTotale from Carrello where idUtente=?");
-            ps.setInt(1, idUtente);
+            ps.setString(1, nomeUtente);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                Carrello c = new Carrello(rs.getInt(1), rs.getFloat(2));
+                Carrello c = new Carrello(rs.getString(1), rs.getFloat(2));
                 return c;
             }
             return null;
@@ -25,8 +25,8 @@ public class CarrelloDAO {
 
     public static void doSave(Carrello c){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("insert into Carrello (idUtente, prezzoTotale) values (?,?)");
-            ps.setInt(1, c.getIdUtente());
+            PreparedStatement ps = con.prepareStatement("insert into Carrello (nomeUtente, prezzoTotale) values (?,?)");
+            ps.setString(1, c.getNomeUtente());
             ps.setFloat(2, c.getPrezzoTotale());
             ps.execute();
         }
@@ -35,10 +35,10 @@ public class CarrelloDAO {
         }
     }
 
-    public static void doRemoveByIdutente(int idUtente){
+    public static void doRemoveByIdutente(String nomeUtente){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("delete from Carrello where idUtente=?");
-            ps.setInt(1, idUtente);
+            PreparedStatement ps = con.prepareStatement("delete from Carrello where nomeUtente=?");
+            ps.setString(1, nomeUtente);
             ps.execute();
         }
         catch (SQLException e){

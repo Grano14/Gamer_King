@@ -2,12 +2,12 @@ package model;
 
 public class Recensione {
 
-    private String videogioco,piattaforma,pubblicazione,contenuto;
-    private int nstelle,idUtente;
+    private String nomeUtente, videogioco,piattaforma,pubblicazione,contenuto;
+    private int nstelle;
 
-    public Recensione(int idUtente,String videogioco,String piattaforma,String pubblicazione,String contenuto,
+    public Recensione(String nomeUtente,String videogioco,String piattaforma,String pubblicazione,String contenuto,
                       int nstelle){
-        this.idUtente=idUtente;
+        this.nomeUtente= nomeUtente;
         this.videogioco=videogioco;
         this.piattaforma=piattaforma;
         this.pubblicazione=pubblicazione;
@@ -15,8 +15,8 @@ public class Recensione {
         this.nstelle=nstelle;
     }
 
-    public int getIdUtente() {
-        return idUtente;
+    public String getNomeUtente() {
+        return nomeUtente;
     }
 
     public String getVideogioco() {
@@ -59,7 +59,7 @@ public class Recensione {
         this.videogioco = videogioco;
     }
 
-    public void setIdUtente(int idUtente) {
-        this.idUtente = idUtente;
+    public void setNomeUtente(String nomeUtente) {
+        this.nomeUtente = nomeUtente;
     }
 }

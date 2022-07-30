@@ -2,11 +2,10 @@ package model;
 
 public class Sottoscrivere {
 
-    private String numero,via,cap,numCivico,citta;
-    private int idUtente;
+    private String numero,via,cap,numCivico,citta,nomeUtente;
 
-    public Sottoscrivere(String numero,int idUtente, String via, String cap, String numCivico, String citta) {
-        this.idUtente = idUtente;
+    public Sottoscrivere(String numero, String nomeUtente, String via, String cap, String numCivico, String citta) {
+        this.nomeUtente = nomeUtente;
         this.numero = numero;
         this.via = via;
         this.cap = cap;
@@ -14,8 +13,8 @@ public class Sottoscrivere {
         this.citta = citta;
     }
 
-    public int getIdUtente() {
-        return idUtente;
+    public String getNomeUtente() {
+        return nomeUtente;
     }
 
     public String getNumero() {
@@ -58,7 +57,7 @@ public class Sottoscrivere {
         this.numero = numero;
     }
 
-    public void setIdUtente(int idUtente) {
-        this.idUtente = idUtente;
+    public void setNomeUtente(String nomeUtente) {
+        this.nomeUtente = nomeUtente;
     }
 }

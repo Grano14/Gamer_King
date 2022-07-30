@@ -2,17 +2,16 @@ package model;
 
 public class Selezionare {
 
-    private String videogioco,piattaforma;
-    private int idUtente;
+    private String nomeUtente, videogioco,piattaforma;
 
-    public Selezionare(int idUtente,String videogioco,String piattaforma) {
-        this.idUtente = idUtente;
+    public Selezionare(String nomeUtente,String videogioco,String piattaforma) {
+        this.nomeUtente = nomeUtente;
         this.videogioco = videogioco;
         this.piattaforma = piattaforma;
     }
 
-    public int getIdUtente() {
-        return idUtente;
+    public String getNomeUtente() {
+        return nomeUtente;
     }
 
     public String getVideogioco() {
@@ -31,7 +30,7 @@ public class Selezionare {
         this.videogioco = videogioco;
     }
 
-    public void setIdUtente(int idUtente) {
-        this.idUtente = idUtente;
+    public void setNomeUtente(String nomeUtente) {
+        this.nomeUtente = nomeUtente;
     }
 }

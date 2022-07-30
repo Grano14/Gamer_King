@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class UtenteDAO {
 
-    public static Utente doretriveByNomeUtente(String nomeUtente){
+    public static Utente doRetriveByNomeUtente(String nomeUtente){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("select nomeUtente, mail, pass, adm from utente where nomeUtente=?");
             ps.setString(1, nomeUtente);

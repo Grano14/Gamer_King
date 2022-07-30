@@ -29,7 +29,6 @@ public class RegistraUtente extends HttpServlet {
 
         HttpSession session = request.getSession();
         session.setAttribute("nomeUtente", nome);
-        session.setAttribute("idUtente", u.getId());
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
         requestDispatcher.forward(request, response);

@@ -143,9 +143,9 @@
 </div>
 <div class="lisaRec">
 
-    <%if(lRec!=null){%>
+    <%if(lRec.size()>0){%>
     <hr>
-    <p>Recensione</p>
+    <p>Recensioni</p>
     <%
         for(int x=0;x<lRec.size();x++){
             Recensione rec = lRec.get(x);
