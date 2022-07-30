@@ -3,18 +3,9 @@ package model;
 public class Utente {
 
     private String nomeUtente, email, pass;
-    private int id;
     private boolean adm;
 
-    public Utente(String nomeUtente, String email, String pass, boolean adm){
-        this.nomeUtente = nomeUtente;
-        this.email = email;
-        this.pass = pass;
-        this.adm = adm;
-    }
-
-    public Utente(int id, String nomeUtente, String email, String pass, boolean adm){
-        this.id = id;
+    public Utente(String nomeUtente, String email, String pass,boolean adm){
         this.nomeUtente = nomeUtente;
         this.email = email;
         this.pass = pass;
@@ -27,14 +18,6 @@ public class Utente {
 
     public void setAdm(boolean adm) {
         this.adm = adm;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getEmail() {

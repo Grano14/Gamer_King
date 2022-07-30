@@ -30,11 +30,7 @@ public class AccessoUtente extends HttpServlet {
                 int n = SelezionareDAO.doRetriveAllByNomeUtente((String) session.getAttribute("nomeUtente")).size();
                 session.setAttribute("numProdottiCarrello", n);
 
-                Utente u = UtenteDAO.doRetriveByNomeUtente(nome);
-
-                session.setAttribute("idUtente", u.getId());
-
-                if(u.isAdm()){
+                if(l.get(i).isAdm()){
                     address = "AdminPage.jsp";
                 }
                 else{

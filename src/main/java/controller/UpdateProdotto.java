@@ -62,7 +62,7 @@ public class UpdateProdotto extends HttpServlet {
         String nomeImage = image.getSubmittedFileName();
 
         if(!nomeImage.equals("")){
-            String dirPath = "C:/Users/utente/IdeaProjects/Gamer_King/sr/main/webapp/css/gameImages" + titolo;
+            String dirPath = "C:/Users/utente/IdeaProjects/Gamer_King/src/main/webapp/css/gameImages/" + titolo;
             String path = "css/gameImages/" + titolo + "/" + nomeImage;
             String pathCompleto = dirPath + "/" + nomeImage;
             String oldPath = ImmagineDAO.getMainImageByVideogame(titolo);
