@@ -13,11 +13,11 @@ public class UtenteDAO {
 
     public static Utente doRetriveByNomeUtente(String nomeUtente){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select nomeUtente, mail, pass, adm from utente where nomeUtente=?");
+            PreparedStatement ps = con.prepareStatement("select nomeUtente, mail, pass, adm, immagine from utente where nomeUtente=?");
             ps.setString(1, nomeUtente);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                Utente u = new Utente(rs.getString(1), rs.getString(2), rs.getString(3), rs.getBoolean(4));
+                Utente u = new Utente(rs.getString(1), rs.getString(2), rs.getString(3), rs.getBoolean(4),rs.getString(5));
                 return u;
             }
             return null;
@@ -54,10 +54,10 @@ public class UtenteDAO {
     public static ArrayList<Utente> doRetriveAll(){
         ArrayList<Utente> l = new ArrayList<>();
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select nomeUtente, mail, pass, adm from utente");
+            PreparedStatement ps = con.prepareStatement("select nomeUtente, mail, pass, adm, immagine from utente");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                Utente u = new Utente(rs.getString(1), rs.getString(2), rs.getString(3), rs.getBoolean(4));
+                Utente u = new Utente(rs.getString(1), rs.getString(2), rs.getString(3), rs.getBoolean(4),rs.getString(5));
                 l.add(u);
             }
             return l;

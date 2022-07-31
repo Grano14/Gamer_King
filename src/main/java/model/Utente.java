@@ -2,7 +2,7 @@ package model;
 
 public class Utente {
 
-    private String nomeUtente, email, pass;
+    private String nomeUtente, email, pass, immagine;
     private boolean adm;
 
     public Utente(String nomeUtente, String email, String pass,boolean adm){
@@ -10,6 +10,22 @@ public class Utente {
         this.email = email;
         this.pass = pass;
         this.adm = adm;
+    }
+
+    public Utente(String nomeUtente, String email, String pass,boolean adm, String immagine){
+        this.nomeUtente = nomeUtente;
+        this.email = email;
+        this.pass = pass;
+        this.adm = adm;
+        this.immagine = immagine;
+    }
+
+    public String getImmagine() {
+        return immagine;
+    }
+
+    public void setImmagine(String immagine) {
+        this.immagine = immagine;
     }
 
     public boolean isAdm() {
