@@ -22,14 +22,8 @@
         <div class="forms">
             <label for="userName" >Nome utente</label><br>
             <input type="text" class="serch" id="userName" name="userName" onkeyup="validateID(), checkButton()"><br>
-            <label for="firstName">Nome</label><br>
-            <input type="text" class="serch" id="firstName" name="firstName" onkeyup="validateName('firstName'), checkButton()"><br>
-            <label for="lastName">Cognome</label><br>
-            <input type="text" class="serch" id="lastName" name="lastName" onkeyup="validateName('lastName'), checkButton()"><br>
             <label for="email">Email</label><br>
             <input type="text" class="serch" id="email" name="email" onkeyup="validateMail(), checkButton()"><br>
-            <label for="phone">Telefono</label><br>
-            <input type="text" class="serch" id="phone" name="phone" onkeyup="validateNum(), checkButton()"><br>
             <label for="pass">Password</label><br>
             <input type="password" class="serch" id="pass" name="pass" onkeyup="validatePass(), checkButton()"><br>
             <input type="submit" value="PROCEDI" id="bottone">

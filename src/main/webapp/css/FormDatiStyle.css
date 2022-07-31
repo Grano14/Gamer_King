@@ -35,6 +35,14 @@ label{
     color:white;
     font-family: "copperplate", fantasy;
     font-size:20px;
+    visibility:hidden;
+}
+
+.errore{
+    font-family: "copperplate", fantasy;
+    font-size:13px;
+    color:red;
+    visibility:hidden;
 }
 
 @media only screen and (max-width: 1200px){

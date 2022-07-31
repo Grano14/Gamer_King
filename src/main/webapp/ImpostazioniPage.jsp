@@ -20,6 +20,7 @@
         $(document).ready(function(){
             $("#showM").click(function(){
                 $("#m1").hide();
+                $("#m2").hide();
                 $("#m").toggle();
             });
         });
@@ -27,7 +28,16 @@
         $(document).ready(function(){
             $("#showM1").click(function(){
                 $("#m").hide();
+                $("#m2").hide();
                 $("#m1").toggle();
+            });
+        });
+
+        $(document).ready(function(){
+            $("#showM2").click(function(){
+                $("#m").hide();
+                $("#m1").hide();
+                $("#m2").toggle();
             });
         });
     </script>
@@ -47,9 +57,12 @@
         <p id="email"><%=user.getEmail()%></p>
         <div id="impostazioniUtente">
             <div class="bottoneImpostazioni" id="showM">
-                <p class="testo">Dati Personali</p>
+                <p class="testo">Modifica nome</p>
             </div>
             <div class="bottoneImpostazioni" id="showM1">
+                <p class="testo">Modifica email</p>
+            </div>
+            <div class="bottoneImpostazioni" id="showM2">
                 <p class="testo">Password</p>
             </div>
 
@@ -65,10 +78,14 @@
 
 <div id="menuUtente">
     <div id="m" class="hiddenMenu">
-        <%@include file="FormDati.jsp" %>
+        <%@include file="FormNomeUtente.jsp" %>
     </div>
 
     <div id="m1" class="hiddenMenu">
+        <%@include file="FormEmail.jsp" %>
+    </div>
+
+    <div id="m2" class="hiddenMenu">
         <%@include file="CambioPassword.jsp"%>
     </div>
 

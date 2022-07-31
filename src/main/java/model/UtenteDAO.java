@@ -67,4 +67,32 @@ public class UtenteDAO {
         }
     }
 
+    public static void updateNomeUtente(Utente u, String nuovoNome){
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("update Utente set nomeUtente=? where nomeUtente=?");
+            ps.setString(1, nuovoNome);
+            ps.setString(2, u.getNomeUtente());
+            ps.execute();
+
+            u.setNomeUtente(nuovoNome);
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void updateEmailUtente(Utente u, String nuovaMail){
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("update Utente set mail=? where nomeUtente=?");
+            ps.setString(1, nuovaMail);
+            ps.setString(2, u.getNomeUtente());
+            ps.execute();
+
+            u.setEmail(nuovaMail);
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 }

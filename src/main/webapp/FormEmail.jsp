@@ -8,19 +8,15 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
-    <title>Title</title>
+    <title></title>
     <link rel="stylesheet" type="text/css" href="css/FormDatiStyle.css">
 </head>
 <body>
 
 <div class="corpo">
-    <form>
-        <label for="userName">Nome utente</label><br>
-        <input class="dati" type="text" class="serch" id="userName"><br>
+    <form id="modEmai" method="post" action="UpdateEmail">
         <label for="mail">Email</label><br>
-        <input class="dati" type="text" class="serch" id="mail"><br>
-        <label for="phone">Telefono</label><br>
-        <input class="dati" type="text" class="serch" id="phone"><br><br>
+        <input class="dati" type="text" class="serch" id="mail" name="email"><br><br>
         <input class="mod" type="submit" id="modificaDati" value="Modifica">
     </form>
 </div>
