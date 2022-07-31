@@ -26,12 +26,18 @@ public class UpdateNomeUtente extends HttpServlet {
 
         String nuovoNome = request.getParameter("nome");
 
-        UtenteDAO.updateNomeUtente(user,nuovoNome);
+        if(UtenteDAO.contains(nuovoNome)){
+            request.setAttribute("erroreNome","Nome utente già in uso");
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("PaginaImpostazioni");
+            requestDispatcher.forward(request, response);
+        }else{
+            UtenteDAO.updateNomeUtente(user,nuovoNome);
 
-        session.setAttribute("nomeUtente", nuovoNome);
+            session.setAttribute("nomeUtente", nuovoNome);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("PaginaImpostazioni");
-        requestDispatcher.forward(request, response);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("PaginaImpostazioni");
+            requestDispatcher.forward(request, response);
+        }
     }
 
     @Override

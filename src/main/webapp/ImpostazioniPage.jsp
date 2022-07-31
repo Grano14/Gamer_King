@@ -49,6 +49,8 @@
 
 <%
     Utente user = (Utente) request.getAttribute("utente");
+    String erroreNome = (String) request.getAttribute("erroreNome");
+    String erroreMail = (String) request.getAttribute("erroreMail");
 %>
 <div id="user">
     <div id="utenteInfo">
@@ -78,10 +80,16 @@
 
 <div id="menuUtente">
     <div id="m" class="hiddenMenu">
+        <%if(erroreNome!=null){%>
+        <p style="color:red"><%=erroreNome%></p>
+        <%}%>
         <%@include file="FormNomeUtente.jsp" %>
     </div>
 
     <div id="m1" class="hiddenMenu">
+        <%if(erroreMail!=null){%>
+        <p style="color:red"><%=erroreMail%></p>
+        <%}%>
         <%@include file="FormEmail.jsp" %>
     </div>
 

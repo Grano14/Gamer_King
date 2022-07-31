@@ -13,7 +13,6 @@ import model.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@MultipartConfig
 @WebServlet(name = "UpdateEmail", value = "/UpdateEmail")
 public class UpdateEmail extends HttpServlet {
 
@@ -28,10 +27,16 @@ public class UpdateEmail extends HttpServlet {
 
         String nuovaMail = request.getParameter("email");
 
-        UtenteDAO.updateEmailUtente(user, nuovaMail);
+        if(UtenteDAO.containsMail(nuovaMail)){
+            request.setAttribute("erroreMail","Email già in uso");
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("PaginaImpostazioni");
+            requestDispatcher.forward(request, response);
+        }else{
+            UtenteDAO.updateEmailUtente(user, nuovaMail);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("PaginaImpostazioni");
-        requestDispatcher.forward(request, response);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("PaginaImpostazioni");
+            requestDispatcher.forward(request, response);
+        }
     }
 
     @Override

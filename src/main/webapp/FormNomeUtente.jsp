@@ -16,6 +16,7 @@
 
 <div class="corpo">
     <form id="modNome" method="post" action="">
+        <input type="hidden" id="hidden" value="<%=request.getSession().getAttribute("nomeUtente").toString()%>">
         <label for="userName">Nome utente</label><br>
         <input class="dati" type="text" class="serch" id="userName" name="nome" onkeyup="checkModificaNome('userName','modificaNome','erroreNome')"><br>
         <p class="errore" id="erroreNome">

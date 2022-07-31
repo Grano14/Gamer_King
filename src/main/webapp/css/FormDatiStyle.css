@@ -42,7 +42,11 @@ label{
     font-family: "copperplate", fantasy;
     font-size:13px;
     color:red;
-    visibility:hidden;
+    display:none;
+}
+
+.mod:hover{
+    background-color:rebeccapurple;
 }
 
 @media only screen and (max-width: 1200px){

@@ -14,6 +14,8 @@ public class PaginaImpostazioni extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String nome = (String) request.getSession().getAttribute("nomeUtente");
+        String erroreNome = (String) request.getAttribute("erroreNome");
+        request.setAttribute("erroreNome",erroreNome);
 
         Utente user = UtenteDAO.doRetriveByNomeUtente(nome);
 

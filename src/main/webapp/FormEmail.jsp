@@ -10,14 +10,19 @@
 <head>
     <title></title>
     <link rel="stylesheet" type="text/css" href="css/FormDatiStyle.css">
+    <script type="text/javascript" src="javaScript/checkFormMail.js"></script>
 </head>
 <body>
 
 <div class="corpo">
-    <form id="modEmai" method="post" action="UpdateEmail">
+    <form id="modEmail" method="post" action="">
         <label for="mail">Email</label><br>
-        <input class="dati" type="text" class="serch" id="mail" name="email"><br><br>
-        <input class="mod" type="submit" id="modificaDati" value="Modifica">
+        <input type="hidden" id="mailUsata" value="<%= UtenteDAO.doRetriveByNomeUtente((String)request.getSession().getAttribute("nomeUtente")).getEmail()%>">
+        <input class="dati" type="text" class="serch" id="mail" name="email" onkeyup="checkModificaMail('mail','modificaMail','erroreMail')"><br><br>
+        <p class="errore" id="erroreMail">
+
+        </p><br>
+        <input class="mod" type="submit" id="modificaMail" value="Modifica">
     </form>
 </div>
 

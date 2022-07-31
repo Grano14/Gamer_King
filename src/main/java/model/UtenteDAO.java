@@ -27,6 +27,22 @@ public class UtenteDAO {
         }
     }
 
+    public static Utente doRetriveByMail(String mail){
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("select nomeUtente, mail, pass, adm, immagine from utente where mail=?");
+            ps.setString(1, mail);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                Utente u = new Utente(rs.getString(1), rs.getString(2), rs.getString(3), rs.getBoolean(4),rs.getString(5));
+                return u;
+            }
+            return null;
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void doSave(Utente u){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("insert into utente (nomeUtente, mail, pass,adm) values (?,?,?,false)", Statement.RETURN_GENERATED_KEYS);
@@ -65,6 +81,22 @@ public class UtenteDAO {
         catch (SQLException e){
             throw  new RuntimeException(e);
         }
+    }
+
+    public static boolean contains(String nomeUtente){
+        Utente u = UtenteDAO.doRetriveByNomeUtente(nomeUtente);
+
+        if(u != null)
+            return true;
+        return false;
+    }
+
+    public static boolean containsMail(String mail){
+        Utente u = UtenteDAO.doRetriveByMail(mail);
+
+        if(u != null)
+            return true;
+        return false;
     }
 
     public static void updateNomeUtente(Utente u, String nuovoNome){
