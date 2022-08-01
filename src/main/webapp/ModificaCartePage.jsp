@@ -50,13 +50,13 @@
             </div>
         </div>
     </div>
-
+    <br>
     <hr>
     <%}%>
 
     <div>
         <form class="bottoneModifica" action="PaginaAggiuntaCarta">
-            <input type="hidden" name="ritorno" value="ModificaCartePage.jsp">
+            <input type="hidden" name="ritorno" value="PaginaModificaCarte">
             <input type="submit" id="Aggiunta" value="Aggiungi">
         </form>
     </div>

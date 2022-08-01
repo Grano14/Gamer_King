@@ -24,7 +24,7 @@
             <input type="text" class="serch" id="id" name="id"><br>
             <label for="pass">Password</label><br>
             <input type="password" class="serch" id="pass" name="pass"><br>
-            Se non sei registrato <a href="RegistrationPage.jsp">crea un account</a>
+            Se non sei registrato <a href="RegistrationPage.jsp">crea un account</a><br>
             <input type="submit" value="ACCEDI" id="bottone">
         </div>
     </form>

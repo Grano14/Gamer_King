@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.*;
 
 import java.io.IOException;
@@ -32,15 +33,10 @@ public class AggiungiCarta extends HttpServlet {
         String cap = request.getParameter("cap");
 
         Carta carta = new Carta(nome, cognome, numero, via, cap, numCivico, citta, verifica, scadenza);
+        Sottoscrivere sottoscrivere = new Sottoscrivere(numero, (String) request.getSession().getAttribute("nomeUtente"), via, cap, numCivico, citta);
 
         CartaDAO.doSave(carta);
-
-        String Utente = (String) request.getSession().getAttribute("nomeUtente");
-
-        ArrayList<Carta> listaCarte = CartaDAO.doRetriveByNomeUtente(Utente);
-
-        request.setAttribute("listaCarte",listaCarte);
-        request.setAttribute("utente", listaCarte);
+        SottoscrivereDAO.doSave(sottoscrivere);
 
         request.setAttribute("videogioco", videogioco);
         request.setAttribute("piattaforma", piattaforma);
@@ -52,6 +48,6 @@ public class AggiungiCarta extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        this.doGet(request,response);
     }
 }
