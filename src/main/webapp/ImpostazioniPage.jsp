@@ -69,7 +69,7 @@
             </div>
 
             <div class="bottoneLogout">
-                <form class="bottoneModifica" action="">
+                <form class="bottoneModifica" action="PaginaModificaCarte">
                     <input type="submit" value="Carte di credito">
                 </form>
             </div>

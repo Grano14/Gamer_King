@@ -34,14 +34,17 @@ input[type=text], input[type=password]{
     font-size:18px;
 }
 
+p{
+    font-size:35px;
+}
+
 #bottone{
     height: 35px;
     border-radius: 6px;
     background-color: yellow;
     font-family: "copperplate",fantasy;
     font-size: 25px;
-    margin-left: 65%;
-    margin-top: 15px;
+    margin-bottom: 20px;
 
 }
 
@@ -59,8 +62,7 @@ input[type=text], input[type=password]{
 
 #registration{
     text-align:center;
-    width: 50%;
-    height: 875px;
+    width: 60%;
     line-height: 70px;
     margin: auto;
     margin-top: 10%;

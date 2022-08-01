@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="model.*" %><%--
   Created by IntelliJ IDEA.
   User: utente
   Date: 18/07/2022
@@ -16,16 +17,21 @@
 
 <%@include file="NavBar.jsp" %>
 
+<%
+    ArrayList<Carta> lCarte = (ArrayList<Carta>) request.getAttribute("listaCarte");
+%>
+
 <div id="oggettiCarta">
     <p id="testoCarta"> Carte di credito</p>
-    <%for(int j=0; j<6; j++){%>
+    <%for(Carta c:lCarte){%>
     <div class="cartaItem">
 
         <div id="descrizione">
 
-            <p id="nomeCognome">Nome e Cognome</p>
-            <p id="indirizzo">Indirizzo</p>
-            <p id="numeroCarta">Numero Carta</p>
+            <p id="nomeCognome"><%=c.getCognome()%> <%=c.getNome()%></p>
+            <p id="indirizzo"><%=c.getCitta()%> <%=c.getCap()%></p>
+            <p><%=c.getVia()%> <%=c.getNumCivico()%></p>
+            <p id="numeroCarta">**** **** **** <%=c.getNumero().substring(11)%></p>
 
         </div>
 
@@ -47,6 +53,13 @@
 
     <hr>
     <%}%>
+
+    <div>
+        <form class="bottoneModifica" action="PaginaAggiuntaCarta">
+            <input type="hidden" name="ritorno" value="ModificaCartePage.jsp">
+            <input type="submit" id="Aggiunta" value="Aggiungi">
+        </form>
+    </div>
 </div>
 </body>
 </html>

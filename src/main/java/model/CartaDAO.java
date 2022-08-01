@@ -79,4 +79,25 @@ public class CartaDAO {
         }
     }
 
+    public static ArrayList<Carta> doRetriveByNomeUtente(String nome){
+        ArrayList<Carta> l = new ArrayList<>();
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("select c.nome, c.cognome, c.numero, c.scadenza," +
+                    " c.verifica, c.via, c.cap, c.numCivico, c.citta " +
+                    "from Carta c join Sottoscrivere s on c.numero=s.numero and c.via=s.via and c.numCivico=s.numCivico " +
+                    "and c.citta=s.citta and c.cap=s.cap where s.nomeUtente=?");
+            ps.setString(1,nome);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Carta c = new Carta(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+                        rs.getString(6), rs.getString(7), rs.getString(8),rs.getString(9));
+                l.add(c);
+            }
+            return l;
+        }
+        catch (SQLException e){
+            throw  new RuntimeException(e);
+        }
+    }
+
 }
