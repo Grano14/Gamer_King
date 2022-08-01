@@ -79,14 +79,14 @@
 </div>
 
 <div id="menuUtente">
-    <div id="m" class="hiddenMenu">
+    <div id="m" class="hiddenMenu"  <%if(erroreNome!=null){%> style="display:block"<%}%>>
         <%if(erroreNome!=null){%>
         <p style="color:red"><%=erroreNome%></p>
         <%}%>
         <%@include file="FormNomeUtente.jsp" %>
     </div>
 
-    <div id="m1" class="hiddenMenu">
+    <div id="m1" class="hiddenMenu" <%if(erroreMail!=null){%> style="display:block"<%}%>>
         <%if(erroreMail!=null){%>
         <p style="color:red"><%=erroreMail%></p>
         <%}%>

@@ -2,6 +2,8 @@ function checkModificaMail(idText,idButton,idErrore){
     var text = document.getElementById(idText).value;
     var buttonVisibility = document.getElementById(idButton).style.visibility;
     var mail = document.getElementById("mailUsata").value;
+    mail = mail.toLowerCase();
+    text = text.toLowerCase();
 
     var emailREGX = /[@]/;
 
