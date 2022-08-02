@@ -33,4 +33,14 @@ public class Selezionare {
     public void setNomeUtente(String nomeUtente) {
         this.nomeUtente = nomeUtente;
     }
+
+    public boolean equals(Object o){
+        Selezionare s = (Selezionare) o;
+        if(this.nomeUtente.equals(s.getNomeUtente()) && this.piattaforma.equals(s.getPiattaforma()) && this.videogioco.equals(s.getVideogioco())){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

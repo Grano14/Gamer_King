@@ -65,11 +65,34 @@
             </form>
         </div>
         <div>
+            <%
+                String nomeG = "nomeG";
+                String nomeP = "nomeP";
+                if(session.getAttribute("nomeUtente").equals("LOGIN")){
+                    ArrayList<Prodotto> l = (ArrayList<Prodotto>) session.getAttribute("carrello");
+                    if(l.contains(p)){%>
+                        <div class="bottoneAcquisto">
+                            <p>Prodotto già nel carrello
+                        </div>
+                    <%}else{%>
             <div class="bottoneAcquisto">
-                <input type="hidden" id="nomeG" name="nomeGioco" value="<%=p.getVideogioco()%>">
-                <input type="hidden" id="nomeP" name="nomePiattaforma" value="<%=p.getPiattaforma()%>">
+                <input type="hidden" id="<%=nomeG%>" name="nomeGioco" value="<%=p.getVideogioco()%>">
+                <input type="hidden" id="<%=nomeP%>" name="nomePiattaforma" value="<%=p.getPiattaforma()%>">
                 <button class="bottoneAC" style="font-size: 23px" onclick="addToCarrello()">Aggiungi al carrello</button>
-            </div>
+            </div><%}}else{
+                    Selezionare selezionare = new Selezionare((String)session.getAttribute("nomeUtente"), p.getVideogioco(), p.getPiattaforma());
+                    ArrayList<Selezionare> l = SelezionareDAO.doRetriveAllByNomeUtente((String)session.getAttribute("nomeUtente"));
+                    if(l.contains(selezionare)){%>
+                        <div class="bottoneAcquisto">
+                            <p>Prodotto già nel carrello
+                        </div>
+                    <%}else{%>
+                        <div class="bottoneAcquisto">
+                            <input type="hidden" id="nomeG" name="nomeGioco" value="<%=p.getVideogioco()%>">
+                            <input type="hidden" id="nomeP" name="nomePiattaforma" value="<%=p.getPiattaforma()%>">
+                            <button class="bottoneAC" style="font-size: 23px" onclick="addToCarrello()">Aggiungi al carrello</button>
+                        </div>
+                    <%}}%>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script>
                 function addToCarrello(){
