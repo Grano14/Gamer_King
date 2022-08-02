@@ -21,6 +21,7 @@
     <p id="testoCarrello"></p>
     <% ArrayList<Prodotto> carrello = (ArrayList<Prodotto>) request.getAttribute("carrello");
         ArrayList<String> lImm = (ArrayList<String>) request.getAttribute("lImmagini");
+        String nome = (String) session.getAttribute("nomeUtente");
         int i = carrello.size(); if(i == 0){%>
     <script>corpoCarrello(0)</script>
     <%} else{%>
@@ -35,9 +36,9 @@
             <div id="prezzo">
                 <%=carrello.get(j).getPrezzo()%>€
             </div>
-            <buttton id="delete">
+            <button id="delete" onclick="deleteElement('<%=carrello.get(j).getVideogioco()%>', '<%=carrello.get(j).getPiattaforma()%>', '<%=nome%>')">
                 X
-            </buttton>
+            </button>
         </div>
         <hr>
     <%}%>
@@ -46,6 +47,23 @@
     </div>
     <%}%>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    function deleteElement(t, p, n){
+        $.ajax({
+            url:"EliminaProdottoCarrello",
+            type: 'GET',
+            data:{
+                titolo: t,
+                piattaforma: p,
+                nomeUtente: n
+            },
+            success: function (data){
+                window.location.reload();
+            }
+        })
+    }
+</script>
 
 </body>
 </html>

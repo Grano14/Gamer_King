@@ -27,8 +27,14 @@ public class AccessoUtente extends HttpServlet {
             if(l.get(i).getNomeUtente().equals(nome) && l.get(i).getPass().equals(pass)){
                 HttpSession session = request.getSession();
                 session.setAttribute("nomeUtente", nome);
+                ArrayList<Prodotto> listProdottiCarrello = (ArrayList<Prodotto>) session.getAttribute("carrello");
+                int k;
                 int n = SelezionareDAO.doRetriveAllByNomeUtente((String) session.getAttribute("nomeUtente")).size();
-                session.setAttribute("numProdottiCarrello", n);
+                for(k=0; k<listProdottiCarrello.size(); k++){
+                    Selezionare s = new Selezionare((String)session.getAttribute("nomeUtente"), listProdottiCarrello.get(k).getVideogioco(), listProdottiCarrello.get(k).getPiattaforma());
+                    SelezionareDAO.doSave(s);
+                }
+                session.setAttribute("numProdottiCarrello", n+listProdottiCarrello.size());
 
                 if(l.get(i).isAdm()){
                     address = "AdminPage.jsp";

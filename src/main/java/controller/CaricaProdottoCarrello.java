@@ -28,8 +28,8 @@ public class CaricaProdottoCarrello extends HttpServlet {
                 Prodotto p = ProdottoDAO.doRetriveById(titolo, piattaforma);
                 Selezionare s = new Selezionare(session.getAttribute("nomeUtente").toString(), titolo, piattaforma);
                 Carrello c = new Carrello(session.getAttribute("nomeUtente").toString(), Float.parseFloat(p.getPrezzo().toString()));
-                SelezionareDAO.doSave(s);
                 CarrelloDAO.doSave(c);
+                SelezionareDAO.doSave(s);
                 session.setAttribute("numProdottiCarrello", 1);
             }
             else{
@@ -46,8 +46,12 @@ public class CaricaProdottoCarrello extends HttpServlet {
         }
 
         Integer n = (Integer) session.getAttribute("numProdottiCarrello");
+        String numP = n.toString();
+        if(n>5){
+            numP = "";
+        }
         response.setContentType("text/plain");
-        response.getWriter().write(n.toString());
+        response.getWriter().write(numP);
 
     }
 

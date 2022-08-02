@@ -66,4 +66,32 @@ public class Prodotto {
     public void setPiattaforma(String piattaforma) {
         this.piattaforma = piattaforma;
     }
+
+    public boolean equals(Object o){
+        Prodotto p = (Prodotto)o;
+        Boolean flag = true;
+        if(!this.piattaforma.equals(p.getPiattaforma())){
+            flag = false;
+        }
+        if(!this.dataUscita.equals(p.getDataUscita())){
+            flag = false;
+        }
+        if(!this.videogioco.equals(p.getVideogioco())){
+            flag = false;
+        }
+        if(Double.compare(this.prezzo, p.getPrezzo()) != 0){
+            flag = false;
+        }
+        if(!(this.nCopie == p.getnCopie())){
+            flag = false;
+        }
+        if(!(this.visibilita == p.isVisibilita())){
+
+        }
+        if(!(this.disponibilita == p.isDisponibilita())){
+            flag = false;
+        }
+        return flag;
+    }
+
 }

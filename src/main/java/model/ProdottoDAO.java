@@ -156,4 +156,33 @@ public class ProdottoDAO {
         }
     }
 
+    public static int doRetriveNumeroCopieById(String titolo, String piattaforma){
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("select numeroCopie from prodotto where videogioco=? and piattaforma=?");
+            ps.setString(1, titolo);
+            ps.setString(2, piattaforma);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                return rs.getInt(1);
+            }
+            return -1;
+        }
+        catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void doUpdateNumeroCopieById(String titolo, String piattaforma, int nCopie){
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("update prodotto set numeroCopie=? where videogioco=? and piattaforma=?");
+            ps.setString(2, titolo);
+            ps.setString(3, piattaforma);
+            ps.setInt(1, nCopie);
+            ps.execute();
+        }
+        catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 }

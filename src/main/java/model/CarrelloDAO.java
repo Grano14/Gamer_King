@@ -9,7 +9,7 @@ public class CarrelloDAO {
 
     public static Carrello doRetriveById(String nomeUtente){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select idUtente, prezzoTotale from Carrello where idUtente=?");
+            PreparedStatement ps = con.prepareStatement("select nomeUtente, prezzoTotale from Carrello where nomeUtente=?");
             ps.setString(1, nomeUtente);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
