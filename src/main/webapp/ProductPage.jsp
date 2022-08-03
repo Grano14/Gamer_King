@@ -59,8 +59,9 @@
                 else{if(s.indexOf(".")==(s.length()-2)){s=s+"0";}}%><%=s%>€</p>
             <p class="prezzo" id="piattaforma"><%=p.getPiattaforma()%></p>
             <div class="bottoniAM">
-            <form class="bottoneAcquisto" action="">
-                <input type="hidden" name="id" value="">
+            <form class="bottoneAcquisto" action="PaginaSelezionaCarta">
+                <input type="hidden" name="videogioco" value="<%=p.getVideogioco()%>">
+                <input type="hidden" name="piattaforma" value="<%=p.getPiattaforma()%>">
                 <input class="bottoneAC" type="submit" value="Acquisto">
             </form>
         </div>

@@ -18,7 +18,6 @@ public class PaginaModificaCarte extends HttpServlet{
         ArrayList<Carta> listaCarte = CartaDAO.doRetriveByNomeUtente(nome);
 
         request.setAttribute("listaCarte",listaCarte);
-        request.setAttribute("utente", listaCarte);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("ModificaCartePage.jsp");
         requestDispatcher.forward(request, response);
