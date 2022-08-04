@@ -27,6 +27,23 @@ public class AccessoUtente extends HttpServlet {
             if(l.get(i).getNomeUtente().equals(nome) && l.get(i).getPass().equals(pass)){
                 HttpSession session = request.getSession();
                 session.setAttribute("nomeUtente", nome);
+                ArrayList<Prodotto> listProdottiCarrello = (ArrayList<Prodotto>) session.getAttribute("carrello");
+                int k;
+                ArrayList<Selezionare> listaSelezionare = SelezionareDAO.doRetriveAllByNomeUtente((String) session.getAttribute("nomeUtente"));
+                for(k=0; k<listProdottiCarrello.size(); k++){
+                    Selezionare s = new Selezionare((String)session.getAttribute("nomeUtente"), listProdottiCarrello.get(k).getVideogioco(), listProdottiCarrello.get(k).getPiattaforma());
+                    if(CarrelloDAO.doRetriveById((String)session.getAttribute("nomeUtente")) == null){
+                        Carrello c = new Carrello((String)session.getAttribute("nomeUtente"), 0);
+                        CarrelloDAO.doSave(c);
+                    }
+                    if(!listaSelezionare.contains(s)) {
+                        SelezionareDAO.doSave(s);
+                        Carrello c = CarrelloDAO.doRetriveById((String)session.getAttribute("nomeUtente"));
+                        Float prezzo = c.getPrezzoTotale();
+                        prezzo += Float.parseFloat(listProdottiCarrello.get(k).getPrezzo().toString());
+                        CarrelloDAO.doUpdatePrezzo(prezzo, (String) session.getAttribute("nomeUtente"));
+                    }
+                }
                 int n = SelezionareDAO.doRetriveAllByNomeUtente((String) session.getAttribute("nomeUtente")).size();
                 session.setAttribute("numProdottiCarrello", n);
 

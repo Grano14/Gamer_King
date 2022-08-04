@@ -41,25 +41,33 @@ public class AggiungiCopia extends HttpServlet {
             Prodotto p = new Prodotto(piattaforma, data, titolo, true, true, Double.parseDouble(prezzo), Integer.parseInt(nCopie));
             ProdottoDAO.doSave(p);
         }
-
-        //inserimento copia nella tabella
-        Integer codice = 0;
-        flag = false;
-        while (flag == false){
-            flag = true;
-            Double c = 0.0;
-            c = Math.random()*20000+20000;
-            codice = c.intValue();
-            ArrayList<Copia> lCopia = CopiaDAO.doRetriveAll();
-            for(int p=0; p<lCopia.size(); p++){
-                if(lCopia.get(p).getIdCopia().equals(codice.toString())){
-                    flag = false;
-                }
-            }
+        else{
+            int n = Integer.parseInt(request.getParameter("nCopie"));
+            int num = ProdottoDAO.doRetriveNumeroCopieById(titolo, piattaforma);
+            ProdottoDAO.doUpdateNumeroCopieById(titolo, piattaforma, num+n);
         }
 
-        Copia c = new Copia(codice.toString(), titolo, piattaforma);
-        CopiaDAO.doSave(c);
+        //inserimento copie nella tabella
+        int n = Integer.parseInt(request.getParameter("nCopie"));
+        for (int t=0; t<n; t++) {
+            Integer codice = 0;
+            flag = false;
+            while (flag == false) {
+                flag = true;
+                Double c = 0.0;
+                c = Math.random() * 20000 + 20000;
+                codice = c.intValue();
+                ArrayList<Copia> lCopia = CopiaDAO.doRetriveAll();
+                for (int p = 0; p < lCopia.size(); p++) {
+                    if (lCopia.get(p).getIdCopia().equals(codice.toString())) {
+                        flag = false;
+                    }
+                }
+            }
+
+            Copia c = new Copia(codice.toString(), titolo, piattaforma);
+            CopiaDAO.doSave(c);
+        }
 
         request.setAttribute("messaggio", "Aggiunta copia effettuata!");
 
