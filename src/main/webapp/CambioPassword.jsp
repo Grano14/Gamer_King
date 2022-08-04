@@ -10,16 +10,25 @@
 <head>
   <title>Title</title>
     <link rel="stylesheet" type="text/css" href="css/FormDatiStyle.css">
+    <script type="text/javascript" src="javaScript/checkFormPassword.js"></script>
 </head>
 <body>
 
 <div class="corpo">
-    <form>
+    <form id="passForm" method="POST" action="">
         <label for="pass">Vecchia password</label><br>
         <input type="password" class="serch" id="pass"><br>
+        <label for="passConf">Nuova password</label><br>
+        <input type="password" class="serch" id="newPass" onkeyup="checkModificaPass('newPass','errorePass'),checkPassButton()"><br>
+        <p class="errore" id="errorePass">
+
+        </p><br>
         <label for="passConf">Conferma nuova password</label><br>
-        <input type="password" class="serch" id="passConf"><br><br>
-        <input class="mod" type="submit" value="Modifica" id="bottone">
+        <input type="password" class="serch" id="passConf" onkeyup="checkEqualPass('passConf','newPass','errorePassEq'),checkPassButton()"><br>
+        <p class="errore" id="errorePassEq">
+
+        </p><br>
+        <input class="mod" type="submit" value="Modifica" id="bottonePass">
     </form>
 </div>
 
