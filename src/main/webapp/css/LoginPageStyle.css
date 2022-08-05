@@ -9,10 +9,9 @@ a:visited{
 
 #accesso{
     width: 500px;
-    height: 450px;
     line-height: 70px;
     margin: auto;
-    margin-top: 10%;
+    margin-top: 5%;
     background-color: rebeccapurple;
     border-radius: 6px;
     font-family: "copperplate",fantasy;
@@ -38,14 +37,17 @@ p{
     font-size:35px;
 }
 
-#bottone{
+#bottone,#bottoneReg{
     height: 35px;
     border-radius: 6px;
     background-color: yellow;
     font-family: "copperplate",fantasy;
     font-size: 25px;
     margin-bottom: 20px;
+}
 
+#bottoneReg{
+    visibility:hidden;
 }
 
 #bottone:hover{
@@ -65,7 +67,7 @@ p{
     width: 60%;
     line-height: 70px;
     margin: auto;
-    margin-top: 10%;
+    margin-top: 2.5%;
     background-color: rebeccapurple;
     border-radius: 6px;
     font-family: "copperplate",fantasy;
@@ -78,6 +80,20 @@ p{
     width: 70%;
     height: 30px;
     text-align: center;
+}
+
+.errore{
+    color:red;
+    font-size:15px;
+    margin:0px;
+    visibility:hidden;
+}
+
+.erroreReg{
+    color:red;
+    font-size:15px;
+    margin:0px;
+    display:none;
 }
 
 @media only screen and (max-width: 1000px){

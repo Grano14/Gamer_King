@@ -22,9 +22,11 @@
     <form id="formLogin" action="">
         <div class="forms">
             <label for="id">ID Utente</label><br>
-            <input type="text" class="serch" id="id" name="id" onkeyup="checkNome('id'),checkFormLogin()"><br>
+            <input type="text" class="serch" id="id" name="id" onkeyup="checkNome('id'),checkFormLogin()">
+            <p id="erroreNome" class="errore">Inserisci il nome utente</p>
             <label for="pass">Password</label><br>
-            <input type="password" class="serch" id="pass" name="pass" onkeyup="checkPass('pass'),checkFormLogin()"><br>
+            <input type="password" class="serch" id="pass" name="pass" onkeyup="checkPass('pass'),checkFormLogin()">
+            <p id="errorePass" class="errore">Inserisci la password</p>
             Se non sei registrato <a href="RegistrationPage.jsp">crea un account</a><br>
             <input type="submit" value="ACCEDI" id="bottone">
         </div>

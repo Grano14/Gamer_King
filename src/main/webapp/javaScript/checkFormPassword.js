@@ -24,7 +24,7 @@ function checkEqualPass(idText1,idText2,idErrore){
     var text1 = document.getElementById(idText1).value;
     var text2 = document.getElementById(idText2).value;
 
-    if(text1==text2) {
+    if(text1==text2 && text1.length>0) {
         document.getElementById(idText1).style.backgroundColor = "lightgreen";
         document.getElementById(idErrore).style.display = "none";
         controllo2 = 1;

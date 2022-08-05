@@ -1,19 +1,29 @@
 var controllo1,controllo2;
 
-function checkNome(idText){
+function checkNome(idText,idErrore){
     var text = document.getElementById(idText).value;
     if(text.length>0)
+    {
         controllo1=1;
-    else
+        document.getElementById("erroreNome").style.visibility = "hidden";
+    }
+    else{
         controllo1=0;
+        document.getElementById("erroreNome").style.visibility = "visible";
+    }
 }
 
-function checkPass(idText){
+function checkPass(idText,idErrore){
     var text = document.getElementById(idText).value;
     if(text.length>0)
+    {
         controllo2=1;
-    else
+        document.getElementById("errorePass").style.visibility = "hidden";
+    }
+    else{
         controllo2=0;
+        document.getElementById("errorePass").style.visibility = "visible";
+    }
 }
 
 function checkFormLogin(){
