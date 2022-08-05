@@ -17,7 +17,7 @@
 <div class="corpo">
     <form id="passForm" method="POST" action="">
         <label for="pass">Vecchia password</label><br>
-        <input type="password" class="serch" id="pass"><br>
+        <input type="password" class="serch" id="pass" onkeyup="checkPass('pass'),checkPassButton()"><br>
         <label for="passConf">Nuova password</label><br>
         <input type="password" class="serch" id="newPass" onkeyup="checkModificaPass('newPass','errorePass'),checkPassButton()"><br>
         <p class="errore" id="errorePass">
@@ -28,7 +28,7 @@
         <p class="errore" id="errorePassEq">
 
         </p><br>
-        <input class="mod" type="submit" value="Modifica" id="bottonePass">
+        <input class="mod" type="submit" id="modificaPass" value="Modifica">
     </form>
 </div>
 
