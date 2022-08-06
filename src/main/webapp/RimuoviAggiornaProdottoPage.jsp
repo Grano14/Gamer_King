@@ -82,19 +82,19 @@
 
         <p>Carica immagine 1</p>
         <label id="labl1" class="custom-file-upload">
-            <input type="file" name="immagine1" id="ii" multiple oninput="verde('labl1'),checkButtonGame(), checkPicture(), readURL(this, 'img1')" >
+            <input type="file" name="immagine1" id="ii" multiple oninput="verde('labl1'),checkButtonUpdateGame(), checkPicture(), readURL(this, 'img1')" >
             Aggiorna
         </label>
         <img id="img1" style="border-radius: 6px" src="">
         <p>Carica immagine 2</p>
         <label id="labl2" class="custom-file-upload">
-            <input type="file" name="immagine2" multiple oninput="verde('labl2'),checkButtonGame(), readURL(this, 'img2')">
+            <input type="file" name="immagine2" multiple oninput="verde('labl2'),checkButtonUpdateGame(), readURL(this, 'img2')">
             Aggiorna
         </label>
         <img id="img2" style="border-radius: 6px" src="">
         <p>Carica immagine 3</p>
         <label id="labl3" class="custom-file-upload">
-            <input type="file" name="immagine3" multiple oninput="verde('labl3'),checkButtonGame(), readURL(this, 'img3')">
+            <input type="file" name="immagine3" multiple oninput="verde('labl3'),checkButtonUpdateGame(), readURL(this, 'img3')">
             Aggiorna
         </label>
         <img id="img3" style="border-radius: 6px" src=""><br><br>
