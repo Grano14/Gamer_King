@@ -49,7 +49,7 @@
         <p>Aggiungi un nuovo titolo</p>
     </div>
 
-<form id="formGioco" action="AggiungiGioco" method="post" enctype="multipart/form-data" >
+<form id="formGioco" action="" method="post" enctype="multipart/form-data" >
 
     <div id="gioco" class="forms">
 
@@ -60,35 +60,35 @@
                   onkeyup="validateDescription('descrizione'),checkButtonGame()"></textarea><br>
 
         <p>Seleziona generi</p>
-        <input type="checkbox" value="Avventura" id="avventura" name="c1" onclick="checkButtonGame()">
+        <input type="checkbox" value="Avventura" id="avventura" name="c1" onclick=" checkedBox('avventura'),checkButtonGame()">
         <label for="avventura">Avventura</label>
-        <input type="checkbox" value="Fantasy" id="fantasy" name="c2" onclick="checkButtonGame()">
+        <input type="checkbox" value="Fantasy" id="fantasy" name="c2" onclick="checkedBox('fantasy'),checkButtonGame()">
         <label for="fantasy">Fantasy</label>
-        <input type="checkbox" value="Horror" id="horror" name="c3" onclick="checkButtonGame()">
+        <input type="checkbox" value="Horror" id="horror" name="c3" onclick="checkedBox('horror'),checkButtonGame()">
         <label for="horror">Horror</label><br>
-        <input type="checkbox" value="Sci-fi" id="sci-fi" name="c4" onclick="checkButtonGame()">
+        <input type="checkbox" value="Sci-fi" id="sci-fi" name="c4" onclick="checkedBox('sci-fi'),checkButtonGame()">
         <label for="sci-fi">Sci-Fi</label>
-        <input type="checkbox" value="Sparatutto" id="sparatutto" name="c5" onclick="checkButtonGame()">
+        <input type="checkbox" value="Sparatutto" id="sparatutto" name="c5" onclick="checkedBox('sparatutto'),checkButtonGame()">
         <label for="sparatutto">Sparatutto</label>
-        <input type="checkbox" value="Picchiaduro" id="picchiaduro" name="c6" onclick="checkButtonGame()">
+        <input type="checkbox" value="Picchiaduro" id="picchiaduro" name="c6" onclick="checkedBox('picchiaduro'),checkButtonGame()">
         <label for="picchiaduro">Picchiaduro</label><br>
-        <input type="checkbox" value="Sopravvivenza" id="sopravvivenza" name="c7" onclick="checkButtonGame()">
+        <input type="checkbox" value="Sopravvivenza" id="sopravvivenza" name="c7" onclick="checkedBox('sopravvivenza'),checkButtonGame()">
         <label for="sopravvivenza">Sopravvivenza</label>
-        <input type="checkbox" value="Stelth" id="stelth" name="c8" onclick="checkButtonGame()">
+        <input type="checkbox" value="Stelth" id="stelth" name="c8" onclick="checkedBox('stelth'),checkButtonGame()">
         <label for="stelth">Stelth</label>
-        <input type="checkbox" value="Rpg" id="rpg" name="c9" onclick="checkButtonGame()">
+        <input type="checkbox" value="Rpg" id="rpg" name="c9" onclick="checkedBox('rpg'),checkButtonGame()">
         <label for="rpg">Rpg</label><br>
-        <input type="checkbox" value="J-rpg" id="jrpg" name="c10" onclick="checkButtonGame()">
+        <input type="checkbox" value="J-rpg" id="jrpg" name="c10" onclick="checkedBox('jrpg'),checkButtonGame()">
         <label for="jrpg">J-Rpg</label>
-        <input type="checkbox" value="Action" id="action" name="c11" onclick="checkButtonGame()">
+        <input type="checkbox" value="Action" id="action" name="c11" onclick="checkedBox('action'),checkButtonGame()">
         <label for="action">Action</label>
-        <input type="checkbox" value="Simulazione" id="simulazione" name="c12" onclick="checkButtonGame()">
+        <input type="checkbox" value="Simulazione" id="simulazione" name="c12" onclick="checkedBox('simulazione'),checkButtonGame()">
         <label for="simulazione">Simulazione</label><br>
-        <input type="checkbox" value="Strategia" id="strategia" name="c13" onclick="checkButtonGame()">
+        <input type="checkbox" value="Strategia" id="strategia" name="c13" onclick="checkedBox('strategia'),checkButtonGame()">
         <label for="strategia">strategia</label>
-        <input type="checkbox" value="Roughlik" id="roughlik" name="c14" onclick="checkButtonGame()">
+        <input type="checkbox" value="Roughlik" id="roughlik" name="c14" onclick="checkedBox('roughlik'),checkButtonGame()">
         <label for="roughlik">Roughlik</label>
-        <input type="checkbox" value="Open world" id="openworld" name="c15" onclick="checkButtonGame()">
+        <input type="checkbox" value="Open world" id="openworld" name="c15" onclick="checkedBox('openworld'),checkButtonGame()">
         <label for="openworld">Open World</label><br>
         <p>Carica immagine 1</p>
             <label id="labl1" class="custom-file-upload">
@@ -120,7 +120,7 @@
     </div><br>
 
     <div id="prodotto" class="forms">
-        <form id="formProdotto" action="AggiungiCopia" method="post">
+        <form id="formProdotto" action="" method="post">
             <label for="selectGioco">Seleziona gioco</label><br>
             <select id="selectGioco" name="gioco" oninput="validateLista('selectGioco'),checkButtonProdotto()">
                 <option value="none"> </option>

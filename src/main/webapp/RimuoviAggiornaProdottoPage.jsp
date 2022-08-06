@@ -49,35 +49,35 @@
                   onkeyup="validateDescription('descrizione'),checkButtonUpdateGame()"></textarea><br>
 
         <p>Seleziona generi</p>
-        <input type="checkbox" value="Avventura" id="avventura" name="c1" onclick="checkButtonUpdateGame()">
+        <input type="checkbox" value="Avventura" id="avventura" name="c1" onclick="checkedBox('avventura'),checkButtonUpdateGame()">
         <label for="avventura">Avventura</label>
-        <input type="checkbox" value="Fantasy" id="fantasy" name="c2" onclick="checkButtonUpdateGame()">
+        <input type="checkbox" value="Fantasy" id="fantasy" name="c2" onclick="checkedBox('fantasy'),checkButtonUpdateGame()">
         <label for="fantasy">Fantasy</label>
-        <input type="checkbox" value="Horror" id="horror" name="c3" onclick="checkButtonUpdateGame()">
+        <input type="checkbox" value="Horror" id="horror" name="c3" onclick="checkedBox('horror'),checkButtonUpdateGame()">
         <label for="horror">Horror</label><br>
-        <input type="checkbox" value="Sci-fi" id="sci-fi" name="c4" onclick="checkButtonUpdateGame()">
+        <input type="checkbox" value="Sci-fi" id="sci-fi" name="c4" onclick="checkedBox('sci-fi'),checkButtonUpdateGame()">
         <label for="sci-fi">Sci-Fi</label>
-        <input type="checkbox" value="Sparatutto" id="sparatutto" name="c5" onclick="checkButtonUpdateGame()">
+        <input type="checkbox" value="Sparatutto" id="sparatutto" name="c5" onclick="checkedBox('sparatutto'),checkButtonUpdateGame()">
         <label for="sparatutto">Sparatutto</label>
-        <input type="checkbox" value="Picchiaduro" id="picchiaduro" name="c6" onclick="checkButtonUpdateGame()">
+        <input type="checkbox" value="Picchiaduro" id="picchiaduro" name="c6" onclick="checkedBox('picchiaduro'),checkButtonUpdateGame()">
         <label for="picchiaduro">Picchiaduro</label><br>
-        <input type="checkbox" value="Sopravvivenza" id="sopravvivenza" name="c7" onclick="checkButtonUpdateGame()">
+        <input type="checkbox" value="Sopravvivenza" id="sopravvivenza" name="c7" onclick="checkedBox('sopravvivenza'),checkButtonUpdateGame()">
         <label for="sopravvivenza">Sopravvivenza</label>
-        <input type="checkbox" value="Stelth" id="stelth" name="c8" onclick="checkButtonUpdateGame()">
+        <input type="checkbox" value="Stelth" id="stelth" name="c8" onclick="checkedBox('stelth'),checkButtonUpdateGame()">
         <label for="stelth">Stelth</label>
-        <input type="checkbox" value="Rpg" id="rpg" name="c9" onclick="checkButtonUpdateGame()">
+        <input type="checkbox" value="Rpg" id="rpg" name="c9" onclick="checkedBox('rpg'),checkButtonUpdateGame()">
         <label for="rpg">Rpg</label><br>
-        <input type="checkbox" value="J-rpg" id="jrpg" name="c10" onclick="checkButtonUpdateGame()">
+        <input type="checkbox" value="J-rpg" id="jrpg" name="c10" onclick="checkedBox('jrpg'),checkButtonUpdateGame()">
         <label for="jrpg">J-Rpg</label>
-        <input type="checkbox" value="Action" id="action" name="c11" onclick="checkButtonUpdateGame()">
+        <input type="checkbox" value="Action" id="action" name="c11" onclick="checkedBox('action'),checkButtonUpdateGame()">
         <label for="action">Action</label>
-        <input type="checkbox" value="Simulazione" id="simulazione" name="c12" onclick="checkButtonUpdateGame()">
+        <input type="checkbox" value="Simulazione" id="simulazione" name="c12" onclick="checkedBox('simulazione'),checkButtonUpdateGame()">
         <label for="simulazione">Simulazione</label><br>
-        <input type="checkbox" value="Strategia" id="strategia" name="c13" onclick="checkButtonUpdateGame()">
+        <input type="checkbox" value="Strategia" id="strategia" name="c13" onclick="checkedBox('strategia'),checkButtonUpdateGame()">
         <label for="strategia">strategia</label>
-        <input type="checkbox" value="Roughlik" id="roughlik" name="c14" onclick="checkButtonUpdateGame()">
+        <input type="checkbox" value="Roughlik" id="roughlik" name="c14" onclick="checkedBox('roughlik'),checkButtonUpdateGame()">
         <label for="roughlik">Roughlik</label>
-        <input type="checkbox" value="Open world" id="openworld" name="c15" onclick="checkButtonUpdateGame()">
+        <input type="checkbox" value="Open world" id="openworld" name="c15" onclick="checkedBox('openworld'),checkButtonUpdateGame()">
         <label for="openworld">Open World</label><br>
 
         <p>Carica immagine 1</p>
@@ -112,104 +112,6 @@
     </div>
 </form>
 </div>
-<script>
-    function uu(){
-        var nome = document.getElementById("nomeGioco").value;
-        var t = nome.substr(0, nome.indexOf(","));
-        document.getElementById("titolo").value = t;
-        var p = nome.substr(nome.indexOf(",")+1, nome.length)
-        document.getElementById("piattaforma").value = p;
-        $.ajax({
-            url: "InterrogazioneDB",
-            type: 'POST',
-            data: {
-                titolo: t,
-                piattaforma: p,
-                tipo: "dati"},
-            success: function (data) {
-                document.getElementById("nascondi").style.visibility = "hidden";
-                document.getElementById("mostra").style.visibility = "hidden";
-                var n = JSON.parse(data);
-                document.getElementById("img1").style.height = "100px";
-                document.getElementById("img2").style.height = "100px";
-                document.getElementById("img3").style.height = "100px";
-                document.getElementById("img1").style.width = "150px";
-                document.getElementById("img2").style.width = "150px";
-                document.getElementById("img3").style.width = "150px";
-                document.getElementById("img1").src = n.immagine1;
-                document.getElementById("img2").src = n.immagine2;
-                document.getElementById("img3").src = n.immagine3;
-                document.getElementById("prezzo").value = n.prezzo;
-                document.getElementById("data").value = n.dataUscita;
-                if(n.visibilita == "true"){
-                    document.getElementById("nascondi").style.visibility = "visible";
-                    document.getElementById("nascondi").href = "GestioneVisibilita?titolo=" + t + "&piattaforma=" + p + "&visibilita=nascondi";
-                }
-                else{
-                    document.getElementById("mostra").style.visibility = "visible";
-                    document.getElementById("mostra").href = "GestioneVisibilita?titolo=" + t + "&piattaforma=" + p + "&visibilita=mostra";
-                }
-                if(n.generi.includes("Avventura")){
-                    document.getElementById("avventura").checked = true;
-                }
-                if(n.generi.includes("Fantasy")){
-                    document.getElementById("fantasy").checked = true;
-                }
-                if(n.generi.includes("Horror")){
-                    document.getElementById("horror").checked = true;
-                }
-                if(n.generi.includes("Sci-fi")){
-                    document.getElementById("sci-fi").checked = true;
-                }
-                if(n.generi.includes("Sparatutto")){
-                    document.getElementById("sparatutto").checked = true;
-                }
-                if(n.generi.includes("Picchiaduro")){
-                    document.getElementById("picchiaduro").checked = true;
-                }
-                if(n.generi.includes("Sopravvivenza")){
-                    document.getElementById("sopravvivenza").checked = true;
-                }
-                if(n.generi.includes("Stelth")){
-                    document.getElementById("stelth").checked = true;
-                }
-                if(n.generi.includes("Rpg")){
-                    document.getElementById("rpg").checked = true;
-                }
-                if(n.generi.includes("J-rpg")){
-                    document.getElementById("jrpg").checked = true;
-                }
-                if(n.generi.includes("Action")){
-                    document.getElementById("action").checked = true;
-                }
-                if(n.generi.includes("Simulazione")){
-                    document.getElementById("simulazione").checked = true;
-                }
-                if(n.generi.includes("Strategia")){
-                    document.getElementById("strategia").checked = true;
-                }
-                if(n.generi.includes("Roughlik")){
-                    document.getElementById("roughlik").checked = true;
-                }
-                if(n.generi.includes("Open world")){
-                    document.getElementById("openworld").checked = true;
-                }
-            }
-        });
-        $.ajax({
-            url:"InterrogazioneDB",
-            type:'POST',
-            data:{
-                titolo: t,
-                piattaforma: p,
-                tipo: "desc"},
-            success: function(data){
-                document.getElementById("descrizione").value = data;
-            }
-        });
-    }
-
-</script>
 <p id="cc"></p>
 </body>
 </html>
