@@ -49,6 +49,9 @@ public class AccessoUtente extends HttpServlet {
 
                 if(l.get(i).isAdm()){
                     address = "AdminPage.jsp";
+                    ArrayList<Recensione> listaRec = RecensioneDAO.doRetriveAll();
+
+                    request.setAttribute("listaRec", listaRec);
                 }
                 else{
                     address = "index.jsp";

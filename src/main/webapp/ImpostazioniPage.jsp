@@ -13,8 +13,6 @@
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/UserPageStyle.css">
 
-    <script type="text/javascript" src="javaScript/UserPageScript.js"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function(){

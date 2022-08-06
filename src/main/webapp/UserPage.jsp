@@ -15,8 +15,6 @@
 
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
 
-    <script type="text/javascript" src="javaScript/UserPageScript.js"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
