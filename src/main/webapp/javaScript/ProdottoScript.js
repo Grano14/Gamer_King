@@ -18,12 +18,14 @@ function validateRecensione(idInput){
 }
 
 function checkRecensione(){
-    if(
-        controllo1 == 1 && document.getElementById("nStelle").value != "0"
-    )
+    if(controllo1 == 1 && document.getElementById("nStelle").value != "0"){
         document.getElementById("submitRecensione").style.visibility = "visible";
-    else
+        document.getElementById("formRecensione").action="AggiungiRecensione";
+    }
+    else{
         document.getElementById("submitRecensione").style.visibility = "hidden";
+        document.getElementById("formRecensione").action="";
+    }
 }
 
 function mostraRecensioni(){

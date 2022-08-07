@@ -38,6 +38,7 @@
         <div class="bottoni">
             <div>
                 <form class="bottoneModifica" action="">
+
                     <input type="hidden" name="id" value="">
                     <input type="submit" value="Modifica">
                 </form>

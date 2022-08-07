@@ -145,7 +145,7 @@
     <hr>
     <p>Aggiungi la tua recensione</p>
 
-    <form class="recensione" action="AggiungiRecensione">
+    <form id="formRecensione" class="recensione" action="">
 
         <div id="stelle" onclick="checkRecensione()">
             <script type="text/javascript">star(3);</script>

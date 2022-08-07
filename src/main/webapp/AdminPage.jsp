@@ -91,8 +91,8 @@
                 </div>
                 <div id="modificaElimina">
 
-                    <form class="modificaRec" action="ModificaRecensione">
-                        <input type="hidden" name="azione" value="elimina">
+                    <form class="modificaRec" action="EliminaRecensione">
+                        <input type="hidden" name="utente" value="<%=rec.getNomeUtente()%>">
                         <input type="hidden" name="videogioco" value="<%=rec.getVideogioco()%>">
                         <input type="hidden" name="piattaforma" value="<%=rec.getPiattaforma()%>">
                         <input type="submit" value="Elimina">
