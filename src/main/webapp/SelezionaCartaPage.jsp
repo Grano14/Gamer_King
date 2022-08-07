@@ -19,7 +19,7 @@
 <%@include file="NavBar.jsp" %>
 
 <%
-    ArrayList<Carta> lCarte = (ArrayList<Carta>) request.getAttribute("listaCarte");
+    ArrayList<Sottoscrivere> lCarte = (ArrayList<Sottoscrivere>) request.getAttribute("listaCarte");
     String img = (String) request.getAttribute("immagine");
     String videogioco = (String) request.getAttribute("videogioco");
     String piattaforma = (String) request.getAttribute("piattaforma");
@@ -43,14 +43,15 @@
 
 <div id="oggettiCarta">
     <p id="testoCarta"> Carte di credito</p>
-    <%for(Carta c:lCarte){%>
+    <%for(Sottoscrivere s:lCarte){
+        Carta c = CartaDAO.doRetriveById(s.getNumero());%>
     <div class="cartaItem">
 
         <div id="descrizione">
 
             <p id="nomeCognome"><%=c.getCognome()%> <%=c.getNome()%></p>
-            <p id="indirizzo"><%=c.getCitta()%> <%=c.getCap()%></p>
-            <p><%=c.getVia()%> <%=c.getNumCivico()%></p>
+            <p id="indirizzo"><%=s.getCitta()%> <%=s.getCap()%></p>
+            <p><%=s.getVia()%> <%=s.getNumCivico()%></p>
             <p id="numeroCarta">**** **** **** <%=c.getNumero().substring(11)%></p>
 
         </div>

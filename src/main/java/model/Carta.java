@@ -2,16 +2,12 @@ package model;
 
 public class Carta {
 
-    private String nome,cognome,numero,via,cap,numCivico,citta,verifica,scadenza;
+    private String nome,cognome,numero,verifica,scadenza;
 
-    public Carta(String nome,String cognome,String numero,String via,String cap,String numCivico,String citta,String verifica,String scadenza) {
+    public Carta(String nome,String cognome,String numero,String verifica,String scadenza) {
         this.nome = nome;
         this.cognome = cognome;
         this.numero = numero;
-        this.via = via;
-        this.cap = cap;
-        this.numCivico = numCivico;
-        this.citta = citta;
         this.verifica = verifica;
         this.scadenza = scadenza;
     }
@@ -24,24 +20,8 @@ public class Carta {
         return numero;
     }
 
-    public String getCap() {
-        return cap;
-    }
-
     public String getCognome() {
         return cognome;
-    }
-
-    public String getVia() {
-        return via;
-    }
-
-    public String getNumCivico() {
-        return numCivico;
-    }
-
-    public String getCitta() {
-        return citta;
     }
 
     public String getVerifica() {
@@ -60,24 +40,8 @@ public class Carta {
         this.verifica = verifica;
     }
 
-    public void setCitta(String citta) {
-        this.citta = citta;
-    }
-
-    public void setNumCivico(String numCivico) {
-        this.numCivico = numCivico;
-    }
-
-    public void setVia(String via) {
-        this.via = via;
-    }
-
     public void setCognome(String cognome) {
         this.cognome = cognome;
-    }
-
-    public void setCap(String cap) {
-        this.cap = cap;
     }
 
     public void setNumero(String numero) {

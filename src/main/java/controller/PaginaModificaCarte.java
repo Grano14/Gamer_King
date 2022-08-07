@@ -15,7 +15,7 @@ public class PaginaModificaCarte extends HttpServlet{
 
         String nome = (String) request.getSession().getAttribute("nomeUtente");
 
-        ArrayList<Carta> listaCarte = CartaDAO.doRetriveByNomeUtente(nome);
+        ArrayList<Sottoscrivere> listaCarte = SottoscrivereDAO.doRetriveByNomeUtente(nome);
 
         request.setAttribute("listaCarte",listaCarte);
 

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class SottoscrivereDAO {
 
@@ -60,4 +61,19 @@ public class SottoscrivereDAO {
         }
     }
 
+    public static ArrayList<Sottoscrivere> doRetriveByNomeUtente(String nome) {
+        ArrayList<Sottoscrivere> l = new ArrayList<>();
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("select * from Sottoscrivere  where nomeUtente=?");
+            ps.setString(1, nome);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Sottoscrivere c = new Sottoscrivere(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+                l.add(c);
+            }
+            return l;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

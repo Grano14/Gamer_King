@@ -18,19 +18,20 @@
 <%@include file="NavBar.jsp" %>
 
 <%
-    ArrayList<Carta> lCarte = (ArrayList<Carta>) request.getAttribute("listaCarte");
+    ArrayList<Sottoscrivere> lCarte = (ArrayList<Sottoscrivere>) request.getAttribute("listaCarte");
 %>
 
 <div id="oggettiCarta">
     <p id="testoCarta"> Carte di credito</p>
-    <%for(Carta c:lCarte){%>
+    <%for(Sottoscrivere s:lCarte){
+        Carta c = CartaDAO.doRetriveById(s.getNumero());%>
     <div class="cartaItem">
 
         <div id="descrizione">
 
             <p id="nomeCognome"><%=c.getCognome()%> <%=c.getNome()%></p>
-            <p id="indirizzo"><%=c.getCitta()%> <%=c.getCap()%></p>
-            <p><%=c.getVia()%> <%=c.getNumCivico()%></p>
+            <p id="indirizzo"><%=s.getCitta()%> <%=s.getCap()%></p>
+            <p><%=s.getVia()%> <%=s.getNumCivico()%></p>
             <p id="numeroCarta">**** **** **** <%=c.getNumero().substring(11)%></p>
 
         </div>
@@ -38,7 +39,13 @@
         <div class="bottoni">
             <div>
                 <form class="bottoneModifica" action="">
-
+                    <input type="hidden" name="numero" value="<%=c.getNumero()%>">
+                    <input type="hidden" name="numero" value="<%=c.getNumero()%>">
+                    <input type="hidden" name="numero" value="<%=c.getNumero()%>">
+                    <input type="hidden" name="numero" value="<%=c.getNumero()%>">
+                    <input type="hidden" name="numero" value="<%=c.getNumero()%>">
+                    <input type="hidden" name="numero" value="<%=c.getNumero()%>">
+                    <input type="hidden" name="numero" value="<%=c.getNumero()%>">
                     <input type="hidden" name="id" value="">
                     <input type="submit" value="Modifica">
                 </form>

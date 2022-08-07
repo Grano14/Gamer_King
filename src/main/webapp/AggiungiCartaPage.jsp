@@ -44,7 +44,7 @@
         <input type="text" class="serch" id="nCivico" name="numCivico"><br>
         <label for="CAP">CAP</label><br>
         <input type="text" class="serch" id="CAP" name="cap"><br><br>
-        <input type="submit" value="Modifica" id="bottone">
+        <input type="submit" value="Aggiungi" id="bottone">
     </form>
 </div>
 </body>

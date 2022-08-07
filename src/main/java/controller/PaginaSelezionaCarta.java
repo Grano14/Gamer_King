@@ -24,7 +24,7 @@ public class PaginaSelezionaCarta extends HttpServlet {
 
         String img = ImmagineDAO.getMainImageByVideogame(videogioco);
 
-        ArrayList<Carta> listaCarte = CartaDAO.doRetriveByNomeUtente(nome);
+        ArrayList<Sottoscrivere> listaCarte = SottoscrivereDAO.doRetriveByNomeUtente(nome);
 
         request.setAttribute("listaCarte",listaCarte);
         request.setAttribute("videogioco", videogioco);

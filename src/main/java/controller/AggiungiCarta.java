@@ -32,7 +32,7 @@ public class AggiungiCarta extends HttpServlet {
         String numCivico = request.getParameter("numCivico");
         String cap = request.getParameter("cap");
 
-        Carta carta = new Carta(nome, cognome, numero, via, cap, numCivico, citta, verifica, scadenza);
+        Carta carta = new Carta(nome, cognome, numero, verifica, scadenza);
         Sottoscrivere sottoscrivere = new Sottoscrivere(numero, (String) request.getSession().getAttribute("nomeUtente"), via, cap, numCivico, citta);
 
         CartaDAO.doSave(carta);
