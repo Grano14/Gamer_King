@@ -38,21 +38,22 @@
 
         <div class="bottoni">
             <div>
-                <form class="bottoneModifica" action="">
-                    <input type="hidden" name="numero" value="<%=c.getNumero()%>">
-                    <input type="hidden" name="numero" value="<%=c.getNumero()%>">
-                    <input type="hidden" name="numero" value="<%=c.getNumero()%>">
-                    <input type="hidden" name="numero" value="<%=c.getNumero()%>">
-                    <input type="hidden" name="numero" value="<%=c.getNumero()%>">
-                    <input type="hidden" name="numero" value="<%=c.getNumero()%>">
-                    <input type="hidden" name="numero" value="<%=c.getNumero()%>">
-                    <input type="hidden" name="id" value="">
+                <form class="bottoneModifica" method="POST" action="ModificaCarta">
+                    <input type="hidden" name="numero" value="<%=s.getNumero()%>">
+                    <input type="hidden" name="citta" value="<%=s.getCitta()%>">
+                    <input type="hidden" name="cap" value="<%=s.getCap()%>">
+                    <input type="hidden" name="via" value="<%=s.getVia()%>">
+                    <input type="hidden" name="numCivico" value="<%=s.getNumCivico()%>">
                     <input type="submit" value="Modifica">
                 </form>
             </div>
             <div>
-                <form class="bottoneModifica" action="">
-                    <input type="hidden" name="id" value="">
+                <form class="bottoneModifica" action="EliminaCarta">
+                    <input type="hidden" name="numero" value="<%=s.getNumero()%>">
+                    <input type="hidden" name="citta" value="<%=s.getCitta()%>">
+                    <input type="hidden" name="cap" value="<%=s.getCap()%>">
+                    <input type="hidden" name="via" value="<%=s.getVia()%>">
+                    <input type="hidden" name="numCivico" value="<%=s.getNumCivico()%>">
                     <input type="submit" value="Elimina">
                 </form>
             </div>

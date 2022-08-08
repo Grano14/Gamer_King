@@ -66,4 +66,11 @@ public class CartaDAO {
         }
     }
 
+    public static boolean containsAny(String numero){
+        Carta c = CartaDAO.doRetriveById(numero);
+        if(c != null)
+            return true;
+        return false;
+    }
+
 }

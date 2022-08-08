@@ -19,7 +19,7 @@ public class PaginaModificaCarte extends HttpServlet{
 
         request.setAttribute("listaCarte",listaCarte);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("ModificaCartePage.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("ListaModificaCartePage.jsp");
         requestDispatcher.forward(request, response);
 
     }
