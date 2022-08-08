@@ -96,6 +96,8 @@ p{
     display:none;
 }
 
+
+
 @media only screen and (max-width: 1000px){
     #registration, #accesso{
         width: 450px;
