@@ -50,7 +50,7 @@ p{
     visibility:hidden;
 }
 
-#bottone:hover{
+#bottone:hover, bottoneReg:hover{
     background-color: khaki;
 }
 

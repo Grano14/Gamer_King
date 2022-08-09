@@ -5,7 +5,7 @@
   Time: 16:30
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
     <title>Modifica dati carta</title>
@@ -28,7 +28,7 @@
         <input type="hidden" name="videogioco" value="<%=videogioco%>">
         <input type="hidden" name="piattaforma" value="<%=piattaforma%>">
         <label for="card">Numero carta</label><br>
-        <input type="text" class="serch" id="card" name="numero" maxLength="10" onkeyup="checkNumero('card','erroreCarta'),checkButton()">
+        <input type="text" class="serch" id="card" name="numero" maxLength="16" onkeyup="checkNumero('card','erroreCarta'),checkButton()">
 
         <p class="erroreReg" id="erroreCarta">
             Numero di carta composto da 10 numeri

@@ -5,10 +5,17 @@ function checkNumero(idText,idError){
 
     var letteraMaiuscREGX = /[A-Z]/;
     var letteraMinREGX = /[a-z]/;
-    if(text.length == 10 && !(letteraMaiuscREGX.test(text)) && !(letteraMinREGX.test(text))){
-        document.getElementById(idText).style.backgroundColor = "lightgreen";
-        document.getElementById(idError).style.display = "none";
-        controllo1=1;
+    if( !(letteraMaiuscREGX.test(text)) && !(letteraMinREGX.test(text))){
+        if(text.length == 16){
+            document.getElementById(idText).style.backgroundColor = "lightgreen";
+            document.getElementById(idError).style.display = "none";
+            controllo1=1;
+        }
+        else
+        {
+            document.getElementById(idText).style.backgroundColor = "white";
+            controllo1=0;
+        }
     }
     else{
         document.getElementById(idText).style.backgroundColor = "lightpink";
@@ -27,6 +34,10 @@ function checkVerifica(idText,idError){
             document.getElementById(idText).style.backgroundColor = "lightgreen";
             document.getElementById(idError).style.display = "none";
             controllo2=1;
+        }
+        else{
+            document.getElementById(idText).style.backgroundColor = "white";
+            controllo2=0;
         }
     }
     else{
@@ -52,6 +63,10 @@ function checkNome(idText,idError){
             document.getElementById(idError).style.display = "none";
             controllo4=1;
         }
+        else{
+            document.getElementById(idText).style.backgroundColor = "white";
+            controllo4=0;
+        }
     }
     else{
         document.getElementById(idText).style.backgroundColor = "lightpink";
@@ -65,12 +80,11 @@ function checkVia(idText){
 
     if(text.length > 4){
         document.getElementById(idText).style.backgroundColor = "lightgreen";
-        document.getElementById(idError).style.display = "none";
         controllo5=1;
     }
     else
     {
-        document.getElementById(idText).style.backgroundColor = "none";
+        document.getElementById(idText).style.backgroundColor = "white";
         controllo5=0;
     }
 }
@@ -80,10 +94,16 @@ function checkNumCivico(idText,idError){
 
     var letteraMaiuscREGX = /[A-Z]/;
     var letteraMinREGX = /[a-z]/;
-    if(text.length > 0 && !letteraMaiuscREGX.test(text) && !letteraMinREGX.test(text)){
-        document.getElementById(idText).style.backgroundColor = "lightgreen";
-        document.getElementById(idError).style.display = "none";
-        controllo6=1;
+    if(!letteraMaiuscREGX.test(text) && !letteraMinREGX.test(text)){
+        if(text.length > 0 ){
+            document.getElementById(idText).style.backgroundColor = "lightgreen";
+            document.getElementById(idError).style.display = "none";
+            controllo6=1;
+        }
+        else{
+            document.getElementById(idText).style.backgroundColor = "white";
+            controllo6=0;
+        }
     }
     else{
         document.getElementById(idText).style.backgroundColor = "lightpink";
@@ -102,6 +122,11 @@ function checkCap(idText,idError){
             document.getElementById(idText).style.backgroundColor = "lightgreen";
             document.getElementById(idError).style.display = "none";
             controllo7=1;
+        }
+        else
+        {
+            document.getElementById(idText).style.backgroundColor = "white";
+            controllo7=0;
         }
     }
     else{
@@ -122,6 +147,11 @@ function checkCognome(idText,idError){
             document.getElementById(idError).style.display = "none";
             controllo8=1;
         }
+        else
+        {
+            document.getElementById(idText).style.backgroundColor = "white";
+            controllo8=0;
+        }
     }
     else{
         document.getElementById(idText).style.backgroundColor = "lightpink";
@@ -141,6 +171,11 @@ function checkCitta(idText,idError){
             document.getElementById(idError).style.display = "none";
             controllo9=1;
         }
+        else
+        {
+            document.getElementById(idText).style.backgroundColor = "white";
+            controllo9=0;
+        }
     }
     else{
         document.getElementById(idText).style.backgroundColor = "lightpink";
@@ -149,15 +184,12 @@ function checkCitta(idText,idError){
     }
 }
 
-function checkButton()
-{
-    if(controllo1 == 1 && controllo2 == 1 && controllo3 == 1 && controllo5 == 1 && controllo6 == 1 && controllo7 == 1 &&
-    controllo4 == 1 && controllo8 == 1 && controllo9 == 1){
+function checkButton(){
+    if(controllo1==1 && controllo2==1 && controllo3==1 && controllo4==1 && controllo5==1 && controllo6==1 && controllo7==1 && controllo8==1 && controllo9==1){
         document.getElementById("bottoneReg").style.visibility = "visible";
         document.getElementById("formCarta").action = "AggiungiCarta";
     }
-    else
-    {
+    else{
         document.getElementById("bottoneReg").style.visibility = "hidden";
         document.getElementById("formCarta").action = "";
     }
