@@ -78,8 +78,8 @@
         <p class="erroreReg" id="erroreCap">
             Solo numeri ammessi
         </p>
-        <br>
-        <input type="submit" value="Aggiungi" id="bottoneReg">
+        <br><br>
+        <input type="submit" value="Aggiungi" id="bottone">
     </form>
 </div>
 </body>
