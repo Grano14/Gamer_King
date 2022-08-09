@@ -13,7 +13,7 @@ public class UpdateSottoscrivere extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String nomeUtente = request.getSession().getAttribute("nomeUtente").toString();
+        String nomeUtente =(String) request.getSession().getAttribute("nomeUtente");
         String numero = request.getParameter("numero");
         String citta = request.getParameter("citta");
         String cittaOG = request.getParameter("cittaIniziale");
