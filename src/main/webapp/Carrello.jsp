@@ -43,7 +43,7 @@
         <hr>
     <%}%>
     <div>
-        <button id="acquistaButton">ACQUISTA</button>
+        <a id="acquistaButton" href="AcquistoPage.jsp">ACQUISTA</a>
     </div>
     <%}%>
 </div>

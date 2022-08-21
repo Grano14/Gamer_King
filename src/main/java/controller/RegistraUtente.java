@@ -29,6 +29,7 @@ public class RegistraUtente extends HttpServlet {
 
         HttpSession session = request.getSession();
         session.setAttribute("nomeUtente", nome);
+        session.setAttribute("numProdottiCarrello", 0);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
         requestDispatcher.forward(request, response);
@@ -37,6 +38,6 @@ public class RegistraUtente extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.doGet(request, response);
+
     }
 }

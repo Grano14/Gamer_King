@@ -47,4 +47,16 @@ function showminmax(val, idlabel){
     document.getElementById(idlabel).innerHTML = val;
 }
 
-
+function sectionLight(n){
+    var line = (n*200)+70;
+    if(window.pageYOffset < line){
+        document.getElementById("fase1").style.color = "white";
+        document.getElementById("fase2").style.color = "black";
+        document.getElementById("fase3").style.color = "black";
+    }
+    if(window.pageYOffset > line){
+        document.getElementById("fase1").style.color = "black";
+        document.getElementById("fase2").style.color = "white";
+        document.getElementById("fase3").style.color = "black";
+    }
+}

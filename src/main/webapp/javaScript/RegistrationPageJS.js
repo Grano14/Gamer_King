@@ -14,6 +14,7 @@ function validateID(){
         document.getElementById("erroreNome").style.display = "block";
         controllo1=0;
     }
+    checkButton();
 }
 
 function checkButton(){
@@ -41,7 +42,7 @@ function validateMail(){
         document.getElementById("erroreMail").style.display = "block";
         controllo2=0;
     }
-
+    checkButton();
 }
 
 function validatePass(){
@@ -59,6 +60,7 @@ function validatePass(){
         document.getElementById("errorePass").style.display = "block";
         controllo3=0;
     }
+    checkButton();
 }
 
 function validateConfPass(){
@@ -74,4 +76,5 @@ function validateConfPass(){
         document.getElementById("erroreConfPass").style.display = "block";
         controllo4=0;
     }
+    checkButton();
 }
