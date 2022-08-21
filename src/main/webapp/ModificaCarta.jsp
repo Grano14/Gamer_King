@@ -28,6 +28,7 @@
 <div id="registration">
     <form id="formModificaCarta" method="POST" action="">
 
+        <input type="hidden" name="modifica" value="1">
         <input type="hidden" name="numero" value="<%=s.getNumero()%>">
         <input type="hidden" name="cittaIniziale" value="<%=s.getCitta()%>">
         <input type="hidden" name="viaIniziale" value="<%=s.getVia()%>">

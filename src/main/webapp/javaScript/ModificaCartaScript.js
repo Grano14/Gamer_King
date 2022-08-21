@@ -95,6 +95,6 @@ function checkUpdateButton(){
         document.getElementById("formModificaCarta").action = "UpdateSottoscrivere";
     }
     else{
-        document.getElementById("formModificaCarta").action = "";
+        document.getElementById("formModificaCarta").action = "ModificaCarta";
     }
 }
