@@ -11,6 +11,7 @@
     <title>NavBar</title>
     <link rel="stylesheet" type="text/css" href="css/NavBarStyle.css">
     <script type="text/javascript" src="javaScript/HomeScript.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
 <body onscroll="barEffect()">
@@ -22,7 +23,7 @@
     </div>
     <div id="search">
         <form action="#cer" id="searchBarForm">
-            <input type="text" id="searchBar" placeholder="cerca...">
+            <input type="text" id="searchBar" placeholder="cerca..." onkeyup="ricerca()">
             <!--<input type="submit" id="searchButton" value="       ">-->
         </form>
     </div>
@@ -151,6 +152,19 @@
     <div>I giochi del momento</div>
     <div>Scontati</div>
     <div>I più popolari</div>
+</div>
+
+<div id="risultatiAjax">
+    <a id="risultato1" href="">gioco</a><br>
+    <a id="risultato2" href="">gioco</a><br>
+    <a id="risultato3" href="">gioco</a><br>
+    <a id="risultato4" href="">gioco</a><br>
+    <a id="risultato5" href="">gioco</a><br>
+    <a id="risultato6" href="">gioco</a><br>
+    <a id="risultato7" href="">gioco</a><br>
+    <a id="risultato8" href="">gioco</a><br>
+    <a id="risultato9" href="">gioco</a><br>
+    <a id="risultato10" href="">gioco</a><br>
 </div>
 
 </body>
