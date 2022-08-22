@@ -60,3 +60,43 @@ function sectionLight(n){
         document.getElementById("fase3").style.color = "black";
     }
 }
+
+function ricerca(){
+    var valore = document.getElementById("searchBar").value;
+    $.ajax({
+        url: "RisultatiAjax",
+        type: 'POST',
+        data:{
+            val: valore
+        },
+        success: function(data){
+            alert(data)
+            var s = "risultato";
+            for(var t=0; t<10; t++){
+                document.getElementById(s+(t+1)).innerText = "undefined";
+                document.getElementById(s+(t+1)).href = "undefined";
+                document.getElementById(s+(t+1)).style.visibility = "hidden";
+                document.getElementById("risultatiAjax").style.visibility = "hidden";
+            }
+            if(data === "Nessun risultato"){
+                document.getElementById(s+1).innerText = data;
+                document.getElementById(s+1).href = "undefined";
+                document.getElementById(s+1).style.visibility = "visible";
+            }
+            else{
+                var list = JSON.parse(data);
+                document.getElementById("risultatiAjax").style.visibility = "visible";
+                document.getElementById("risultatiAjax").style.backgroundColor = "white";
+                document.getElementById("risultatiAjax").style.height = list.length*43 + "px";
+                for(var j=0; j<list.length; j++){
+                    if(j>10)
+                        continue;
+                    document.getElementById(s+(j+1)).style.visibility = "visible";
+                    document.getElementById(s+(j+1)).innerText = list[j].nome;
+                    document.getElementById(s+(j+1)).innerHTML += "<img style='margin-left: 10px' src='css/pictures/ps430.png'>";
+                    document.getElementById(s+(j+1)).href = "CaricaProdotto?titolo=" + list[j].nome + "&piattaforma=" + list[j].piattaforma;
+                }
+            }
+        }
+    })
+}
