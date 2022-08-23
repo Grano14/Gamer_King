@@ -106,17 +106,33 @@ public class ProdottoDAO {
 
     public static ArrayList<Prodotto> doRetriveByPiattaformaGenere(ArrayList<String> lPiattaforme, ArrayList<String> lGeneri){
         ArrayList<Prodotto> l = new ArrayList<>();
+        String query = "";
+        String queryPiattaforme=" and ( ";
+        String queryGeneri=" and p.videogioco = any(  select a.videogioco from Appartenere a where ";
+
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select distinct p.piattaforma, p.visibilita, p.datauscita, p.disponibilita, p.videogioco, p.numeroCopie, p.prezzo from prodotto p, appartenere a\n" +
-                    "where p.videogioco=a.videogioco and p.visibilita=true and (a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=?" +
-                    "or a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=? or a.genere=?) or (p.piattaforma=? or p.piattaforma=? or p.piattaforma=? or p.piattaforma=? or p.piattaforma=? or p.piattaforma=?)");
-            int i;
-            for(i=0; i<lGeneri.size(); i++){
-                ps.setString(i+1, lGeneri.get(i));
+
+             query += "select distinct p.piattaforma, p.visibilita, p.datauscita, p.disponibilita, p.videogioco," +
+                    " p.numeroCopie, p.prezzo from prodotto p where p.visibilita=true";
+
+             for(int i=0; i<lPiattaforme.size();i++){
+                 if(!lPiattaforme.get(i).equals("false"))
+                     queryPiattaforme +="p.piattaforma = \""+ lPiattaforme.get(i) +"\" or ";
+             }
+
+            for(int j = 0; j <lGeneri.size(); j++){
+                if(!lGeneri.get(j).equals(""))
+                    queryGeneri +="a.genere = \""+ lGeneri.get(j) +"\" or ";
             }
-            for(i=16; i<=21; i++){
-                ps.setString(i, lPiattaforme.get(i-16));
-            }
+
+            if(!queryPiattaforme.equals(" and ( "))
+                query += queryPiattaforme.substring(0, queryPiattaforme.length()-4) + " ) ";
+
+            if(!queryGeneri.equals(" and p.videogioco = any(  select a.videogioco from Appartenere a where "))
+                query += queryGeneri.substring(0, queryGeneri.length()-4) + " ) ";
+
+            PreparedStatement ps = con.prepareStatement(query);
+
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 Prodotto p = new Prodotto(rs.getString(1), rs.getString(3), rs.getString(5), rs.getBoolean(2), rs.getBoolean(4), rs.getDouble(7), rs.getInt(6));
