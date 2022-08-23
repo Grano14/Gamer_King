@@ -19,6 +19,7 @@
 <body>
 
 <%@include file="NavBar.jsp" %>
+<br>
 
 <div id="prodotto">
 

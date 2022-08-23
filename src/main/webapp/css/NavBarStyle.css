@@ -47,23 +47,14 @@ body{
 
 #searchBar{
     width: 75%;
-    height: 35px;
-    margin-top: 5px;
+    height: 40px;
+    margin-top: 6px;
     border-radius: 6px;
     border: 1px solid black;
 }
 
 #searchBar:focus{
     outline: none;
-}
-
-#searchButton{
-    height: 29px;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    border: 1px solid black;
-    background-image: url("pictures/lente.png");
-    background-repeat: no-repeat;
 }
 
 #carrello{
@@ -172,12 +163,6 @@ body{
     transition-duration: 0.5s;
 }
 
-#freccia1{
-    margin-left: 67px;
-    transform: rotate(0deg);
-    transition-duration: 0.5s;
-}
-
 #ricercaAvanzata div{
     display: inline-block;
     margin-top: 15px;
@@ -203,7 +188,7 @@ body{
 #menuAvanzato{
     width: 850px;
     height: 450px;
-    border-radius: 6px;
+    border-radius:0px 0px 6px 6px;
     background-color: mediumpurple;
 
 

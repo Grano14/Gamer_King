@@ -28,14 +28,10 @@
         </form>
     </div>
     <div id="ricercaAvanzata" onclick="mostraMenu('menuAvanzato', 'freccia')">
-        <div>Strumenti</div>
+        <div>Filtra</div>
         <div id="freccia"><img src="css/pictures/freccia.png"></div>
     </div>
-    <div id="categorie" onclick="mostraMenu('categorieMenu', 'freccia1')">
-        <div>Categorie</div>
-        <div id="freccia1"><img src="css/pictures/freccia.png"></div>
-    </div>
-    <a id="carrello" class="button" style="float: right" href="CaricaCarrello">
+    <a id="carrello" class="button" style="float: right; text-decoration: none" href="CaricaCarrello">
         <img src="css/pictures/carrello.png">
         <%
             Integer n = (Integer)session.getAttribute("numProdottiCarrello");
@@ -69,6 +65,7 @@
 
 <div id="menuAvanzato">
     <form action="RisultatoFiltro">
+
         <div class="sezione">
             <p class="paragrafiReserch">Scegli una piattaforma</p>
             <input type="button" class="bottone" title="playstation 5" style="background-image: url('css/pictures/playstation5.png')" onclick="selectedPiattaforma(this, 'playstation5')">
@@ -86,13 +83,7 @@
         </div>
         <div class="sezione" id="generi">
             <p class="paragrafiReserch" style="text-align: center">Scegli un genere</p>
-            <!--
-            <input type="button" class="bottone" style="background-image: url('css/pictures/avventura.png')" title="Avventura" onclick="selectedPiattaforma(this, 'avventura')">
-            <input type="hidden" id="avventura" value="false">
-            <input type="button" class="bottone" style="background-image: url('css/pictures/fantasy.png')" title="Fantasy" onclick="selectedPiattaforma(this, 'fantasy')">
-            <input type="hidden" id="fantasy" value="false">
-            <input type="button" class="bottone" style="background-image: url('css/pictures/sparatutto.png')" title="Sparatutto" onclick="selectedPiattaforma(this, 'sparatutto')">
-            <input type="hidden" id="sparatutto" value="false">-->
+
             <input type="checkbox" value="Avventura" name="check1" id="avventura">
             <label for="avventura">Avventura</label><br>
             <input type="checkbox" value="Fantasy" name="check2" id="fantasy">
@@ -125,33 +116,11 @@
             <label for="openworld">Open World</label><br>
         </div>
         <div id="annoPrezzo" class="sezione">
-            <!--
-            Anno
-            <select>
-                <option>2009</option>
-                <option>2010</option>
-                <option>2011</option>
-                <option>2012</option>
-                <option>2013</option>
-                <option>2014</option>
-            </select>
-            <p class="paragrafiReserch">Prezzo minimo</p>
-            <input type="range" id="rangemin" min="0" max="150" value="75" onchange="showminmax(value, 'minrange')"><label for="rangemin" id="minrange"></label>
-            <p class="paragrafiReserch">Prezzo massmo</p>
-            <input type="range" id="rangemax" min="0" max="150" value="75" onchange="showminmax(value, 'maxrange')"><label for="rangemin" id="maxrange"></label>
-            <br><br>scontati
-            <input type="checkbox" value="true"><br><br><br><br>
-            -->
+
             <input type="submit" id="ricercaavButton" value="cerca">
         </div>
-    </form>
-</div>
 
-<div id="categorieMenu">
-    <div>I più venduti</div>
-    <div>I giochi del momento</div>
-    <div>Scontati</div>
-    <div>I più popolari</div>
+    </form>
 </div>
 
 <div id="risultatiAjax">

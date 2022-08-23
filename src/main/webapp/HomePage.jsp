@@ -2,7 +2,7 @@
 <%@ page import="model.Videogioco" %>
 <%@ page import="model.Prodotto" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
+
 <html>
 <head>
     <title>GamerKing | Home</title>
@@ -12,7 +12,7 @@
 <body>
 
 <!-- creazione barra di navigazione-->
-<%@include file="NavBar.jsp" %>
+    <%@include file="NavBar.jsp" %>
 <!-- contenuto homepage-->
 
 <div id="corpo">
