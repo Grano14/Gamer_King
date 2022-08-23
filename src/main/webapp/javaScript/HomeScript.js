@@ -23,12 +23,14 @@ function barEffect(){
         document.getElementById("navBar").style.left = "0";
 
         document.getElementById("navBar").style.borderRadius = "0px"
+        document.getElementById("risultatiAjax").style.top = "43px";
     }
     else{
         document.getElementById("navBar").style.width = "99%";
         document.getElementById("navBar").style.top = "8px";
         document.getElementById("navBar").style.left = "6px";
-        document.getElementById("navBar").style.borderRadius = "6px"
+        document.getElementById("navBar").style.borderRadius = "6px";
+        document.getElementById("risultatiAjax").style.top = "51px";
     }
 }
 
@@ -70,7 +72,6 @@ function ricerca(){
             val: valore
         },
         success: function(data){
-            alert(data)
             var s = "risultato";
             for(var t=0; t<10; t++){
                 document.getElementById(s+(t+1)).innerText = "undefined";
@@ -93,10 +94,37 @@ function ricerca(){
                         continue;
                     document.getElementById(s+(j+1)).style.visibility = "visible";
                     document.getElementById(s+(j+1)).innerText = list[j].nome;
-                    document.getElementById(s+(j+1)).innerHTML += "<img style='margin-left: 10px' src='css/pictures/ps430.png'>";
+                    if(list[j].piattaforma === "playstation4"){
+                        document.getElementById(s+(j+1)).innerHTML += "<img style='margin-left: 10px' src='css/pictures/ps430.png'>";
+                    }
+                    if(list[j].piattaforma === "playstation5"){
+                        document.getElementById(s+(j+1)).innerHTML += "<img style='margin-left: 10px' src='css/pictures/ps530.png'>";
+                    }
+                    if(list[j].piattaforma === "pc"){
+                        document.getElementById(s+(j+1)).innerHTML += "<img style='margin-left: 10px' src='css/pictures/pc30.png'>";
+                    }
+                    if(list[j].piattaforma === "switch"){
+                        document.getElementById(s+(j+1)).innerHTML += "<img style='margin-left: 10px' src='css/pictures/switch30.png'>";
+                    }
+                    if(list[j].piattaforma === "xbox1"){
+                        document.getElementById(s+(j+1)).innerHTML += "<img style='margin-left: 10px' src='css/pictures/xboxone30.png'>";
+                    }
+                    if(list[j].piattaforma === "xboxX"){
+                        document.getElementById(s+(j+1)).innerHTML += "<img style='margin-left: 10px' src='css/pictures/xboxonex30.png'>";
+                    }
                     document.getElementById(s+(j+1)).href = "CaricaProdotto?titolo=" + list[j].nome + "&piattaforma=" + list[j].piattaforma;
                 }
             }
         }
     })
+}
+
+function hiddenRisultatiAjax(){
+    var s = "risultato";
+    for(var t=0; t<10; t++){
+        document.getElementById(s+(t+1)).innerText = "undefined";
+        document.getElementById(s+(t+1)).href = "undefined";
+        document.getElementById(s+(t+1)).style.visibility = "hidden";
+        document.getElementById("risultatiAjax").style.visibility = "hidden";
+    }
 }
