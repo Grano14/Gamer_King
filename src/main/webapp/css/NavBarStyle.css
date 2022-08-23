@@ -124,33 +124,6 @@ body{
     border-style: none;
     background-position: center;
     margin-left: 4px;
-    visibility: visible;
-}
-
-#categorie{
-    left: 50%;
-    height: 100%;
-    background-color: #601194;
-    padding-left: 5px;
-    width: 100px;
-    visibility: visible;
-    background-repeat: no-repeat;
-    border-style: none;
-    background-position: center;
-    margin-left: 4px;
-}
-
-
-
-#categorie:hover{
-    background-color: mediumpurple;
-    border-radius: 6px;
-}
-
-#categorie div{
-    display: inline-block;
-    margin-top: 15px;
-    font-family: "copperplate", fantasy;
 }
 
 #ricercaAvanzata:hover{
@@ -170,28 +143,12 @@ body{
     font-family: "copperplate", fantasy;
 }
 
-#menuRicerca{
-    width: 550px;
-    height: 230px;
-    background-color: mediumpurple;
-    border-radius: 6px;
-    margin-left: 20%;
-    font-family: "copperplate", fantasy;
-    visibility: hidden;
-    position: fixed;
-    top: 60px;
-    z-index: 3;
-}
-
 #menuAvanzato{
-    transition:all 1s;
-    width: 850px;
-    height: 450px;
+    transition:top 0.5s;
+    width: 550px;
     border-radius:0px 0px 6px 6px;
-    background-color: mediumpurple;
-
-
-    margin-left: 20%;
+    background-color: rgb(70,70,70);
+    margin-left: 27%;
     font-family: "copperplate", fantasy;
     display: none;
     position: fixed;
@@ -207,6 +164,7 @@ body{
     width: 26%;
     border-radius: 6px;
     z-index: 4;
+    display: none;
 }
 
 #risultatiAjax a{
@@ -219,7 +177,6 @@ body{
     padding-top: 5px;
     color: black;
     font-family: "copperplate", fantasy;
-    visibility: hidden;
 }
 
 #risultatiAjax a:hover{
@@ -227,31 +184,12 @@ body{
 }
 
 .paragrafiReserch{
-    font-size: 15px;
-}
-
-#categorieMenu{
-    width: 200px;
-    height: 350px;
-    border-radius: 6px;
-    background-color: mediumpurple;
-    font-size: 20px;
-    text-align: center;
-    margin-left: 57%;
-    font-family: "copperplate", fantasy;
-    visibility: hidden;
-    position: fixed;
-    top: 60px;
-    z-index: 3;
+    font-size: 18px;
 }
 
 #categorieMenu div{
     padding-top: 10px;
     padding-bottom: 10px;
-}
-
-#categorieMenu div:hover{
-    background-color: #601194;
 }
 
 #menuAvanzato form{
@@ -265,65 +203,48 @@ body{
 }
 
 .sezione{
-    display: inline-block;
-    width: 300px;
-    height: 100%;
+    width: 100%;
     text-align: center;
+    display: block;
 }
 
 .bottone{
-    display: inline-block;
-    border-radius: 55px;
+    display: inline;
+    border-radius: 50%;
     border-style: none;
-    width: 100px;
-    height: 100px;
-    margin: 10px 20px;
-    background-color: rebeccapurple;
+    width: 70px;
+    height: 70px;
+    margin-left: 7px;
+    background-color: #601194;
     opacity: 1;
     background-repeat: no-repeat;
-}
-
-.bottone img{
-    width: 100%;
-    height: 80%;
-}
-
-#annoPrezzo select{
-    border-radius: 6px;
-    height: 25px;
-    background-color: dimgrey;
-}
-
-#annoPrezzo{
-    width: 200px;
-}
-
-#annoPrezzo p{
-    margin-top: 10px;
-}
-
-#ricercaavButton{
-    height: 30px;
-    width: 50px;
-    background-color: yellow;
-    border-radius: 6px;
-    border: 1px solid black;
-    font-family: "copperplate", fantasy;
+    background-size: 90%;
+    background-position:center;
 }
 
 #generi{
-    text-align: left;
+    text-align: center;
+}
+
+#ricercaavButton{
+    color:white;
+    height: 35px;
+    width: 70px;
+    background-color: #601194;
+    border-radius: 6px;
+    border: 0px;
+    font-family: "copperplate", fantasy;
+    font-size: 18px;
+}
+
+#ricercaavButton:hover{
+    background-color: rebeccapurple;
 }
 
 #generi input{
     margin: 6px;
 }
 
-@media only screen and (max-width: 1200px) {
-    #ricercaAvanzata{
-        visibility: hidden;
-    }
-}
 
 
 

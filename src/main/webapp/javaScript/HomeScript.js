@@ -75,23 +75,23 @@ function ricerca(){
             for(var t=0; t<10; t++){
                 document.getElementById(s+(t+1)).innerText = "undefined";
                 document.getElementById(s+(t+1)).href = "undefined";
-                document.getElementById(s+(t+1)).style.visibility = "hidden";
-                document.getElementById("risultatiAjax").style.visibility = "hidden";
+                document.getElementById(s+(t+1)).style.display = "none";
+                document.getElementById("risultatiAjax").style.display = "none";
             }
             if(data === "Nessun risultato"){
                 document.getElementById(s+1).innerText = data;
                 document.getElementById(s+1).href = "undefined";
-                document.getElementById(s+1).style.visibility = "visible";
+                document.getElementById(s+1).style.diplay = "block";
             }
             else{
                 var list = JSON.parse(data);
-                document.getElementById("risultatiAjax").style.visibility = "visible";
+                document.getElementById("risultatiAjax").style.display = "block";
                 document.getElementById("risultatiAjax").style.backgroundColor = "white";
                 document.getElementById("risultatiAjax").style.height = list.length*43 + "px";
                 for(var j=0; j<list.length; j++){
                     if(j>10)
                         continue;
-                    document.getElementById(s+(j+1)).style.visibility = "visible";
+                    document.getElementById(s+(j+1)).style.display = "block";
                     document.getElementById(s+(j+1)).innerText = list[j].nome;
                     if(list[j].piattaforma === "playstation4"){
                         document.getElementById(s+(j+1)).innerHTML += "<img style='margin-left: 10px' src='css/pictures/ps430.png'>";
@@ -123,7 +123,7 @@ function hiddenRisultatiAjax(){
     for(var t=0; t<10; t++){
         document.getElementById(s+(t+1)).innerText = "undefined";
         document.getElementById(s+(t+1)).href = "undefined";
-        document.getElementById(s+(t+1)).style.visibility = "hidden";
-        document.getElementById("risultatiAjax").style.visibility = "hidden";
+        document.getElementById(s+(t+1)).style.display = "none";
+        document.getElementById("risultatiAjax").style.display = "none";
     }
 }

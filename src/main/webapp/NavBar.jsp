@@ -17,7 +17,7 @@
     <script>
         $(document).ready(function(){
             $("#ricercaAvanzata").click(function(){
-                $("#menuAvanzato").slideToggle('fast');
+                $("#menuAvanzato").slideToggle('slow');
             });
         });
 
@@ -73,11 +73,11 @@
 
 
 
-    <div id="menuAvanzato">
+    <div id="menuAvanzato" >
         <form action="RisultatoFiltro">
 
             <div class="sezione">
-                <p class="paragrafiReserch">Scegli una piattaforma</p>
+                <p class="paragrafiReserch">ricerca piattaforme</p>
                 <input type="button" class="bottone" title="playstation 5" style="background-image: url('css/pictures/playstation5.png')" onclick="selectedPiattaforma(this, 'playstation5')">
                 <input type="hidden" id="playstation5" name="hide1" value="false">
                 <input type="button" class="bottone" title="playstation 4" style="background-image: url('css/pictures/playstation4.png')" onclick="selectedPiattaforma(this, 'playstation4')">
@@ -91,42 +91,45 @@
                 <input type="button" class="bottone" title="pc" style="background-image: url('css/pictures/pc.png')" onclick="selectedPiattaforma(this, 'pc')">
                 <input type="hidden" id="pc" name="hide6" value="false">
             </div>
+
             <div class="sezione" id="generi">
-                <p class="paragrafiReserch" style="text-align: center">Scegli un genere</p>
+                <p class="paragrafiReserch" style="text-align: center">ricerca generi</p>
 
                 <input type="checkbox" value="Avventura" name="check1" id="avventura">
-                <label for="avventura">Avventura</label><br>
+                <label for="avventura">Avventura</label>
                 <input type="checkbox" value="Fantasy" name="check2" id="fantasy">
-                <label for="fantasy">Fantasy</label><br>
+                <label for="fantasy">Fantasy</label>
                 <input type="checkbox" value="Horror" name="check3" id="horror">
-                <label for="horror">Horror</label><br>
+                <label for="horror">Horror</label>
                 <input type="checkbox" value="Sci-fi" name="check4" id="sci-fi">
-                <label for="sci-fi">Sci-Fi</label><br>
+                <label for="sci-fi">Sci-Fi</label>
                 <input type="checkbox" value="Sparatutto" name="check5" id="sparatutto">
                 <label for="sparatutto">Sparatutto</label><br>
                 <input type="checkbox" value="Picchiaduro" name="check6" id="picchiaduro">
-                <label for="picchiaduro">Picchiaduro</label><br>
+                <label for="picchiaduro">Picchiaduro</label>
                 <input type="checkbox" value="Sopravvivenza" name="check7" id="sopravvivenza">
-                <label for="sopravvivenza">Sopravvivenza</label><br>
+                <label for="sopravvivenza">Sopravvivenza</label>
                 <input type="checkbox" value="Stelth" name="check8" id="stelth">
-                <label for="stelth">Stelth</label><br>
+                <label for="stelth">Stelth</label>
                 <input type="checkbox" value="Rpg" name="check9" id="rpg">
-                <label for="rpg">Rpg</label><br>
+                <label for="rpg">Rpg</label>
                 <input type="checkbox" value="J-rpg" name="check10" id="jrpg">
                 <label for="jrpg">J-Rpg</label><br>
                 <input type="checkbox" value="Action" name="check11" id="action">
-                <label for="action">Action</label><br>
+                <label for="action">Action</label>
                 <input type="checkbox" value="Simulazione" name="check12" id="simulazione">
-                <label for="simulazione">Simulazione</label><br>
+                <label for="simulazione">Simulazione</label>
                 <input type="checkbox" value="Strategia" name="check13" id="strategia">
-                <label for="strategia">strategia</label><br>
+                <label for="strategia">strategia</label>
                 <input type="checkbox" value="Roughlik" name="check14" id="roughlik">
-                <label for="roughlik">Roughlik</label><br>
+                <label for="roughlik">Roughlik</label>
                 <input type="checkbox" value="Open world" name="check15" id="openworld">
-                <label for="openworld">Open World</label><br>
+                <label for="openworld">Open World</label>
             </div>
-            <div id="annoPrezzo" class="sezione">
 
+            <br>
+
+            <div id="annoPrezzo" class="sezione">
                 <input type="submit" id="ricercaavButton" value="cerca">
             </div>
 
