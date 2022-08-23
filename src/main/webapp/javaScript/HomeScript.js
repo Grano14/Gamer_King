@@ -1,17 +1,9 @@
-function mostraMenu(idmenu, idfreccia){
-    var j = document.getElementById(idmenu).style.visibility
-    var f = document.getElementById(idfreccia).style.transform
-    if( j == "visible") {
-        j = "hidden";
-    }
-    else {
-        j = "visible";
-    }
+function ruota(idfreccia){
+    var f = document.getElementById(idfreccia).style.transform;
     if(f == "rotate(180deg)")
         f = "rotate(0deg)"
     else
         f = "rotate(180deg)"
-    document.getElementById(idmenu).style.visibility = j
     document.getElementById(idfreccia).style.transform = f
 }
 
@@ -26,12 +18,19 @@ function barEffect(){
         document.getElementById("risultatiAjax").style.top = "43px";
     }
     else{
-        document.getElementById("navBar").style.width = "99%";
+        document.getElementById("navBar").style.width = "95%";
         document.getElementById("navBar").style.top = "8px";
-        document.getElementById("navBar").style.left = "6px";
+        document.getElementById("navBar").style.left = "30px";
         document.getElementById("navBar").style.borderRadius = "6px";
         document.getElementById("risultatiAjax").style.top = "51px";
     }
+}
+
+function menuEffect(){
+    if(window.pageYOffset != 0)
+        document.getElementById("menuAvanzato").style.top = "50px";
+    else
+        document.getElementById("menuAvanzato").style.top = "60px";
 }
 
 function selectedPiattaforma(bottone, piattaforma){
