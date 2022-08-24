@@ -274,6 +274,11 @@ hr{
 
 }
 
+.importante{
+    font-size:25px;
+    color:red;
+}
+
 
 @media only screen and (max-width: 1200px){
 

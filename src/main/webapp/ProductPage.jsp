@@ -20,20 +20,18 @@
 
 <%@include file="NavBar.jsp" %>
 <br>
-
+<%
+    String d = (String)request.getAttribute("descrizione");
+    Prodotto p = (Prodotto) request.getAttribute("gioco");
+    ArrayList<String> lImm = (ArrayList<String>) request.getAttribute("immagini");
+    ArrayList<Recensione> lRec = (ArrayList<Recensione>) request.getAttribute("listaRec");%>
 <div id="prodotto">
-
     <div class="immagineEAcquisto">
 
         <div id="setImmagini">
             <ul class="fotoProdotto">
 
-                <%
-                    String d = (String)request.getAttribute("descrizione");
-                    Prodotto p = (Prodotto) request.getAttribute("gioco");
-                    ArrayList<String> lImm = (ArrayList<String>) request.getAttribute("immagini");
-                    ArrayList<Recensione> lRec = (ArrayList<Recensione>) request.getAttribute("listaRec");
-                    for(int i=0; i<lImm.size(); i++){%>
+                <%for(int i=0; i<lImm.size(); i++){%>
 
                 <li>
                     <img class="altreFoto" id="immagine<%=i%>" src="<%=lImm.get(i)%>"
@@ -54,11 +52,11 @@
         </div>
 
         <div class="acquisto">
-            <p class="titolo"><%=p.getVideogioco()%></p>
+            <p class="titolo"><%=p.getVideogioco()%> <%=p.getPiattaforma()%></p>
             <p class="prezzo"><%String s = p.getPrezzo().toString();
                 if(!(s.contains("."))){s=s+".00";}
                 else{if(s.indexOf(".")==(s.length()-2)){s=s+"0";}}%><%=s%>€</p>
-            <p class="prezzo" id="piattaforma"><%=p.getPiattaforma()%></p>
+            <%if(p.getnCopie()>0){%>
             <div class="bottoniAM">
 
                 <%if(!session.getAttribute("nomeUtente").equals("LOGIN")){%>
@@ -68,7 +66,6 @@
                 <input type="hidden" name="piattaforma" value="<%=p.getPiattaforma()%>">
                 <input class="bottoneAC" type="submit" value="Acquisto">
             </form>
-
                 <%}%>
         </div>
         <div>
@@ -119,9 +116,14 @@
                 }
             </script>
             </div>
+
+            <%}else{%>
+            <p class="importante">PRODOTTO NON DISPONIBILE</p>
+            <%}%>
         </div>
 
     </div>
+
 <br>
 </div>
 
@@ -140,6 +142,9 @@
         %>
         <%=l.get(i)%> <%if(i!=l.size()-1){%>,<%}%> <%}%>
     </p>
+    <%if(p.getnCopie()>0 && p.getnCopie()<20){%>
+    <p id="rimanenti" class="importante">Rimanenti: <%=p.getnCopie()%></p>
+    <%}%>
 </div>
 <div>
 
