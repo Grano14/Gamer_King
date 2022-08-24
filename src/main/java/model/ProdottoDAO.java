@@ -112,9 +112,6 @@ public class ProdottoDAO {
 
         try(Connection con = ConPool.getConnection()){
 
-             query += "select distinct p.piattaforma, p.visibilita, p.datauscita, p.disponibilita, p.videogioco," +
-                    " p.numeroCopie, p.prezzo from prodotto p where p.visibilita=true";
-
              for(int i=0; i<lPiattaforme.size();i++){
                  if(!lPiattaforme.get(i).equals("false"))
                      queryPiattaforme +="p.piattaforma = \""+ lPiattaforme.get(i) +"\" or ";
@@ -124,6 +121,12 @@ public class ProdottoDAO {
                 if(!lGeneri.get(j).equals(""))
                     queryGeneri +="a.genere = \""+ lGeneri.get(j) +"\" or ";
             }
+
+            if(queryPiattaforme.equals(" and ( ") && queryGeneri.equals(" and p.videogioco = any(  select a.videogioco from Appartenere a where "))
+                return l;
+                else
+                query += "select distinct p.piattaforma, p.visibilita, p.datauscita, p.disponibilita, p.videogioco," +
+                        " p.numeroCopie, p.prezzo from prodotto p where p.visibilita=true";
 
             if(!queryPiattaforme.equals(" and ( "))
                 query += queryPiattaforme.substring(0, queryPiattaforme.length()-4) + " ) ";
