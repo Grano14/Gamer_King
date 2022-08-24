@@ -128,9 +128,9 @@ function hiddenRisultatiAjax(){
 
 function toggleSerch(){
     var visibilita = document.getElementById("risultatiAjax").style.display;
-    var lunghezza = document.getElementById("searchBar").value.length;
+    var lunghezza = document.getElementById("searchBar").value;
 
-    if(visibilita=="block" && lunghezza==0)
+    if(visibilita=="block" && lunghezza.length==0)
         visibilita = "none";
 
     document.getElementById("risultatiAjax").style.display=visibilita;
