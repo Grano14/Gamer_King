@@ -145,11 +145,13 @@ body{
 
 
 #menu{
-    width:100%;
-    padding-left:25%;
+    width:95%;
+    margin-left: 30px;
+
 }
 
 #menuAvanzato{
+    margin-left: 28%;
     transition:top 0.5s;
     width: 550px;
     border-radius:0px 0px 6px 6px;
@@ -162,24 +164,24 @@ body{
 }
 
 #risultatiAjax{
+    text-align:center;
+    left: 10%;
+    width: 35%;
     position: fixed;
     top: 51px;
-    margin-left: 16%;
-    height: 400px;
-    width: 23%;
-    border-radius: 6px;
     z-index: 4;
     display: none;
 }
 
-#risultatiAjax a{
-    width: 98%;
-    height: 30px;
+.risultato{
+    transition: margin 0.5s;
+    width: 68%;
+    height: 40px;
     background-color: white;
-    display: inline-block;
+    display: block;
     text-decoration: none;
-    padding-left: 5px;
-    padding-top: 5px;
+    padding-left: 2px;
+    margin-left: 18%;
     color: black;
     font-family: "copperplate", fantasy;
 }
@@ -244,15 +246,19 @@ body{
     margin: 6px;
 }
 
-@media only screen and (max-width: 1000px){
-    #menu{
-        transition: padding 1s;
-        padding-left:23%;
+@media only screen and (max-width: 1200px){
+
+    .risultato{
+        margin-left: 20%;
     }
+}
+
+@media only screen and (max-width: 1000px){
 
     #menuAvanzato{
         transition: width 1s;
         width: 450px;
+        margin-left: 23%;
     }
 }
 
@@ -261,12 +267,31 @@ body{
        padding-bottom:10px;
     }
 
-    #menu{
-        padding-left:13%;
-    }
-
     #menuAvanzato{
         width: 340px;
+        margin-left: 19%;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    .risultato{
+        height:45px;
+        margin-left: 23%;
+    }
+}
+
+@media only screen and (max-width: 750px){
+    .risultato{
+        height:50px;
+        padding:0px;
+        margin-left: 27%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .risultato{
+        height:60px;
+        margin-left: 30%;
     }
 }
 

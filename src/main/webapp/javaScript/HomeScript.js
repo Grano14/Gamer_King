@@ -86,8 +86,6 @@ function ricerca(){
             else{
                 var list = JSON.parse(data);
                 document.getElementById("risultatiAjax").style.display = "block";
-                document.getElementById("risultatiAjax").style.backgroundColor = "white";
-                document.getElementById("risultatiAjax").style.height = list.length*43 + "px";
                 for(var j=0; j<list.length; j++){
                     if(j>10)
                         continue;
@@ -126,4 +124,23 @@ function hiddenRisultatiAjax(){
         document.getElementById(s+(t+1)).style.display = "none";
         document.getElementById("risultatiAjax").style.display = "none";
     }
+}
+
+function toggleSerch(){
+    var visibilita = document.getElementById("risultatiAjax").style.display;
+    var lunghezza = document.getElementById("searchBar").value.length;
+
+    if(visibilita=="block" && lunghezza==0)
+        visibilita = "none";
+
+    document.getElementById("risultatiAjax").style.display=visibilita;
+}
+
+function hideAjax(){
+    var visibilita = document.getElementById("risultatiAjax").style.display;
+
+    if(visibilita=="block")
+        visibilita = "none";
+
+    document.getElementById("risultatiAjax").style.display=visibilita;
 }
