@@ -15,7 +15,7 @@
 <body>
 
 <div class="corpo">
-    <form id="passForm" method="POST" action="">
+    <form class="formModifica" id="passForm" method="POST" action="">
         <label for="pass">Vecchia password</label><br>
         <input type="password" class="serch" id="pass" onkeyup="checkPass('pass'),checkPassButton()"><br>
         <label for="passConf">Nuova password</label><br>

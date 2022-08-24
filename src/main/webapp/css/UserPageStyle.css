@@ -55,16 +55,21 @@ p,textarea{
     margin-right: 40px;
 }
 
-.bottoneLogout input[type=submit]{
-    height: 75px;
-    width: 200px;
-    border-radius: 6px;
-    background-color: rebeccapurple;
+.bottoneModifica{
+    text-align:center;
+    height: 100%;
+    width: 100%;
+}
+
+.bottoneModifica input[type=submit]{
+    border:none;
+    height: 100%;
+    width: 100%;
+    background: none;
     color:white;
     font-family: "copperplate", fantasy;
     font-size: 25px;
-    border:0px;
-    padding-bottom: 10px;
+    padding-bottom:32px;
 }
 
 .bottoneImpostazioni:hover{
@@ -251,12 +256,7 @@ a:link, a:visited{
         width: 160px;
     }
 
-    .bottoneLogout input[type=submit]{
-        font-size: 20px;
-        width: 160px;
-
-    }
-    #user p{
+    #user p,.bottoneModifica input[type=submit]{
         font-size: 20px;
     }
 }
