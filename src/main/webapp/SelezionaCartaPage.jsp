@@ -35,6 +35,9 @@
         <div>
             <p class="nome"><%=videogioco%> <%=piattaforma%></p>
         </div>
+        <div>
+            <input type="" id="quantita" value="quantita" >
+        </div>
     </div>
 </div>
 <br>

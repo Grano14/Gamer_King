@@ -49,7 +49,7 @@
             <div class="bottoneImpostazioni" id="showM1">
                 <p>Review</p>
             </div>
-            <div class="bottoneLogout">
+            <div class="bottoneImpostazioni">
                 <form class="bottoneModifica" action="Logout">
                     <input type="submit" value="Logout">
                 </form>

@@ -9,7 +9,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
-    <titlee>User1</titlee>
+    <title>GamerKing | Pagina Utente</title>
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/UserPageStyle.css">
 
@@ -82,13 +82,13 @@
                 <p>Review</p>
             </div>
 
-            <div class="bottoneLogout">
+            <div class="bottoneImpostazioni">
                 <form class="bottoneModifica" action="PaginaImpostazioni">
                     <input type="submit" value="Impostazioni">
                 </form>
             </div>
 
-            <div class="bottoneLogout">
+            <div class="bottoneImpostazioni">
                 <form class="bottoneModifica" action="Logout">
                     <input type="submit" value="Logout">
                 </form>

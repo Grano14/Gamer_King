@@ -5,11 +5,12 @@ body{
 }
 
 #navBar{
+    transition:all 0.5s;
     background-color: #601194;
-    width: 99%;
+    width: 95%;
     height: 52px;
     top: 8px;
-    left: 6px;
+    left: 30px;
     border-radius: 6px;
     position: fixed;
     z-index: 3;
@@ -47,23 +48,14 @@ body{
 
 #searchBar{
     width: 75%;
-    height: 35px;
-    margin-top: 5px;
+    height: 40px;
+    margin-top: 6px;
     border-radius: 6px;
     border: 1px solid black;
 }
 
 #searchBar:focus{
     outline: none;
-}
-
-#searchButton{
-    height: 29px;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    border: 1px solid black;
-    background-image: url("pictures/lente.png");
-    background-repeat: no-repeat;
 }
 
 #carrello{
@@ -94,21 +86,6 @@ body{
     background-color: mediumpurple;
 }
 
-#cerca{
-    color:black;
-    left: 50px;
-    height: 40px;
-    width: 45px;
-    border-radius: 25px;
-    border-style: none;
-    transition: .2s;
-    transition-timing-function: ease-in;
-}
-
-#cerca:focus{
-    outline: none;
-}
-
 #paginaUtente{
     background:none;
     color:white;
@@ -127,38 +104,11 @@ body{
     height: 100%;
     background-color: #601194;
     padding-left: 5px;
-    width: 100px;
+    width: 120px;
     background-repeat: no-repeat;
     border-style: none;
     background-position: center;
     margin-left: 4px;
-    visibility: visible;
-}
-
-#categorie{
-    left: 50%;
-    height: 100%;
-    background-color: #601194;
-    padding-left: 5px;
-    width: 100px;
-    visibility: visible;
-    background-repeat: no-repeat;
-    border-style: none;
-    background-position: center;
-    margin-left: 4px;
-}
-
-
-
-#categorie:hover{
-    background-color: mediumpurple;
-    border-radius: 6px;
-}
-
-#categorie div{
-    display: inline-block;
-    margin-top: 15px;
-    font-family: "copperplate", fantasy;
 }
 
 #ricercaAvanzata:hover{
@@ -167,13 +117,7 @@ body{
 }
 
 #freccia{
-    margin-left: 67px;
-    transform: rotate(0deg);
-    transition-duration: 0.5s;
-}
-
-#freccia1{
-    margin-left: 67px;
+    right:0px;
     transform: rotate(0deg);
     transition-duration: 0.5s;
 }
@@ -184,59 +128,47 @@ body{
     font-family: "copperplate", fantasy;
 }
 
-#menuRicerca{
-    width: 550px;
-    height: 230px;
-    background-color: mediumpurple;
-    border-radius: 6px;
-    margin-left: 20%;
-    font-family: "copperplate", fantasy;
-    visibility: hidden;
-    position: fixed;
-    top: 60px;
-    z-index: 3;
+
+#menu{
+    width:95%;
+    margin-left: 30px;
+
 }
 
-
-
-
 #menuAvanzato{
-    width: 850px;
-    height: 450px;
-    border-radius: 6px;
-    background-color: mediumpurple;
-
-
-    margin-left: 20%;
+    margin-left: 28%;
+    transition:top 0.5s;
+    width: 550px;
+    border-radius:0px 0px 6px 6px;
+    background-color: rgb(70,70,70);
     font-family: "copperplate", fantasy;
-    visibility: hidden;
+    display: none;
     position: fixed;
     top: 60px;
     z-index: 3;
 }
 
 #risultatiAjax{
+    text-align:center;
+    left: 10%;
+    width: 35%;
     position: fixed;
     top: 51px;
-    margin-left: 14%;
-    height: 400px;
-    width: 26%;
-    border-radius: 6px;
     z-index: 4;
-    max-height: 420px;
+    display: none;
 }
 
-#risultatiAjax a{
-    width: 98%;
-    height: 30px;
+.risultato{
+    transition: margin 0.5s;
+    width: 68%;
+    height: 40px;
     background-color: white;
-    display: inline-block;
+    display: block;
     text-decoration: none;
-    padding-left: 5px;
-    padding-top: 5px;
+    padding-left: 2px;
+    margin-left: 18%;
     color: black;
     font-family: "copperplate", fantasy;
-    visibility: hidden;
 }
 
 #risultatiAjax a:hover{
@@ -244,22 +176,7 @@ body{
 }
 
 .paragrafiReserch{
-    font-size: 15px;
-}
-
-#categorieMenu{
-    width: 200px;
-    height: 350px;
-    border-radius: 6px;
-    background-color: mediumpurple;
-    font-size: 20px;
-    text-align: center;
-    margin-left: 57%;
-    font-family: "copperplate", fantasy;
-    visibility: hidden;
-    position: fixed;
-    top: 60px;
-    z-index: 3;
+    font-size: 18px;
 }
 
 #categorieMenu div{
@@ -267,82 +184,106 @@ body{
     padding-bottom: 10px;
 }
 
-#categorieMenu div:hover{
-    background-color: #601194;
-}
-
-#menuAvanzato form{
-    width: 100%;
-    height: 100%;
-
-}
-
 #piattaforma{
     text-align: center;
 }
 
 .sezione{
-    display: inline-block;
-    width: 300px;
-    height: 100%;
+    width: 100%;
     text-align: center;
+    display: block;
 }
 
 .bottone{
-    display: inline-block;
-    border-radius: 55px;
+    display: inline;
+    border-radius: 50%;
     border-style: none;
-    width: 100px;
-    height: 100px;
-    margin: 10px 20px;
-    background-color: rebeccapurple;
+    width: 70px;
+    height: 70px;
+    margin-left: 7px;
+    background-color: #601194;
     opacity: 1;
     background-repeat: no-repeat;
-}
-
-.bottone img{
-    width: 100%;
-    height: 80%;
-}
-
-#annoPrezzo select{
-    border-radius: 6px;
-    height: 25px;
-    background-color: dimgrey;
-}
-
-#annoPrezzo{
-    width: 200px;
-}
-
-#annoPrezzo p{
-    margin-top: 10px;
-}
-
-#ricercaavButton{
-    height: 30px;
-    width: 50px;
-    background-color: yellow;
-    border-radius: 6px;
-    border: 1px solid black;
-    font-family: "copperplate", fantasy;
+    background-size: 90%;
+    background-position:center;
 }
 
 #generi{
-    text-align: left;
+    text-align: center;
+}
+
+#ricercaavButton{
+    color:white;
+    height: 35px;
+    width: 70px;
+    background-color: #601194;
+    border-radius: 6px;
+    border: 0px;
+    font-family: "copperplate", fantasy;
+    font-size: 18px;
+}
+
+#ricercaavButton:hover{
+    background-color: rebeccapurple;
 }
 
 #generi input{
     margin: 6px;
 }
 
-@media only screen and (max-width: 1200px) {
-    #ricercaAvanzata{
-        visibility: hidden;
+@media only screen and (max-width: 1200px){
+
+    .risultato{
+        margin-left: 20%;
     }
 }
 
+@media only screen and (max-width: 1000px){
 
+    #menuAvanzato{
+        transition: width 0.5s;
+        transition: top 0.5s;
+        width: 450px;
+        margin-left: 23%;
+    }
 
+    .bottone{
+        width:60px;
+        height:60px;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    #risultatiAjax a{
+       padding-bottom:10px;
+    }
+
+    #menuAvanzato{
+        width: 340px;
+        margin-left: 19%;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    .risultato{
+        height:45px;
+        margin-left: 23%;
+    }
+}
+
+@media only screen and (max-width: 750px){
+    .risultato{
+        height:50px;
+        padding:0px;
+        margin-left: 27%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .risultato{
+        height:60px;
+        margin-left: 30%;
+    }
+}
 
 /*fine css barra di navigazionem*/

@@ -1,17 +1,9 @@
-function mostraMenu(idmenu, idfreccia){
-    var j = document.getElementById(idmenu).style.visibility
-    var f = document.getElementById(idfreccia).style.transform
-    if( j == "visible") {
-        j = "hidden";
-    }
-    else {
-        j = "visible";
-    }
+function ruota(idfreccia){
+    var f = document.getElementById(idfreccia).style.transform;
     if(f == "rotate(180deg)")
         f = "rotate(0deg)"
     else
         f = "rotate(180deg)"
-    document.getElementById(idmenu).style.visibility = j
     document.getElementById(idfreccia).style.transform = f
 }
 
@@ -26,12 +18,19 @@ function barEffect(){
         document.getElementById("risultatiAjax").style.top = "43px";
     }
     else{
-        document.getElementById("navBar").style.width = "99%";
+        document.getElementById("navBar").style.width = "95%";
         document.getElementById("navBar").style.top = "8px";
-        document.getElementById("navBar").style.left = "6px";
+        document.getElementById("navBar").style.left = "30px";
         document.getElementById("navBar").style.borderRadius = "6px";
         document.getElementById("risultatiAjax").style.top = "51px";
     }
+}
+
+function menuEffect(){
+    if(window.pageYOffset != 0)
+        document.getElementById("menuAvanzato").style.top = "50px";
+    else
+        document.getElementById("menuAvanzato").style.top = "60px";
 }
 
 function selectedPiattaforma(bottone, piattaforma){
@@ -76,23 +75,21 @@ function ricerca(){
             for(var t=0; t<10; t++){
                 document.getElementById(s+(t+1)).innerText = "undefined";
                 document.getElementById(s+(t+1)).href = "undefined";
-                document.getElementById(s+(t+1)).style.visibility = "hidden";
-                document.getElementById("risultatiAjax").style.visibility = "hidden";
+                document.getElementById(s+(t+1)).style.display = "none";
+                document.getElementById("risultatiAjax").style.display = "none";
             }
             if(data === "Nessun risultato"){
                 document.getElementById(s+1).innerText = data;
                 document.getElementById(s+1).href = "undefined";
-                document.getElementById(s+1).style.visibility = "visible";
+                document.getElementById(s+1).style.diplay = "block";
             }
             else{
                 var list = JSON.parse(data);
-                document.getElementById("risultatiAjax").style.visibility = "visible";
-                document.getElementById("risultatiAjax").style.backgroundColor = "white";
-                document.getElementById("risultatiAjax").style.height = list.length*43 + "px";
+                document.getElementById("risultatiAjax").style.display = "block";
                 for(var j=0; j<list.length; j++){
                     if(j>10)
-                        break;
-                    document.getElementById(s+(j+1)).style.visibility = "visible";
+                        continue;
+                    document.getElementById(s+(j+1)).style.display = "block";
                     document.getElementById(s+(j+1)).innerText = list[j].nome;
                     if(list[j].piattaforma === "playstation4"){
                         document.getElementById(s+(j+1)).innerHTML += "<img style='margin-left: 10px' src='css/pictures/ps430.png'>";
@@ -124,7 +121,26 @@ function hiddenRisultatiAjax(){
     for(var t=0; t<10; t++){
         document.getElementById(s+(t+1)).innerText = "undefined";
         document.getElementById(s+(t+1)).href = "undefined";
-        document.getElementById(s+(t+1)).style.visibility = "hidden";
-        document.getElementById("risultatiAjax").style.visibility = "hidden";
+        document.getElementById(s+(t+1)).style.display = "none";
+        document.getElementById("risultatiAjax").style.display = "none";
     }
+}
+
+function toggleSerch(){
+    var visibilita = document.getElementById("risultatiAjax").style.display;
+    var lunghezza = document.getElementById("searchBar").value;
+
+    if(visibilita=="block" && lunghezza.length==0)
+        visibilita = "none";
+
+    document.getElementById("risultatiAjax").style.display=visibilita;
+}
+
+function hideAjax(){
+    var visibilita = document.getElementById("risultatiAjax").style.display;
+
+    if(visibilita=="block")
+        visibilita = "none";
+
+    document.getElementById("risultatiAjax").style.display=visibilita;
 }

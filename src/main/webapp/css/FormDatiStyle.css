@@ -2,12 +2,12 @@ body{
     color: white;
 }
 
-form p{
+.formModifica p{
     color:white;
     font-family: "copperplate", fantasy;
 }
 
-form{
+.formModifica{
     width:70%;
     margin:auto;
 }
