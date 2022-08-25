@@ -28,23 +28,10 @@ public class AcquistoCarrello extends HttpServlet {
         for(j=0; j< carrello.size(); j++){
             int g;
             for(g=0; g<Integer.parseInt(request.getParameter(carrello.get(j).getVideogioco())); g++){
-                ArrayList<Copia> l = CopiaDAO.doRetriveAllByVideogiocoPiattaforma(carrello.get(j).getVideogioco(), carrello.get(j).getPiattaforma());
-                ArrayList<Acquisto> listaAcquisti = AcquistoDAO.doRetriveAll();
-                int t;
-                boolean flag = true;
-                for(t=0; t<l.size(); t++){
-                    int k;
-                    if(listaAcquisti.size() == 0 && flag == true){
-                        AcquistoDAO.doSave(new Acquisto(request.getParameter("selezioneCarta"), (String)session.getAttribute("nomeUtente"), l.get(0).getIdCopia(), carrello.get(j).getVideogioco(), carrello.get(j).getPiattaforma(), request.getParameter("via"), request.getParameter("cap"), request.getParameter("citta"), request.getParameter("civico")));
-                        flag = false;
-                    }
-                    for(g=0; g<listaAcquisti.size(); g++){
-                        if(!listaAcquisti.get(g).getIdCopia().equals(l.get(t).getIdCopia()) && flag == true){
-                            AcquistoDAO.doSave(new Acquisto(request.getParameter("selezioneCarta"), (String)session.getAttribute("nomeUtente"), l.get(0).getIdCopia(), carrello.get(j).getVideogioco(), carrello.get(j).getPiattaforma(), request.getParameter("via"), request.getParameter("cap"), request.getParameter("citta"), request.getParameter("civico")));
-                            flag = false;
-                        }
-                    }
-                }
+
+                ArrayList<Copia> l = CopiaDAO.doRetriveNotSellByVideogame(carrello.get(j).getVideogioco(), carrello.get(j).getPiattaforma());
+                AcquistoDAO.doSave(new Acquisto(request.getParameter("selezioneCarta"), (String)session.getAttribute("nomeUtente"), l.get(0).getIdCopia(), carrello.get(j).getVideogioco(), carrello.get(j).getPiattaforma(), request.getParameter("via"+request.getParameter("selezioneCarta")), request.getParameter("cap"+request.getParameter("selezioneCarta")), request.getParameter("citta"+request.getParameter("selezioneCarta")), request.getParameter("civico"+request.getParameter("selezioneCarta"))));
+
             }
         }
 

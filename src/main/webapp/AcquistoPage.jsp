@@ -65,11 +65,11 @@
     <p id="numeroCarta">Numero:**** **** **** <%=c.getNumero().substring(11)%></p>
     <label>Seleziona</label>
     <input type="radio" name="selezioneCarta" value="<%=c.getNumero()%>">
-    <input type="hidden" name="via" value="<%=listSottoscrizioni.get(j).getVia()%>">
-        <input type="hidden" name="cap" value="<%=listSottoscrizioni.get(j).getCap()%>">
-        <input type="hidden" name="via" value="<%=listSottoscrizioni.get(j).getVia()%>">
-        <input type="hidden" name="civico" value="<%=listSottoscrizioni.get(j).getNumCivico()%>">
-        <input type="hidden" name="citta" value="<%=listSottoscrizioni.get(j).getCitta()%>">
+    <input type="hidden" name="via<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getVia()%>">
+        <input type="hidden" name="cap<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getCap()%>">
+        <input type="hidden" name="via<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getVia()%>">
+        <input type="hidden" name="civico<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getNumCivico()%>">
+        <input type="hidden" name="citta<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getCitta()%>">
     </div>
     <%}}%>
     <a href="PaginaModificaCarte" class="parag">Aggiungi una nuova carta per il pagamento</a>

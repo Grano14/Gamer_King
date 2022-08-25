@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Copia {
 
     private String IdCopia, videogioco, piattaforma;
@@ -32,5 +34,18 @@ public class Copia {
 
     public void setIdCopia(String idCopia) {
         IdCopia = idCopia;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Copia copia = (Copia) o;
+        return Objects.equals(IdCopia, copia.IdCopia) && Objects.equals(videogioco, copia.videogioco) && Objects.equals(piattaforma, copia.piattaforma);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(IdCopia, videogioco, piattaforma);
     }
 }
