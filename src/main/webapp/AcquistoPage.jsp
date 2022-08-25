@@ -33,7 +33,7 @@
     <div class="fasiAcquisto"><a id="fase2" href="#">FATTURAZIONE</a></div>
     <div class="fasiAcquisto"><a id="fase3" href="#">FATTO</a></div>
 </div>
-<form style="margin-top: 130px">
+<form style="margin-top: 130px" action="AcquistoCarrello">
 <%for(int u=0; u< carrello.size();u++){%>
 <div class="carrelloItem">
     <a href="CaricaProdotto?titolo=<%=carrello.get(u).getVideogioco()%>&piattaforma=<%=carrello.get(u).getPiattaforma()%>"><img src="<%=ImmagineDAO.getMainImageByVideogame(carrello.get(u).getVideogioco())%>"> </a>
@@ -44,7 +44,7 @@
         <%=carrello.get(u).getPrezzo()%>€
         <div style="margin-left: 20px">
             <label for="num">Scegli la quantità</label><br>
-            <input type="number" value="1" id="num" style="width: 45px">
+            <input type="number" value="1" id="num" name="<%=carrello.get(u).getVideogioco()%>" style="width: 45px">
         </div>
     </div>
 </div>
@@ -65,9 +65,15 @@
     <p id="numeroCarta">Numero:**** **** **** <%=c.getNumero().substring(11)%></p>
     <label>Seleziona</label>
     <input type="radio" name="selezioneCarta" value="<%=c.getNumero()%>">
+    <input type="hidden" name="via" value="<%=listSottoscrizioni.get(j).getVia()%>">
+        <input type="hidden" name="cap" value="<%=listSottoscrizioni.get(j).getCap()%>">
+        <input type="hidden" name="via" value="<%=listSottoscrizioni.get(j).getVia()%>">
+        <input type="hidden" name="civico" value="<%=listSottoscrizioni.get(j).getNumCivico()%>">
+        <input type="hidden" name="citta" value="<%=listSottoscrizioni.get(j).getCitta()%>">
     </div>
     <%}}%>
     <a href="PaginaModificaCarte" class="parag">Aggiungi una nuova carta per il pagamento</a>
+    <input type="submit" value="Acquista">
 </form>
 <%}%>
 </body>

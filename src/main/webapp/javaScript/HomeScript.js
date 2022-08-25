@@ -91,7 +91,7 @@ function ricerca(){
                 document.getElementById("risultatiAjax").style.height = list.length*43 + "px";
                 for(var j=0; j<list.length; j++){
                     if(j>10)
-                        continue;
+                        break;
                     document.getElementById(s+(j+1)).style.visibility = "visible";
                     document.getElementById(s+(j+1)).innerText = list[j].nome;
                     if(list[j].piattaforma === "playstation4"){

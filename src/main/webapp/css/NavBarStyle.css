@@ -223,6 +223,7 @@ body{
     width: 26%;
     border-radius: 6px;
     z-index: 4;
+    max-height: 420px;
 }
 
 #risultatiAjax a{
