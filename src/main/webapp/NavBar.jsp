@@ -40,7 +40,7 @@
         </div>
         <div id="search">
             <form action="#cer" id="searchBarForm">
-                <input type="text" id="searchBar" placeholder="cerca..." onclick="toggleSerch()" onkeyup="ricerca()">
+                <input type="text" id="searchBar" placeholder="cerca..." onblur="hideAjax()" onclick="toggleSerch()" onkeyup="ricerca()">
                 <!--<input type="submit" id="searchButton" value="       ">-->
             </form>
         </div>
