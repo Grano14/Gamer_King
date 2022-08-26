@@ -127,4 +127,16 @@ public class UtenteDAO {
         }
     }
 
+    public static void updateImmage(String path, String nome){
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("update Utente set immagine=? where nomeUtente=?");
+            ps.setString(1, path);
+            ps.setString(2, nome);
+            ps.execute();
+        }
+        catch (SQLException e){
+            throw  new RuntimeException(e);
+        }
+    }
+
 }

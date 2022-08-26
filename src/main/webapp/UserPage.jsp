@@ -42,7 +42,36 @@
 
 <div id="user">
     <div id="utenteInfo">
-        <img id="utenteimage" src="css/pictures/utenteGenerico.png">
+        <div style="width: 200px; display: inline-block">
+            <%
+                String nome = (String) session.getAttribute("nomeUtente");
+                Utente u = UtenteDAO.doRetriveByNomeUtente(nome);
+                String path = "";
+                if(u.getImmagine() == null){
+                    path = "css/pictures/utenteGenerico.png";
+                }
+                else{
+                    path = u.getImmagine();
+                }
+            %>
+            <img id="utenteimage" src="<%=path%>">
+            <button style="position: relative;bottom: 35px; right: 50px" onclick="hideForm()"><img src="css/pictures/matita.png"></button>
+            <script>
+                function hideForm(){
+                    if(document.getElementById("formImg").style.display == "none"){
+                        document.getElementById("formImg").style.display = "block";
+                    }
+                    else{
+                        document.getElementById("formImg").style.display = "none";
+                    }
+                }
+            </script>
+            <form action="AggiornaImmagineUtente" method="post" id="formImg" style="display: none" enctype="multipart/form-data">
+                <input type="file" name="immagine">
+                <input type="submit" value="Aggiorna">
+            </form>
+        </div>
+
         <p id="userid"><%=user.getNomeUtente()%></p>
         <p id="email"><%=user.getEmail()%></p>
         <div id="impostazioniUtente">
