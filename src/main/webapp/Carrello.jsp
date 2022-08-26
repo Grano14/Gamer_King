@@ -36,14 +36,24 @@
             <div id="prezzo">
                 <%=carrello.get(j).getPrezzo()%>€
             </div>
-            <button id="delete" onclick="deleteElement('<%=carrello.get(j).getVideogioco()%>', '<%=carrello.get(j).getPiattaforma()%>', '<%=nome%>')">
-                X
-            </button>
+            <div id="boxBottoni">
+                <button class="bottoni" id="delete" onclick="deleteElement('<%=carrello.get(j).getVideogioco()%>', '<%=carrello.get(j).getPiattaforma()%>', '<%=nome%>')">
+                    Elimina
+                </button>
+
+                <form method="POST" action="">
+                    <input type="hidden" name="videogioco" value="<%=carrello.get(j).getVideogioco()%>">
+                    <input type="hidden" name="piattaforma" value="<%=carrello.get(j).getPiattaforma()%>">
+                    <input type="submit" class="bottoni" value="Acquista">
+                </form>
+            </div>
+
         </div>
         <hr>
     <%}%>
-    <div>
-        <a id="acquistaButton" href="AcquistoPage.jsp">ACQUISTA</a>
+    <br>
+    <div id="acquistoTutto">
+        <a id="acquistaButton" href="AcquistoPage.jsp">Acquista</a>
     </div>
     <%}%>
 </div>
