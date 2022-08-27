@@ -23,7 +23,7 @@ body{
 .carrelloItem a{
     display: inline-block;
     width: 200px;
-    height: 150px;
+    height: 170px;
     position: absolute;
     left: 20px;
 }
@@ -50,14 +50,20 @@ body{
     right: 500px;
 }
 
-#delete{
-    height: 25px;
-    width: 25px;
-    background-color: rebeccapurple;
-    position: absolute;
-    right: 30px;
+#boxBottoni{
+    float:right;
+}
+
+.bottoni{
+    height: 40px;
+    width: 100px;
+    background-color: #601194;
+    color:white;
+    float:right;
+    margin-right: 50px;
+    border:none;
     border-radius: 6px;
-    font-size: 20px;
+    font-size: 18px;
     font-family: "copperplate", fantasy;
     margin-top: 40px;
 }
@@ -65,17 +71,22 @@ body{
 hr{
     box-shadow: 0 0 10px yellow;
     border: 1px  solid yellow;
-    width: 85%;
+    width: 100%;
+}
+
+#acquistoTutto{
+    width:100%;
+    text-align: center;
 }
 
 #acquistaButton{
-    width: 200px;
-    height: 75px;
+    padding:5px;
     border-radius: 6px;
-    background-color: #f3e7cd;
+    background-color: #601194;
+    color:white;
     font-size: 25px;
     font-family: "copperplate", fantasy;
-    text-align: center;
+    text-decoration:none;
 }
 
 .fasiAcquisto{
@@ -129,4 +140,8 @@ hr{
     font-size: 20px;
     text-decoration: none;
     color: white;
+}
+
+.bottoni:hover,#acquistaButton:hover{
+    background-color:rebeccapurple;
 }

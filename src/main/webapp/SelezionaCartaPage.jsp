@@ -36,7 +36,7 @@
             <p class="nome"><%=videogioco%> <%=piattaforma%></p>
         </div>
         <div>
-            <input type="" id="quantita" value="quantita" >
+            <input type="number" id="quantita">
         </div>
     </div>
 </div>
