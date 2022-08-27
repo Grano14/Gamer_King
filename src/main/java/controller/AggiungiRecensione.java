@@ -20,7 +20,7 @@ public class AggiungiRecensione extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String contenuto = request.getParameter("recensione");;
+        String contenuto = request.getParameter("recensione");
         String piattaforma = request.getParameter("piattaforma");
         String nomeUtente = request.getSession().getAttribute("nomeUtente").toString();
         String videogioco = request.getParameter("videogioco");
@@ -32,7 +32,9 @@ public class AggiungiRecensione extends HttpServlet{
         int nStelle = Integer.parseInt(request.getParameter("nStelle"));
 
         Recensione rec = new Recensione(nomeUtente, videogioco, piattaforma, pubblicazione, contenuto, nStelle);
-        RecensioneDAO.doSave(rec);
+
+        if(!RecensioneDAO.contains(nomeUtente, videogioco, piattaforma))
+            RecensioneDAO.doSave(rec);
 
         request.setAttribute("titolo",videogioco);
         request.setAttribute("piattaforma",piattaforma);

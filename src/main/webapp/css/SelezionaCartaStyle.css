@@ -72,6 +72,11 @@ p{
     font-size: 25px;
 }
 
+#quant{
+    width: 55px;
+    border-radius:5px;
+}
+
 #prodotto{
     margin-top:90px;
     text-align:center;

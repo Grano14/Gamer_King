@@ -148,6 +148,14 @@ textarea{
     margin-top:32px;
 }
 
+#sostitutivo1,#sostitutivo2{
+    display:none;
+}
+
+.prodottoCarrello{
+    font-size:19px;
+}
+
 #recensioneRegistrata{
     width:90%;
     background-color: rgb(27, 27, 27);
@@ -180,7 +188,7 @@ textarea{
     display:none;
 }
 
-input[type=submit]:hover,.aggiunta:hover{
+input[type=submit]:hover, .aggiunta:hover, #bottoneCarrello:hover{
     background-color:rebeccapurple;
 }
 
