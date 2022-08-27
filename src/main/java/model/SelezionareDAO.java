@@ -70,4 +70,15 @@ public class SelezionareDAO {
         }
     }
 
+    public static void doRemoveByUtente(String nomeUtente){
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("delete from Selezionare where nomeUtente=?");
+            ps.setString(1, nomeUtente);
+            ps.execute();
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 }
