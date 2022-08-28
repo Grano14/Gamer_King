@@ -50,6 +50,18 @@ body{
     right: 500px;
 }
 
+#selezionaQuantita{
+    text-align: center;
+    float: right;
+    margin-right: 40px;
+    margin-top: 60px;
+    transition: margin 0.5s;
+}
+
+#num{
+    width: 60px;
+}
+
 #boxBottoni{
     float:right;
 }
@@ -144,4 +156,31 @@ hr{
 
 .bottoni:hover,#acquistaButton:hover{
     background-color:rebeccapurple;
+}
+
+@media only screen and (max-width: 900px){
+    .infoProdotto{
+        font-size:20px;
+    }
+
+    #selezionaQuantita{
+        font-size:20px;
+    }
+
+    #num{
+        width: 60px;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    #selezionaQuantita{
+        margin-top:125px;
+        margin-right:100px;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    #selezionaQuantita{
+        text-align:left;
+    }
 }

@@ -12,6 +12,7 @@
     <title>Acquisto</title>
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/CarrelloStyle.css">
+    <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
     <script type="text/javascript" src="javaScript/HomeScript.js"></script>
     <%ArrayList<Selezionare> l = SelezionareDAO.doRetriveAllByNomeUtente((String)session.getAttribute("nomeUtente"));%>
 </head>
@@ -36,17 +37,26 @@
 <form style="margin-top: 130px" action="AcquistoCarrello">
 <%for(int u=0; u< carrello.size();u++){%>
 <div class="carrelloItem">
-    <a href="CaricaProdotto?titolo=<%=carrello.get(u).getVideogioco()%>&piattaforma=<%=carrello.get(u).getPiattaforma()%>"><img src="<%=ImmagineDAO.getMainImageByVideogame(carrello.get(u).getVideogioco())%>"> </a>
+
+    <a href="CaricaProdotto?titolo=<%=carrello.get(u).getVideogioco()%>&piattaforma=<%=carrello.get(u).getPiattaforma()%>">
+        <img src="<%=ImmagineDAO.getMainImageByVideogame(carrello.get(u).getVideogioco())%>">
+    </a>
+
     <div id="descrizione">
-        <%=carrello.get(u).getVideogioco()%>, <%=carrello.get(u).getPiattaforma()%>
+        <p class="infoProdotto">
+            <%=carrello.get(u).getVideogioco()%>, <%=carrello.get(u).getPiattaforma()%>
+        </p>
+
+        <p class="infoProdotto">
+            <%=carrello.get(u).getPrezzo()%>€
+        </p>
     </div>
-    <div id="prezzo">
-        <%=carrello.get(u).getPrezzo()%>€
-        <div style="margin-left: 20px">
-            <label for="num">Scegli la quantità</label><br>
-            <input type="number" value="1" id="num" name="<%=carrello.get(u).getVideogioco()%>" style="width: 45px">
-        </div>
+
+    <div id="selezionaQuantita">
+        <label for="num">Scegli la quantità</label><br>
+        <input type="number" value="1" id="num" name="<%=carrello.get(u).getVideogioco()%>">
     </div>
+
 </div>
 <hr>
 <%}%>
