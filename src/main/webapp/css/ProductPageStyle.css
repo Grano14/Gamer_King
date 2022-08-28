@@ -129,7 +129,9 @@ textarea{
 #utenteimage{
     margin-top:10px;
     width:60px;
+    height:60px;
     float:left;
+    border-radius:50%;
 }
 
 .Utente p{
@@ -150,6 +152,10 @@ textarea{
 
 #sostitutivo1,#sostitutivo2{
     display:none;
+}
+
+.giaNelCarrello{
+    font-size:23px;
 }
 
 .prodottoCarrello{

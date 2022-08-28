@@ -54,7 +54,14 @@
 %>
 <div id="user">
     <div id="utenteInfo">
-        <img id="utenteimage" src="css/pictures/utenteGenerico.png">
+        <%
+            String path = "";
+            if(user.getImmagine()!=null) {
+             path = user.getImmagine();
+        }else {
+            path ="css/pictures/utenteGenerico.png";
+        }%>
+        <img id="utenteimage" src="<%=path%>">
         <p id="userid"><%=user.getNomeUtente()%></p>
         <p id="email"><%=user.getEmail()%></p>
         <div id="impostazioniUtente">
@@ -96,8 +103,6 @@
     <div id="m2" class="hiddenMenu">
         <%@include file="CambioPassword.jsp"%>
     </div>
-
 </div>
-
 </body>
 </html>

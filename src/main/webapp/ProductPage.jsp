@@ -92,10 +92,10 @@
                     ArrayList<Prodotto> l = (ArrayList<Prodotto>) session.getAttribute("carrello");
                     if(l.contains(p)){%>
                         <div class="bottoneAcquisto">
-                            <p>Prodotto già nel carrello</p>
+                            <p class="giaNelCarrello">Prodotto già nel carrello</p>
                         </div>
                     <%}else{%>
-            <p id="sostitutivo1">Prodotto già nel carrello</p>
+            <p class="giaNelCarrello" id="sostitutivo1">Prodotto già nel carrello</p>
             <div class="bottoneAcquisto">
                 <input type="hidden" id="<%=nomeG%>" name="nomeGioco" value="<%=p.getVideogioco()%>">
                 <input type="hidden" id="<%=nomeP%>" name="nomePiattaforma" value="<%=p.getPiattaforma()%>">
@@ -105,10 +105,10 @@
                     ArrayList<Selezionare> l = SelezionareDAO.doRetriveAllByNomeUtente((String)session.getAttribute("nomeUtente"));
                     if(l.contains(selezionare)){%>
                         <div class="bottoneAcquisto">
-                            <p>Prodotto già nel carrello
+                            <p class="giaNelCarrello">Prodotto già nel carrello
                         </div>
                     <%}else{%>
-            <p id="sostitutivo2">Prodotto già nel carrello</p>
+            <p class="giaNelCarrello" id="sostitutivo2">Prodotto già nel carrello</p>
                         <div class="bottoneAcquisto">
                             <input type="hidden" id="nomeG" name="nomeGioco" value="<%=p.getVideogioco()%>">
                             <input type="hidden" id="nomeP" name="nomePiattaforma" value="<%=p.getPiattaforma()%>">
@@ -211,7 +211,14 @@
 
 
         <div class="Utente">
-            <img id="utenteimage" src="<%if(u.getImmagine()!=null){%><%=u.getImmagine()%><%}else{%>css/pictures/utenteGenerico.png<%}%>">
+            <%
+                String immagine = "";
+                if(u.getImmagine()!=null) {
+                    immagine = u.getImmagine();
+                }else {
+                    immagine ="css/pictures/utenteGenerico.png";
+                }%>
+            <img id="utenteimage" src="<%=immagine%>">
             <p id="NomeUtente"><%=rec.getNomeUtente()%></p>
 
             <div id="stelleVotate">
