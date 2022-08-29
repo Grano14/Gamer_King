@@ -28,7 +28,7 @@
     String piattaforma = (String) request.getAttribute("piattaforma");
 %>
 
-
+<form action="AcquistoSingolo">
 <div id="prodotto">
     <div id="immagine">
         <img src="<%=img%>">
@@ -39,7 +39,7 @@
             <p class="nome"><%=videogioco%> <%=piattaforma%></p>
         </div>
         <div>
-            <input type="number" id="quant" value="1" onkeyup="updateQuantita(),checkQuantita()">
+            <input type="number" name="quantita" id="quant" value="1" onkeyup="updateQuantita(),checkQuantita()">
             <p id="errore">Devi ordinare almeno un prodotto</p>
         </div>
     </div>
@@ -80,9 +80,10 @@
         <br>
         <input id="bottoneAcquistoCarrello" type="submit" value="Acquista">
     </div>
+    <input type="hidden" name="videogioco" value="<%=videogioco%>">
+    <input type="hidden" name="piattaforma" value="<%=piattaforma%>">
 
-
-
+<!--
     <div>
         <form class="bottoneModifica" method="POST" action="PaginaAggiuntaCarta">
             <input type="hidden" name="videogioco" value="<%=videogioco%>">
@@ -91,6 +92,8 @@
             <input type="submit" id="Aggiunta" value="Aggiungi">
         </form>
     </div>
+-->
 </div>
+</form>
 </body>
 </html>
