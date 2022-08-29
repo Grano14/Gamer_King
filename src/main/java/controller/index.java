@@ -27,7 +27,7 @@ public class index extends HttpServlet {
             session.setAttribute("numProdottiCarrello", 0);
         }
 
-        ArrayList<Prodotto> lPrincipali = ProdottoDAO.doRetriveAllVisible();
+        ArrayList<Prodotto> lPrincipali = ProdottoDAO.doRetriveByVenduti();
 
         ArrayList<String> listPath = new ArrayList<>();
         int i;

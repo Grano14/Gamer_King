@@ -104,6 +104,24 @@ public class ProdottoDAO {
         }
     }
 
+    public static ArrayList<Prodotto> doRetriveByVenduti(){
+        ArrayList<Prodotto> l = new ArrayList<>();
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("select videogioco, piattaforma, count(idcopia)\n" +
+                    "from acquisto\n" +
+                    "group by videogioco, piattaforma\n" +
+                    "order by idcopia desc");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                l.add(ProdottoDAO.doRetriveById(rs.getString(1), rs.getString(2)));
+            }
+            return l;
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     public static ArrayList<Prodotto> doRetriveByPiattaformaGenere(ArrayList<String> lPiattaforme, ArrayList<String> lGeneri){
         ArrayList<Prodotto> l = new ArrayList<>();
         String query = "";
