@@ -101,10 +101,12 @@
 <div id="menuUtente">
 
     <div id="m" class="hiddenMenu">
-        <%for(int i=0; i<6; i++){%>
+        <%
+            ArrayList<Prodotto> l = AcquistoDAO.doRetriveAllByUtente((String)session.getAttribute("nomeUtente"));
+            for(int i=0; i<l.size(); i++){%>
         <div class="elemento">
-            <a href="#game"><img src="css/pictures/eldenRing.jpg"> </a>
-            <p>nome gioco</p>
+            <a href="CaricaProdotto?titolo=<%=l.get(i).getVideogioco()%>&piattaforma=<%=l.get(i).getPiattaforma()%>"><img src="<%=ImmagineDAO.getMainImageByVideogame(l.get(i).getVideogioco())%>"> </a>
+            <p><%=l.get(i).getVideogioco()%>, <%=l.get(i).getPiattaforma()%></p>
         </div>
         <%}%>
     </div>

@@ -7,6 +7,8 @@ import model.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 @WebServlet(name = "AcquistoSingolo", value = "/AcquistoSingolo")
 public class AcquistoSingolo extends HttpServlet {
@@ -47,7 +49,9 @@ public class AcquistoSingolo extends HttpServlet {
             for(int k=0; k<Integer.parseInt(quantita); k++){
                 ArrayList<Copia> l = CopiaDAO.doRetriveNotSellByVideogame(videogioco, piattaforma);
                 String idCopia = l.get(0).getIdCopia();
-                AcquistoDAO.doSave(new Acquisto(numCarta, nomeUtente, idCopia, videogioco, piattaforma, via, cap, citta, civico));
+                GregorianCalendar day = new GregorianCalendar();
+                String data = day.get(Calendar.YEAR)+"-"+day.get(Calendar.MONTH)+"-"+day.get(Calendar.DAY_OF_MONTH);
+                AcquistoDAO.doSave(new Acquisto(numCarta, nomeUtente, idCopia, videogioco, piattaforma, via, cap, citta, civico, data));
             }
             int n = ProdottoDAO.doRetriveById(videogioco, piattaforma).getnCopie();
             ProdottoDAO.doUpdateNumeroCopieById(videogioco, piattaforma, n-Integer.parseInt(quantita));

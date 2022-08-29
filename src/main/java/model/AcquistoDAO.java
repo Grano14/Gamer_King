@@ -88,4 +88,22 @@ public class AcquistoDAO {
         }
     }
 
+    public static ArrayList<Prodotto> doRetriveAllByUtente(String nome){
+        ArrayList<Prodotto> l = new ArrayList<>();
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("select distinct videogioco, piattaforma from Acquisto where nomeUtente=?");
+            ps.setString(1, nome);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                String gioco = rs.getString(1);
+                String piattaforma = rs.getString(2);
+                l.add(ProdottoDAO.doRetriveById(gioco, piattaforma));
+            }
+            return l;
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 }

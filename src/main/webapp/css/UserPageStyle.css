@@ -267,6 +267,14 @@ a:link, a:visited{
     background-color:rebeccapurple;
 }
 
+#formImg input[type= submit]{
+    background-color: #601194;
+    font-size: 15px;
+    font-family: "copperplate", fantasy;
+    height: 30px;
+    border-radius: 6px;
+}
+
 
 @media only screen and (max-width: 1200px){
     .bottoneImpostazioni{
