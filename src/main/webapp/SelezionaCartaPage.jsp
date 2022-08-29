@@ -12,7 +12,7 @@
     <title>Seleziona carta</title>
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/SelezionaCartaStyle.css">
-
+    <link rel="stylesheet" type="text/css" href="css/CarrelloStyle.css">
     <script type="text/javascript" src="javaScript/SelezionaCartaScript.js"></script>
 
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
@@ -50,38 +50,38 @@
 
 <div id="oggettiCarta">
     <p id="testoCarta"> Carte di credito</p>
-    <%for(Sottoscrivere s:lCarte){
-        Carta c = CartaDAO.doRetriveById(s.getNumero());%>
-    <div class="cartaItem">
 
-        <div id="descrizione">
-
-            <p id="nomeCognome"><%=c.getCognome()%> <%=c.getNome()%></p>
-            <p id="indirizzo"><%=s.getCitta()%> <%=s.getCap()%></p>
-            <p><%=s.getVia()%> <%=s.getNumCivico()%></p>
-            <p id="numeroCarta">**** **** **** <%=c.getNumero().substring(11)%></p>
-
+    <div id="selezionaCarta">
+        <p id="sezione">Inserimento estremi di fatturazione</p>
+        <%
+            ArrayList<Sottoscrivere> listSottoscrizioni = SottoscrivereDAO.doRetriveByNomeUtente((String)session.getAttribute("nomeUtente"));
+            if(listSottoscrizioni.size() > 0){
+                int j;
+                for(j=0; j<listSottoscrizioni.size(); j++){
+                    Carta c = CartaDAO.doRetriveById(listSottoscrizioni.get(j).getNumero());
+        %>
+        <div id="carta">
+            <p id="nomeCognome">Intestatario:<%=c.getCognome()%> <%=c.getNome()%></p>
+            <p id="indirizzo">Indirizzo:<%=listSottoscrizioni.get(j).getCitta()%> <%=listSottoscrizioni.get(j).getCap()%></p>
+            <p><%=listSottoscrizioni.get(j).getVia()%> <%=listSottoscrizioni.get(j).getNumCivico()%></p>
+            <p id="numeroCarta">Numero:**** **** **** <%=c.getNumero().substring(11)%></p>
+            <label>Seleziona</label>
+            <input type="radio" name="selezioneCarta" value="<%=c.getNumero()%>">
+            <input type="hidden" name="via<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getVia()%>">
+            <input type="hidden" name="cap<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getCap()%>">
+            <input type="hidden" name="via<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getVia()%>">
+            <input type="hidden" name="civico<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getNumCivico()%>">
+            <input type="hidden" name="citta<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getCitta()%>">
         </div>
-
-        <div class="bottoni">
-            <div>
-                <form id="acquistaProdotto" class="bottoneModifica" method="POST" action="">
-                    <input type="hidden" name="numero" value="<%=s.getNumero()%>">
-                    <input type="hidden" name="cap" value="<%=s.getCap()%>">
-                    <input type="hidden" name="citta" value="<%=s.getCitta()%>">
-                    <input type="hidden" name="via" value="<%=s.getVia()%>">
-                    <input type="hidden" name="numCivico" value="<%=s.getNumCivico()%>">
-                    <input type="hidden" name="videogioco" value="<%=videogioco%>">
-                    <input type="hidden" name="piattaforma" value="<%=piattaforma%>">
-                    <input type="hidden" class="quantita" name="quantita">
-                    <input type="submit" value="Seleziona">
-                </form>
-            </div>
-        </div>
+        <%}}%>
+        <br>
+        <br>
+        <a id="aggiungiCarta" href="PaginaModificaCarte" class="parag">Aggiungi una nuova carta per il pagamento</a>
+        <br>
+        <input id="bottoneAcquistoCarrello" type="submit" value="Acquista">
     </div>
-    <br>
-    <hr>
-    <%}%>
+
+
 
     <div>
         <form class="bottoneModifica" method="POST" action="PaginaAggiuntaCarta">
