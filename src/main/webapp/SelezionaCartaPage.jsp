@@ -39,7 +39,7 @@
             <p class="nome"><%=videogioco%> <%=piattaforma%></p>
         </div>
         <div>
-            <input type="number" id="quant" value="1" onkeyup="updateQuantita()">
+            <input type="number" id="quant" value="1" onkeyup="updateQuantita(),checkQuantita()">
             <p id="errore">Devi ordinare almeno un prodotto</p>
         </div>
     </div>

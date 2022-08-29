@@ -7,3 +7,14 @@ function secondBarEffect(){
         document.getElementById("fasiAcq").style.top="60px";
     }
 }
+
+function checkQuantitaPositive(){
+    const rec = document.getElementsByClassName("inputNumber");
+    var azione = document.getElementById("acquistoCarrello").action;
+    azione = "AcquistoCarrello";
+    for (let i = 0; i < rec.length; i++) {
+        if(rec[i].value<0)
+            azione = "";
+    }
+    document.getElementById("acquistoCarrello").action = azione;
+}

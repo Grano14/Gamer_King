@@ -35,7 +35,7 @@
     <div class="fasiAcquisto"><a id="fase2" href="#">FATTURAZIONE</a></div>
     <div class="fasiAcquisto"><a id="fase3" href="#">FATTO</a></div>
 </div>
-<form style="margin-top: 130px" method="POST" action="AcquistoCarrello">
+<form style="margin-top: 130px" id="acquistoCarrello" method="POST" action="AcquistoCarrello">
 <%for(int u=0; u< carrello.size();u++){%>
 <div class="carrelloItem">
 
@@ -55,7 +55,7 @@
 
     <div id="selezionaQuantita">
         <label for="num">Scegli la quantità</label><br>
-        <input type="number" value="1" id="num" name="<%=carrello.get(u).getVideogioco()%>">
+        <input type="number" value="1" id="num" class="inputNumber" name="<%=carrello.get(u).getVideogioco()%>" onkeyup="checkQuantitaPositive()">
     </div>
 
 </div>
