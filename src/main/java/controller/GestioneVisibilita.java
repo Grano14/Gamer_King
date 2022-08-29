@@ -23,6 +23,9 @@ public class GestioneVisibilita extends HttpServlet {
             ProdottoDAO.doUpdateVisibilitaById(titolo, piattaforma, true);
         }
 
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("CaricaPaginaRimozioneAggiunta");
+        requestDispatcher.forward(request, response);
+
     }
 
     @Override
