@@ -15,6 +15,22 @@
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
     <script type="text/javascript" src="javaScript/ProdottoScript.js"></script>
     <script type="text/javascript" src="javaScript/StelleScript.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#bottoneCarrello1").click(function(){
+                $("#bottoneCarrello1").hide();
+                $("#sostitutivo1").show();
+            });
+        });
+
+        $(document).ready(function(){
+            $("#bottoneCarrello2").click(function(){
+                $("#bottoneCarrello2").hide();
+                $("#sostitutivo2").show();
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -61,7 +77,7 @@
 
                 <%if(!session.getAttribute("nomeUtente").equals("LOGIN")){%>
 
-            <form class="bottoneAcquisto" action="PaginaSelezionaCarta">
+            <form class="bottoneAcquisto" method="GET" action="PaginaSelezionaCarta">
                 <input type="hidden" name="videogioco" value="<%=p.getVideogioco()%>">
                 <input type="hidden" name="piattaforma" value="<%=p.getPiattaforma()%>">
                 <input class="bottoneAC" type="submit" value="Acquisto">
@@ -76,25 +92,27 @@
                     ArrayList<Prodotto> l = (ArrayList<Prodotto>) session.getAttribute("carrello");
                     if(l.contains(p)){%>
                         <div class="bottoneAcquisto">
-                            <p>Prodotto già nel carrello
+                            <p class="giaNelCarrello">Prodotto già nel carrello</p>
                         </div>
                     <%}else{%>
+            <p class="giaNelCarrello" id="sostitutivo1">Prodotto già nel carrello</p>
             <div class="bottoneAcquisto">
                 <input type="hidden" id="<%=nomeG%>" name="nomeGioco" value="<%=p.getVideogioco()%>">
                 <input type="hidden" id="<%=nomeP%>" name="nomePiattaforma" value="<%=p.getPiattaforma()%>">
-                <button class="bottoneAC" style="font-size: 23px" onclick="addToCarrello()">Aggiungi al carrello</button>
+                <button id="bottoneCarrello1" class="bottoneAC" style="font-size: 23px" onclick="addToCarrello() ">Aggiungi al carrello</button>
             </div><%}}else{
                     Selezionare selezionare = new Selezionare((String)session.getAttribute("nomeUtente"), p.getVideogioco(), p.getPiattaforma());
                     ArrayList<Selezionare> l = SelezionareDAO.doRetriveAllByNomeUtente((String)session.getAttribute("nomeUtente"));
                     if(l.contains(selezionare)){%>
                         <div class="bottoneAcquisto">
-                            <p>Prodotto già nel carrello
+                            <p class="giaNelCarrello">Prodotto già nel carrello
                         </div>
                     <%}else{%>
+            <p class="giaNelCarrello" id="sostitutivo2">Prodotto già nel carrello</p>
                         <div class="bottoneAcquisto">
                             <input type="hidden" id="nomeG" name="nomeGioco" value="<%=p.getVideogioco()%>">
                             <input type="hidden" id="nomeP" name="nomePiattaforma" value="<%=p.getPiattaforma()%>">
-                            <button class="bottoneAC" style="font-size: 23px" onclick="addToCarrello()">Aggiungi al carrello</button>
+                            <button id="bottoneCarrello2" class="bottoneAC" style="font-size: 23px" onclick="addToCarrello()">Aggiungi al carrello</button>
                         </div>
                     <%}}%>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -156,7 +174,7 @@
     <hr>
     <p>Aggiungi la tua recensione</p>
 
-    <form id="formRecensione" class="recensione" action="">
+    <form id="formRecensione" method="POST" class="recensione" action="">
 
         <div id="stelle" onclick="checkRecensione()">
             <script type="text/javascript">star(3);</script>
@@ -184,6 +202,7 @@
     <%
         for(int x=0;x<lRec.size();x++){
             Recensione rec = lRec.get(x);
+            Utente u = UtenteDAO.doRetriveByNomeUtente(rec.getNomeUtente());
     %>
 
 
@@ -192,7 +211,14 @@
 
 
         <div class="Utente">
-            <img id="utenteimage" src="css/pictures/utenteGenerico.png">
+            <%
+                String immagine = "";
+                if(u.getImmagine()!=null) {
+                    immagine = u.getImmagine();
+                }else {
+                    immagine ="css/pictures/utenteGenerico.png";
+                }%>
+            <img id="utenteimage" src="<%=immagine%>">
             <p id="NomeUtente"><%=rec.getNomeUtente()%></p>
 
             <div id="stelleVotate">

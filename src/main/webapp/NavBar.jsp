@@ -69,7 +69,7 @@
         <%}else{%>
         <div id="login" style="float: right">
 
-            <form  method="post" action="PaginaUtente">
+            <form  method="POST" action="PaginaUtente">
                 <input type="submit" id="paginaUtente" value="<%=(String)session.getAttribute("nomeUtente")%>">
             </form>
         </div>
@@ -96,7 +96,7 @@
     </div>
 
     <div id="menuAvanzato" >
-        <form action="RisultatoFiltro">
+        <form method="GET" action="RisultatoFiltro">
 
             <div class="sezione">
                 <p class="paragrafiReserch">ricerca piattaforme</p>

@@ -32,7 +32,24 @@ p,textarea{
     width: 175px;
     height: 175px;
     margin-top: 50px;
-    border-radius: 100px;
+    border-radius: 50%;
+}
+
+#utenteimage2{
+    margin-top:10px;
+    width:60px;
+    height:60px;
+    float:left;
+    border-radius:50%;
+}
+
+#NomeUtente{
+    margin-left:15px;
+    float:left;
+}
+
+#stelleVotate{
+    margin-top:30px;
 }
 
 #impostazioniUtente{

@@ -49,7 +49,7 @@
         <p>Aggiungi un nuovo titolo</p>
     </div>
 
-<form id="formGioco" action="" method="post" enctype="multipart/form-data" >
+<form id="formGioco" action="" method="POST" enctype="multipart/form-data" >
 
     <div id="gioco" class="forms">
 
@@ -120,7 +120,7 @@
     </div><br>
 
     <div id="prodotto" class="forms">
-        <form id="formProdotto" action="" method="post">
+        <form id="formProdotto" action="" method="POST">
             <label for="selectGioco">Seleziona gioco</label><br>
             <select id="selectGioco" name="gioco" oninput="validateLista('selectGioco'),checkButtonProdotto()">
                 <option value="none"> </option>

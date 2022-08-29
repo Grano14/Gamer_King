@@ -12,6 +12,9 @@
     <title>Seleziona carta</title>
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/SelezionaCartaStyle.css">
+
+    <script type="text/javascript" src="javaScript/SelezionaCartaScript.js"></script>
+
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
 </head>
 <body>
@@ -36,7 +39,8 @@
             <p class="nome"><%=videogioco%> <%=piattaforma%></p>
         </div>
         <div>
-            <input type="number" id="quantita">
+            <input type="number" id="quant" value="1" onkeyup="updateQuantita()">
+            <p id="errore">Devi ordinare almeno un prodotto</p>
         </div>
     </div>
 </div>
@@ -61,8 +65,15 @@
 
         <div class="bottoni">
             <div>
-                <form class="bottoneModifica" action="">
-                    <input type="hidden" name="id" value="">
+                <form id="acquistaProdotto" class="bottoneModifica" method="POST" action="">
+                    <input type="hidden" name="numero" value="<%=s.getNumero()%>">
+                    <input type="hidden" name="cap" value="<%=s.getCap()%>">
+                    <input type="hidden" name="citta" value="<%=s.getCitta()%>">
+                    <input type="hidden" name="via" value="<%=s.getVia()%>">
+                    <input type="hidden" name="numCivico" value="<%=s.getNumCivico()%>">
+                    <input type="hidden" name="videogioco" value="<%=videogioco%>">
+                    <input type="hidden" name="piattaforma" value="<%=piattaforma%>">
+                    <input type="hidden" class="quantita" name="quantita">
                     <input type="submit" value="Seleziona">
                 </form>
             </div>
@@ -73,7 +84,7 @@
     <%}%>
 
     <div>
-        <form class="bottoneModifica" action="PaginaAggiuntaCarta">
+        <form class="bottoneModifica" method="POST" action="PaginaAggiuntaCarta">
             <input type="hidden" name="videogioco" value="<%=videogioco%>">
             <input type="hidden" name="piattaforma" value="<%=piattaforma%>">
             <input type="hidden" name="ritorno" value="PaginaSelezionaCarta">

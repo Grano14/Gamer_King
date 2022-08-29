@@ -55,6 +55,7 @@
     <div id="acquistoTutto">
         <a id="acquistaButton" href="AcquistoPage.jsp">Acquista</a>
     </div>
+    <br>
     <%}%>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

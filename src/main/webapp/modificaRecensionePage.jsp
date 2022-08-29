@@ -43,7 +43,7 @@
 <hr>
 <div>
     <p class="nome">Modifica la tua Recensione</p>
-    <form class="recensione" action="UpdateRecensione">
+    <form class="recensione" method="POST" action="UpdateRecensione">
 
         <div id="stelle" onclick="checkRecensione()">
             <script type="text/javascript">star(<%=r.getNstelle()%>);</script>

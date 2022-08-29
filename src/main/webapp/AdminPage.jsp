@@ -26,10 +26,36 @@
 <body>
 <div id="user">
     <div id="utenteInfo">
-        <img id="utenteimage" src="css/pictures/utenteGenerico.png">
         <%Utente u = UtenteDAO.doRetriveByNomeUtente((String)session.getAttribute("nomeUtente"));
             ArrayList<Recensione> lRec = (ArrayList<Recensione>) request.getAttribute("listaRec");
         %>
+        <div style="width: 200px; display: inline-block">
+        <%
+            String path = "";
+            if(u.getImmagine() == null){
+                path = "css/pictures/utenteGenerico.png";
+            }
+            else{
+                path = u.getImmagine();
+            }
+        %>
+        <img id="utenteimage" src="<%=path%>">
+        <button style="position: relative;bottom: 35px; right: 50px" onclick="hideForm()"><img src="css/pictures/matita.png"></button>
+        <script>
+            function hideForm(){
+                if(document.getElementById("formImg").style.display == "none"){
+                    document.getElementById("formImg").style.display = "block";
+                }
+                else{
+                    document.getElementById("formImg").style.display = "none";
+                }
+            }
+        </script>
+        <form action="AggiornaImmagineUtente" method="POST" id="formImg" style="display: none" enctype="multipart/form-data">
+            <input type="file" name="immagine">
+            <input type="submit" value="Aggiorna">
+        </form>
+    </div>
         <p id="userid"><%=u.getNomeUtente()%></p>
         <p id="email"><%=u.getEmail()%></p>
         <div id="impostazioniUtente">
@@ -50,7 +76,7 @@
                 <p>Review</p>
             </div>
             <div class="bottoneImpostazioni">
-                <form class="bottoneModifica" action="Logout">
+                <form class="bottoneModifica" method="GET" action="Logout">
                     <input type="submit" value="Logout">
                 </form>
             </div>
@@ -65,6 +91,7 @@
             <%if(lRec!=null){
                 for(int x=0;x<lRec.size();x++){
                     Recensione rec = lRec.get(x);
+                    Utente utente = UtenteDAO.doRetriveByNomeUtente(rec.getNomeUtente());
             %>
 
 
@@ -73,7 +100,16 @@
 
 
                 <div class="Utente">
-                    <img id="utenteimage2" src="css/pictures/utenteGenerico.png">
+                    <%
+                        String immagine = "";
+                        if(utente.getImmagine()!=null){
+                            immagine = utente.getImmagine();
+                        }
+                    else
+                        {
+                            immagine="css/pictures/utenteGenerico.png";
+                        }%>
+                    <img id="utenteimage2" src="<%=immagine%>">
                     <p id="NomeUtente"><%=rec.getNomeUtente()%></p>
                     <div id="stelleVotate">
                         <%for(int j=0;j<5;j++){
@@ -91,7 +127,7 @@
                 </div>
                 <div id="modificaElimina">
 
-                    <form class="modificaRec" action="EliminaRecensione">
+                    <form class="modificaRec" method="GET" action="EliminaRecensione">
                         <input type="hidden" name="utente" value="<%=rec.getNomeUtente()%>">
                         <input type="hidden" name="videogioco" value="<%=rec.getVideogioco()%>">
                         <input type="hidden" name="piattaforma" value="<%=rec.getPiattaforma()%>">

@@ -54,7 +54,33 @@
 %>
 <div id="user">
     <div id="utenteInfo">
-        <img id="utenteimage" src="css/pictures/utenteGenerico.png">
+            <div style="width: 200px; display: inline-block">
+                <%
+                    String path = "";
+                    if(user.getImmagine() == null){
+                        path = "css/pictures/utenteGenerico.png";
+                    }
+                    else{
+                        path = user.getImmagine();
+                    }
+                %>
+                <img id="utenteimage" src="<%=path%>">
+                <button style="position: relative;bottom: 35px; right: 50px" onclick="hideForm()"><img src="css/pictures/matita.png"></button>
+                <script>
+                    function hideForm(){
+                        if(document.getElementById("formImg").style.display == "none"){
+                            document.getElementById("formImg").style.display = "block";
+                        }
+                        else{
+                            document.getElementById("formImg").style.display = "none";
+                        }
+                    }
+                </script>
+                <form action="AggiornaImmagineUtente" method="POST" id="formImg" style="display: none" enctype="multipart/form-data">
+                    <input type="file" name="immagine">
+                    <input type="submit" value="Aggiorna">
+                </form>
+            </div>
         <p id="userid"><%=user.getNomeUtente()%></p>
         <p id="email"><%=user.getEmail()%></p>
         <div id="impostazioniUtente">
@@ -69,7 +95,7 @@
             </div>
 
             <div class="bottoneImpostazioni">
-                <form class="bottoneModifica" action="PaginaModificaCarte">
+                <form class="bottoneModifica" method="GET" action="PaginaModificaCarte">
                     <input type="submit" value="Carte di credito">
                 </form>
             </div>
@@ -96,8 +122,6 @@
     <div id="m2" class="hiddenMenu">
         <%@include file="CambioPassword.jsp"%>
     </div>
-
 </div>
-
 </body>
 </html>

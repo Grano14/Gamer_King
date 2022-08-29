@@ -38,7 +38,7 @@
     <a href="" id="mostra" class="bottoniCarica" style="visibility: hidden;margin-top: 5px">MOSTRA</a>
     <br>
 
-<form  action="" method="post" id="formGioco" STYLE="display: block" enctype="multipart/form-data" >
+<form  action="" method="POST" id="formGioco" STYLE="display: block" enctype="multipart/form-data" >
 
     <input type="hidden" id="titolo" name="titolo" value="">
     <input type="hidden" id="piattaforma" name="piattaforma" value="">

@@ -129,7 +129,9 @@ textarea{
 #utenteimage{
     margin-top:10px;
     width:60px;
+    height:60px;
     float:left;
+    border-radius:50%;
 }
 
 .Utente p{
@@ -146,6 +148,18 @@ textarea{
 .stelleRec{
     margin-left:2px;
     margin-top:32px;
+}
+
+#sostitutivo1,#sostitutivo2{
+    display:none;
+}
+
+.giaNelCarrello{
+    font-size:23px;
+}
+
+.prodottoCarrello{
+    font-size:19px;
 }
 
 #recensioneRegistrata{
@@ -180,7 +194,7 @@ textarea{
     display:none;
 }
 
-input[type=submit]:hover,.aggiunta:hover{
+input[type=submit]:hover, .aggiunta:hover, #bottoneCarrello:hover{
     background-color:rebeccapurple;
 }
 

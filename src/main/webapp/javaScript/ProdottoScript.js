@@ -63,4 +63,3 @@ function nascondiRecensioni(){
     document.getElementById("nascondiRecensioni").style.display = bottone1;
 
 }
-

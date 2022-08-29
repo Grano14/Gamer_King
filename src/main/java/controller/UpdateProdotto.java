@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class UpdateProdotto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        this.doPost(request,response);
     }
 
     @Override
@@ -62,11 +62,11 @@ public class UpdateProdotto extends HttpServlet {
         String nomeImage = image.getSubmittedFileName();
 
         if(!nomeImage.equals("")){
-            String dirPath = "C:/Users/Giuseppe Grano/IdeaProjects/Gamer_King/src/main/webapp/css/gameImages" + titolo;
+            String dirPath = "C:/Users/utente/IdeaProjects/Gamer_King/src/main/webapp/css/gameImages" + titolo;
             String path = "css/gameImages/" + titolo + "/" + nomeImage;
             String pathCompleto = dirPath + "/" + nomeImage;
             String oldPath = ImmagineDAO.getMainImageByVideogame(titolo);
-            String pathForDeleteFile = "C:/Users/Giuseppe Grano/IdeaProjects/Gamer_King/src/main/webapp/" + oldPath;
+            String pathForDeleteFile = "C:/Users/utente/IdeaProjects/Gamer_King/src/main/webapp/" + oldPath;
             ImmagineDAO.doRemoveById(oldPath);
             Immagine i = new Immagine(path, titolo, true);
             ImmagineDAO.doSave(i);
@@ -82,10 +82,10 @@ public class UpdateProdotto extends HttpServlet {
         String nomeImage2 = image2.getSubmittedFileName();
 
         if(!nomeImage2.equals("")){
-            String dirPath = "C:/Users/Giuseppe Grano/IdeaProjects/Gamer_King/src/main/webapp/css/gameImages/" + titolo;
+            String dirPath = "C:/Users/utente/IdeaProjects/Gamer_King/src/main/webapp/css/gameImages/" + titolo;
             String path = "css/gameImages/" + titolo + "/" + nomeImage2;
             String pathCompleto = dirPath + "/" + nomeImage2;
-            String pathForDeleteFile = "C:/Users/Giuseppe Grano/IdeaProjects/Gamer_King/src/main/webapp/" + lImmaginiSecondarie.get(0);
+            String pathForDeleteFile = "C:/Users/utente/IdeaProjects/Gamer_King/src/main/webapp/" + lImmaginiSecondarie.get(0);
             ImmagineDAO.doRemoveById(lImmaginiSecondarie.get(0));
             Immagine i = new Immagine(path, titolo, false);
             ImmagineDAO.doSave(i);
@@ -99,10 +99,10 @@ public class UpdateProdotto extends HttpServlet {
         String nomeImage3 = image3.getSubmittedFileName();
 
         if(!nomeImage3.equals("")){
-            String dirPath = "C:/Users/Giuseppe Grano/IdeaProjects/Gamer_King/src/main/webapp/css/gameImages/" + titolo;
+            String dirPath = "C:/Users/utente/IdeaProjects/Gamer_King/src/main/webapp/css/gameImages/" + titolo;
             String path = "css/gameImages/" + titolo + "/" + nomeImage3;
             String pathCompleto = dirPath + "/" + nomeImage3;
-            String pathForDeleteFile = "C:/Users/Giuseppe Grano/IdeaProjects/Gamer_King/src/main/webapp/" + lImmaginiSecondarie.get(1);
+            String pathForDeleteFile = "C:/Users/utente/IdeaProjects/Gamer_King/src/main/webapp/" + lImmaginiSecondarie.get(1);
             ImmagineDAO.doRemoveById(lImmaginiSecondarie.get(1));
             Immagine i = new Immagine(path, titolo, false);
             ImmagineDAO.doSave(i);
