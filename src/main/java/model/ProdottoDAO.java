@@ -113,7 +113,12 @@ public class ProdottoDAO {
                     "order by num desc");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                l.add(ProdottoDAO.doRetriveById(rs.getString(1), rs.getString(2)));
+                String videogioco = rs.getString(1);
+                String piattaforma = rs.getString(2);
+                Prodotto p = ProdottoDAO.doRetriveById(videogioco, piattaforma);
+                if(p.isVisibilita() == true){
+                    l.add(ProdottoDAO.doRetriveById(rs.getString(1), rs.getString(2)));
+                }
             }
             return l;
         }

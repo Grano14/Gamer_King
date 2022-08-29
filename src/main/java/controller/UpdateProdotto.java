@@ -1,5 +1,6 @@
 package controller;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -111,6 +112,9 @@ public class UpdateProdotto extends HttpServlet {
             File f = new File(pathForDeleteFile);
             f.delete();
         }
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("CaricaPaginaRimozioneAggiunta");
+        requestDispatcher.forward(request, response);
 
     }
 
