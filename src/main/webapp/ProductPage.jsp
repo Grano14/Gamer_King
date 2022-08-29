@@ -77,7 +77,7 @@
 
                 <%if(!session.getAttribute("nomeUtente").equals("LOGIN")){%>
 
-            <form class="bottoneAcquisto" action="PaginaSelezionaCarta">
+            <form class="bottoneAcquisto" method="GET" action="PaginaSelezionaCarta">
                 <input type="hidden" name="videogioco" value="<%=p.getVideogioco()%>">
                 <input type="hidden" name="piattaforma" value="<%=p.getPiattaforma()%>">
                 <input class="bottoneAC" type="submit" value="Acquisto">

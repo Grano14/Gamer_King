@@ -35,7 +35,7 @@
     <div class="fasiAcquisto"><a id="fase2" href="#">FATTURAZIONE</a></div>
     <div class="fasiAcquisto"><a id="fase3" href="#">FATTO</a></div>
 </div>
-<form style="margin-top: 130px" action="AcquistoCarrello">
+<form style="margin-top: 130px" method="POST" action="AcquistoCarrello">
 <%for(int u=0; u< carrello.size();u++){%>
 <div class="carrelloItem">
 

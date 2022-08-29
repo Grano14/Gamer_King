@@ -39,7 +39,8 @@
             <p class="nome"><%=videogioco%> <%=piattaforma%></p>
         </div>
         <div>
-            <input type="number" id="quant" value="0" onkeyup="updateQuantita()">
+            <input type="number" id="quant" value="1" onkeyup="updateQuantita()">
+            <p id="errore">Devi ordinare almeno un prodotto</p>
         </div>
     </div>
 </div>
@@ -64,7 +65,7 @@
 
         <div class="bottoni">
             <div>
-                <form class="bottoneModifica" action="">
+                <form id="acquistaProdotto" class="bottoneModifica" method="POST" action="">
                     <input type="hidden" name="numero" value="<%=s.getNumero()%>">
                     <input type="hidden" name="cap" value="<%=s.getCap()%>">
                     <input type="hidden" name="citta" value="<%=s.getCitta()%>">
@@ -83,7 +84,7 @@
     <%}%>
 
     <div>
-        <form class="bottoneModifica" action="PaginaAggiuntaCarta">
+        <form class="bottoneModifica" method="POST" action="PaginaAggiuntaCarta">
             <input type="hidden" name="videogioco" value="<%=videogioco%>">
             <input type="hidden" name="piattaforma" value="<%=piattaforma%>">
             <input type="hidden" name="ritorno" value="PaginaSelezionaCarta">

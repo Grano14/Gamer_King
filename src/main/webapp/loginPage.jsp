@@ -19,7 +19,7 @@
 <p style="color: crimson; text-align: center; font-family: 'copperplate', fantasy"><%=request.getAttribute("errore")%></p><%request.setAttribute("errore", null);}%>
 <div id="accesso">
     <h1 style="text-align: center;margin-bottom: 10px">GAMER-KING <img src="css/pictures/logo.png"></h1>
-    <form id="formLogin" action="">
+    <form id="formLogin" method="POST" action="">
         <div class="forms">
             <label for="id">ID Utente</label><br>
             <input type="text" class="serch" id="id" name="id" onkeyup="checkNome('id'),checkFormLogin()">

@@ -48,7 +48,7 @@
                 </form>
             </div>
             <div>
-                <form class="bottoneModifica" action="EliminaCarta">
+                <form class="bottoneModifica" method="POST" action="EliminaCarta">
                     <input type="hidden" name="numero" value="<%=s.getNumero()%>">
                     <input type="hidden" name="citta" value="<%=s.getCitta()%>">
                     <input type="hidden" name="cap" value="<%=s.getCap()%>">
@@ -64,7 +64,7 @@
     <%}%>
 
     <div>
-        <form class="bottoneModifica" action="PaginaAggiuntaCarta">
+        <form class="bottoneModifica" method="POST" action="PaginaAggiuntaCarta">
             <input type="hidden" name="ritorno" value="PaginaModificaCarte">
             <input type="submit" id="Aggiunta" value="Aggiungi">
         </form>

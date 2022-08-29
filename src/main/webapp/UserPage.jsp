@@ -89,7 +89,7 @@
             </div>
 
             <div class="bottoneImpostazioni">
-                <form class="bottoneModifica" action="Logout">
+                <form class="bottoneModifica" method="GET" action="Logout">
                     <input type="submit" value="Logout">
                 </form>
             </div>
@@ -139,14 +139,14 @@
                     <p id="recensioneInserita"><%=rec.getContenuto()%></p>
                 </div>
                 <div id="modificaElimina">
-                    <form class="modificaRec" action="ModificaRecensione">
+                    <form class="modificaRec" method="GET" action="ModificaRecensione">
                         <input type="hidden" name="azione" value="modifica">
                         <input type="hidden" name="videogioco" value="<%=rec.getVideogioco()%>">
                         <input type="hidden" name="piattaforma" value="<%=rec.getPiattaforma()%>">
                         <input type="submit" value="Modifica">
                     </form>
 
-                    <form class="modificaRec" action="ModificaRecensione">
+                    <form class="modificaRec" method="POST" action="ModificaRecensione">
                         <input type="hidden" name="azione" value="elimina">
                         <input type="hidden" name="videogioco" value="<%=rec.getVideogioco()%>">
                         <input type="hidden" name="piattaforma" value="<%=rec.getPiattaforma()%>">

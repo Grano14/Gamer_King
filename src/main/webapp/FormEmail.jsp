@@ -15,7 +15,7 @@
 <body>
 
 <div class="corpo">
-    <form class="formModifica" id="modEmail" method="post" action="">
+    <form class="formModifica" id="modEmail" method="POST" action="">
         <label for="mail">Email</label><br>
         <input type="hidden" id="mailUsata" value="<%= UtenteDAO.doRetriveByNomeUtente((String)request.getSession().getAttribute("nomeUtente")).getEmail()%>">
         <input class="dati" type="text" class="serch" id="mail" name="email" onkeyup="checkModificaMail('mail','modificaMail','erroreMail')"><br><br>

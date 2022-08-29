@@ -95,7 +95,7 @@
             </div>
 
             <div class="bottoneImpostazioni">
-                <form class="bottoneModifica" action="PaginaModificaCarte">
+                <form class="bottoneModifica" method="GET" action="PaginaModificaCarte">
                     <input type="submit" value="Carte di credito">
                 </form>
             </div>
