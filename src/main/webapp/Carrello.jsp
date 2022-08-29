@@ -41,7 +41,7 @@
                     Elimina
                 </button>
 
-                <form method="POST" action="">
+                <form method="GET" action="PaginaSelezionaCarta">
                     <input type="hidden" name="videogioco" value="<%=carrello.get(j).getVideogioco()%>">
                     <input type="hidden" name="piattaforma" value="<%=carrello.get(j).getPiattaforma()%>">
                     <input type="submit" class="bottoni" value="Acquista">
