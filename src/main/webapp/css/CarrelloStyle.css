@@ -150,6 +150,9 @@ hr{
     background-color: rgb(27, 27, 27);
     transition:top 0.5s;
 }
+#carta p{
+    font-size: 20px;
+}
 
 #sezione{
     font-size: 25px;

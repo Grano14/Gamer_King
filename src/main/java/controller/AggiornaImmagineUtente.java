@@ -28,7 +28,7 @@ public class AggiornaImmagineUtente extends HttpServlet {
         String path = "css/pictures/" + fileName;
         UtenteDAO.updateImmage(path, (String)session.getAttribute("nomeUtente"));
         InputStream is = part.getInputStream();
-        boolean test = uploadFile(is, "C:\\Users\\utente\\IdeaProjects\\Gamer_King\\src\\main\\webapp\\css\\pictures\\"+fileName);
+        boolean test = uploadFile(is, "C:\\Users\\Giuseppe Grano\\IdeaProjects\\Gamer_King\\src\\main\\webapp\\css\\pictures\\"+fileName);
 
         RequestDispatcher r = request.getRequestDispatcher("PaginaUtente");
         r.forward(request, response);
