@@ -109,6 +109,7 @@
             <p><%=l.get(i).getVideogioco()%>, <%=l.get(i).getPiattaforma()%></p>
         </div>
         <%}%>
+
     </div>
     <div id="m1" class="hiddenMenu">
         <div class="lisaRec">
