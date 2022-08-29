@@ -65,6 +65,7 @@
             <%if(lRec!=null){
                 for(int x=0;x<lRec.size();x++){
                     Recensione rec = lRec.get(x);
+                    Utente utente = UtenteDAO.doRetriveByNomeUtente(rec.getNomeUtente());
             %>
 
 
@@ -73,7 +74,16 @@
 
 
                 <div class="Utente">
-                    <img id="utenteimage2" src="css/pictures/utenteGenerico.png">
+                    <%
+                        String immagine = "";
+                        if(utente.getImmagine()!=null){
+                            immagine = utente.getImmagine();
+                        }
+                    else
+                        {
+                            immagine="css/pictures/utenteGenerico.png";
+                        }%>
+                    <img id="utenteimage2" src="<%=immagine%>">
                     <p id="NomeUtente"><%=rec.getNomeUtente()%></p>
                     <div id="stelleVotate">
                         <%for(int j=0;j<5;j++){
