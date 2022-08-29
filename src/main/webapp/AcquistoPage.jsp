@@ -61,8 +61,8 @@
 </div>
 <hr>
 <%}%>
-
     <div id="selezionaCarta">
+        <p id="errore">Non puoi inserire numeri negativi</p>
         <p id="sezione">Inserimento estremi di fatturazione</p>
         <%
             ArrayList<Sottoscrivere> listSottoscrizioni = SottoscrivereDAO.doRetriveByNomeUtente((String)session.getAttribute("nomeUtente"));
@@ -77,7 +77,7 @@
             <p><%=listSottoscrizioni.get(j).getVia()%> <%=listSottoscrizioni.get(j).getNumCivico()%></p>
             <p id="numeroCarta">Numero:**** **** **** <%=c.getNumero().substring(11)%></p>
             <label>Seleziona</label>
-            <input type="radio" name="selezioneCarta" value="<%=c.getNumero()%>">
+            <input type="radio" name="selezioneCarta" value="<%=c.getNumero()%>" <%if(j==0){%>checked<%}%>>
             <input type="hidden" name="via<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getVia()%>">
             <input type="hidden" name="cap<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getCap()%>">
             <input type="hidden" name="via<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getVia()%>">

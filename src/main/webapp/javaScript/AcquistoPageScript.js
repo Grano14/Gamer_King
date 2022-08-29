@@ -11,10 +11,19 @@ function secondBarEffect(){
 function checkQuantitaPositive(){
     const rec = document.getElementsByClassName("inputNumber");
     var azione = document.getElementById("acquistoCarrello").action;
+    var visibilita = document.getElementById("errore").style.visibility;
     azione = "AcquistoCarrello";
+    visibilita = "hidden";
     for (let i = 0; i < rec.length; i++) {
-        if(rec[i].value<0)
+        if(rec[i].value<0){
+            rec[i].style.backgroundColor = "lightpink";
             azione = "";
+            visibilita = "visible";
+        }
+        else{
+            rec[i].style.backgroundColor = "white";
+        }
     }
     document.getElementById("acquistoCarrello").action = azione;
+    document.getElementById("errore").style.visibility = visibilita;
 }
