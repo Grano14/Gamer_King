@@ -63,9 +63,6 @@
         <p id="userid"><%=u.getNomeUtente()%></p>
         <p id="email"><%=u.getEmail()%></p>
         <div id="impostazioniUtente">
-            <div class="bottoneImpostazioni">
-                <p>Statistiche vendite</p>
-            </div>
             <a href="AggiungiGiocoPage.jsp" style="text-decoration:none">
                 <div class="bottoneImpostazioni">
                     <p>Aggiungi prodotto</p>
@@ -78,6 +75,11 @@
             </a>
             <div class="bottoneImpostazioni" id="showM1">
                 <p>Review</p>
+            </div>
+            <div class="bottoneImpostazioni">
+                <form class="bottoneModifica" method="POST" action="PaginaStatisticheVendita">
+                    <input type="submit" value="Statistiche giochi">
+                </form>
             </div>
             <div class="bottoneImpostazioni">
                 <form class="bottoneModifica" method="GET" action="Logout">
