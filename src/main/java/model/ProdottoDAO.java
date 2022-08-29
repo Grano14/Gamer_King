@@ -243,7 +243,7 @@ public class ProdottoDAO {
         }
     }
 
-    public static ArrayList<Prodotto> doRetrivePiuVotati(ArrayList<Integer> myList){
+    public static ArrayList<Prodotto> doRetrivePiuVotati(ArrayList<Double> myList){
         ArrayList<Prodotto> lista = new ArrayList<>();
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("select p.piattaforma, p.visibilita, p.datauscita," +
@@ -255,7 +255,7 @@ public class ProdottoDAO {
             while(rs.next()){
                 Prodotto p = new Prodotto(rs.getString(1), rs.getString(3), rs.getString(5), rs.getBoolean(2), rs.getBoolean(4), rs.getDouble(7), rs.getInt(6));
                 lista.add(p);
-                myList.add(rs.getInt(8));
+                myList.add(rs.getDouble(8));
             }
             return lista;
         }

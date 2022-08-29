@@ -45,6 +45,14 @@
     </script>
 </head>
 <body>
+<%
+    ArrayList<Integer> listaAcquisti = (ArrayList<Integer>) request.getAttribute("listaAcquisti");
+    ArrayList<Integer> listaVotiMedi = (ArrayList<Integer>) request.getAttribute("listaVotiMedi");
+
+    ArrayList<Prodotto> listaVenduti = (ArrayList<Prodotto>) request.getAttribute("listaVenduti");
+    ArrayList<Prodotto> listaVotati = (ArrayList<Prodotto>) request.getAttribute("listaVotati");
+    ArrayList<Prodotto> listaDaRifornire = (ArrayList<Prodotto>) request.getAttribute("listaDaRifornire");
+%>
 <h1>STATISTICHE DI VENDITA</h1>
 <a href="AdminPage.jsp" style="text-decoration:none;">
     <p id="admin">Admin</p>
@@ -67,50 +75,77 @@
     <div id="m" class="hiddenMenu">
         <%
             int i;
-            for(i=0;i<5;i++){
+            int j;
+            for(i=0;i<listaVenduti.size();i++){
+                Prodotto p = listaVenduti.get(i);
+                String immagine = ImmagineDAO.getMainImageByVideogame(p.getVideogioco());
+                ArrayList<String> listaGeneri = AppartenereDAO.doRetriveGenereByVideogioco(p.getVideogioco());
         %>
         <hr>
-        <img class="immaginiProdotto" src="css/gameImages/Elden Ring/159088-games-review-hands-on-elden-ring-review-image1-8nisaeviok.jpg">
+        <img class="immaginiProdotto" src="<%=immagine%>">
         <div class="testoLista">
-            <p class="titolo">Nome prodotto, piattaforma</p>
-            <p class="prezzoProdotto">00.00€</p>
-            <p class="numeroCopie">Copie vendute:1000</p>
-            <p class="descrizione">data uscita</p>
-            <p class="descrizione">generi</p>
+            <p class="titolo"><%=p.getVideogioco()%>, <%=p.getPiattaforma()%></p>
+            <p class="prezzoProdotto"><%String s = p.getPrezzo().toString();
+                if(!(s.contains("."))){s=s+".00";}
+                else{if(s.indexOf(".")==(s.length()-2)){s=s+"0";}}%><%=s%>€</p>
+            <p class="numeroCopie">Copie vendute: <%=listaAcquisti.get(i)%></p>
+            <p class="descrizione"><%=p.getDataUscita()%></p>
+            <p class="descrizione"><%
+                for(j=0; j<listaGeneri.size(); j++){
+            %>
+                <%=listaGeneri.get(j)%> <%if(j!=listaGeneri.size()-1){%>,<%}%> <%}%></p>
         </div>
         <%}%>
     </div>
 
     <div id="m1" class="hiddenMenu">
         <%
-            for(i=0;i<5;i++){
+            for(i=0;i<listaVotati.size();i++){
+                Prodotto p1 = listaVotati.get(i);
+                String immagine1 = ImmagineDAO.getMainImageByVideogame(p1.getVideogioco());
+                ArrayList<String> listaGeneri1 = AppartenereDAO.doRetriveGenereByVideogioco(p1.getVideogioco());
         %>
         <hr>
-        <img class="immaginiProdotto" src="css/gameImages/Elden Ring/159088-games-review-hands-on-elden-ring-review-image1-8nisaeviok.jpg">
+        <img class="immaginiProdotto" src="<%=immagine1%>">
         <div class="testoLista">
-            <p class="titolo">Nome prodotto, piattaforma</p>
-            <p class="prezzoProdotto">00.00€</p>
-            <p class="numeroCopie">voto medio:1000</p>
-            <p class="descrizione">data uscita</p>
-            <p class="descrizione">generi</p>
+            <p class="titolo"><%=p1.getVideogioco()%>, <%=p1.getPiattaforma()%></p>
+            <p class="prezzoProdotto"><%String s1 = p1.getPrezzo().toString();
+                if(!(s1.contains("."))){s1=s1+".00";}
+                else{if(s1.indexOf(".")==(s1.length()-2)){s1=s1+"0";}}%><%=s1%>€</p>
+            <p class="numeroCopie">Voto medio: <%=listaVotiMedi.get(i)%></p>
+            <p class="descrizione"><%=p1.getDataUscita()%></p>
+            <p class="descrizione"><%
+                for(j=0; j<listaGeneri1.size(); j++){
+            %>
+                <%=listaGeneri1.get(j)%> <%if(j!=listaGeneri1.size()-1){%>,<%}%> <%}%></p>
         </div>
         <%}%>
     </div>
 
     <div id="m2" class="hiddenMenu">
         <%
-            for(i=0;i<5;i++){
+            for(i=0;i<listaDaRifornire.size();i++){
+                Prodotto p2 = listaDaRifornire.get(i);
+                if(p2.getnCopie()<30){
+                String immagine2 = ImmagineDAO.getMainImageByVideogame(p2.getVideogioco());
+                ArrayList<String> listaGeneri2 = AppartenereDAO.doRetriveGenereByVideogioco(p2.getVideogioco());
         %>
         <hr>
-        <img class="immaginiProdotto" src="css/gameImages/Elden Ring/159088-games-review-hands-on-elden-ring-review-image1-8nisaeviok.jpg">
+        <img class="immaginiProdotto" src="<%=immagine2%>">
         <div class="testoLista">
-            <p class="titolo">Nome prodotto, piattaforma</p>
-            <p class="prezzoProdotto">00.00€</p>
-            <p class="numeroCopie">copie rimanenti:1000</p>
-            <p class="descrizione">data uscita</p>
-            <p class="descrizione">generi</p>
+            <p class="titolo"><%=p2.getVideogioco()%>, <%=p2.getPiattaforma()%></p>
+            <p class="prezzoProdotto"><%String s2 = p2.getPrezzo().toString();
+                if(!(s2.contains("."))){s2=s2+".00";}
+                else{if(s2.indexOf(".")==(s2.length()-2)){s2=s2+"0";}}%><%=s2%>€</p>
+            <p class="numeroCopie">copie rimanenti: <%=p2.getnCopie()%></p>
+            <p class="descrizione"><%=p2.getDataUscita()%></p>
+            <p class="descrizione"><%
+                for(j=0; j<listaGeneri2.size(); j++){
+            %>
+                <%=listaGeneri2.get(j)%> <%if(j!=listaGeneri2.size()-1){%>,<%}%> <%}%></p>
         </div>
-        <%}%>
+        <%}
+            }%>
     </div>
 
 </div>

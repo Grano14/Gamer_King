@@ -14,7 +14,7 @@ public class PaginaStatisticheVendita  extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         ArrayList<Integer> listaAcquisti = new ArrayList<>();
-        ArrayList<Integer> listaVotiMedi = new ArrayList<>();
+        ArrayList<Double> listaVotiMedi = new ArrayList<>();
 
         ArrayList<Prodotto> listaVenduti = ProdottoDAO.doRetrivePiuAcquistati(listaAcquisti);
         ArrayList<Prodotto> listaVotati = ProdottoDAO.doRetrivePiuVotati(listaVotiMedi);
@@ -24,7 +24,7 @@ public class PaginaStatisticheVendita  extends HttpServlet {
         request.setAttribute("listaAcquisti", listaAcquisti);
         request.setAttribute("listaVenduti", listaVenduti);
         request.setAttribute("listaVotiMedi", listaVotiMedi);
-        request.setAttribute("listaVenduti", listaVenduti);
+        request.setAttribute("listaVotati", listaVotati);
         request.setAttribute("listaDaRifornire", listaDaRifornire);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("StatisticheVendita.jsp");
