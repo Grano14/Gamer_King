@@ -10,7 +10,7 @@ public class AcquistoDAO {
 
     public static Acquisto doRetriveById(String idCopia, String videogioco, String piattaforma, String nomeUtente, String numero, String via, String cap, String citta, String numCivico){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select numero, nomeUtente, IdCopia, videogioco, piattaforma via, cap, citta, numCivico from Acquisto where IdCopia=? and videogioco=? and piattaforma=? and nomeUtente=? and via=? and cap=? and citta=? and numCivico=? and numero=?");
+            PreparedStatement ps = con.prepareStatement("select numero, nomeUtente, IdCopia, videogioco, piattaforma via, cap, citta, numCivico, dataAcquisto from Acquisto where IdCopia=? and videogioco=? and piattaforma=? and nomeUtente=? and via=? and cap=? and citta=? and numCivico=? and numero=?");
             ps.setString(1, idCopia);
             ps.setString(2, videogioco);
             ps.setString(3, piattaforma);
@@ -23,7 +23,7 @@ public class AcquistoDAO {
 
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                Acquisto a = new Acquisto(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+                Acquisto a = new Acquisto(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10));
                 return a;
             }
             return null;
@@ -35,7 +35,7 @@ public class AcquistoDAO {
 
     public static void doSave(Acquisto a){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("insert into Acquisto (numero, nomeUtente, IdCopia, videogioco, piattaforma, via, cap, citta, numCivico) values (?,?,?,?,?,?,?,?,?)");
+            PreparedStatement ps = con.prepareStatement("insert into Acquisto (numero, nomeUtente, IdCopia, videogioco, piattaforma, via, cap, citta, numCivico, dataAcquisto) values (?,?,?,?,?,?,?,?,?,?)");
             ps.setString(1, a.getNumeroCarta());
             ps.setString(2, a.getNomeUtente());
             ps.setString(3, a.getIdCopia());
@@ -45,6 +45,7 @@ public class AcquistoDAO {
             ps.setString(7, a.getCap());
             ps.setString(8, a.getCitta());
             ps.setString(9, a.getNumCivico());
+            ps.setString(10, a.getDataAcquisto());
             ps.execute();
         }
         catch (SQLException e){
@@ -74,10 +75,10 @@ public class AcquistoDAO {
     public static ArrayList<Acquisto> doRetriveAll(){
         ArrayList<Acquisto> l = new ArrayList<>();
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select numero, nomeUtente, IdCopia, videogioco, piattaforma, via, cap, citta, numCivico  from Acquisto");
+            PreparedStatement ps = con.prepareStatement("select numero, nomeUtente, IdCopia, videogioco, piattaforma, via, cap, citta, numCivico, dataAcquisto  from Acquisto");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                Acquisto a = new Acquisto(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+                Acquisto a = new Acquisto(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10));
                 l.add(a);
             }
             return l;

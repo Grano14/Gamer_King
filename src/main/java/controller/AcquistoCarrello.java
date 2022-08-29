@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.*;
 import model.*;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 @WebServlet(name = "AcquistoCarrello", value = "/AcquistoCarrello")
@@ -42,7 +44,12 @@ public class AcquistoCarrello extends HttpServlet {
                 for(g=0; g<Integer.parseInt(request.getParameter(carrello.get(j).getVideogioco())); g++){
 
                     ArrayList<Copia> l = CopiaDAO.doRetriveNotSellByVideogame(carrello.get(j).getVideogioco(), carrello.get(j).getPiattaforma());
-                    AcquistoDAO.doSave(new Acquisto(request.getParameter("selezioneCarta"), (String)session.getAttribute("nomeUtente"), l.get(0).getIdCopia(), carrello.get(j).getVideogioco(), carrello.get(j).getPiattaforma(), request.getParameter("via"+request.getParameter("selezioneCarta")), request.getParameter("cap"+request.getParameter("selezioneCarta")), request.getParameter("citta"+request.getParameter("selezioneCarta")), request.getParameter("civico"+request.getParameter("selezioneCarta"))));
+
+                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+
+                    String acquisto = dtf.format(LocalDateTime.now());
+
+                    AcquistoDAO.doSave(new Acquisto(request.getParameter("selezioneCarta"), (String)session.getAttribute("nomeUtente"), l.get(0).getIdCopia(), carrello.get(j).getVideogioco(), carrello.get(j).getPiattaforma(), request.getParameter("via"+request.getParameter("selezioneCarta")), request.getParameter("cap"+request.getParameter("selezioneCarta")), request.getParameter("citta"+request.getParameter("selezioneCarta")), request.getParameter("civico"+request.getParameter("selezioneCarta")),acquisto));
 
                 }
                 int numCopie = carrello.get(j).getnCopie();
