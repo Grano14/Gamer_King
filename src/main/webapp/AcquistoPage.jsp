@@ -20,6 +20,7 @@
 <body onscroll="sectionLight(<%=l.size()%>); barEffect(),secondBarEffect()">
 <%@include file="NavBar.jsp" %>
 <% ArrayList<Selezionare> list = SelezionareDAO.doRetriveAllByNomeUtente((String)session.getAttribute("nomeUtente"));
+    ArrayList<Sottoscrivere> listSottoscrizioni = SottoscrivereDAO.doRetriveByNomeUtente((String)session.getAttribute("nomeUtente"));
     int i;
     ArrayList<Prodotto> carrello = new ArrayList<>();
     for(i=0; i<list.size(); i++){
@@ -35,7 +36,7 @@
     <div class="fasiAcquisto"><a id="fase2" href="#">FATTURAZIONE</a></div>
     <div class="fasiAcquisto"><a id="fase3" href="#">FATTO</a></div>
 </div>
-<form style="margin-top: 130px" id="acquistoCarrello" method="POST" action="AcquistoCarrello">
+<form style="margin-top: 130px" id="acquistoCarrello" method="POST" action="<%if(!listSottoscrizioni.isEmpty()){%>AcquistoCarrello<%}%>">
 <%for(int u=0; u< carrello.size();u++){%>
 <div class="carrelloItem">
 
@@ -65,7 +66,6 @@
         <p id="errore">Non puoi inserire numeri negativi</p>
         <p id="sezione">Inserimento estremi di fatturazione</p>
         <%
-            ArrayList<Sottoscrivere> listSottoscrizioni = SottoscrivereDAO.doRetriveByNomeUtente((String)session.getAttribute("nomeUtente"));
             if(listSottoscrizioni.size() > 0){
                 int j;
                 for(j=0; j<listSottoscrizioni.size(); j++){
@@ -89,7 +89,9 @@
         <br>
         <a id="aggiungiCarta" href="PaginaModificaCarte" class="parag">Aggiungi una nuova carta per il pagamento</a>
         <br>
+        <%if(!listSottoscrizioni.isEmpty()){%>
         <input id="bottoneAcquistoCarrello" type="submit" value="Acquista">
+        <%}%>
     </div>
 </form>
 <%}%>
