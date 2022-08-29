@@ -101,6 +101,13 @@ hr{
     text-decoration:none;
 }
 
+#errore{
+    font-size:20px;
+    color:red;
+    visibility:hidden;
+    font-family: "copperplate", fantasy;
+}
+
 .fasiAcquisto{
     width: 120px;
     height: 35px;

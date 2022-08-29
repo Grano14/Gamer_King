@@ -2,9 +2,9 @@ package model;
 
 public class Acquisto {
 
-    private String nomeUtente, numeroCarta ,IdCopia,videogioco,piattaforma, via, cap, numCivico, citta;
+    private String nomeUtente, numeroCarta ,IdCopia,videogioco,piattaforma, via, cap, numCivico, citta, dataAcquisto;
 
-    public Acquisto(String numeroCarta,String nomeUtente, String IdCopia,String videogioco,String piattaforma,String via, String cap, String citta, String numCivico){
+    public Acquisto(String numeroCarta,String nomeUtente, String IdCopia,String videogioco,String piattaforma,String via, String cap, String citta, String numCivico, String dataAcquisto){
         this.numeroCarta=numeroCarta;
         this.nomeUtente=nomeUtente;
         this.IdCopia=IdCopia;
@@ -14,6 +14,7 @@ public class Acquisto {
         this.cap=cap;
         this.numCivico=numCivico;
         this.citta=citta;
+        this.dataAcquisto=dataAcquisto;
     }
 
     public String getNumeroCarta() {
@@ -50,6 +51,14 @@ public class Acquisto {
 
     public String getCitta() {
         return citta;
+    }
+
+    public String getDataAcquisto() {
+        return dataAcquisto;
+    }
+
+    public void setDataAcquisto(String dataAcquisto) {
+        this.dataAcquisto = dataAcquisto;
     }
 
     public void setCitta(String citta) {
