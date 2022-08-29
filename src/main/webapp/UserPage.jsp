@@ -66,7 +66,7 @@
                     }
                 }
             </script>
-            <form action="AggiornaImmagineUtente" method="post" id="formImg" style="display: none" enctype="multipart/form-data">
+            <form action="AggiornaImmagineUtente" method="POST" id="formImg" style="display: none" enctype="multipart/form-data">
                 <input type="file" name="immagine">
                 <input type="submit" value="Aggiorna">
             </form>
