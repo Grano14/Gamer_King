@@ -107,10 +107,10 @@ public class ProdottoDAO {
     public static ArrayList<Prodotto> doRetriveByVenduti(){
         ArrayList<Prodotto> l = new ArrayList<>();
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select videogioco, piattaforma, count(idcopia)\n" +
+            PreparedStatement ps = con.prepareStatement("select videogioco, piattaforma, count(idcopia) as num\n" +
                     "from acquisto\n" +
                     "group by videogioco, piattaforma\n" +
-                    "order by idcopia desc");
+                    "order by num desc");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 l.add(ProdottoDAO.doRetriveById(rs.getString(1), rs.getString(2)));

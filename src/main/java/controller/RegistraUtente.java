@@ -26,10 +26,20 @@ public class RegistraUtente extends HttpServlet {
         }
         Utente u = new Utente(nome, mail, pass,false);
         UtenteDAO.doSave(u);
-
+        int i;
         HttpSession session = request.getSession();
+        ArrayList<Prodotto> list = (ArrayList<Prodotto>) session.getAttribute("carrello");
+        Carrello c = new Carrello(nome, 0);
+        CarrelloDAO.doSave(c);
+        for(i=0; i<list.size(); i++){
+            SelezionareDAO.doSave(new Selezionare(nome, list.get(i).getVideogioco(), list.get(i).getPiattaforma()));
+            int n = (int) CarrelloDAO.doRetriveById(nome).getPrezzoTotale();
+            n += list.get(i).getPrezzo();
+            CarrelloDAO.doUpdatePrezzo((float) n, nome);
+        }
+
         session.setAttribute("nomeUtente", nome);
-        session.setAttribute("numProdottiCarrello", 0);
+        session.setAttribute("numProdottiCarrello", list.size());
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
         requestDispatcher.forward(request, response);
