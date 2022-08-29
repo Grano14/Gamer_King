@@ -222,4 +222,63 @@ public class ProdottoDAO {
         }
     }
 
+    public static ArrayList<Prodotto> doRetrivePiuAcquistati(ArrayList<Integer> myList){
+        ArrayList<Prodotto> lista = new ArrayList<>();
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("select   p.piattaforma, p.visibilita, p.datauscita," +
+                    " p.disponibilita, p.videogioco, p.numeroCopie, p.prezzo, count(c.idCopia) " +
+                    "from (Copia c natural join Acquisto a) natural join Prodotto p " +
+                    "group by p.videogioco, p.piattaforma " +
+                    "order by count(c.idCopia) desc");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Prodotto p = new Prodotto(rs.getString(1), rs.getString(3), rs.getString(5), rs.getBoolean(2), rs.getBoolean(4), rs.getDouble(7), rs.getInt(6));
+                lista.add(p);
+                myList.add(rs.getInt(8));
+            }
+            return lista;
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static ArrayList<Prodotto> doRetrivePiuVotati(ArrayList<Integer> myList){
+        ArrayList<Prodotto> lista = new ArrayList<>();
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("select p.piattaforma, p.visibilita, p.datauscita," +
+                    " p.disponibilita, p.videogioco, p.numeroCopie, p.prezzo, avg(r.nstelle) " +
+                    "from Recensione r natural join Prodotto p " +
+                    "group by p.videogioco, p.piattaforma " +
+                    "order by r.nstelle desc");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Prodotto p = new Prodotto(rs.getString(1), rs.getString(3), rs.getString(5), rs.getBoolean(2), rs.getBoolean(4), rs.getDouble(7), rs.getInt(6));
+                lista.add(p);
+                myList.add(rs.getInt(8));
+            }
+            return lista;
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static ArrayList<Prodotto> doRetriveDaRifornire(){
+        ArrayList<Prodotto> lista = new ArrayList<>();
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("select piattaforma, visibilita, datauscita, disponibilita," +
+                    " videogioco, numeroCopie, prezzo from Prodotto order by numeroCopie");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Prodotto p = new Prodotto(rs.getString(1), rs.getString(3), rs.getString(5), rs.getBoolean(2), rs.getBoolean(4), rs.getDouble(7), rs.getInt(6));
+                lista.add(p);
+            }
+            return lista;
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 }

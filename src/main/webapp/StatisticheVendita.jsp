@@ -13,8 +13,6 @@
     <title>GamerKing | Statistiche di vendita</title>
 
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
-    <link rel="stylesheet" type="text/css" href="css/UserPageStyle.css">
-    <link rel="stylesheet" type="text/css" href="css/UserPageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/StatisticheVenditeStyle.css">
 
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
@@ -52,7 +50,7 @@
     <p id="admin">Admin</p>
 </a>
 
-<div id="impostazioniUtente">
+<div id="BottoniMenu">
     <div class="bottoneImpostazioni" id="showM">
         <p>Più venduti</p>
     </div>
@@ -67,15 +65,52 @@
 <div id="menuUtente">
 
     <div id="m" class="hiddenMenu">
-
+        <%
+            int i;
+            for(i=0;i<5;i++){
+        %>
+        <hr>
+        <img class="immaginiProdotto" src="css/gameImages/Elden Ring/159088-games-review-hands-on-elden-ring-review-image1-8nisaeviok.jpg">
+        <div class="testoLista">
+            <p class="titolo">Nome prodotto, piattaforma</p>
+            <p class="prezzoProdotto">00.00€</p>
+            <p class="numeroCopie">Copie vendute:1000</p>
+            <p class="descrizione">data uscita</p>
+            <p class="descrizione">generi</p>
+        </div>
+        <%}%>
     </div>
 
     <div id="m1" class="hiddenMenu">
-
+        <%
+            for(i=0;i<5;i++){
+        %>
+        <hr>
+        <img class="immaginiProdotto" src="css/gameImages/Elden Ring/159088-games-review-hands-on-elden-ring-review-image1-8nisaeviok.jpg">
+        <div class="testoLista">
+            <p class="titolo">Nome prodotto, piattaforma</p>
+            <p class="prezzoProdotto">00.00€</p>
+            <p class="numeroCopie">voto medio:1000</p>
+            <p class="descrizione">data uscita</p>
+            <p class="descrizione">generi</p>
+        </div>
+        <%}%>
     </div>
 
     <div id="m2" class="hiddenMenu">
-
+        <%
+            for(i=0;i<5;i++){
+        %>
+        <hr>
+        <img class="immaginiProdotto" src="css/gameImages/Elden Ring/159088-games-review-hands-on-elden-ring-review-image1-8nisaeviok.jpg">
+        <div class="testoLista">
+            <p class="titolo">Nome prodotto, piattaforma</p>
+            <p class="prezzoProdotto">00.00€</p>
+            <p class="numeroCopie">copie rimanenti:1000</p>
+            <p class="descrizione">data uscita</p>
+            <p class="descrizione">generi</p>
+        </div>
+        <%}%>
     </div>
 
 </div>
