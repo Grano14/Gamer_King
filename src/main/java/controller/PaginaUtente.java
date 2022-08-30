@@ -17,9 +17,11 @@ public class PaginaUtente extends HttpServlet {
 
         Utente user = UtenteDAO.doRetriveByNomeUtente(nome);
         ArrayList<Recensione> listaRec = RecensioneDAO.doRetriveByUser(nome);
+        ArrayList<Prodotto> listaProdotti = AcquistoDAO.doRetriveAllByUtente(nome);
 //bisogna aggiungere i prodotti
         request.setAttribute("utente", user);
         request.setAttribute("listaRec", listaRec);
+        request.setAttribute("listaProdotti", listaProdotti);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("UserPage.jsp");
         requestDispatcher.forward(request, response);
