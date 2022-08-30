@@ -76,8 +76,8 @@
             <p id="indirizzo">Indirizzo:<%=listSottoscrizioni.get(j).getCitta()%> <%=listSottoscrizioni.get(j).getCap()%></p>
             <p><%=listSottoscrizioni.get(j).getVia()%> <%=listSottoscrizioni.get(j).getNumCivico()%></p>
             <p id="numeroCarta">Numero:**** **** **** <%=c.getNumero().substring(11)%></p>
-            <label>Seleziona</label>
-            <input type="radio" name="selezioneCarta" value="<%=c.getNumero()%>" <%if(j==0){%>checked<%}%>>
+            <label for="check<%=j%>">Seleziona</label>
+            <input type="radio" id="check<%=j%>" name="selezioneCarta" value="<%=c.getNumero()%>" <%if(j==0){%>checked<%}%>>
             <input type="hidden" name="via<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getVia()%>">
             <input type="hidden" name="cap<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getCap()%>">
             <input type="hidden" name="via<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getVia()%>">
@@ -87,7 +87,6 @@
         <%}}%>
         <br>
         <br>
-        <a id="aggiungiCarta" href="PaginaModificaCarte" class="parag">Aggiungi una nuova carta per il pagamento</a>
         <br>
         <%if(!listSottoscrizioni.isEmpty()){%>
         <input id="bottoneAcquistoCarrello" type="submit" value="Acquista">
@@ -95,5 +94,9 @@
     </div>
 </form>
 <%}%>
+<form method="POST" action="PaginaAggiuntaCarta" style="text-align:center">
+    <input type="hidden" name="ritorno" value="AcquistoPage.jsp">
+    <input type="submit" id="aggiungiCarta" class="parag" value="Aggiungi una nuova carta per il pagamento">
+</form>
 </body>
 </html>

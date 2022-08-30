@@ -12,7 +12,7 @@
     <title>GamerKing | Pagina Utente</title>
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/UserPageStyle.css">
-    <script type="text/javascript" src="javaScript/AggiungiGiocoScript.js">
+    <script type="text/javascript" src="javaScript/AggiungiGiocoScript.js"></script>
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -37,6 +37,7 @@
 <%@include file="NavBar.jsp" %>
 
 <% ArrayList<Recensione> lRec = (ArrayList<Recensione>) request.getAttribute("listaRec");
+    ArrayList<Prodotto> l = (ArrayList<Prodotto>) request.getAttribute("listaProdotti");
     Utente user = (Utente) request.getAttribute("utente");
 %>
 
@@ -101,16 +102,18 @@
 <div id="menuUtente">
 
     <div id="m" class="hiddenMenu">
-        <%
-            ArrayList<Prodotto> l = AcquistoDAO.doRetriveAllByUtente((String)session.getAttribute("nomeUtente"));
+        <%if(l!=null){
             for(int i=0; i<l.size(); i++){%>
         <div class="elemento">
             <a href="CaricaProdotto?titolo=<%=l.get(i).getVideogioco()%>&piattaforma=<%=l.get(i).getPiattaforma()%>"><img src="<%=ImmagineDAO.getMainImageByVideogame(l.get(i).getVideogioco())%>"> </a>
             <p><%=l.get(i).getVideogioco()%>, <%=l.get(i).getPiattaforma()%></p>
         </div>
+        <%}
+        }else{%>
+        <p>Nessuna recensione esistente</p>
         <%}%>
-
     </div>
+
     <div id="m1" class="hiddenMenu">
         <div class="lisaRec">
 
@@ -118,11 +121,7 @@
                 for(int x=0;x<lRec.size();x++){
                     Recensione rec = lRec.get(x);
             %>
-
-
-
             <div id="listaRecensioni" class="recensione">
-
 
                 <div class="Utente">
 
@@ -138,6 +137,7 @@
                     </div>
 
                 </div>
+
                 <div id="recensioneRegistrata">
                     <p id="recensioneInserita"><%=rec.getContenuto()%></p>
                 </div>
@@ -158,14 +158,13 @@
                 </div>
             </div>
             <%}
-            }%>
+            }else{%>
+            <p>Nessuna recensione esistente</p>
+            <%}%>
         </div>
     </div>
 
-    <div id="m2" class="hiddenMenu">
+</div>
 
-    </div>
-
-    </div>
 </body>
 </html>

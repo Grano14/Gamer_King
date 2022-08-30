@@ -12,7 +12,6 @@ p{
 }
 
 #oggettiCarta{
-    height: 2500px;
     width: 99%;
     top: 65px;
 }
@@ -96,11 +95,6 @@ p{
     font-size:20px;
     color:red;
     visibility:hidden;
-}
-
-
-input[type=submit]:hover{
-    background-color:rebeccapurple;
 }
 
 #Aggiunta:hover{

@@ -16,7 +16,6 @@ public class AcquistoCarrello extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String numCarta = request.getParameter("selezioneCarta");
-        System.out.println(numCarta);
         HttpSession session = request.getSession();
         ArrayList<Selezionare> list = SelezionareDAO.doRetriveAllByNomeUtente((String)session.getAttribute("nomeUtente"));
         int i;
