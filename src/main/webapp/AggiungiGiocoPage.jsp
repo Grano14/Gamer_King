@@ -33,9 +33,9 @@
 </head>
 <body>
 <h1>AGGIUNGI VIDEOGIOCO</h1>
-<a href="AdminPage.jsp" style="text-decoration:none;">
-    <p id="admin">Admin</p>
-</a>
+<form id="admin" method="POST" action="PaginaAdmin">
+    <input type="submit" id="adminButton" value="Admin">
+</form>
 
 <%if(request.getAttribute("messaggio") != null){
     String mex = (String) request.getAttribute("messaggio");

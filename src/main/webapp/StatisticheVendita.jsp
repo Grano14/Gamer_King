@@ -54,10 +54,9 @@
     ArrayList<Prodotto> listaDaRifornire = (ArrayList<Prodotto>) request.getAttribute("listaDaRifornire");
 %>
 <h1>STATISTICHE DI VENDITA</h1>
-<a href="AdminPage.jsp" style="text-decoration:none;">
-    <p id="admin">Admin</p>
-</a>
-
+<form id="admin" method="POST" action="PaginaAdmin">
+    <input type="submit" id="adminButton" value="Admin">
+</form>
 <div id="BottoniMenu">
     <div class="bottoneImpostazioni" id="showM">
         <p>Più venduti</p>

@@ -18,9 +18,9 @@
 </head>
 <body>
 <h1>AGGIORNA/RIMUOVI VIDEOGIOCO</h1>
-<a href="AdminPage.jsp" style="text-decoration:none;">
-    <p id="admin">Admin</p>
-</a>
+<form id="admin" method="POST" action="PaginaAdmin">
+    <input type="submit" id="adminButton" value="Admin">
+</form>
 
 <div id="dati">
     <p>Carica videogioco da modificare</p>
