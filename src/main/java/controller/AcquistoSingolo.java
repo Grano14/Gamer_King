@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.*;
 import model.*;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -17,16 +19,16 @@ public class AcquistoSingolo extends HttpServlet {
 
         HttpSession session = request.getSession();
         String numCarta = request.getParameter("selezioneCarta");
-        String nomeUtente = (String)session.getAttribute("nomeUtente");
+        String nomeUtente = (String) session.getAttribute("nomeUtente");
         String videogioco = request.getParameter("videogioco");
         String piattaforma = request.getParameter("piattaforma");
-        String via = request.getParameter("via"+request.getParameter("selezioneCarta"));
-        String cap = request.getParameter("cap"+request.getParameter("selezioneCarta"));
-        String citta = request.getParameter("citta"+request.getParameter("selezioneCarta"));
-        String civico = request.getParameter("civico"+request.getParameter("selezioneCarta"));
+        String via = request.getParameter("via"+numCarta);
+        String cap = request.getParameter("cap"+numCarta);
+        String citta = request.getParameter("citta"+numCarta);
+        String civico = request.getParameter("civico"+numCarta);
         String quantita = request.getParameter("quantita");
         //System.out.println(nomeUtente+numCarta+videogioco+piattaforma+idCopia+via+cap+citta+civico+quantita);
-        String mail = UtenteDAO.doRetriveByNomeUtente((String)session.getAttribute("nomeUtente")).getEmail();
+        String mail = UtenteDAO.doRetriveByNomeUtente(nomeUtente).getEmail();
         request.setAttribute("mail", mail);
         request.setAttribute("controlloAcquisto", "acquistato");
         if(Integer.parseInt(quantita) > ProdottoDAO.doRetriveById(videogioco, piattaforma).getnCopie()){
@@ -49,12 +51,15 @@ public class AcquistoSingolo extends HttpServlet {
             for(int k=0; k<Integer.parseInt(quantita); k++){
                 ArrayList<Copia> l = CopiaDAO.doRetriveNotSellByVideogame(videogioco, piattaforma);
                 String idCopia = l.get(0).getIdCopia();
-                GregorianCalendar day = new GregorianCalendar();
-                String data = day.get(Calendar.YEAR)+"-"+day.get(Calendar.MONTH)+"-"+day.get(Calendar.DAY_OF_MONTH);
+
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+
+                String data = dtf.format(LocalDateTime.now());
+
                 AcquistoDAO.doSave(new Acquisto(numCarta, nomeUtente, idCopia, videogioco, piattaforma, via, cap, citta, civico, data));
             }
             int n = ProdottoDAO.doRetriveById(videogioco, piattaforma).getnCopie();
-            ProdottoDAO.doUpdateNumeroCopieById(videogioco, piattaforma, n-Integer.parseInt(quantita));
+            ProdottoDAO.doUpdateNumeroCopieById(videogioco, piattaforma, (n-Integer.parseInt(quantita)));
         }
 
         RequestDispatcher r = request.getRequestDispatcher("RiepilogoAcquistoPage.jsp");

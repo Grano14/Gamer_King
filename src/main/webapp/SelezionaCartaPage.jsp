@@ -58,29 +58,29 @@
             if(listSottoscrizioni.size() > 0){
                 int j;
                 for(j=0; j<listSottoscrizioni.size(); j++){
-                    Carta c = CartaDAO.doRetriveById(listSottoscrizioni.get(j).getNumero());
+                    Sottoscrivere s = listSottoscrizioni.get(j);
+                    Carta c = CartaDAO.doRetriveById(s.getNumero());
         %>
         <div id="carta">
             <p id="nomeCognome">Intestatario:<%=c.getCognome()%> <%=c.getNome()%></p>
-            <p id="indirizzo">Indirizzo:<%=listSottoscrizioni.get(j).getCitta()%> <%=listSottoscrizioni.get(j).getCap()%></p>
-            <p><%=listSottoscrizioni.get(j).getVia()%> <%=listSottoscrizioni.get(j).getNumCivico()%></p>
-            <p id="numeroCarta">Numero:**** **** **** <%=c.getNumero().substring(11)%></p>
+            <p id="indirizzo">Indirizzo:<%=s.getCitta()%> <%=s.getCap()%></p>
+            <p><%=s.getVia()%> <%=s.getNumCivico()%></p>
+            <p id="numeroCarta">Numero:**** **** **** <%=s.getNumero().substring(11)%></p>
             <label>Seleziona</label>
-            <input type="radio" name="selezioneCarta" value="<%=c.getNumero()%>" <%if(j==0){%>checked<%}%>>
-            <input type="hidden" name="via<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getVia()%>">
-            <input type="hidden" name="cap<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getCap()%>">
-            <input type="hidden" name="via<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getVia()%>">
-            <input type="hidden" name="civico<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getNumCivico()%>">
-            <input type="hidden" name="citta<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getCitta()%>">
+            <input type="radio" name="selezioneCarta" value="<%=s.getNumero()%>" <%if(j==0){%><%}%>>
+            <input type="hidden" name="via<%=s.getNumero()%>" value="<%=s.getVia()%>">
+            <input type="hidden" name="cap<%=s.getNumero()%>" value="<%=s.getCap()%>">
+            <input type="hidden" name="civico<%=s.getNumero()%>" value="<%=s.getNumCivico()%>">
+            <input type="hidden" name="citta<%=s.getNumero()%>" value="<%=s.getCitta()%>">
         </div>
         <%}}%>
         <br>
         <br>
         <br>
+        <input type="hidden" name="videogioco" value="<%=videogioco%>">
+        <input type="hidden" name="piattaforma" value="<%=piattaforma%>">
         <input id="bottoneAcquistoCarrello" type="submit" value="Acquista">
     </div>
-    <input type="hidden" name="videogioco" value="<%=videogioco%>">
-    <input type="hidden" name="piattaforma" value="<%=piattaforma%>">
 </div>
 </form>
 <form method="POST" action="PaginaAggiuntaCarta">

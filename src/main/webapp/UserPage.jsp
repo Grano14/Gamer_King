@@ -12,10 +12,10 @@
     <title>GamerKing | Pagina Utente</title>
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/UserPageStyle.css">
-    <script type="text/javascript" src="javaScript/AggiungiGiocoScript.js">
+    <script type="text/javascript" src="javaScript/AggiungiGiocoScript.js"></script>
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
             $("#showM").click(function(){
