@@ -28,7 +28,7 @@
     String piattaforma = (String) request.getAttribute("piattaforma");
 %>
 
-<form action="AcquistoSingolo">
+<form id="acquistaProdotto" method="POST" action="AcquistoSingolo">
 <div id="prodotto">
     <div id="immagine">
         <img src="<%=img%>">
@@ -39,7 +39,7 @@
             <p class="nome"><%=videogioco%> <%=piattaforma%></p>
         </div>
         <div>
-            <input type="number" name="quantita" id="quant" value="1" onkeyup="updateQuantita(),checkQuantita()">
+            <input type="number" name="quantita" id="quant" value="1" onkeyup="checkQuantita()">
             <p id="errore">Devi ordinare almeno un prodotto</p>
         </div>
     </div>
@@ -66,7 +66,7 @@
             <p><%=listSottoscrizioni.get(j).getVia()%> <%=listSottoscrizioni.get(j).getNumCivico()%></p>
             <p id="numeroCarta">Numero:**** **** **** <%=c.getNumero().substring(11)%></p>
             <label>Seleziona</label>
-            <input type="radio" name="selezioneCarta" value="<%=c.getNumero()%>">
+            <input type="radio" name="selezioneCarta" value="<%=c.getNumero()%>" <%if(j==0){%>checked<%}%>>
             <input type="hidden" name="via<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getVia()%>">
             <input type="hidden" name="cap<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getCap()%>">
             <input type="hidden" name="via<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getVia()%>">

@@ -1,12 +1,3 @@
-function updateQuantita(){
-    const rec = document.getElementsByClassName("quantita");
-    var quantita =document.getElementById("quant").value;
-
-    for (let i = 0; i < rec.length; i++) {
-        rec[i].value = quantita;
-    }
-
-}
 
 function checkQuantita(){
     var valore = document.getElementById("quant").value;
@@ -20,6 +11,6 @@ function checkQuantita(){
     {
         document.getElementById("quant").style.backgroundColor = "white";
         document.getElementById("errore").style.visibility = "hidden";
-        document.getElementById("acquistaProdotto").action = "";
+        document.getElementById("acquistaProdotto").action = "AcquistoSingolo";
     }
 }
