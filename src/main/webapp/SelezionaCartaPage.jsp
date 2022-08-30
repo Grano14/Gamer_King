@@ -76,24 +76,18 @@
         <%}}%>
         <br>
         <br>
-        <a id="aggiungiCarta" href="PaginaModificaCarte" class="parag">Aggiungi una nuova carta per il pagamento</a>
         <br>
         <input id="bottoneAcquistoCarrello" type="submit" value="Acquista">
     </div>
     <input type="hidden" name="videogioco" value="<%=videogioco%>">
     <input type="hidden" name="piattaforma" value="<%=piattaforma%>">
-
-<!--
-    <div>
-        <form class="bottoneModifica" method="POST" action="PaginaAggiuntaCarta">
-            <input type="hidden" name="videogioco" value="<%=videogioco%>">
-            <input type="hidden" name="piattaforma" value="<%=piattaforma%>">
-            <input type="hidden" name="ritorno" value="PaginaSelezionaCarta">
-            <input type="submit" id="Aggiunta" value="Aggiungi">
-        </form>
-    </div>
--->
 </div>
+</form>
+<form method="POST" action="PaginaAggiuntaCarta">
+    <input type="hidden" name="videogioco" value="<%=videogioco%>">
+    <input type="hidden" name="piattaforma" value="<%=piattaforma%>">
+    <input type="hidden" name="ritorno" value="PaginaSelezionaCarta">
+    <input type="submit" id="aggiungiCarta" class="parag" value="Aggiungi una nuova carta per il pagamento">
 </form>
 </body>
 </html>

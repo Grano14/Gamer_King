@@ -87,7 +87,6 @@
         <%}}%>
         <br>
         <br>
-        <a id="aggiungiCarta" href="PaginaModificaCarte" class="parag">Aggiungi una nuova carta per il pagamento</a>
         <br>
         <%if(!listSottoscrizioni.isEmpty()){%>
         <input id="bottoneAcquistoCarrello" type="submit" value="Acquista">
@@ -95,5 +94,9 @@
     </div>
 </form>
 <%}%>
+<form method="POST" action="PaginaAggiuntaCarta" style="text-align:center">
+    <input type="hidden" name="ritorno" value="AcquistoPage.jsp">
+    <input type="submit" id="aggiungiCarta" class="parag" value="Aggiungi una nuova carta per il pagamento">
+</form>
 </body>
 </html>

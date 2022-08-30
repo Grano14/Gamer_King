@@ -186,6 +186,11 @@ hr{
     color: white;
 }
 
+#aggiungiCarta{
+    background:none;
+    border:none;
+}
+
 #aggiungiCarta:hover{
     color:rebeccapurple;
 }
