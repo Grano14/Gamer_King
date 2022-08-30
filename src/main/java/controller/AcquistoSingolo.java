@@ -27,7 +27,7 @@ public class AcquistoSingolo extends HttpServlet {
         String citta = request.getParameter("citta"+numCarta);
         String civico = request.getParameter("civico"+numCarta);
         String quantita = request.getParameter("quantita");
-        //System.out.println(nomeUtente+numCarta+videogioco+piattaforma+idCopia+via+cap+citta+civico+quantita);
+        //System.out.println(nomeUtente+numCarta+videogioco+piattaforma+via+cap+citta+civico+quantita);
         String mail = UtenteDAO.doRetriveByNomeUtente(nomeUtente).getEmail();
         request.setAttribute("mail", mail);
         request.setAttribute("controlloAcquisto", "acquistato");
@@ -69,6 +69,6 @@ public class AcquistoSingolo extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        this.doGet(request,response);
     }
 }

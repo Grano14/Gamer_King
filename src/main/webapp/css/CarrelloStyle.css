@@ -214,6 +214,10 @@ hr{
 }
 
 @media only screen and (max-width: 800px){
+    div{
+        font-size:20px;
+    }
+
     #selezionaQuantita{
         margin-top:125px;
         margin-right:100px;

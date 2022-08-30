@@ -16,7 +16,6 @@ public class AcquistoCarrello extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String numCarta = request.getParameter("selezioneCarta");
-        System.out.println(numCarta);
         HttpSession session = request.getSession();
         ArrayList<Selezionare> list = SelezionareDAO.doRetriveAllByNomeUtente((String)session.getAttribute("nomeUtente"));
         int i;
@@ -33,7 +32,7 @@ public class AcquistoCarrello extends HttpServlet {
         boolean flag = true;
         ArrayList<Prodotto> listaProdottiNonDisp = new ArrayList<>();
         for(j=0; j<carrello.size(); j++){
-            if(Integer.parseInt(request.getParameter(carrello.get(j).getVideogioco())) > ProdottoDAO.doRetriveById(carrello.get(j).getVideogioco(), carrello.get(j).getPiattaforma()).getnCopie()){
+            if(Integer.parseInt(request.getParameter(carrello.get(j).getVideogioco()+carrello.get(j).getPiattaforma())) > ProdottoDAO.doRetriveById(carrello.get(j).getVideogioco(), carrello.get(j).getPiattaforma()).getnCopie()){
                 listaProdottiNonDisp.add(carrello.get(j));
                 flag = false;
             }
@@ -41,7 +40,7 @@ public class AcquistoCarrello extends HttpServlet {
         if(flag == true){
             for(j=0; j< carrello.size(); j++){
                 int g;
-                for(g=0; g<Integer.parseInt(request.getParameter(carrello.get(j).getVideogioco())); g++){
+                for(g=0; g<Integer.parseInt(request.getParameter(carrello.get(j).getVideogioco()+carrello.get(j).getPiattaforma())); g++){
 
                     ArrayList<Copia> l = CopiaDAO.doRetriveNotSellByVideogame(carrello.get(j).getVideogioco(), carrello.get(j).getPiattaforma());
 
@@ -53,7 +52,7 @@ public class AcquistoCarrello extends HttpServlet {
 
                 }
                 int numCopie = carrello.get(j).getnCopie();
-                numCopie -= Integer.parseInt(request.getParameter(carrello.get(j).getVideogioco()));
+                numCopie -= Integer.parseInt(request.getParameter(carrello.get(j).getVideogioco()+carrello.get(j).getPiattaforma()));
                 ProdottoDAO.doUpdateNumeroCopieById(carrello.get(j).getVideogioco(), carrello.get(j).getPiattaforma(), numCopie);
             }
             SelezionareDAO.doRemoveByUtente((String)session.getAttribute("nomeUtente"));

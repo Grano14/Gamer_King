@@ -66,8 +66,8 @@
             <p id="indirizzo">Indirizzo:<%=s.getCitta()%> <%=s.getCap()%></p>
             <p><%=s.getVia()%> <%=s.getNumCivico()%></p>
             <p id="numeroCarta">Numero:**** **** **** <%=s.getNumero().substring(11)%></p>
-            <label>Seleziona</label>
-            <input type="radio" name="selezioneCarta" value="<%=s.getNumero()%>" <%if(j==0){%><%}%>>
+            <label for="check<%=j%>">Seleziona</label>
+            <input type="radio" id="check<%=j%>" name="selezioneCarta" value="<%=s.getNumero()%>" <%if(j==0){%>checked<%}%>>
             <input type="hidden" name="via<%=s.getNumero()%>" value="<%=s.getVia()%>">
             <input type="hidden" name="cap<%=s.getNumero()%>" value="<%=s.getCap()%>">
             <input type="hidden" name="civico<%=s.getNumero()%>" value="<%=s.getNumCivico()%>">

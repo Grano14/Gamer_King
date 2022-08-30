@@ -56,7 +56,7 @@
 
     <div id="selezionaQuantita">
         <label for="num">Scegli la quantità</label><br>
-        <input type="number" value="1" id="num" class="inputNumber" name="<%=carrello.get(u).getVideogioco()%>" onkeyup="checkQuantitaPositive()">
+        <input type="number" value="1" id="num" class="inputNumber" name="<%=carrello.get(u).getVideogioco()%><%=carrello.get(u).getPiattaforma()%>" onkeyup="checkQuantitaPositive()">
     </div>
 
 </div>
@@ -76,8 +76,8 @@
             <p id="indirizzo">Indirizzo:<%=listSottoscrizioni.get(j).getCitta()%> <%=listSottoscrizioni.get(j).getCap()%></p>
             <p><%=listSottoscrizioni.get(j).getVia()%> <%=listSottoscrizioni.get(j).getNumCivico()%></p>
             <p id="numeroCarta">Numero:**** **** **** <%=c.getNumero().substring(11)%></p>
-            <label>Seleziona</label>
-            <input type="radio" name="selezioneCarta" value="<%=c.getNumero()%>" <%if(j==0){%>checked<%}%>>
+            <label for="check<%=j%>">Seleziona</label>
+            <input type="radio" id="check<%=j%>" name="selezioneCarta" value="<%=c.getNumero()%>" <%if(j==0){%>checked<%}%>>
             <input type="hidden" name="via<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getVia()%>">
             <input type="hidden" name="cap<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getCap()%>">
             <input type="hidden" name="via<%=c.getNumero()%>" value="<%=listSottoscrizioni.get(j).getVia()%>">
