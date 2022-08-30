@@ -56,7 +56,7 @@
 
     <div id="selezionaQuantita">
         <label for="num">Scegli la quantità</label><br>
-        <input type="number" value="1" id="num" class="inputNumber" name="<%=carrello.get(u).getVideogioco()%>" onkeyup="checkQuantitaPositive()">
+        <input type="number" value="1" id="num" class="inputNumber" name="<%=carrello.get(u).getVideogioco()%><%=carrello.get(u).getPiattaforma()%>" onkeyup="checkQuantitaPositive()">
     </div>
 
 </div>
