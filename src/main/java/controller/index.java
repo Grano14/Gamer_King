@@ -16,9 +16,9 @@ import java.util.ArrayList;
 public class index extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        //prendere la sessione
         HttpSession session = request.getSession(false);
-
+        //utente non loggato
         if(session == null){
             session = request.getSession();
             session.setAttribute("nomeUtente", "LOGIN");
@@ -26,27 +26,27 @@ public class index extends HttpServlet {
             session.setAttribute("carrello", carrello);
             session.setAttribute("numProdottiCarrello", 0);
         }
-
+        //prodotti più venduti per la home
         ArrayList<Prodotto> lPrincipali = ProdottoDAO.doRetriveByVenduti();
-
+        //immagini per i prodotti
         ArrayList<String> listPath = new ArrayList<>();
         int i;
         for(i=0; i<lPrincipali.size();i++){
             listPath.add(ImmagineDAO.getMainImageByVideogame(lPrincipali.get(i).getVideogioco()));
         }
-
+        //inoltriamo i prodotti e le loro immagini alla home
         request.setAttribute("listaGiochi", lPrincipali);
         request.setAttribute("listaImmagini", listPath);
-
-        ArrayList<Prodotto> lAvventura = ProdottoDAO.doRetriveByData();
+        //giochi usciti recentemente e le loro immagini per la home
+        ArrayList<Prodotto> lRecenti = ProdottoDAO.doRetriveByData();
         ArrayList<String> lPathAvv = new ArrayList<>();
-        for(i=0; i<lAvventura.size(); i++){
-            lPathAvv.add(ImmagineDAO.getMainImageByVideogame(lAvventura.get(i).getVideogioco()));
+        for(i=0; i< lRecenti.size(); i++){
+            lPathAvv.add(ImmagineDAO.getMainImageByVideogame(lRecenti.get(i).getVideogioco()));
         }
-
-        request.setAttribute("listaGiochiRecenti", lAvventura);
+        //inoltriamo i prodotti e le loro immagini alla home
+        request.setAttribute("listaGiochiRecenti", lRecenti);
         request.setAttribute("listaImmaginiRecenti", lPathAvv);
-
+        //carichiamo la HomePage
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("HomePage.jsp");
         requestDispatcher.forward(request, response);
 
