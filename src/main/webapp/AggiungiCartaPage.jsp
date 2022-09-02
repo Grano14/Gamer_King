@@ -8,9 +8,10 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
-    <title>Modifica dati carta</title>
+    <title>GamerKing | Aggiungi dati carta</title>
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" href="css/LoginPageStyle.css" type="text/css">
+    <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
 
     <script type="text/javascript" src="javaScript/AggiuntaCartaScript.js"></script>
 </head>

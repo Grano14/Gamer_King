@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Registrazione</title>
+    <title>GamerKing | Registrazione</title>
     <link rel="stylesheet" href="css/LoginPageStyle.css" type="text/css">
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
     <script type="text/javascript" src="javaScript/RegistrationPageJS.js"></script>

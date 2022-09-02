@@ -9,7 +9,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
-    <title>Seleziona carta</title>
+    <title>GamerKing | Seleziona carta</title>
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/SelezionaCartaStyle.css">
     <link rel="stylesheet" type="text/css" href="css/CarrelloStyle.css">

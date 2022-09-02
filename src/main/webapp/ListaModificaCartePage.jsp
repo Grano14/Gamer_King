@@ -9,6 +9,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
+    <title>GamerKing | Lista estremi di fatturazione</title>
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/CartaStyle.css">
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
