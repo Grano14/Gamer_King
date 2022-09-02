@@ -19,6 +19,7 @@ public class AggiungiCarta extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //ottenimento parametri per il salvataggio della carta
         String piattaforma = request.getParameter("piattaforma");
         String videogioco = request.getParameter("videogioco");
         String ritorno = request.getParameter("ritorno");
@@ -32,11 +33,14 @@ public class AggiungiCarta extends HttpServlet {
         String numCivico = request.getParameter("numCivico");
         String cap = request.getParameter("cap");
 
+        //controllo se la carta non è già presente nel db
         if(!CartaDAO.containsAny(numero)){
+            //se non è presente viene salvata come nuiova carta
             Carta carta = new Carta(nome, cognome, numero, verifica, scadenza);
             CartaDAO.doSave(carta);
         }
 
+        //salvataggio tupla in sottoscrivere per collegare la carta ad un indirizzo, se la carta gia esiste avrà più indirizzi collegati
         Sottoscrivere sottoscrivere = new Sottoscrivere(numero, (String) request.getSession().getAttribute("nomeUtente"), via, cap, numCivico, citta);
 
         SottoscrivereDAO.doSave(sottoscrivere);

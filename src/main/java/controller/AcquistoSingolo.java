@@ -17,6 +17,7 @@ public class AcquistoSingolo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //ottenimento sessione e parametri per effettuare l'acquisto del singolo prodotto
         HttpSession session = request.getSession();
         String numCarta = request.getParameter("selezioneCarta");
         String nomeUtente = (String) session.getAttribute("nomeUtente");
@@ -30,7 +31,9 @@ public class AcquistoSingolo extends HttpServlet {
         //System.out.println(nomeUtente+numCarta+videogioco+piattaforma+via+cap+citta+civico+quantita);
         String mail = UtenteDAO.doRetriveByNomeUtente(nomeUtente).getEmail();
         request.setAttribute("mail", mail);
+        //impostare parametro della richiesta controlloAcquisto ad acquistato utile per la pagina di riepilogo
         request.setAttribute("controlloAcquisto", "acquistato");
+        //controllo se il numero di copie disponibili è maggiore di quello che si intende acquistare
         if(Integer.parseInt(quantita) > ProdottoDAO.doRetriveById(videogioco, piattaforma).getnCopie()){
             ArrayList<Prodotto> listaProdottiNonDisp = new ArrayList<>();
             listaProdottiNonDisp.add(ProdottoDAO.doRetriveById(videogioco, piattaforma));
@@ -38,8 +41,11 @@ public class AcquistoSingolo extends HttpServlet {
             request.setAttribute("controlloAcquisto", "nonAcquistato");
         }
         else{
+            //effettua acquisto
+            //conversione lista di oggetti selezionare in oggetti prodotto del carrello
             ArrayList<Selezionare> list = SelezionareDAO.doRetriveAllByNomeUtente(nomeUtente);
             int i;
+            //controllo se il prodotto da acquistare è già nel carrello, se è presente viene rimosso dal carrello il singolo prodotto
             for(i=0; i<list.size(); i++){
                 if(list.get(i).getVideogioco().equals(videogioco) && list.get(i).getPiattaforma().equals(piattaforma)){
                     SelezionareDAO.doRemoveById(nomeUtente, videogioco, piattaforma);
@@ -47,7 +53,8 @@ public class AcquistoSingolo extends HttpServlet {
                     session.setAttribute("numProdottiCarrello", n-1);
                 }
             }
-            System.out.println(quantita);
+            //System.out.println(quantita);
+            //ciclo per l'acquisto delle copie nella quantità richiesta
             for(int k=0; k<Integer.parseInt(quantita); k++){
                 ArrayList<Copia> l = CopiaDAO.doRetriveNotSellByVideogame(videogioco, piattaforma);
                 String idCopia = l.get(0).getIdCopia();
@@ -58,6 +65,7 @@ public class AcquistoSingolo extends HttpServlet {
 
                 AcquistoDAO.doSave(new Acquisto(numCarta, nomeUtente, idCopia, videogioco, piattaforma, via, cap, citta, civico, data));
             }
+            //decremento numero di copie disponibili del prodotto appena acquistato
             int n = ProdottoDAO.doRetriveById(videogioco, piattaforma).getnCopie();
             ProdottoDAO.doUpdateNumeroCopieById(videogioco, piattaforma, (n-Integer.parseInt(quantita)));
         }

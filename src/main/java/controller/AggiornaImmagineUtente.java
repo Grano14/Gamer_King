@@ -20,11 +20,14 @@ public class AggiornaImmagineUtente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //ottenimento della sessione e della immagine nei parametri
         HttpSession session = request.getSession();
         Part part = request.getPart("immagine");
         String fileName = part.getSubmittedFileName();
+        //controllo se non è stato inserito nessun file
         if(fileName.equals(""))
             return;
+        //creazione path di salvataggio dell'immagine e salvataggio del path nel db
         String path = "css/pictures/" + fileName;
         UtenteDAO.updateImmage(path, (String)session.getAttribute("nomeUtente"));
         InputStream is = part.getInputStream();
@@ -36,6 +39,7 @@ public class AggiornaImmagineUtente extends HttpServlet {
     }
 
     public boolean uploadFile(InputStream is, String path){
+        //funzione per la scrittura del file is nella posizione path
         boolean test = false;
         try{
             byte[] byt = new byte[is.available()];

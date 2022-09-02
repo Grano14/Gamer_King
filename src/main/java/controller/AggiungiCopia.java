@@ -24,12 +24,13 @@ public class AggiungiCopia extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        //inserimento prodotto nella tabella
+        //ottenimento parametri dalla richiesta
         String piattaforma = request.getParameter("piattaforma");
         String data = request.getParameter("data");
         String prezzo = request.getParameter("prezzo");
         String nCopie = request.getParameter("nCopie");
         String titolo = request.getParameter("gioco");
+
         ArrayList<Prodotto> l = ProdottoDAO.doRetriveAll();
         boolean flag = true;
         int k = 0;
