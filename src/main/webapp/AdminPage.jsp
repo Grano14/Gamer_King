@@ -9,16 +9,23 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
-    <title>GamerKing | UserPage</title>
+    <title>GamerKing | AdminPage</title>
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/UserPageStyle.css">
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
+    <script type="text/javascript" src="javaScript/UtenteScript.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
 
         $(document).ready(function(){
             $("#showM1").click(function(){
                 $("#m1").toggle();
+            });
+        });
+
+        $(document).ready(function(){
+            $("#togglteImmagine").click(function(){
+                $("#formImg").slideToggle("fast");
             });
         });
     </script>
@@ -40,25 +47,18 @@
             }
         %>
         <img id="utenteimage" src="<%=path%>">
-            <!--
-        <button style="position: relative;bottom: 35px; right: 50px" onclick="hideForm()"><img src="css/pictures/matita.png"></button>
-        -->
-        <script>
-            function hideForm(){
-                if(document.getElementById("formImg").style.display == "none"){
-                    document.getElementById("formImg").style.display = "block";
-                }
-                else{
-                    document.getElementById("formImg").style.display = "none";
-                }
-            }
-        </script>
-            <!--
-        <form action="AggiornaImmagineUtente" method="POST" id="formImg" style="display: none" enctype="multipart/form-data">
-            <input type="file" name="immagine">
-            <input type="submit" value="Aggiorna">
-        </form>
-        -->
+
+        <button style="position: relative;bottom: 35px; right: 50px" id="togglteImmagine"><img src="css/pictures/matita.png"></button>
+
+            <form action="" method="POST" id="formImg" style="display: none" enctype="multipart/form-data">
+                <label id="updateImg">Carica file
+                    <input type="file" name="immagine" oninput="chekImmagineUtente('updateImg','formImg')">
+                </label>
+                <br>
+                <br>
+                <input id="bottoneImmagine" type="submit" value="Aggiorna">
+            </form>
+
     </div>
         <p id="userid"><%=u.getNomeUtente()%></p>
         <p id="email"><%=u.getEmail()%></p>
