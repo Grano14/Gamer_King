@@ -35,15 +35,23 @@ public class AggiungiCarta extends HttpServlet {
 
         //controllo se la carta non è già presente nel db
         if(!CartaDAO.containsAny(numero)){
-            //se non è presente viene salvata come nuiova carta
+            //se non è presente viene salvata come nuova carta
             Carta carta = new Carta(nome, cognome, numero, verifica, scadenza);
             CartaDAO.doSave(carta);
         }
 
         //salvataggio tupla in sottoscrivere per collegare la carta ad un indirizzo, se la carta gia esiste avrà più indirizzi collegati
         Sottoscrivere sottoscrivere = new Sottoscrivere(numero, (String) request.getSession().getAttribute("nomeUtente"), via, cap, numCivico, citta);
+        String errore="";
 
-        SottoscrivereDAO.doSave(sottoscrivere);
+        if(!SottoscrivereDAO.contains(numero, citta, numCivico, cap, via,(String) request.getSession().getAttribute("nomeUtente")))
+            SottoscrivereDAO.doSave(sottoscrivere);
+        else{
+            errore="quisti dati sono già presenti";
+            request.setAttribute("errore",errore);
+            request.setAttribute("ritorno",ritorno);
+            ritorno="PaginaAggiuntaCarta";
+        }
 
         request.setAttribute("videogioco", videogioco);
         request.setAttribute("piattaforma", piattaforma);

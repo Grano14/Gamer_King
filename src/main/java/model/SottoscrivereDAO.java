@@ -19,8 +19,8 @@ public class SottoscrivereDAO {
             ps.setString(6, nomeUtente);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                Sottoscrivere s = new Sottoscrivere(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
-                return s;
+                Sottoscrivere c = new Sottoscrivere(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+                return c;
             }
             return null;
         }
