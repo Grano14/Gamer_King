@@ -23,8 +23,9 @@ public class AccessoUtente extends HttpServlet {
         int i;
         String address = "loginPage.jsp";
         request.setAttribute("errore","Nome utente o password errati");
-        for(i=0;i<l.size();i++){
-            if(l.get(i).getNomeUtente().equals(nome) && l.get(i).getPass().equals(pass)){
+        Utente user = UtenteDAO.doRetriveByNomeUtente(nome);
+
+            if(user.getPass().equals(pass)){
                 HttpSession session = request.getSession();
                 session.setAttribute("nomeUtente", nome);
                 ArrayList<Prodotto> listProdottiCarrello = (ArrayList<Prodotto>) session.getAttribute("carrello");
@@ -47,7 +48,7 @@ public class AccessoUtente extends HttpServlet {
                 int n = SelezionareDAO.doRetriveAllByNomeUtente((String) session.getAttribute("nomeUtente")).size();
                 session.setAttribute("numProdottiCarrello", n);
 
-                if(l.get(i).isAdm()){
+                if(user.isAdm()){
                     address = "AdminPage.jsp";
                     ArrayList<Recensione> listaRec = RecensioneDAO.doRetriveAll();
 
@@ -57,7 +58,6 @@ public class AccessoUtente extends HttpServlet {
                     address = "index.jsp";
                 }
             }
-        }
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(address);
         requestDispatcher.forward(request, response);
