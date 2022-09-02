@@ -8,18 +8,12 @@ import java.util.ArrayList;
 
 public class AcquistoDAO {
 
-    public static Acquisto doRetriveById(String idCopia, String videogioco, String piattaforma, String nomeUtente, String numero, String via, String cap, String citta, String numCivico){
+    public static Acquisto doRetriveById(String idCopia, String videogioco, String piattaforma){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("select numero, nomeUtente, IdCopia, videogioco, piattaforma via, cap, citta, numCivico, dataAcquisto from Acquisto where IdCopia=? and videogioco=? and piattaforma=? and nomeUtente=? and via=? and cap=? and citta=? and numCivico=? and numero=?");
+            PreparedStatement ps = con.prepareStatement("select numero, nomeUtente, IdCopia, videogioco, piattaforma, via, cap, citta, numCivico, dataAcquisto from Acquisto where IdCopia=? and videogioco=? and piattaforma=? ");
             ps.setString(1, idCopia);
             ps.setString(2, videogioco);
             ps.setString(3, piattaforma);
-            ps.setString(4,nomeUtente);
-            ps.setString(5,via);
-            ps.setString(6,cap);
-            ps.setString(7,citta);
-            ps.setString(8,numCivico);
-            ps.setString(9,numero);
 
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
@@ -53,18 +47,14 @@ public class AcquistoDAO {
         }
     }
 
-    public static void doRemoveById(String idCopia, String videogioco, String piattaforma, String nomeUtente, String numero, String via, String cap, String citta, String numCivico){
+    public static void doRemoveById(String idCopia, String videogioco, String piattaforma, String nomeUtente){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("delete from acquisto where IdCopia=? and videogioco=? and piattaforma=? and nomeUtente=? and via=? and cap=? and citta=? and numCivico=? and numero=?");
+            PreparedStatement ps = con.prepareStatement("delete from acquisto where IdCopia=? and videogioco=? and " +
+                    "piattaforma=? and nomeUtente=?");
             ps.setString(1, idCopia);
             ps.setString(2, videogioco);
             ps.setString(3, piattaforma);
             ps.setString(4,nomeUtente);
-            ps.setString(5,via);
-            ps.setString(6,cap);
-            ps.setString(7,citta);
-            ps.setString(8,numCivico);
-            ps.setString(9,numero);
             ps.execute();
         }
         catch (SQLException e){

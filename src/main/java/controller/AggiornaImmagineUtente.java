@@ -34,7 +34,7 @@ public class AggiornaImmagineUtente extends HttpServlet {
         //recupero l'utente per sapere se è un admin
         Utente user = UtenteDAO.doRetriveByNomeUtente((String)session.getAttribute("nomeUtente"));
         InputStream is = part.getInputStream();
-        boolean test = uploadFile(is, "C:\\Users\\Giuseppe Grano\\IdeaProjects\\Gamer_King\\src\\main\\webapp\\css\\pictures\\"+fileName);
+        boolean test = uploadFile(is, "C:\\Users\\utente\\IdeaProjects\\Gamer_King\\src\\main\\webapp\\css\\pictures\\"+fileName);
 
         String address="";
         //reindirizzo la pagina ad AdminPage o a UserPage
