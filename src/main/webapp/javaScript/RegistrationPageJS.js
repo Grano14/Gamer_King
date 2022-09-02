@@ -41,20 +41,24 @@ function checkButton(){
 //questa funzione controlla se la mail è stata inserita correttamente
 function validateMail(){
     var emailREGX = /[@]/;
+    var puntoREGX = /[.]/;
     var mail = document.getElementById("email").value;
-    if(emailREGX.test(mail) && mail.length > 7){
+    //controlla se la mai ha almeno una @, un . ed è lunga almeno 8 caratteri
+    if(emailREGX.test(mail) && puntoREGX.test(mail) && mail.length > 7){
+        //se il controllo ha effetto rende verde l'area e rende invisibile il messaggio di errore
         document.getElementById("email").style.backgroundColor = "lightgreen";
         document.getElementById("erroreMail").style.display = "none";
         controllo2=1;
     }
     else{
+        //se il conrollo non è rispettato rende l'area rosso chiaro e rende visibile il messagiio di errore
         document.getElementById("email").style.backgroundColor = "lightpink";
         document.getElementById("erroreMail").style.display = "block";
         controllo2=0;
     }
     checkButton();
 }
-
+//questa funione controlla se la password è corretta
 function validatePass(){
     var pass = document.getElementById("pass").value;
     var lettereMinREGX = /[a-z]/;
@@ -72,7 +76,7 @@ function validatePass(){
     }
     checkButton();
 }
-
+//questa funzione controlla se la conferma password è uguale alla password inserita
 function validateConfPass(){
     var pass = document.getElementById("pass").value;
     var confPass = document.getElementById("confPass").value;
