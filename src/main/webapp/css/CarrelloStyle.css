@@ -17,20 +17,18 @@ body{
 
 .carrelloItem{
     width: 100%;
-    height: 200px;
+    margin-bottom:10px;
 }
 
 .carrelloItem a{
     display: inline-block;
-    width: 200px;
-    height: 170px;
-    position: absolute;
-    left: 20px;
+    float:left;
+    margin-left:10px;
 }
 
 .carrelloItem a img{
-    width: 100%;
-    height: 100%;
+    width: 200px;
+    height: 170px;
     border-radius: 6px;
 }
 
@@ -41,13 +39,9 @@ body{
 }
 
 #descrizione{
-    position: absolute;
-    left: 230px;
-}
-
-#prezzo{
-    position: absolute;
-    right: 500px;
+    float:left;
+    text-align:left;
+    margin-left:10px;
 }
 
 #selezionaQuantita{
@@ -64,6 +58,7 @@ body{
 
 #boxBottoni{
     float:right;
+    margin-right: 10px;
 }
 
 .bottoni{
@@ -72,7 +67,6 @@ body{
     background-color: #601194;
     color:white;
     float:right;
-    margin-right: 50px;
     border:none;
     border-radius: 6px;
     font-size: 18px;
@@ -201,11 +195,11 @@ hr{
 
 @media only screen and (max-width: 900px){
     .infoProdotto{
-        font-size:20px;
+        font-size:15px;
     }
 
     #selezionaQuantita{
-        font-size:20px;
+        font-size:15px;
     }
 
     #num{
@@ -214,13 +208,21 @@ hr{
 }
 
 @media only screen and (max-width: 800px){
-    div{
-        font-size:20px;
-    }
 
     #selezionaQuantita{
         margin-top:125px;
         margin-right:100px;
+    }
+
+    #boxBottoni{
+        text-aling:center;
+        float:none;
+    }
+
+    .bottoni,#formAcquistoSingolo{
+        display:inline-block;
+        margin-top: 20px;
+        float:none;
     }
 }
 

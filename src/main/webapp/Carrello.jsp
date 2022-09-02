@@ -29,19 +29,21 @@
     <hr>
     <%for(int j=0; j<i; j++){%>
         <div class="carrelloItem">
-            <a href="CaricaProdotto?titolo=<%=carrello.get(j).getVideogioco()%>&piattaforma=<%=carrello.get(j).getPiattaforma()%>"><img src="<%=lImm.get(j)%>"> </a>
+            <a href="CaricaProdotto?titolo=<%=carrello.get(j).getVideogioco()%>&piattaforma=<%=carrello.get(j).getPiattaforma()%>">
+                <img src="<%=lImm.get(j)%>">
+            </a>
             <div id="descrizione">
-                <%=carrello.get(j).getVideogioco()%>, <%=carrello.get(j).getPiattaforma()%>
+                <p><%=carrello.get(j).getVideogioco()%></p>
+                <p><%=carrello.get(j).getPiattaforma()%></p>
+                <p><%=carrello.get(j).getPrezzo()%>€</p>
             </div>
-            <div id="prezzo">
-                <%=carrello.get(j).getPrezzo()%>€
-            </div>
+
             <div id="boxBottoni">
                 <button class="bottoni" id="delete" onclick="deleteElement('<%=carrello.get(j).getVideogioco()%>', '<%=carrello.get(j).getPiattaforma()%>', '<%=nome%>')">
                     Elimina
                 </button>
 
-                <form method="GET" action="PaginaSelezionaCarta">
+                <form id="formAcquistoSingolo" method="GET" action="PaginaSelezionaCarta">
                     <input type="hidden" name="videogioco" value="<%=carrello.get(j).getVideogioco()%>">
                     <input type="hidden" name="piattaforma" value="<%=carrello.get(j).getPiattaforma()%>">
                     <input type="submit" class="bottoni" value="Acquista">
