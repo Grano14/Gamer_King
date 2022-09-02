@@ -13,6 +13,7 @@ public class PaginaAdmin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //servlet per passare nella request le recensioni che saranno gestite dall'admin
         ArrayList<Recensione> listaRec = RecensioneDAO.doRetriveAll();
 
         request.setAttribute("listaRec", listaRec);

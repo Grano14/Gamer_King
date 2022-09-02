@@ -18,6 +18,7 @@ public class ModificaRecensione  extends HttpServlet {
         String piattaforma = request.getParameter("piattaforma");
         String azione = request.getParameter("azione");
 
+        //se azione è uguale a modifica la servlet rimanda alla pagina di modifica altrimenti la recensione viene eliminata
         if(azione.equals("modifica")){
 
         Prodotto prodotto = ProdottoDAO.doRetriveById(videogioco, piattaforma);

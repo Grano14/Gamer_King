@@ -27,6 +27,7 @@ public class UpdateProdotto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //ottenimento dati e aggiornamento del titolo, piattaforma, data, descrizione e prezzo
         String titolo = request.getParameter("titolo");
         String piattaforma = request.getParameter("piattaforma");
         String data = request.getParameter("data");
@@ -40,6 +41,7 @@ public class UpdateProdotto extends HttpServlet {
         VideogiocoDAO.doUpdateById(titolo, descrizione);
         ProdottoDAO.doUpdateById(titolo, piattaforma, data, Double.parseDouble(prezzo));
 
+        //ottenimento lista generi
         ArrayList<String> lGeneri = new ArrayList<>();
         int j;
         for(j=0;j<15;j++){
@@ -51,18 +53,23 @@ public class UpdateProdotto extends HttpServlet {
             }
         }
 
+        //rimozione di tutti i generi associati ad un videogioco
         AppartenereDAO.doRemoveByVideogioco(titolo);
 
+        //aggiunta di tutti i generi da capo
         int r;
         for(r=0; r<lGeneri.size(); r++){
             Appartenere a = new Appartenere(v.getTitolo(), lGeneri.get(r));
             AppartenereDAO.doSave(a);
         }
 
+        //ottenimento immagine principale
         Part image = request.getPart("immagine1");
         String nomeImage = image.getSubmittedFileName();
 
+        //controllo se non è stata passata una immagine
         if(!nomeImage.equals("")){
+            //aggiunta nuova immagine  nel file e aggiunta del path nel db, eliminazione vecchia immagine
             String dirPath = "C:/Users/Giuseppe Grano/IdeaProjects/Gamer_King/src/main/webapp/css/gameImages" + titolo;
             String path = "css/gameImages/" + titolo + "/" + nomeImage;
             String pathCompleto = dirPath + "/" + nomeImage;
@@ -77,6 +84,7 @@ public class UpdateProdotto extends HttpServlet {
             f.delete();
         }
 
+        //ottenimento immagini secondarie e salvataggio di queste
         ArrayList<String> lImmaginiSecondarie = ImmagineDAO.getSecondaryImagesByVideogame(titolo);
 
         Part image2 = request.getPart("immagine2");

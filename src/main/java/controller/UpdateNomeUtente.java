@@ -26,6 +26,7 @@ public class UpdateNomeUtente extends HttpServlet {
 
         String nuovoNome = request.getParameter("nome");
 
+        //controllo se il nome inserito da aggiornare è già in uso
         if(UtenteDAO.contains(nuovoNome)){
             request.setAttribute("erroreNome","Nome utente già in uso");
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("PaginaImpostazioni");

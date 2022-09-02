@@ -27,6 +27,7 @@ public class UpdateEmail extends HttpServlet {
 
         String nuovaMail = request.getParameter("email");
 
+        //controllo se la mail inserita è già presente altrimenti
         if(UtenteDAO.containsMail(nuovaMail)){
             request.setAttribute("erroreMail","Email già in uso");
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("PaginaImpostazioni");

@@ -13,6 +13,7 @@ public class PaginaStatisticheVendita  extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //ottenimento lista con giochi più venduti, più votati e da rifornire e passaggio delle liste nella request
         ArrayList<Integer> listaAcquisti = new ArrayList<>();
         ArrayList<Double> listaVotiMedi = new ArrayList<>();
 

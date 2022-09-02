@@ -14,11 +14,11 @@ public class PaginaUtente extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String nome = (String) request.getSession().getAttribute("nomeUtente");
-
+        //ottenimento lista recensioni e lista prodotti acquistati da passare alla request
         Utente user = UtenteDAO.doRetriveByNomeUtente(nome);
         ArrayList<Recensione> listaRec = RecensioneDAO.doRetriveByUser(nome);
         ArrayList<Prodotto> listaProdotti = AcquistoDAO.doRetriveAllByUtente(nome);
-//bisogna aggiungere i prodotti
+
         request.setAttribute("utente", user);
         request.setAttribute("listaRec", listaRec);
         request.setAttribute("listaProdotti", listaProdotti);

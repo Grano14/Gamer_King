@@ -1,4 +1,4 @@
-
+//funzione per gestire l'effetto della barra di navigazione quando si  scorre in basso la pagina
 function secondBarEffect(){
     if(window.pageYOffset != 0){
         document.getElementById("fasiAcq").style.top = "50px";
@@ -7,6 +7,7 @@ function secondBarEffect(){
         document.getElementById("fasiAcq").style.top="60px";
     }
 }
+
 
 function checkQuantitaPositive(){
     const rec = document.getElementsByClassName("inputNumber");

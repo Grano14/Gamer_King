@@ -17,12 +17,14 @@ public class RisultatoFiltro extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //ottenimento elenco delle piattaforme selezionate
         String hide = "hide";
         ArrayList<String> l = new ArrayList<>();
         int i;
         for(i=0; i<6; i++){
             l.add(request.getParameter(hide+(i+1)));
         }
+        //ottenimento dei generi selezionati
         ArrayList<String> lGeneri = new ArrayList<>();
         for(i=0; i<15; i++){
             if(request.getParameter("check"+(i+1)) != null)
@@ -31,8 +33,10 @@ public class RisultatoFiltro extends HttpServlet {
                 lGeneri.add("");
         }
 
+        //ottenimento risultati query
         ArrayList<Prodotto> lProdotti = ProdottoDAO.doRetriveByPiattaformaGenere(l, lGeneri);
         ArrayList<String> listPath = new ArrayList<>();
+        //ottenimento immagine principale dei prodotti ottenuti in risultato
         for(i=0; i<lProdotti.size();i++){
             listPath.add(ImmagineDAO.getMainImageByVideogame(lProdotti.get(i).getVideogioco()));
         }

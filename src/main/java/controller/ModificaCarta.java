@@ -22,6 +22,7 @@ public class ModificaCarta extends HttpServlet {
         String numCivico;
         String cap;
 
+        //valore modifica viene impostato da funzione js ed è nullo nel caso in cui viene chiamata la servlet ma non vengono cambiati i campi da aggiornare
         if(modifica!=null){
             citta = request.getParameter("cittaIniziale");
             via = request.getParameter("viaIniziale");

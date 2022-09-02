@@ -16,6 +16,8 @@ public class PaginaAggiuntaCarta extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
+        //parametri videogioco e piattaforma utili per ritornare alla pagina del prodotto nel caso in cui l'aggiunta della carta è stata fatta per acquistare un prodotto
         String ritorno = (String) request.getParameter("ritorno");
         String videogioco = (String) request.getParameter("videogioco");
         String piattaforma = (String) request.getParameter("piattaforma");

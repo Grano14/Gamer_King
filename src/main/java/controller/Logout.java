@@ -12,6 +12,7 @@ public class Logout extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //ottenimento e chiusura della sessione corrente
         request.getSession().invalidate();
 
         HttpSession s = request.getSession();

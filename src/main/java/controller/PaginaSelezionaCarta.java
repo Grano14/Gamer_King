@@ -13,6 +13,7 @@ public class PaginaSelezionaCarta extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //otttenimento dati per il prodotto da acquistare e carica la pagina per l'acquisto singolo
         String nome = (String) request.getSession().getAttribute("nomeUtente");
         String videogioco = request.getParameter("videogioco");
         String piattaforma = request.getParameter("piattaforma");
@@ -24,6 +25,7 @@ public class PaginaSelezionaCarta extends HttpServlet {
 
         String img = ImmagineDAO.getMainImageByVideogame(videogioco);
 
+        //ottenimento lista carte e passaggio della lista nella request
         ArrayList<Sottoscrivere> listaCarte = SottoscrivereDAO.doRetriveByNomeUtente(nome);
 
         request.setAttribute("listaCarte",listaCarte);

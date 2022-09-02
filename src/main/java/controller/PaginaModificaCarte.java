@@ -13,6 +13,7 @@ public class PaginaModificaCarte extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //ottenimento della lista delle carte e le sottoscrizioni e passaggio della lista alla jsp
         String nome = (String) request.getSession().getAttribute("nomeUtente");
 
         ArrayList<Sottoscrivere> listaCarte = SottoscrivereDAO.doRetriveByNomeUtente(nome);

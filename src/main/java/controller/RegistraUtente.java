@@ -16,6 +16,7 @@ public class RegistraUtente extends HttpServlet {
         String nome = request.getParameter("userName");
         String mail = request.getParameter("email");
         String pass = request.getParameter("pass");
+        //ottenimento lista utente e controllo se i dati ottenuti del nuovo utente appartengono ad uno gia registrato
         ArrayList<Utente> l = UtenteDAO.doRetriveAll();
         for(int i=0;i<l.size();i++){
             if(l.get(i).getNomeUtente().equals(nome) || l.get(i).getEmail().equals(mail)){
@@ -24,9 +25,11 @@ public class RegistraUtente extends HttpServlet {
                 requestDispatcher.forward(request, response);
             }
         }
+        //se i dati non apartengono ad altri utenti crea e salva un nuovo utente
         Utente u = new Utente(nome, mail, pass,false);
         UtenteDAO.doSave(u);
         int i;
+        //aggiunta nume utente alla sessione e lista di prodotti nella sessione all'interno del db
         HttpSession session = request.getSession();
         ArrayList<Prodotto> list = (ArrayList<Prodotto>) session.getAttribute("carrello");
         Carrello c = new Carrello(nome, 0);
