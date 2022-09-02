@@ -82,7 +82,7 @@
 
         <p>Carica immagine 1</p>
         <label id="labl1" class="custom-file-upload">
-            <input type="file" name="immagine1" id="ii" multiple oninput="verde('labl1'),checkButtonUpdateGame(), checkPicture(), readURL(this, 'img1')" >
+            <input type="file" name="immagine1" id="ii" multiple oninput="verde('labl1'),checkButtonUpdateGame(), readURL(this, 'img1')" >
             Aggiorna
         </label>
         <img id="img1" style="border-radius: 6px" src="">
@@ -112,6 +112,5 @@
     </div>
 </form>
 </div>
-<p id="cc"></p>
 </body>
 </html>

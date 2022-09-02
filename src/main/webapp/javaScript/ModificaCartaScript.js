@@ -3,7 +3,7 @@ var controllo2=1;
 var controllo3=1;
 var controllo4=1;
 
-
+//controlla che la via inserita per la modifica sia almeno di 4 caratteri
 function checkVia(idText){
     var text = document.getElementById(idText).value;
 
@@ -18,6 +18,7 @@ function checkVia(idText){
     }
 }
 
+//controlla che il nomero civico non abbia lettere al sio interno
 function checkNumCivico(idText,idError){
     var text = document.getElementById(idText).value;
 
@@ -41,6 +42,7 @@ function checkNumCivico(idText,idError){
     }
 }
 
+//controlla che il cap non abbia lettere al sio interno e sia esattamente di 5 caratteri
 function checkCap(idText,idError){
     var text = document.getElementById(idText).value;
 
@@ -65,6 +67,7 @@ function checkCap(idText,idError){
     }
 }
 
+//controlla che nel nome della città non siano presenti numeri e che sia almeno di 3 caratteri
 function checkCitta(idText,idError){
     var text = document.getElementById(idText).value;
 
@@ -89,7 +92,7 @@ function checkCitta(idText,idError){
     }
 }
 
-
+//controlla che ci siano le condizioni adatte per richiamare la servlet corretta
 function checkUpdateButton(){
     if(controllo1==1 && controllo2==1 && controllo3==1 && controllo4==1){
         document.getElementById("formModificaCarta").action = "UpdateSottoscrivere";

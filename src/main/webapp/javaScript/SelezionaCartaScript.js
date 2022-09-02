@@ -1,4 +1,5 @@
 
+//questa funzione controlla la quantità delle copie da acquistare per l'acquisto singolo
 function checkQuantita(){
     var valore = document.getElementById("quant").value;
 

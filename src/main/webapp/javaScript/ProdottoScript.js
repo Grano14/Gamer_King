@@ -1,3 +1,4 @@
+//scambia l'immagine principale del prodotto con una di quelle selezionate
 function changeImmagine(idScelta,idVisualizzazione){
 
     var img = document.getElementById(idScelta).src;
@@ -7,6 +8,7 @@ function changeImmagine(idScelta,idVisualizzazione){
 
 var controllo1,controllo2;
 
+//controlla se la recensione inserita dall'utete è tra 2 e 300 caratteri
 function validateRecensione(idInput){
     var nome = document.getElementById(idInput).value;
     if(nome.length > 2 && nome.length < 300){
@@ -17,6 +19,7 @@ function validateRecensione(idInput){
     }
 }
 
+//controlla se l'utente a votato e ha inserito del testo adeguato per inserire la recensione
 function checkRecensione(){
     if(controllo1 == 1 && document.getElementById("nStelle").value != "0"){
         document.getElementById("submitRecensione").style.visibility = "visible";
@@ -28,6 +31,7 @@ function checkRecensione(){
     }
 }
 
+//permette di visualizzare tutte le recensioni disponibili su un determinato prodotto
 function mostraRecensioni(){
 
     const rec = document.getElementsByClassName("recensioneNonVisibile");
@@ -46,6 +50,7 @@ function mostraRecensioni(){
 
 }
 
+//permette di nascondere le recensione rese visibili da mostraRecensioni()
 function nascondiRecensioni(){
 
     const rec = document.getElementsByClassName("recensioneNonVisibile");
