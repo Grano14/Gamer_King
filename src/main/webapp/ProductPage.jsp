@@ -9,7 +9,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
-    <title>Prodotto</title>
+    <title>GamerKing | Prodotto</title>
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/ProductPageStyle.css">
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">

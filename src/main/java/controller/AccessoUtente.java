@@ -17,16 +17,22 @@ public class AccessoUtente extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //prendiamo nome e password utente
         String nome = request.getParameter("id");
         String pass = request.getParameter("pass");
-        ArrayList<Utente> l = UtenteDAO.doRetriveAll();
-        int i;
+
+        //indirizzo di ritorno nel caso in cui l'accesso fallisca
         String address = "loginPage.jsp";
+        //valore di errore da visualizzare sulla pagina
         request.setAttribute("errore","Nome utente o password errati");
-        for(i=0;i<l.size();i++){
-            if(l.get(i).getNomeUtente().equals(nome) && l.get(i).getPass().equals(pass)){
+        //ricerca utente nel DB
+        Utente user = UtenteDAO.doRetriveByNomeUtente(nome);
+        //controllo password
+            if(user.getPass().equals(pass)){
+                //apertura sessione
                 HttpSession session = request.getSession();
                 session.setAttribute("nomeUtente", nome);
+                //recupero carrello
                 ArrayList<Prodotto> listProdottiCarrello = (ArrayList<Prodotto>) session.getAttribute("carrello");
                 int k;
                 ArrayList<Selezionare> listaSelezionare = SelezionareDAO.doRetriveAllByNomeUtente((String) session.getAttribute("nomeUtente"));
@@ -46,18 +52,18 @@ public class AccessoUtente extends HttpServlet {
                 }
                 int n = SelezionareDAO.doRetriveAllByNomeUtente((String) session.getAttribute("nomeUtente")).size();
                 session.setAttribute("numProdottiCarrello", n);
-
-                if(l.get(i).isAdm()){
+                //accesso admin
+                if(user.isAdm()){
                     address = "AdminPage.jsp";
                     ArrayList<Recensione> listaRec = RecensioneDAO.doRetriveAll();
 
                     request.setAttribute("listaRec", listaRec);
                 }
                 else{
+                    //accesso utente avvenuto con successo
                     address = "index.jsp";
                 }
             }
-        }
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(address);
         requestDispatcher.forward(request, response);

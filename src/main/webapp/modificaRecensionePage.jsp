@@ -9,7 +9,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
-    <title>Modifica recensione</title>
+    <title>GamerKing | Modifica recensione</title>
+    <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/ModificaRecensioneStyle.css">
     <script type="text/javascript" src="javaScript/ProdottoScript.js"></script>

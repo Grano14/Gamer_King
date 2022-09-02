@@ -9,7 +9,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Accedi</title>
+    <title>GamerKing | Accedi</title>
     <link rel="stylesheet" href="css/LoginPageStyle.css" type="text/css">
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
     <script type="text/javascript" src="javaScript/checkLogin.js"></script>

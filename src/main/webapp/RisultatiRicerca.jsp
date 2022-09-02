@@ -9,7 +9,7 @@
 --%>
 <html>
 <head>
-    <title>Risultati Ricerca</title>
+    <title>GamerKing | Risultati Ricerca</title>
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
 </head>
