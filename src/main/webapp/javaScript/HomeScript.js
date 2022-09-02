@@ -10,7 +10,8 @@ function ruota(idfreccia){
 function barEffect(){
     if(window.pageYOffset != 0){
         document.getElementById("navBar").style.width = "100%";
-
+        document.getElementById("risultatiAjax").style.left = "8%";
+        document.getElementById("risultatiAjax").style.width = "35.3%";
         document.getElementById("navBar").style.top = "0";
         document.getElementById("navBar").style.left = "0";
 
@@ -23,6 +24,25 @@ function barEffect(){
         document.getElementById("navBar").style.left = "30px";
         document.getElementById("navBar").style.borderRadius = "6px";
         document.getElementById("risultatiAjax").style.top = "51px";
+        document.getElementById("risultatiAjax").style.left = "9.7%";
+        document.getElementById("risultatiAjax").style.width = "33.3%";
+    }
+}
+
+function researchEffect(){
+    if(window.pageYOffset == 0){
+        if(window.innerWidth > 700 && window.innerWidth < 1000){
+            document.getElementById("risultatiAjax").style.left = "11%";
+        }
+        if(window.innerWidth > 1000){
+            document.getElementById("risultatiAjax").style.left = "9.7%";
+        }
+        if(window.innerWidth > 1000 && window.innerWidth < 1250){
+            document.getElementById("risultatiAjax").style.left = "10.5%";
+        }
+        if(window.innerWidth > 500 && window.innerWidth < 700){
+            document.getElementById("risultatiAjax").style.left = "13%";
+        }
     }
 }
 

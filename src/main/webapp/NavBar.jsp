@@ -31,7 +31,7 @@
     </script>
 
 </head>
-<body onscroll="barEffect(), hiddenRisultatiAjax(),menuEffect()">
+<body onscroll="barEffect(), hiddenRisultatiAjax(),menuEffect()" onresize="researchEffect()">
 
     <!-- creazione barra di navigazione-->
     <div id="navBar">
@@ -157,7 +157,6 @@
 
         </form>
     </div>
-
 
 </body>
 </html>
