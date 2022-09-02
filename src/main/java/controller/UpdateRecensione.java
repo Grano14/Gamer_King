@@ -18,9 +18,9 @@ public class UpdateRecensione  extends HttpServlet {
         String piattaforma = request.getParameter("piattaforma");
         String contenuto = request.getParameter("recensione");
         int nStelle = Integer.parseInt(request.getParameter("nStelle"));
-
+        //modifico la recensione sul DB
         RecensioneDAO.updateContent(nomeUtente, videogioco, piattaforma, contenuto, nStelle);
-
+        //ottengo i dati per ricaricare la pagina della modifica recensione
         Prodotto prodotto = ProdottoDAO.doRetriveById(videogioco, piattaforma);
         String img = ImmagineDAO.getMainImageByVideogame(videogioco);
         Recensione rec = RecensioneDAO.doRetriveById(nomeUtente, videogioco, piattaforma);
