@@ -17,12 +17,13 @@ public class AggiungiGioco extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //salvataggio gioco nella tabella videogioco
+        //ottenimento elenco di giochi nel db
         ArrayList<Videogioco> l = VideogiocoDAO.doRetriveAll();
-
+        //ottenimento dei parametri dalla request
         String descrizione = request.getParameter("desc");
         String nome = request.getParameter("titolo");
 
+        //controllo che il nome inserito non sia gia presente nel db
         Boolean flag = false;
         while (flag == false){
             flag = true;
@@ -33,6 +34,7 @@ public class AggiungiGioco extends HttpServlet {
             }
         }
 
+        //inserimento nuovo gioco nel db
         Videogioco v = new Videogioco(nome, descrizione);
         VideogiocoDAO.doSave(v);
 

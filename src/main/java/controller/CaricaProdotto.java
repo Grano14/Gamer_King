@@ -18,14 +18,17 @@ public class CaricaProdotto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //ottenimento dei parametri dalla request
         String titolo = request.getParameter("titolo");
         String piattaforma = request.getParameter("piattaforma");
 
+        //controllo se il parametro titolo è nullo perchè la servlet CaricaProdotto può essere chiamata dalla servlet per salvare le recensioni dove il titolo è passato come attributo
         if(titolo==null){
             titolo = (String)request.getAttribute("titolo");
             piattaforma = (String)request.getAttribute("piattaforma");
         }
 
+        //ottenimento dati del prodotto con lista di immagini relative e generi
         Videogioco v = VideogiocoDAO.doRetriveById(titolo);
         String d = v.getDescrizione();
         Prodotto p = ProdottoDAO.doRetriveById(titolo, piattaforma);
@@ -38,6 +41,7 @@ public class CaricaProdotto extends HttpServlet {
         request.setAttribute("immPrincipale", immaginePrincipale);
         request.setAttribute("descrizione", d);
 
+        //ottenimento delle recensioni del prodotto
         ArrayList<Recensione> listaRec = RecensioneDAO.doRetriveByProduct(titolo, piattaforma);
 
         request.setAttribute("listaRec", listaRec);

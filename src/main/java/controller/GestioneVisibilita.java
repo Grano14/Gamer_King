@@ -16,6 +16,7 @@ public class GestioneVisibilita extends HttpServlet {
         String piattaforma = request.getParameter("piattaforma");
         String visibilita = request.getParameter("visibilita");
 
+        //controllo se il prodotto è visibile se si lo nasconde
         if(visibilita.equals("nascondi")){
             ProdottoDAO.doUpdateVisibilitaById(titolo, piattaforma, false);
         }

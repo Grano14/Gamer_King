@@ -34,15 +34,18 @@ public class AggiungiCopia extends HttpServlet {
         ArrayList<Prodotto> l = ProdottoDAO.doRetriveAll();
         boolean flag = true;
         int k = 0;
+        //controllo se il prodotto è gia presente nel db
         for(k=0; k<l.size(); k++){
             if(l.get(k).getVideogioco().equals(titolo) && l.get(k).getPiattaforma().equals(piattaforma))
                 flag = false;
         }
+        //se flag è false allora il prodotto è già presente nel db perciò non deve essere salvato ma bisogna solo aggiungere le nuove copie
         if(flag == true){
             Prodotto p = new Prodotto(piattaforma, data, titolo, true, true, Double.parseDouble(prezzo), Integer.parseInt(nCopie));
             ProdottoDAO.doSave(p);
         }
         else{
+            //aggiornamento numero di copie
             int n = Integer.parseInt(request.getParameter("nCopie"));
             int num = ProdottoDAO.doRetriveNumeroCopieById(titolo, piattaforma);
             ProdottoDAO.doUpdateNumeroCopieById(titolo, piattaforma, num+n);
@@ -53,6 +56,7 @@ public class AggiungiCopia extends HttpServlet {
         for (int t=0; t<n; t++) {
             Integer codice = 0;
             flag = false;
+            //generazione id copia random se gia presente ne viene generato uno nuovo nel while
             while (flag == false) {
                 flag = true;
                 Double c = 0.0;
@@ -66,6 +70,7 @@ public class AggiungiCopia extends HttpServlet {
                 }
             }
 
+            //salvataggio nuova copia nel db
             Copia c = new Copia(codice.toString(), titolo, piattaforma);
             CopiaDAO.doSave(c);
         }

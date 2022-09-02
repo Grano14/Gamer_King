@@ -28,6 +28,7 @@ public class AccessoUtente extends HttpServlet {
         //ricerca utente nel DB
         Utente user = UtenteDAO.doRetriveByNomeUtente(nome);
         //controllo password
+        if(user != null)
             if(user.getPass().equals(pass)){
                 //apertura sessione
                 HttpSession session = request.getSession();

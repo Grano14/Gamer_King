@@ -22,10 +22,12 @@
     Sottoscrivere s = (Sottoscrivere) request.getAttribute("sottoscrivere");
 
     String errore = (String) request.getAttribute("errore");
+    if(errore!=null){
 %>
 <p class="erroreReg">
     <%=errore%>
 </p>
+<%}%>
 
 <div id="registration">
     <form id="formModificaCarta" method="POST" action="">

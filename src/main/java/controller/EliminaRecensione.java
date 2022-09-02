@@ -17,8 +17,10 @@ public class EliminaRecensione extends HttpServlet {
         String videogioco = request.getParameter("videogioco");
         String piattaforma = request.getParameter("piattaforma");
 
+        //rimozione recensionne dal db
         RecensioneDAO.doRemoveById(nomeUtente, videogioco, piattaforma);
 
+        //ottenimento della lista di recensioni per passarla nella request
         ArrayList<Recensione> listaRec = RecensioneDAO.doRetriveAll();
 
         request.setAttribute("listaRec", listaRec);

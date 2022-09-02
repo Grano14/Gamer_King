@@ -13,10 +13,13 @@ public class CaricaCarrello extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //ottenimento della sessione e controllo del nome utente
         HttpSession session = request.getSession();
+        //se il nome utente è uguale a LOGIN il carrello si riempie dei prodotti presenti nella sessione e li passa alla request
         if(session.getAttribute("nomeUtente").equals("LOGIN")){
             ArrayList<Prodotto> l = (ArrayList<Prodotto>) session.getAttribute("carrello");
             request.setAttribute("carrello", l);
+            //creazione di una lista con i path principali delle immagini per ogni prodotto
             ArrayList<String> listPath = new ArrayList<>();
             int i;
             for(i=0; i<l.size();i++){
@@ -25,6 +28,7 @@ public class CaricaCarrello extends HttpServlet {
             request.setAttribute("lImmagini", listPath);
         }
         else{
+            //se l'utente è registrato i prodotti sono presi dal db
             ArrayList<Selezionare> l = SelezionareDAO.doRetriveAllByNomeUtente((String)session.getAttribute("nomeUtente"));
             int i;
             ArrayList<Prodotto> lProdotti = new ArrayList<>();
@@ -34,6 +38,7 @@ public class CaricaCarrello extends HttpServlet {
                 lProdotti.add(p);
             }
             request.setAttribute("carrello", lProdotti);
+            //creazione di una lista con i path principali delle immagini per ogni prodotto
             ArrayList<String> listPath = new ArrayList<>();
             for(i=0; i<lProdotti.size();i++){
                 listPath.add(ImmagineDAO.getMainImageByVideogame(lProdotti.get(i).getVideogioco()));

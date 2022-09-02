@@ -13,10 +13,13 @@ public class EliminaProdottoCarrello extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
         String nomeUtente = request.getParameter("nomeUtente");
         String piattaforma = request.getParameter("piattaforma");
         String titolo = request.getParameter("titolo");
 
+        //controllo se l'utente è registrtato
+        //se l'utente è registrato il prodotto viene rimosso dal db altrimenti vienr rimosso dalla sessione
         if(nomeUtente.equals("LOGIN")){
             Prodotto p = ProdottoDAO.doRetriveById(titolo, piattaforma);
             HttpSession s = request.getSession();
