@@ -150,17 +150,18 @@ body{
 
 #risultatiAjax{
     text-align:center;
-    left: 10%;
-    width: 35%;
+    left: 9.7%;
+    width: 33.3%;
     position: fixed;
-    top: 51px;
+    top: 50px;
     z-index: 4;
     display: none;
 }
 
 .risultato{
     transition: margin 0.5s;
-    width: 68%;
+    margin-left: 0;
+    width: 74%;
     height: 40px;
     background-color: white;
     display: block;
@@ -230,13 +231,13 @@ body{
 #generi input{
     margin: 6px;
 }
-
+/*
 @media only screen and (max-width: 1200px){
 
     .risultato{
         margin-left: 20%;
     }
-}
+}*/
 
 @media only screen and (max-width: 1000px){
 
@@ -251,6 +252,7 @@ body{
         width:60px;
         height:60px;
     }
+
 }
 
 @media only screen and (max-width: 700px){
@@ -263,7 +265,7 @@ body{
         margin-left: 19%;
     }
 }
-
+/*
 @media only screen and (max-width: 900px){
     .risultato{
         height:45px;
@@ -284,6 +286,6 @@ body{
         height:60px;
         margin-left: 30%;
     }
-}
+}*/
 
 /*fine css barra di navigazionem*/
