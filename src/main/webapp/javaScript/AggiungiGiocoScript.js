@@ -109,10 +109,6 @@ function checkButtonProdotto(){
     }
 }
 
-function checkPicture(){
-    document.getElementById("cc").innerText = document.getElementById("ii").value;
-}
-
 function readURL(input, id) {
     var idJQuery = "#"+id;
     if (input.files && input.files[0]) {

@@ -1,34 +1,44 @@
+//variabili di controllo per il controllo del form
 var controllo1, controllo2, controllo3, controllo4;
-
+//questa funzione controlla la validità dell'userName
 function validateID(){
+    //prendo il valore dell'userName  inserito
     var nomeUtente = document.getElementById("userName").value;
     var numeroREGX = /[0-9]/;
     var letteraMaiuscREGX = /[A-Z]/;
+    //controllo se c'è almeno un numero, almeno un carattere maiuscolo e il nome supera i 5 caratteri
     if(numeroREGX.test(nomeUtente) && letteraMaiuscREGX.test(nomeUtente) && nomeUtente.length > 5) {
+        //se il controllo ha effetto rende verde l'area e rende invisibile il messaggio di errore del nome
         document.getElementById("userName").style.backgroundColor = "lightgreen";
         document.getElementById("erroreNome").style.display = "none";
         controllo1=1;
     }
     else{
+        //se il conrollo non è rispettato rende l'area rosso chiaro e rende visibile il messagiio di errore
         document.getElementById("userName").style.backgroundColor = "lightpink";
         document.getElementById("erroreNome").style.display = "block";
         controllo1=0;
     }
+    //chiamo la funzione di controllo del bottone
     checkButton();
 }
 
+//la funzione di controllo del bottone si assicura che i dati siano adeguati per essere inviati alla servlet
 function checkButton(){
     if(controllo1 == 1 && controllo2 == 1 && controllo3 == 1 && controllo4 == 1) {
+        //se i controlli sono stati effettuati correttamente rende visibile il bottone e imposta l'action del from
         document.getElementById("bottoneReg").style.visibility = "visible";
         document.getElementById("formLogin").action = "RegistraUtente";
     }
     else
     {
+        //altrimenti rende invisibile il bottone e invalida il form
         document.getElementById("bottoneReg").style.visibility = "hidden";
         document.getElementById("formLogin").action = "";
     }
 }
 
+//questa funzione controlla se la mail è stata inserita correttamente
 function validateMail(){
     var emailREGX = /[@]/;
     var mail = document.getElementById("email").value;
