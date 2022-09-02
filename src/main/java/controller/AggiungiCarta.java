@@ -43,7 +43,7 @@ public class AggiungiCarta extends HttpServlet {
         //salvataggio tupla in sottoscrivere per collegare la carta ad un indirizzo, se la carta gia esiste avrà più indirizzi collegati
         Sottoscrivere sottoscrivere = new Sottoscrivere(numero, (String) request.getSession().getAttribute("nomeUtente"), via, cap, numCivico, citta);
         String errore="";
-
+        //controllo l'esistenza di questi dati nel DB, se esistono do un errore
         if(!SottoscrivereDAO.contains(numero, citta, numCivico, cap, via,(String) request.getSession().getAttribute("nomeUtente")))
             SottoscrivereDAO.doSave(sottoscrivere);
         else{
