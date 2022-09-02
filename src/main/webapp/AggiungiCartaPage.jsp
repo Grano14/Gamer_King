@@ -21,8 +21,11 @@
     String ritorno = (String) request.getAttribute("ritorno");
     String videogioco = (String) request.getAttribute("videogioco");
     String piattaforma = (String) request.getAttribute("piattaforma");
+    String errore = (String) request.getAttribute("errore");
+    if(errore!=null){
 %>
-
+<p id="erroreGrosso"><%=errore%></p>
+<%}%>
 <div id="registration">
     <form id="formCarta" method="POST" action="">
         <input type="hidden" name="ritorno" value="<%=ritorno%>">

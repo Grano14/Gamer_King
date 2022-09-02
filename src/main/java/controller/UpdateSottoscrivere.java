@@ -36,10 +36,11 @@ public class UpdateSottoscrivere extends HttpServlet {
             requestDispatcher.forward(request, response);
         }
         else{
+            //salva la nuovo modifica, id DB aggiorna automaticamente gli acquisti e le tabelle dipendenti
             Sottoscrivere s = new Sottoscrivere(numero, nomeUtente, via, cap, numCivico, citta);
 
             SottoscrivereDAO.doSave(s);
-
+            //ritorno alla pagina delle carte di credito
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("PaginaModificaCarte");
             requestDispatcher.forward(request, response);
         }
