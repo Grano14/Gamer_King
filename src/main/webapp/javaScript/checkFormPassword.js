@@ -2,7 +2,7 @@ var controllo1,controllo2,controllo3;
 
 function checkModificaPass(idText,idErrore){
     var text = document.getElementById(idText).value;
-
+    //controllo che la password rispetta le REGEX
     var lettereMinREGX = /[a-z]/;
     var lettereMaiuscREGX = /[A-Z]/;
     var numeroREGX = /[0-9]/;
@@ -20,6 +20,7 @@ function checkModificaPass(idText,idErrore){
     }
 }
 
+//verifica che la password inserita e la conferma password sono uguali
 function checkEqualPass(idText1,idText2,idErrore){
     var text1 = document.getElementById(idText1).value;
     var text2 = document.getElementById(idText2).value;
@@ -37,6 +38,7 @@ function checkEqualPass(idText1,idText2,idErrore){
     }
 }
 
+//controlla sintassi password
 function checkPass(idText){
     var text = document.getElementById(idText).value;
     if(text.length > 0){

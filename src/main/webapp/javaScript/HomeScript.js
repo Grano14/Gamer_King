@@ -1,3 +1,4 @@
+//funzione per far ruotare le frecce
 function ruota(idfreccia){
     var f = document.getElementById(idfreccia).style.transform;
     if(f == "rotate(180deg)")
@@ -7,6 +8,7 @@ function ruota(idfreccia){
     document.getElementById(idfreccia).style.transform = f
 }
 
+//funzione per modificare la barra allo scroll della pagina
 function barEffect(){
     if(window.pageYOffset != 0){
         document.getElementById("navBar").style.width = "100%";
@@ -28,7 +30,7 @@ function barEffect(){
         document.getElementById("risultatiAjax").style.width = "33.3%";
     }
 }
-
+//funzione per reggolare la lista di ricerca in corrispondenza del form
 function researchEffect(){
     if(window.pageYOffset == 0){
         if(window.innerWidth > 700 && window.innerWidth < 1000){
@@ -52,7 +54,7 @@ function menuEffect(){
     else
         document.getElementById("menuAvanzato").style.top = "60px";
 }
-
+//verifica le piattaforme che sono state selezionate
 function selectedPiattaforma(bottone, piattaforma){
     if(document.getElementById(piattaforma).value == "false"){
         document.getElementById(piattaforma).value = piattaforma;
@@ -67,7 +69,7 @@ function selectedPiattaforma(bottone, piattaforma){
 function showminmax(val, idlabel){
     document.getElementById(idlabel).innerHTML = val;
 }
-
+//prodotti-fatturazione-fatto sezioni acquisto
 function sectionLight(n){
     var line = (n*200)+70;
     if(window.pageYOffset < line){
@@ -82,6 +84,7 @@ function sectionLight(n){
     }
 }
 
+//funzione per la ricerca dei giochi
 function ricerca(){
     var valore = document.getElementById("searchBar").value;
     $.ajax({
@@ -135,7 +138,7 @@ function ricerca(){
         }
     })
 }
-
+//imposta i risultati della ricerca non visibili prima di effettuare una nuova ricerca
 function hiddenRisultatiAjax(){
     var s = "risultato";
     for(var t=0; t<10; t++){
@@ -145,7 +148,7 @@ function hiddenRisultatiAjax(){
         document.getElementById("risultatiAjax").style.display = "none";
     }
 }
-
+//funzione che gestisce il click del form nascondendo i risultati
 function toggleSerch(){
     var visibilita = document.getElementById("risultatiAjax").style.display;
     var lunghezza = document.getElementById("searchBar").value;
@@ -156,6 +159,7 @@ function toggleSerch(){
     document.getElementById("risultatiAjax").style.display=visibilita;
 }
 
+//nasconde i risultati ajax quando clicchi sugli strumenti e quando essa è aperta se clicchi in qualsiasi punto dello schermo scompare
 function hideAjax(){
     var visibilita = document.getElementById("risultatiAjax").style.display;
 

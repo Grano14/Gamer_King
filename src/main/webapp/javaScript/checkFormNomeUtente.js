@@ -1,3 +1,4 @@
+//controllo nome utente
 function checkModificaNome(idText,idButton,idErrore){
     var text = document.getElementById(idText).value;
     var buttonVisibility = document.getElementById(idButton).style.visibility;

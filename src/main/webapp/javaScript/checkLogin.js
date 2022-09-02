@@ -1,5 +1,6 @@
 var controllo1,controllo2;
 
+//controllo nome utente inserito
 function checkNome(idText,idErrore){
     var text = document.getElementById(idText).value;
     if(text.length>0)
@@ -12,7 +13,7 @@ function checkNome(idText,idErrore){
         document.getElementById("erroreNome").style.visibility = "visible";
     }
 }
-
+//controllo password
 function checkPass(idText,idErrore){
     var text = document.getElementById(idText).value;
     if(text.length>0)
@@ -25,7 +26,7 @@ function checkPass(idText,idErrore){
         document.getElementById("errorePass").style.visibility = "visible";
     }
 }
-
+//se i dati sono inseriti correttamente l'action del form è impostata al nome della servlet
 function checkFormLogin(){
     if(controllo1==1 && controllo2==1)
         document.getElementById("formLogin").action = "AccessoUtente";

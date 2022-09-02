@@ -8,8 +8,9 @@ function secondBarEffect(){
     }
 }
 
-
+//funzione per il controlle se il numero di copie da acquistare è un numero positivo
 function checkQuantitaPositive(){
+    //lista di numero copie per ogni prodotto
     const rec = document.getElementsByClassName("inputNumber");
     var azione = document.getElementById("acquistoCarrello").action;
     var visibilita = document.getElementById("errore").style.visibility;

@@ -2,6 +2,7 @@ var controllo1 = 0;
 var controllo2,controllo3;
 var controllo4 = 0;
 
+//imposta valore del controllo a +1 se la check è selezionata per controllare se almeno un genere è selezionato
 function checkedBox(idInput){
 
     if(document.getElementById(idInput).checked)
@@ -10,15 +11,17 @@ function checkedBox(idInput){
         controllo1--;
 }
 
+//imposta come proprieta dell'elemento salvato sfondo verde per il bottene dell'aggiunta immagini e controllo 4 deve arrivare a 3
 function verde(id){
     document.getElementById(id).style.backgroundColor = "green";
     controllo4++;
 }
-
+//imposta a verde lo sfondo per l'inserimenti della data
 function verdeData(id){
     document.getElementById(id).style.backgroundColor = "lightgreen";
 }
 
+//controlla se il nome rispetta dei REGEX
 function validateTitle(idInput){
     var nome = document.getElementById(idInput).value;
     if(nome.length > 1){
@@ -31,6 +34,7 @@ function validateTitle(idInput){
     }
 }
 
+//controlla che la descrizione abbia un minimo di caratteri
 function validateDescription(idInput){
     var nome = document.getElementById(idInput).value;
     if(nome.length > 25){
@@ -43,6 +47,7 @@ function validateDescription(idInput){
     }
 }
 
+//verifica che i controlli dei dati inseriti abbiano il valore esatte se si imposta a visible il tasto per l'aggiunta
 function checkButtonGame(){
     if(controllo2 == 1 && controllo3 == 1 && controllo4 >= 3 && controllo1 > 0)
     {
@@ -58,6 +63,7 @@ function checkButtonGame(){
 
 var controllo5,controllo6;
 
+//verifica che i controlli dei dati inseriti abbiano il valore esatte se si imposta a visible il tasto per l'aggiornamento
 function checkButtonUpdateGame(){
     if(controllo3 == 1 && controllo4 >= 3 && controllo1 > 0 && controllo5 == 1 && controllo6 == 1)
     {
@@ -81,6 +87,7 @@ function validateNumeri(id){
     }
 }
 
+//controlla che uno degli elementi della lista (piattaforme e viedeogiochi) sono selezionate
 function validateLista(id){
     var nome = document.getElementById(id).value;
     if(nome != "none"){
@@ -91,6 +98,7 @@ function validateLista(id){
     }
 }
 
+//controlla che i dati siano inseriti correttamente prima di sbloccare il tasto di aggiunta copia
 function checkButtonProdotto(){
     if(document.getElementById("prezzo").style.backgroundColor == "lightgreen"
         && document.getElementById("selectPiattaforma").style.backgroundColor == "lightgreen"
@@ -113,6 +121,7 @@ function checkPicture(){
     document.getElementById("cc").innerText = document.getElementById("ii").value;
 }
 
+//funzione per visualizzare anteprima immagini da modificare
 function readURL(input, id) {
     var idJQuery = "#"+id;
     if (input.files && input.files[0]) {
@@ -129,6 +138,7 @@ function readURL(input, id) {
     }
 }
 
+//funzione per ottenere i dati del gioco da aggiornare e inserirli nei valori dei form
 function uu(){
     var nome = document.getElementById("nomeGioco").value;
     var t = nome.substr(0, nome.indexOf(","));

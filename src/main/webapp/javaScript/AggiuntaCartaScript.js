@@ -1,5 +1,6 @@
 var controllo1,controllo2,controllo3,controllo4,controllo5,controllo6,controllo7,controllo8,controllo9;
 
+//effettua controllo dei nuemro della carta
 function checkNumero(idText,idError){
     var text = document.getElementById(idText).value;
 
@@ -24,6 +25,7 @@ function checkNumero(idText,idError){
     }
 }
 
+//effettua controllo sul codice di verifica carta
 function checkVerifica(idText,idError){
     var text = document.getElementById(idText).value;
 
@@ -46,12 +48,13 @@ function checkVerifica(idText,idError){
         controllo2=0;
     }
 }
-
+//controlla scadenza
 function checkScadenza(id){
             document.getElementById(id).style.backgroundColor = "lightgreen";
             controllo3=1;
 }
 
+//controlla corretteza nome
 function checkNome(idText,idError){
     var text = document.getElementById(idText).value;
 
@@ -74,7 +77,7 @@ function checkNome(idText,idError){
         controllo4=0;
     }
 }
-
+//controllo via
 function checkVia(idText){
     var text = document.getElementById(idText).value;
 
