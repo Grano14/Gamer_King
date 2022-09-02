@@ -4,6 +4,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import model.UtenteDAO;
+import model.Utente;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -30,10 +31,18 @@ public class AggiornaImmagineUtente extends HttpServlet {
         //creazione path di salvataggio dell'immagine e salvataggio del path nel db
         String path = "css/pictures/" + fileName;
         UtenteDAO.updateImmage(path, (String)session.getAttribute("nomeUtente"));
+        //recupero l'utente per sapere se è un admin
+        Utente user = UtenteDAO.doRetriveByNomeUtente((String)session.getAttribute("nomeUtente"));
         InputStream is = part.getInputStream();
-        boolean test = uploadFile(is, "C:\\Users\\Giuseppe Grano\\IdeaProjects\\Gamer_King\\src\\main\\webapp\\css\\pictures\\"+fileName);
+        boolean test = uploadFile(is, "C:\\Users\\utente\\IdeaProjects\\Gamer_King\\src\\main\\webapp\\css\\pictures\\"+fileName);
 
-        RequestDispatcher r = request.getRequestDispatcher("PaginaUtente");
+        String address="";
+        //reindirizzo la pagina ad AdminPage o a UserPage
+        if(user.isAdm())
+            address="PaginaAdmin";
+        else
+            address="PaginaUtente";
+        RequestDispatcher r = request.getRequestDispatcher(address);
         r.forward(request, response);
 
     }

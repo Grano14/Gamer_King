@@ -12,7 +12,7 @@
     <title>GamerKing | Pagina Utente</title>
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
     <link rel="stylesheet" type="text/css" href="css/UserPageStyle.css">
-    <script type="text/javascript" src="javaScript/AggiungiGiocoScript.js"></script>
+    <script type="text/javascript" src="javaScript/UtenteScript.js"></script>
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -28,6 +28,12 @@
             $("#showM1").click(function(){
                 $("#m").hide();
                 $("#m1").toggle();
+            });
+        });
+
+        $(document).ready(function(){
+            $("#togglteImmagine").click(function(){
+                $("#formImg").slideToggle("fast");
             });
         });
     </script>
@@ -56,20 +62,14 @@
                 }
             %>
             <img id="utenteimage" src="<%=path%>">
-            <button style="position: relative;bottom: 35px; right: 50px" onclick="hideForm()"><img src="css/pictures/matita.png"></button>
-            <script>
-                function hideForm(){
-                    if(document.getElementById("formImg").style.display == "none"){
-                        document.getElementById("formImg").style.display = "block";
-                    }
-                    else{
-                        document.getElementById("formImg").style.display = "none";
-                    }
-                }
-            </script>
-            <form action="AggiornaImmagineUtente" method="POST" id="formImg" style="display: none" enctype="multipart/form-data">
-                <label id="updateImg">Carica file<input type="file" name="immagine" oninput="verde('updateImg')"></label>
-                <input type="submit" value="Aggiorna">
+            <button style="position: relative;bottom: 35px; right: 50px" id="togglteImmagine"><img src="css/pictures/matita.png"></button>
+            <form action="" method="POST" id="formImg" style="display: none" enctype="multipart/form-data">
+                <label id="updateImg">Carica file
+                    <input type="file" name="immagine" oninput="chekImmagineUtente('updateImg','formImg')">
+                </label>
+                <br>
+                <br>
+                <input id="bottoneImmagine" type="submit" value="Aggiorna">
             </form>
         </div>
 

@@ -103,7 +103,7 @@ public class UpdateProdotto extends HttpServlet {
             String dirPath = "C:/Users/Giuseppe Grano/IdeaProjects/Gamer_King/src/main/webapp/css/gameImages/" + titolo;
             String path = "css/gameImages/" + titolo + "/" + nomeImage3;
             String pathCompleto = dirPath + "/" + nomeImage3;
-            String pathForDeleteFile = "C:/Users/Giuseppe Grano/IdeaProjects/Gamer_King/src/main/webapp/" + lImmaginiSecondarie.get(1);
+            String pathForDeleteFile = "C:/Users/utente/IdeaProjects/Gamer_King/src/main/webapp/" + lImmaginiSecondarie.get(1);
             ImmagineDAO.doRemoveById(lImmaginiSecondarie.get(1));
             Immagine i = new Immagine(path, titolo, false);
             ImmagineDAO.doSave(i);

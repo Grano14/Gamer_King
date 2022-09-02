@@ -23,13 +23,15 @@ public class UpdateSottoscrivere extends HttpServlet {
         String capOG = request.getParameter("capIniziale");
         String numCivico = request.getParameter("numCivico");
         String numCivicoOriginale = request.getParameter("numCivicoIniziale");
-
+        //controlliamo se l'estremo di fatturazione è già presente nel DB
         if(SottoscrivereDAO.contains(numero, citta, numCivico, cap, via, nomeUtente)){
+            //costruiamo la sottoscrizione
             Sottoscrivere sottoscrivere = SottoscrivereDAO.doRetriveById(numero, citta, numCivico, cap, via, nomeUtente);
-
+            //inoltriamo la sottoscrizione alla pagina di modifica per modifiche rapide
             request.setAttribute("sottoscrivere",sottoscrivere);
+            //settiamo un messaggio di errore
             request.setAttribute("errore","Questo indirizzo è già associato a questa carta");
-
+            //ritorniamo alla pagina delle modifiche
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("ModificaCarta.jsp");
             requestDispatcher.forward(request, response);
         }
