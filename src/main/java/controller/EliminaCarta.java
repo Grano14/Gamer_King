@@ -13,6 +13,7 @@ public class EliminaCarta extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //ottenimento parametri della carta
         String nomeUtente = request.getSession().getAttribute("nomeUtente").toString();
         String numero = request.getParameter("numero");
         String citta = request.getParameter("citta");
@@ -20,8 +21,10 @@ public class EliminaCarta extends HttpServlet {
         String cap = request.getParameter("cap");
         String numCivico = request.getParameter("numCivico");
 
+        //eliminazione tuple sottoscrivere relative alla carta
         SottoscrivereDAO.doRemoveById(numero, citta, numCivico, cap, via, nomeUtente);
 
+        //eliminazione carta solo se sottoscrivere è vuoto
         if(SottoscrivereDAO.doRetriveByNumero(numero).isEmpty()){
             CartaDAO.doRemoveById(numero);
         }

@@ -17,6 +17,7 @@ public class CaricaPaginaRimozioneAggiunta extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //ottenimento della lista di prodotti e passaggio dei prodotti alla pagina della rimozione e aggiornamenti dei prodotti
        ArrayList<Prodotto> l = ProdottoDAO.doRetriveAll();
        request.setAttribute("prodotti", l);
        RequestDispatcher requestDispatcher = request.getRequestDispatcher("RimuoviAggiornaProdottoPage.jsp");

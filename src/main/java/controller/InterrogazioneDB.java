@@ -24,6 +24,7 @@ public class InterrogazioneDB extends HttpServlet {
         String piattaforma = request.getParameter("piattaforma");
         String type = request.getParameter("tipo");
 
+        //ottenimento dati relativi al gioco, ellenco immagini, generi
         Prodotto p = ProdottoDAO.doRetriveById(titolo, piattaforma);
         Videogioco v = VideogiocoDAO.doRetriveById(p.getVideogioco());
         String mainImage = ImmagineDAO.getMainImageByVideogame(p.getVideogioco());
@@ -35,6 +36,7 @@ public class InterrogazioneDB extends HttpServlet {
             generi += g.get(k);
         }
         String testo = "";
+        //controllo se la servlet vuole in uscita i dati o la descrizione preparazione del testo in formato oggetto json
         if(type.equals("dati")){
             testo = "{\"dataUscita\":\"" + p.getDataUscita() + "\", \"prezzo\":\"" + p.getPrezzo() + "\", \"immagine1\":\"" + mainImage + "\", \"immagine2\":\"" + i.get(0) + "\", \"immagine3\":\"" + i.get(1) + "\", \"generi\":\"" + generi +"\",\"visibilita\":\"" + p.isVisibilita() + "\"}";
         }
