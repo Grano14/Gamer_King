@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="css/NavBarStyle.css">
     <script type="text/javascript" src="javaScript/HomeScript.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+    <!--Script per i bottoni nascosti-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
@@ -34,19 +34,23 @@
 
     <!-- creazione barra di navigazione-->
     <div id="navBar">
+        <!-- Logo sito-->
         <div id="logo" class="button">
             <a href="index.jsp"><img src="css/pictures/logo.png"></a>
         </div>
         <div id="search">
+            <!-- Script ricerca prodotto-->
             <form action="#cer" id="searchBarForm">
                 <input type="text" id="searchBar" placeholder="cerca..." onblur="hideAjax()" onclick="toggleSerch()" onkeyup="ricerca()">
                 <!--<input type="submit" id="searchButton" value="       ">-->
             </form>
         </div>
+        <!-- Bottone per lo script del menù filtri-->
         <div id="ricercaAvanzata" onclick="ruota('freccia'),hideAjax()">
             <div>Filtra prodotti</div>
             <div id="freccia"><img src="css/pictures/freccia.png"></div>
         </div>
+        <!-- Bottone carrello-->
         <a id="carrello" class="button" style="float: right; text-decoration: none" href="CaricaCarrello">
             <img src="css/pictures/carrello.png">
             <%
@@ -62,12 +66,13 @@
         <%
             if(session.getAttribute("nomeUtente").equals("LOGIN")){
         %>
+        <!-- Bottone login-->
         <div id="login" style="float: right">
             <a href="loginPage.jsp">LOGIN</a>
         </div>
         <%}else{%>
         <div id="login" style="float: right">
-
+            <!-- Bottone pagina utente-->
             <form  method="POST" action="PaginaUtente">
                 <input type="submit" id="paginaUtente" value="<%=(String)session.getAttribute("nomeUtente")%>">
             </form>
@@ -93,7 +98,7 @@
             <a class="risultato" id="risultato10" href="">gioco</a>
         </div>
     </div>
-
+    <!-- Selezione filtri-->
     <div id="menuAvanzato" >
         <form method="GET" action="RisultatoFiltro">
 

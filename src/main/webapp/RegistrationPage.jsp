@@ -14,28 +14,35 @@
     <script type="text/javascript" src="javaScript/RegistrationPageJS.js"></script>
 </head>
 <body>
+<!--Controllo errori registrazione-->
 <%if(request.getAttribute("errore") == null){}else{%>
 <p style="color: crimson; text-align: center; font-family: 'copperplate', fantasy"><%=request.getAttribute("errore")%></p><%request.setAttribute("errore", null);}%>
+<!--Form registrazione utente-->
 <div id="registration">
     <h1 style="text-align: center;margin-bottom: 10px">GAMER-KING <img src="css/pictures/logo.png"></h1>
     <form id="formLogin" method="POST" action="">
         <div class="forms">
+            <!--inserimento nome-->
             <label for="userName" >Nome utente</label><br>
             <input type="text" class="serch" id="userName" name="userName" onkeyup="validateID(), checkButton()">
             <p id="erroreNome" class="erroreReg">Il nome utente deve avere almeno 7 caratteri di cui almeno 1 numero, lettera maiuscola e minuscola</p>
             <br>
+            <!--inserimento email-->
             <label for="email">Email</label><br>
             <input type="text" class="serch" id="email" name="email" onkeyup="validateMail(), checkButton()">
             <p id="erroreMail" class="erroreReg">Mail non valida</p>
             <br>
+            <!--inserimento password-->
             <label for="pass">Password</label><br>
             <input type="password" class="serch" id="pass" name="pass" onkeyup="validatePass(), checkButton()">
             <p id="errorePass" class="erroreReg">La password deve avere almeno 7 caratteri di cui almeno 1 numero, lettera maiuscola e minuscola</p>
             <br>
+            <!--inserimento conferma password-->
             <label for="confPass">Conferma password</label><br>
             <input type="password" class="serch" id="confPass" name="confPass" onkeyup="validateConfPass(), checkButton()">
             <p id="erroreConfPass" class="erroreReg">Password e conferma devono essere uguali</p>
             <br><br>
+            <!--input form-->
             <input type="submit" value="PROCEDI" id="bottoneReg">
         </div>
     </form>
