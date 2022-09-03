@@ -17,12 +17,14 @@
     <script type="text/javascript" src="javaScript/AggiungiGiocoScript.js"></script>
 </head>
 <body>
+<!--Pagina modifica prodotti-->
 <h1>AGGIORNA/RIMUOVI VIDEOGIOCO</h1>
 <form id="admin" method="POST" action="PaginaAdmin">
     <input type="submit" id="adminButton" value="Admin">
 </form>
 
 <div id="dati">
+    <!--Selezione di un prodotto da modificare-->
     <p>Carica videogioco da modificare</p>
     <select name="gioco" id="nomeGioco" style="width: 400px">
         <%
@@ -33,21 +35,23 @@
         <option value="<%=l.get(i).getVideogioco()%>,<%=l.get(i).getPiattaforma()%>"><%=l.get(i).getVideogioco()%> per <%=l.get(i).getPiattaforma()%> <%if(l.get(i).isVisibilita()){%>(VISIBILE)<%}else{%>(NASCOSTO)<%}%></option>
         <%}%>
     </select>
+    <!--Caricare i dati del prodotto da modificare-->
     <input type="button" class="bottoniCarica" onclick="uu()" value="CARICA"><br>
     <a href="" id="nascondi" class="bottoniCarica" style="visibility: hidden;margin-top: 5px">NASCONDI</a>
     <a href="" id="mostra" class="bottoniCarica" style="visibility: hidden;margin-top: 5px">MOSTRA</a>
     <br>
 
+    <!--Form modifica prodotto-->
 <form  action="" method="POST" id="formGioco" STYLE="display: block" enctype="multipart/form-data" >
 
     <input type="hidden" id="titolo" name="titolo" value="">
     <input type="hidden" id="piattaforma" name="piattaforma" value="">
 
     <div id="gioco" class="forms">
-
+        <!--Modifica descrizione prodotto-->
         <textarea id="descrizione" name="desc" placeholder="Inserisci una descrizione..."
                   onkeyup="validateDescription('descrizione'),checkButtonUpdateGame()"></textarea><br>
-
+        <!--Modifica generi-->
         <p>Seleziona generi</p>
         <input type="checkbox" value="Avventura" id="avventura" name="c1" onclick="checkedBox('avventura'),checkButtonUpdateGame()">
         <label for="avventura">Avventura</label>
@@ -80,6 +84,7 @@
         <input type="checkbox" value="Open world" id="openworld" name="c15" onclick="checkedBox('openworld'),checkButtonUpdateGame()">
         <label for="openworld">Open World</label><br>
 
+        <!--modifica immagini-->
         <p>Carica immagine 1</p>
         <label id="labl1" class="custom-file-upload">
             <input type="file" name="immagine1" id="ii" multiple oninput="verde('labl1'),checkButtonUpdateGame(), readURL(this, 'img1')" >
@@ -98,11 +103,11 @@
             Aggiorna
         </label>
         <img id="img3" style="border-radius: 6px" src=""><br><br>
-
+        <!--modifica prezzo-->
         <label for="prezzo">Prezzo</label><br>
         <input type="text" id="prezzo" name="prezzo" placeholder="Prezzo" onkeyup="validateNumeri('prezzo'),
             checkButtonUpdateGame()"><br>
-
+        <!--modifica data-->
         <label for="data">Data di uscita</label><br>
         <input id="data" type="date" name="data" oninput="verdeData('data'),checkButtonUpdateGame()"><br>
         <div id="bottoneGioco">

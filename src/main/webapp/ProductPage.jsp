@@ -16,6 +16,7 @@
     <script type="text/javascript" src="javaScript/ProdottoScript.js"></script>
     <script type="text/javascript" src="javaScript/StelleScript.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--script bottone aggiunta al carrello-->
     <script>
         $(document).ready(function(){
             $("#bottoneCarrello1").click(function(){
@@ -33,9 +34,10 @@
     </script>
 </head>
 <body>
-
+<!--Inserimento navBar-->
 <%@include file="NavBar.jsp" %>
 <br>
+<!--recupero informazioni utente, prodotto e recensioni-->
 <%
     String d = (String)request.getAttribute("descrizione");
     Prodotto p = (Prodotto) request.getAttribute("gioco");
@@ -43,7 +45,7 @@
     ArrayList<Recensione> lRec = (ArrayList<Recensione>) request.getAttribute("listaRec");%>
 <div id="prodotto">
     <div class="immagineEAcquisto">
-
+        <!--Immagine principale prodotto -->
         <div id="setImmagini">
             <ul class="fotoProdotto">
 
@@ -60,13 +62,13 @@
             </ul>
 
         </div>
-
+        <!--Immagini prodotto -->
         <div class="immagine2">
             <%String path = (String) request.getAttribute("immPrincipale");
             //System.out.println(path);%>
             <img id="secondaria" src="<%=path%>">
         </div>
-
+        <!--Informazioni prodotto -->
         <div class="acquisto">
             <p class="titolo"><%=p.getVideogioco()%> <%=p.getPiattaforma()%></p>
             <p class="prezzo"><%String s = p.getPrezzo().toString();
@@ -76,7 +78,7 @@
             <div class="bottoniAM">
 
                 <%if(!session.getAttribute("nomeUtente").equals("LOGIN")){%>
-
+                <!--Bottone acquisto prodotto -->
             <form class="bottoneAcquisto" method="GET" action="PaginaSelezionaCarta">
                 <input type="hidden" name="videogioco" value="<%=p.getVideogioco()%>">
                 <input type="hidden" name="piattaforma" value="<%=p.getPiattaforma()%>">
@@ -84,6 +86,7 @@
             </form>
                 <%}%>
         </div>
+            <!--bottone e script aggiunta carrello -->
         <div>
             <%
                 String nomeG = "nomeG";
@@ -115,6 +118,7 @@
                             <button id="bottoneCarrello2" class="bottoneAC" style="font-size: 23px" onclick="addToCarrello()">Aggiungi al carrello</button>
                         </div>
                     <%}}%>
+            <!--Script ajax di aggiunta prodotto al carrello-->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script>
                 function addToCarrello(){
@@ -144,7 +148,7 @@
 
 <br>
 </div>
-
+<!--Descrizione prodotto e info su data uscita e generi-->
 <div id="descrizione">
     <p class="titolo">Descrizione</p>
     <p class="summary" id="trama">
@@ -165,7 +169,7 @@
     <%}%>
 </div>
 <div>
-
+    <!--Aggiunta recensione-->
     <% String utente =(String) request.getSession().getAttribute("nomeUtente");
     if(utente!="LOGIN"){
         if(!RecensioneDAO.contains(utente, p.getVideogioco(), p.getPiattaforma())){
@@ -179,11 +183,11 @@
         <div id="stelle" onclick="checkRecensione()">
             <script type="text/javascript">star(3);</script>
         </div>
-
+        <!--Seleziona stelle-->
         <input type="hidden" id="nStelle" name="nStelle" value="0">
         <input type="hidden" name="videogioco" value="<%=p.getVideogioco() %>">
         <input type="hidden" name="piattaforma" value="<%=p.getPiattaforma() %>">
-
+        <!--Inserimento descrizione recensione-->
         <textarea id="testoRecensione" name="recensione" placeholder="Scrivi la tua recensione..."
          onkeyup="validateRecensione('testoRecensione'),checkRecensione()"></textarea>
 
@@ -192,7 +196,7 @@
 
     <%}
     }%>
-
+    <!--Visualizzazione recensioni-->
 </div>
 <div class="lisaRec">
 
@@ -239,6 +243,7 @@
     <%}
     }%>
 </div>
+<!--Bottoni per mostrare le recensioni e i nasconderli-->
 <%if(lRec.size()>3){%>
 <div id="mostraRecensioni" class="aggiunta" onclick="mostraRecensioni()">
     <p>Mostra tutto</p>

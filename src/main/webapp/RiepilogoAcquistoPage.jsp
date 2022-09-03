@@ -17,10 +17,12 @@
     <script type="text/javascript" src="javaScript/HomeScript.js"></script>
 </head>
 <body>
+<!--Inserimento navBar-->
 <%@include file="NavBar.jsp" %>
 <%
     if(request.getAttribute("controlloAcquisto").equals("acquistato")){
 %>
+<!--informazioni sull'acquisto-->
 <div class="corpo">
     <div class="fasiAcquisto"><a id="fase1" href="#">PRODOTTI</a></div>
     <div class="fasiAcquisto"><a id="fase2" href="#">FATTURAZIONE</a></div>
