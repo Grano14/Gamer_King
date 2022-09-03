@@ -24,6 +24,7 @@
 
 <div id="oggettiCarta">
     <p id="testoCarta"> Carte di credito</p>
+    <!--visualizzazione elenco delle carte registrate-->
     <%for(Sottoscrivere s:lCarte){
         Carta c = CartaDAO.doRetriveById(s.getNumero());%>
     <div class="cartaItem">
@@ -38,6 +39,7 @@
         </div>
 
         <div class="bottoni">
+            <!--bottoni di modifica ed aliminazione delle carte-->
             <div>
                 <form class="bottoneModifica" method="POST" action="ModificaCarta">
                     <input type="hidden" name="numero" value="<%=s.getNumero()%>">
@@ -65,6 +67,7 @@
     <%}%>
 
     <div>
+        <!--form per l'aggiunta di nuove carte-->
         <form class="bottoneModifica" method="POST" action="PaginaAggiuntaCarta">
             <input type="hidden" name="ritorno" value="PaginaModificaCarte">
             <input type="submit" id="Aggiunta" value="Aggiungi">

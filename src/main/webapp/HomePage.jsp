@@ -16,9 +16,11 @@
 <!-- contenuto homepage-->
 
 <div id="corpo">
+    <!--immagine in primo piano-->
     <div id="primoPiano">
         <img src="css/pictures/primoPiano.png">
     </div>
+    <!--sezioni giochi piùpopolari(in base al numero di vendita dei giochi)-->
     <div id="giochi">
         <p class="section">I PIÙ POPOLARI</p><br>
         <%
@@ -26,6 +28,7 @@
             ArrayList<String> lImm = (ArrayList<String>) request.getAttribute("listaImmagini");
             for(int i=0; i<l.size(); i++){
         %>
+        <!--div di visualizzazione del gioco-->
         <div class="elemento">
             <a href="CaricaProdotto?titolo=<%=l.get(i).getVideogioco()%>&piattaforma=<%=l.get(i).getPiattaforma()%>"><img src="<%=lImm.get(i)%>"> </a>
            <%=l.get(i).getVideogioco()%> |
@@ -33,6 +36,7 @@
             if(!(s.contains("."))){s=s+".00";}
             else{if(s.indexOf(".")==(s.length()-2)){s=s+"0";}}%>
             <%=s%>€
+            //scelta dell'icona della piattaforma da visualizzare
             <%String pia = l.get(i).getPiattaforma();
                 if(pia.equals("playstation5")){%><img style="margin-top: 5px" src="css/pictures/ps530.png"> <%}%>
             <%if(pia.equals("playstation4")){%><img style="margin-top: 5px" src="css/pictures/ps430.png"> <%}%>
@@ -42,6 +46,7 @@
             <%if(pia.equals("xboxX")){%><img style="margin-top: 5px" src="css/pictures/xboxonex30.png"> <%}%>
         </div>
         <%}%>
+        <!--sezione dei giochi più recenti-->
         <p class="section">ULTIME USCITE</p>
         <%
             ArrayList<Prodotto> lRecenti = (ArrayList<Prodotto>) request.getAttribute("listaGiochiRecenti");

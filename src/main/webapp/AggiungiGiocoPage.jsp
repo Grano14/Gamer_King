@@ -33,10 +33,12 @@
 </head>
 <body>
 <h1>AGGIUNGI VIDEOGIOCO</h1>
+<!--bottone per tornare alla pagina dell'admin-->
 <form id="admin" method="POST" action="PaginaAdmin">
     <input type="submit" id="adminButton" value="Admin">
 </form>
 
+<!--visualizzazione del messaggio per dare conferma dell'aggiunta-->
 <%if(request.getAttribute("messaggio") != null){
     String mex = (String) request.getAttribute("messaggio");
     request.removeAttribute("messaggio");
@@ -49,6 +51,7 @@
         <p>Aggiungi un nuovo titolo</p>
     </div>
 
+    <!--form per l'aggiunta di un videogioco-->
 <form id="formGioco" action="" method="POST" enctype="multipart/form-data" >
 
     <div id="gioco" class="forms">
@@ -119,6 +122,7 @@
         <p>Aggiungi un prodotto</p>
     </div><br>
 
+    <!--div per l'aggiunta di una copia-->
     <div id="prodotto" class="forms">
         <form id="formProdotto" action="" method="POST">
             <label for="selectGioco">Seleziona gioco</label><br>

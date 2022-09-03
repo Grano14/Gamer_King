@@ -15,19 +15,24 @@
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
     <script type="text/javascript" src="javaScript/HomeScript.js"></script>
     <script type="text/javascript" src="javaScript/AcquistoPageScript.js"></script>
+    <!--ottenimento lista degliu elementi nel carrello-->
     <%ArrayList<Selezionare> l = SelezionareDAO.doRetriveAllByNomeUtente((String)session.getAttribute("nomeUtente"));%>
 </head>
 <body onscroll="sectionLight(<%=l.size()%>); barEffect(),secondBarEffect()">
 <%@include file="NavBar.jsp" %>
-<% ArrayList<Selezionare> list = SelezionareDAO.doRetriveAllByNomeUtente((String)session.getAttribute("nomeUtente"));
+<%
+    //ottenimento lista degli elementi nel carrello e lista delle carte
+    ArrayList<Selezionare> list = SelezionareDAO.doRetriveAllByNomeUtente((String)session.getAttribute("nomeUtente"));
     ArrayList<Sottoscrivere> listSottoscrizioni = SottoscrivereDAO.doRetriveByNomeUtente((String)session.getAttribute("nomeUtente"));
     int i;
+    //conversione di lista di selezionare in lista di prodotti
     ArrayList<Prodotto> carrello = new ArrayList<>();
     for(i=0; i<list.size(); i++){
         Selezionare s = list.get(i);
         Prodotto p = ProdottoDAO.doRetriveById(s.getVideogioco(), s.getPiattaforma());
         carrello.add(p);
     }
+    //controllo se l'utente è registrato, se non gli chiede di registrarsi
     if(session.getAttribute("nomeUtente").equals("LOGIN")){%>
     <p id="sezione">Per effettuare un acquisto <a href="loginPage.jsp">accedere</a> o <a href="RegistrationPage.jsp">registrarsi</a> al sito!</p>
 <%}else{%>
@@ -37,6 +42,7 @@
     <div class="fasiAcquisto"><a id="fase3" href="#">FATTO</a></div>
 </div>
 <form style="margin-top: 130px" id="acquistoCarrello" method="POST" action="<%if(!listSottoscrizioni.isEmpty()){%>AcquistoCarrello<%}%>">
+    <!--iterazione carrello per creare un div per ogni prodotto con link al gioco, e input per cambiare la quantità-->
 <%for(int u=0; u< carrello.size();u++){%>
 <div class="carrelloItem">
 
@@ -53,7 +59,7 @@
             <%=carrello.get(u).getPrezzo()%>€
         </p>
     </div>
-
+<!--selezionare la quantità di acquisto del gioco-->
     <div id="selezionaQuantita">
         <label for="num">Scegli la quantità</label><br>
         <input type="number" value="1" id="num" class="inputNumber" name="<%=carrello.get(u).getVideogioco()%><%=carrello.get(u).getPiattaforma()%>" onkeyup="checkQuantitaPositive()">
@@ -62,12 +68,15 @@
 </div>
 <hr>
 <%}%>
+    <!--div per selezionare la carta-->
     <div id="selezionaCarta">
+        <!--messaggio di errore gestito da js-->
         <p id="errore">Non puoi inserire numeri negativi</p>
         <p id="sezione">Inserimento estremi di fatturazione</p>
         <%
             if(listSottoscrizioni.size() > 0){
                 int j;
+                //iterazione carte per creare un div per ogni carta che viene selezionata attraverso un input type radio
                 for(j=0; j<listSottoscrizioni.size(); j++){
                     Carta c = CartaDAO.doRetriveById(listSottoscrizioni.get(j).getNumero());
         %>
@@ -94,6 +103,7 @@
     </div>
 </form>
 <%}%>
+<!--form per l'aggiunta delle carte di credito nol caso l'acquisto deve essere fatto con un'altra carta-->
 <form method="POST" action="PaginaAggiuntaCarta" style="text-align:center">
     <input type="hidden" name="ritorno" value="AcquistoPage.jsp">
     <input type="submit" id="aggiungiCarta" class="parag" value="Aggiungi una nuova carta per il pagamento">

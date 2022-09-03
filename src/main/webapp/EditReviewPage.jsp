@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/EditReviewPageStyle.jsp.css">
 </head>
 <body>
+<!--area di testo per l'aggiornamento di una recensione o eliminazione-->
 <div id="testo">
     <textarea id="areatesto">
         Inserisci testo

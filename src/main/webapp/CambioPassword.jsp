@@ -15,6 +15,7 @@
 <body>
 
 <div class="corpo">
+    <!--form per inserimento della vecchia password e della nuova-->
     <form class="formModifica" id="passForm" method="POST" action="">
         <label for="pass">Vecchia password</label><br>
         <input type="password" class="serch" id="pass" onkeyup="checkPass('pass'),checkPassButton()"><br>

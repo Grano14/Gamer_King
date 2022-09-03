@@ -22,12 +22,15 @@
     <% ArrayList<Prodotto> carrello = (ArrayList<Prodotto>) request.getAttribute("carrello");
         ArrayList<String> lImm = (ArrayList<String>) request.getAttribute("lImmagini");
         String nome = (String) session.getAttribute("nomeUtente");
+        //controllo numero di prodotti nel carrello se pari a zero con js viene modificato il testo del paragrafo testoCarrello
         int i = carrello.size(); if(i == 0){%>
     <script>corpoCarrello(0)</script>
     <%} else{%>
     <script>corpoCarrello(<%=i%>)</script>
     <hr>
-    <%for(int j=0; j<i; j++){%>
+    <%
+        //se il carrello contiene almeno un elemento viene creato un div per ogni elemento
+        for(int j=0; j<i; j++){%>
         <div class="carrelloItem">
             <a href="CaricaProdotto?titolo=<%=carrello.get(j).getVideogioco()%>&piattaforma=<%=carrello.get(j).getPiattaforma()%>">
                 <img src="<%=lImm.get(j)%>">
@@ -38,6 +41,7 @@
                 <p><%=carrello.get(j).getPrezzo()%>€</p>
             </div>
 
+            <!--div per bottone di eliminazione del prodotto e acquisto diretto-->
             <div id="boxBottoni">
                 <button class="bottoni" id="delete" onclick="deleteElement('<%=carrello.get(j).getVideogioco()%>', '<%=carrello.get(j).getPiattaforma()%>', '<%=nome%>')">
                     Elimina
@@ -62,6 +66,7 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
+    <!--funzione per l'eliminazione di elementi dal carrello senza aggiornare la pagina-->
     function deleteElement(t, p, n){
         $.ajax({
             url:"EliminaProdottoCarrello",

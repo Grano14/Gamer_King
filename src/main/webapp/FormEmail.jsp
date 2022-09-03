@@ -14,6 +14,7 @@
 <body>
 
 <div class="corpo">
+    <!--form per l'aggiornamento di una mail dell'utente-->
     <form class="formModifica" id="modEmail" method="POST" action="">
         <label for="mail">Email</label><br>
         <input type="hidden" id="mailUsata" value="<%= UtenteDAO.doRetriveByNomeUtente((String)request.getSession().getAttribute("nomeUtente")).getEmail()%>">

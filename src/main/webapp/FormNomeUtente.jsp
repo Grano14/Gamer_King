@@ -14,6 +14,7 @@
 <body>
 
 <div class="corpo">
+    <!--form per l'aggiornamento del nome utente-->
     <form class="formModifica" id="modNome" method="POST" action="">
         <input type="hidden" id="hidden" value="<%=request.getSession().getAttribute("nomeUtente").toString()%>">
         <label for="userName">Nome utente</label><br>

@@ -16,6 +16,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
+        <!--funzioni per gestire il clik sui pulsanti delle impostazioni facendo scomparire quelli non cliccati-->
         $(document).ready(function(){
             $("#showM").click(function(){
                 $("#m1").hide();
@@ -59,6 +60,7 @@
 %>
 <div id="user">
     <div id="utenteInfo">
+        <!--sezione della gestione dell'immagine di profilo-->
             <div style="width: 200px; display: inline-block">
                 <%
                     String path = "";
@@ -72,6 +74,7 @@
                 <img id="utenteimage" src="<%=path%>">
                 <button style="position: relative;bottom: 35px; right: 50px" id="togglteImmagine"><img src="css/pictures/matita.png"></button>
 
+                <!--ottenimento immagine di profilo da aggiornare-->
                 <form action="" method="POST" id="formImg" style="display: none" enctype="multipart/form-data">
                     <label id="updateImg">Carica file
                         <input type="file" name="immagine" oninput="chekImmagineUtente('updateImg','formImg')">
@@ -84,6 +87,7 @@
         <p id="userid"><%=user.getNomeUtente()%></p>
         <p id="email"><%=user.getEmail()%></p>
         <div id="impostazioniUtente">
+            <!--bottoni per le azioni che può svolgere l'utente-->
             <div class="bottoneImpostazioni" id="showM">
                 <p class="testo">Modifica nome</p>
             </div>
@@ -104,6 +108,7 @@
     </div>
 </div>
 
+<!--pagine che vengono visualizzate al click dei bottoni-->
 <div id="menuUtente">
     <div id="m" class="hiddenMenu"  <%if(erroreNome!=null){%> style="display:block"<%}%>>
         <%if(erroreNome!=null){%>

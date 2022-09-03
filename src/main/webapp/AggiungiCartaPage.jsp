@@ -27,13 +27,14 @@
 <p id="erroreGrosso"><%=errore%></p>
 <%}%>
 <div id="registration">
+    <!--form per l'aggiunta delle carte di credito-->
     <form id="formCarta" method="POST" action="">
         <input type="hidden" name="ritorno" value="<%=ritorno%>">
         <input type="hidden" name="videogioco" value="<%=videogioco%>">
         <input type="hidden" name="piattaforma" value="<%=piattaforma%>">
         <label for="card">Numero carta</label><br>
         <input type="text" class="serch" id="card" name="numero" maxLength="16" onkeyup="checkNumero('card','erroreCarta'),checkButton()">
-
+        <!--messaggi di errore della classe erroreReg gestiti tramite js-->
         <p class="erroreReg" id="erroreCarta">
             Numero di carta composto da 10 numeri
         </p>
