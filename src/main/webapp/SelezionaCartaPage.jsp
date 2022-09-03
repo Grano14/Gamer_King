@@ -18,9 +18,9 @@
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
 </head>
 <body>
-
+<!--Inserimento navBar-->
 <%@include file="NavBar.jsp" %>
-
+<!--Recupero dati del prodotto da acquistare e gli estremi di fatturazione dell'utente-->
 <%
     ArrayList<Sottoscrivere> lCarte = (ArrayList<Sottoscrivere>) request.getAttribute("listaCarte");
     String img = (String) request.getAttribute("immagine");
@@ -29,6 +29,7 @@
 %>
 
 <form id="acquistaProdotto" method="POST" action="AcquistoSingolo">
+    <!--Visualizzazione prodotto-->
 <div id="prodotto">
     <div id="immagine">
         <img src="<%=img%>">
@@ -39,6 +40,7 @@
             <p class="nome"><%=videogioco%> <%=piattaforma%></p>
         </div>
         <div>
+            <!--Seleziona quantità da acquistare-->
             <input type="number" name="quantita" id="quant" value="1" onkeyup="checkQuantita()">
             <p id="errore">Devi ordinare almeno un prodotto</p>
         </div>
@@ -47,7 +49,7 @@
 <br>
 <br>
 <hr>
-
+<!--Estremi di fatturazione da selezionare-->
 <div id="oggettiCarta">
     <p id="testoCarta"> Carte di credito</p>
 
@@ -61,6 +63,7 @@
                     Sottoscrivere s = listSottoscrizioni.get(j);
                     Carta c = CartaDAO.doRetriveById(s.getNumero());
         %>
+        <!--Visualizzazione dati carta e indirizzo-->
         <div id="carta">
             <p id="nomeCognome">Intestatario:<%=c.getCognome()%> <%=c.getNome()%></p>
             <p id="indirizzo">Indirizzo:<%=s.getCitta()%> <%=s.getCap()%></p>
@@ -77,11 +80,13 @@
         <br>
         <br>
         <br>
+        <!--Bottone di acquisto-->
         <input type="hidden" name="videogioco" value="<%=videogioco%>">
         <input type="hidden" name="piattaforma" value="<%=piattaforma%>">
         <input id="bottoneAcquistoCarrello" type="submit" value="Acquista">
     </div>
 </div>
+    <!--Aggiunta nuovi estremi di fatturazione con ritorno-->
 </form>
 <form method="POST" action="PaginaAggiuntaCarta">
     <input type="hidden" name="videogioco" value="<%=videogioco%>">

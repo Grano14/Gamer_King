@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="css/UserPageStyle.css">
     <script type="text/javascript" src="javaScript/UtenteScript.js"></script>
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
-
+<!--Script per le animazioni di dei menù nascosti-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
@@ -30,7 +30,7 @@
                 $("#m1").toggle();
             });
         });
-
+//animazione per il menù delle immagini
         $(document).ready(function(){
             $("#togglteImmagine").click(function(){
                 $("#formImg").slideToggle("fast");
@@ -40,15 +40,18 @@
 
 </head>
 <body>
+<!--Inserimento navBar-->
 <%@include file="NavBar.jsp" %>
-
+<!--liste per i menù nascosti-->
 <% ArrayList<Recensione> lRec = (ArrayList<Recensione>) request.getAttribute("listaRec");
     ArrayList<Prodotto> l = (ArrayList<Prodotto>) request.getAttribute("listaProdotti");
     Utente user = (Utente) request.getAttribute("utente");
 %>
 
 <div id="user">
+    <!--informazioni utente-->
     <div id="utenteInfo">
+        <!--cambio immagine utente-->
         <div style="width: 200px; display: inline-block">
             <%
                 String nome = (String) session.getAttribute("nomeUtente");
@@ -72,9 +75,10 @@
                 <input id="bottoneImmagine" type="submit" value="Aggiorna">
             </form>
         </div>
-
+        <!--dati utente-->
         <p id="userid"><%=user.getNomeUtente()%></p>
         <p id="email"><%=user.getEmail()%></p>
+        <!--sezione bottoni-->
         <div id="impostazioniUtente">
             <div class="bottoneImpostazioni" id="showM">
                 <p>Libreria</p>
@@ -82,13 +86,13 @@
             <div class="bottoneImpostazioni" id="showM1">
                 <p>Review</p>
             </div>
-
+            <!--bottone impostazioni-->
             <div class="bottoneImpostazioni">
                 <form class="bottoneModifica" action="PaginaImpostazioni">
                     <input type="submit" value="Impostazioni">
                 </form>
             </div>
-
+            <!--bottone logout-->
             <div class="bottoneImpostazioni">
                 <form class="bottoneModifica" method="GET" action="Logout">
                     <input type="submit" value="Logout">
@@ -100,20 +104,22 @@
 </div>
 
 <div id="menuUtente">
-
+<!--Menù nascosti-->
+    <!--libreria dei prodotti acquistati-->
     <div id="m" class="hiddenMenu">
         <%if(l!=null){
             for(int i=0; i<l.size(); i++){%>
         <div class="elemento">
+            <!--link alle pagine prodotto. Disponibili solo se i prodotti sono visualizzabili-->
             <a href="CaricaProdotto?titolo=<%=l.get(i).getVideogioco()%>&piattaforma=<%=l.get(i).getPiattaforma()%>"><img src="<%=ImmagineDAO.getMainImageByVideogame(l.get(i).getVideogioco())%>"> </a>
             <p><%=l.get(i).getVideogioco()%>, <%=l.get(i).getPiattaforma()%></p>
         </div>
         <%}
         }else{%>
-        <p>Nessuna recensione esistente</p>
+        <p>Nessuna acquisto effetuato</p>
         <%}%>
     </div>
-
+    <!--recensioni lasciate dall'utente-->
     <div id="m1" class="hiddenMenu">
         <div class="lisaRec">
 
@@ -124,7 +130,7 @@
             <div id="listaRecensioni" class="recensione">
 
                 <div class="Utente">
-
+                    <!--visializzazione prodotto e numero di stelle votate-->
                     <div id="stelleVotate">
                         <p><%=rec.getVideogioco()%> <%=rec.getPiattaforma()%></p>
                         <%for(int j=0;j<5;j++){
@@ -137,18 +143,19 @@
                     </div>
 
                 </div>
-
+                <!--visializzazione contenuto recensione-->
                 <div id="recensioneRegistrata">
                     <p id="recensioneInserita"><%=rec.getContenuto()%></p>
                 </div>
                 <div id="modificaElimina">
+                    <!--bottone di modifica del contenuto-->
                     <form class="modificaRec" method="GET" action="ModificaRecensione">
                         <input type="hidden" name="azione" value="modifica">
                         <input type="hidden" name="videogioco" value="<%=rec.getVideogioco()%>">
                         <input type="hidden" name="piattaforma" value="<%=rec.getPiattaforma()%>">
                         <input type="submit" value="Modifica">
                     </form>
-
+                    <!--bottone di eliminazione del contenuto-->
                     <form class="modificaRec" method="POST" action="ModificaRecensione">
                         <input type="hidden" name="azione" value="elimina">
                         <input type="hidden" name="videogioco" value="<%=rec.getVideogioco()%>">
@@ -159,6 +166,7 @@
             </div>
             <%}
             }else{%>
+
             <p>Nessuna recensione esistente</p>
             <%}%>
         </div>

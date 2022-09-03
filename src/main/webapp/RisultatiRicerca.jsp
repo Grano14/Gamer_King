@@ -14,11 +14,13 @@
     <link rel="stylesheet" type="text/css" href="css/HomePageStyle.css">
 </head>
 <body>
+<!--Inserimento navBar-->
 <%@include file="NavBar.jsp"%>
 
 
 <div id="corpo">
     <div id="giochi">
+        <!--Recupero informazioni prodotti ricercati-->
             <%
             ArrayList<Prodotto> l = (ArrayList<Prodotto>) request.getAttribute("listaGiochi");
             ArrayList<String> lImm = (ArrayList<String>) request.getAttribute("listaImmagini");
@@ -28,6 +30,7 @@
         <%
             for(int i=0; i<l.size(); i++){
         %>
+        <!--Link alla pagina del prodotto-->
         <div class="elemento">
             <a href="CaricaProdotto?titolo=<%=l.get(i).getVideogioco()%>&piattaforma=<%=l.get(i).getPiattaforma()%>"><img src="<%=lImm.get(i)%>"> </a>
             <%=l.get(i).getVideogioco()%> |  <%=l.get(i).getPrezzo()%>€ <%String pia = l.get(i).getPiattaforma();

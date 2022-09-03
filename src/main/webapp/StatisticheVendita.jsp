@@ -17,6 +17,7 @@
 
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
 
+    <!--Script per le animazioni di dei menù nascosti-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
@@ -45,6 +46,7 @@
     </script>
 </head>
 <body>
+<!--Recupero dati da visualizzare-->
 <%
     ArrayList<Integer> listaAcquisti = (ArrayList<Integer>) request.getAttribute("listaAcquisti");
     ArrayList<Integer> listaVotiMedi = (ArrayList<Integer>) request.getAttribute("listaVotiMedi");
@@ -54,9 +56,11 @@
     ArrayList<Prodotto> listaDaRifornire = (ArrayList<Prodotto>) request.getAttribute("listaDaRifornire");
 %>
 <h1>STATISTICHE DI VENDITA</h1>
+<!--Bottone di ritorno per la pagina admin-->
 <form id="admin" method="POST" action="PaginaAdmin">
     <input type="submit" id="adminButton" value="Admin">
 </form>
+<!--Bottoni per visualizzare i menù nascosti-->
 <div id="BottoniMenu">
     <div class="bottoneImpostazioni" id="showM">
         <p>Più venduti</p>
@@ -68,7 +72,7 @@
         <p>Da rifornire</p>
     </div>
 </div>
-
+<!--Lista dei prodotti più venduti-->
 <div id="menuUtente">
 
     <div id="m" class="hiddenMenu">
@@ -81,6 +85,7 @@
                 ArrayList<String> listaGeneri = AppartenereDAO.doRetriveGenereByVideogioco(p.getVideogioco());
         %>
         <hr>
+        <!--Visualizzazione dati dei prodotti-->
         <img class="immaginiProdotto" src="<%=immagine%>">
         <div class="testoLista">
             <p class="titolo"><%=p.getVideogioco()%>, <%=p.getPiattaforma()%></p>
@@ -96,7 +101,7 @@
         </div>
         <%}%>
     </div>
-
+    <!--Lista dei prodotti in ordine di votazione migliore-->
     <div id="m1" class="hiddenMenu">
         <%
             for(i=0;i<listaVotati.size();i++){
@@ -120,7 +125,7 @@
         </div>
         <%}%>
     </div>
-
+    <!--Lista dei prodotti da rifornire-->
     <div id="m2" class="hiddenMenu">
         <%
             for(i=0;i<listaDaRifornire.size();i++){
