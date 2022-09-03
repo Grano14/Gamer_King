@@ -17,16 +17,16 @@
     <link rel="icon" type="image/x-icon" href="css/pictures/favicon.png">
 </head>
 <body>
-
+<!--Inserimento navBar-->
 <%@include file="NavBar.jsp" %>
-
+<!--Recupero dati per la recensione-->
 <%  String img = (String) request.getAttribute("immagine");
     Prodotto p = (Prodotto) request.getAttribute("prodotto");
     Recensione r = (Recensione) request.getAttribute("rec");
     Videogioco v = (Videogioco) request.getAttribute("videogioco");
 %>
 
-
+<!--Dati prodotti-->
 <div id="prodotto">
     <div id="immagine">
         <img src="<%=img%>">
@@ -44,16 +44,18 @@
 <hr>
 <div>
     <p class="nome">Modifica la tua Recensione</p>
+    <!--Form modifica form-->
     <form class="recensione" method="POST" action="UpdateRecensione">
 
         <div id="stelle" onclick="checkRecensione()">
+            <!--Seleziona stelle-->
             <script type="text/javascript">star(<%=r.getNstelle()%>);</script>
         </div>
 
         <input type="hidden" id="nStelle" name="nStelle" value="0">
         <input type="hidden" name="videogioco" value="<%=p.getVideogioco() %>">
         <input type="hidden" name="piattaforma" value="<%=p.getPiattaforma() %>">
-
+        <!--Modifica descrizione -->
         <textarea id="testoRecensione" name="recensione" placeholder="Scrivi la tua recensione..."
                   onkeyup="validateRecensione('testoRecensione'),checkRecensione()"><%=r.getContenuto()%></textarea>
 

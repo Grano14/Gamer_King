@@ -183,11 +183,11 @@
         <div id="stelle" onclick="checkRecensione()">
             <script type="text/javascript">star(3);</script>
         </div>
-
+        <!--Seleziona stelle-->
         <input type="hidden" id="nStelle" name="nStelle" value="0">
         <input type="hidden" name="videogioco" value="<%=p.getVideogioco() %>">
         <input type="hidden" name="piattaforma" value="<%=p.getPiattaforma() %>">
-
+        <!--Inserimento descrizione recensione-->
         <textarea id="testoRecensione" name="recensione" placeholder="Scrivi la tua recensione..."
          onkeyup="validateRecensione('testoRecensione'),checkRecensione()"></textarea>
 
