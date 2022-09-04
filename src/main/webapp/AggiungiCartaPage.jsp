@@ -35,14 +35,14 @@
         <label for="card">Numero carta</label><br>
         <input type="text" class="serch" id="card" name="numero" maxLength="16" onkeyup="checkNumero('card','erroreCarta'),checkButton()">
         <!--messaggi di errore della classe erroreReg gestiti tramite js-->
-        <p class="erroreReg" id="erroreCarta">
+        <p class="erroreCarta" id="erroreCarta">
             Numero di carta composto da 10 numeri
         </p>
         <br>
         <label for="numeroVer">Numero di sicurezza</label><br>
         <input type="text" class="serch" id="numeroVer" name="verifica" maxLength="3" onkeyup="checkVerifica('numeroVer','erroreVerifica'),checkButton()">
 
-        <p class="erroreReg" id="erroreVerifica">
+        <p class="erroreCarta" id="erroreVerifica">
             Inserire 3 numeri
         </p>
         <br>
@@ -52,20 +52,20 @@
         <label for="proprietarioNome">Nome proprietario</label><br>
         <input type="text" class="serch" id="proprietarioNome" name="nome" maxLength="25" onkeyup="checkNome('proprietarioNome','erroreNome'),checkButton()">
 
-        <p class="erroreReg" id="erroreNome">
+        <p class="erroreCarta" id="erroreNome">
             I numeri non sono ammessi
         </p>
         <br>
         <label for="proprietarioCognome">Cognome proprietario</label><br>
         <input type="text" class="serch" id="proprietarioCognome" name="cognome" maxLength="25" onkeyup="checkCognome('proprietarioCognome','erroreCognome'),checkButton()">
-        <p class="erroreReg" id="erroreCognome">
+        <p class="erroreCarta" id="erroreCognome">
             I numeri non sono ammessi
         </p>
         <br>
         <p>Indirizzo</p>
         <label for="comune">Comune</label><br>
         <input type="text" class="serch" id="comune" name="citta" maxLength="25" onkeyup="checkCitta('comune','erroreCitta'),checkButton()">
-        <p class="erroreReg" id="erroreCitta">
+        <p class="erroreCarta" id="erroreCitta">
             I numeri non sono ammessi
         </p>
         <br>
@@ -74,13 +74,13 @@
         <br>
         <label for="nCivico">Numero civico</label><br>
         <input type="text" class="serch" id="nCivico" name="numCivico" maxLength="4" onkeyup="checkNumCivico('nCivico','erroreNumCivico'),checkButton()">
-        <p class="erroreReg" id="erroreNumCivico">
+        <p class="erroreCarta" id="erroreNumCivico">
             Solo numeri ammessi
         </p>
         <br>
         <label for="CAP">CAP</label><br>
         <input type="text" class="serch" id="CAP" name="cap" maxLength="5" onkeyup="checkCap('CAP','erroreCap'),checkButton()">
-        <p class="erroreReg" id="erroreCap">
+        <p class="erroreCarta" id="erroreCap">
             Solo numeri ammessi
         </p>
         <br><br>

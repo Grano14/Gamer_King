@@ -26,7 +26,7 @@
         <%
             ArrayList<Prodotto> l = (ArrayList<Prodotto>) request.getAttribute("listaGiochi");
             ArrayList<String> lImm = (ArrayList<String>) request.getAttribute("listaImmagini");
-            for(int i=0; i<l.size(); i++){
+            for(int i=0; i<6; i++){
         %>
         <!--div di visualizzazione del gioco-->
         <div class="elemento">
@@ -51,7 +51,7 @@
         <%
             ArrayList<Prodotto> lRecenti = (ArrayList<Prodotto>) request.getAttribute("listaGiochiRecenti");
             ArrayList<String> lImmRecenti = (ArrayList<String>) request.getAttribute("listaImmaginiRecenti");
-            for(int i=0; i<lRecenti.size(); i++){%>
+            for(int i=0; i<9; i++){%>
         <div class="elemento">
             <a href="CaricaProdotto?titolo=<%=lRecenti.get(i).getVideogioco()%>&piattaforma=<%=lRecenti.get(i).getPiattaforma()%>"><img src="<%=lImmRecenti.get(i)%>"> </a>
             <%=lRecenti.get(i).getVideogioco()%> |  <%=lRecenti.get(i).getPrezzo()%>€ <%String pia = lRecenti.get(i).getPiattaforma();
