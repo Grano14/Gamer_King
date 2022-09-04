@@ -43,7 +43,7 @@
         <label for="comune">Comune</label><br>
         <input type="text" class="serch" id="comune" name="citta" value="<%=s.getCitta()%>" maxLength="25" onkeyup="checkCitta('comune','erroreCitta'),checkUpdateButton()">
         <!--Messaggio errore-->
-        <p class="erroreReg" id="erroreCitta">
+        <p class="erroreCarta" id="erroreCitta">
             I numeri non sono ammessi
         </p>
         <br>
@@ -55,7 +55,7 @@
         <label for="nCivico">Numero civico</label><br>
         <input type="text" class="serch" id="nCivico" name="numCivico" value="<%=s.getNumCivico()%>" maxLength="4" onkeyup="checkNumCivico('nCivico','erroreNumCivico'),checkUpdateButton()">
         <!--Messaggio errore-->
-        <p class="erroreReg" id="erroreNumCivico">
+        <p class="erroreCarta" id="erroreNumCivico">
             Solo numeri ammessi
         </p>
         <br>
@@ -63,7 +63,7 @@
         <label for="CAP">CAP</label><br>
         <input type="text" class="serch" id="CAP" name="cap" value="<%=s.getCap()%>" maxLength="5" onkeyup="checkCap('CAP','erroreCap'),checkUpdateButton()">
         <!--Messaggio errore-->
-        <p class="erroreReg" id="erroreCap">
+        <p class="erroreCarta" id="erroreCap">
             Solo numeri ammessi
         </p>
         <br><br>
