@@ -36,7 +36,7 @@
             if(!(s.contains("."))){s=s+".00";}
             else{if(s.indexOf(".")==(s.length()-2)){s=s+"0";}}%>
             <%=s%>€
-            //scelta dell'icona della piattaforma da visualizzare
+            <!--scelta dell'icona della piattaforma da visualizzare-->
             <%String pia = l.get(i).getPiattaforma();
                 if(pia.equals("playstation5")){%><img style="margin-top: 5px" src="css/pictures/ps530.png"> <%}%>
             <%if(pia.equals("playstation4")){%><img style="margin-top: 5px" src="css/pictures/ps430.png"> <%}%>
