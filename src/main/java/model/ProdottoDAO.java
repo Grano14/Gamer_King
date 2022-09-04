@@ -255,7 +255,7 @@ public class ProdottoDAO {
                     " p.disponibilita, p.videogioco, p.numeroCopie, p.prezzo, avg(r.nstelle) " +
                     "from Recensione r natural join Prodotto p " +
                     "group by p.videogioco, p.piattaforma " +
-                    "order by r.nstelle desc");
+                    "order by avg(r.nstelle) desc");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 Prodotto p = new Prodotto(rs.getString(1), rs.getString(3), rs.getString(5), rs.getBoolean(2), rs.getBoolean(4), rs.getDouble(7), rs.getInt(6));

@@ -40,7 +40,7 @@
         </div>
         <div id="search">
             <!-- Script ricerca prodotto-->
-            <form action="#cer" id="searchBarForm">
+            <form action="" id="searchBarForm">
                 <input type="text" id="searchBar" placeholder="cerca..." onblur="toggleSerch()" onclick="toggleSerch()" onkeyup="ricerca()">
                 <!--<input type="submit" id="searchButton" value="       ">-->
             </form>
