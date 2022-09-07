@@ -125,9 +125,11 @@
         <%@include file="FormEmail.jsp" %>
     </div>
 
-    <div id="m2" class="hiddenMenu">
-        <%@include file="CambioPassword.jsp"%>
+    <div id="m2" class="hiddenMenu"<%if(errorePassword!=null){%> style="display:block"<%}%>>
+        <%if(errorePassword!=null){%>
         <p style="color:red"><%=errorePassword%></p>
+        <%}%>
+        <%@include file="CambioPassword.jsp"%>
     </div>
 </div>
 </body>
