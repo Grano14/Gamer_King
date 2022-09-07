@@ -24,9 +24,9 @@ public class UpdatePassword extends HttpServlet {
 
         Utente user = UtenteDAO.doRetriveByNomeUtente(nomeUtente);
 
-        String passwordVecchia = request.getParameter("password");
+        String passwordVecchia = request.getParameter("pass");
 
-        String password = request.getParameter("password");
+        String password = request.getParameter("newPass");
 
         //controllo se il nome inserito da aggiornare è già in uso
         if(user.getPass().equals(passwordVecchia)){
