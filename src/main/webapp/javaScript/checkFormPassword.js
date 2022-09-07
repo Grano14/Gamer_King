@@ -2,12 +2,13 @@ var controllo1,controllo2,controllo3;
 
 function checkModificaPass(idText,idErrore){
     var text = document.getElementById(idText).value;
+    var textIn = document.getElementById("pass").value;
     //controllo che la password rispetta le REGEX
     var lettereMinREGX = /[a-z]/;
     var lettereMaiuscREGX = /[A-Z]/;
     var numeroREGX = /[0-9]/;
 
-    if(lettereMaiuscREGX.test(text) && lettereMinREGX.test(text) && numeroREGX.test(text) && text.length > 6) {
+    if(lettereMaiuscREGX.test(text) && lettereMinREGX.test(text) && numeroREGX.test(text) && text.length > 6 && textIn!=text) {
         document.getElementById(idText).style.backgroundColor = "lightgreen";
         document.getElementById(idErrore).style.display = "none";
         controllo1 = 1;
@@ -15,7 +16,12 @@ function checkModificaPass(idText,idErrore){
     else{
         document.getElementById(idText).style.backgroundColor = "lightpink";
         document.getElementById(idErrore).style.display = "block";
-        document.getElementById(idErrore).textContent = "La password deve contenere almeno una lettera maiuscola e minuscola, un numero e deve essere di almeno 7 caratteri";
+        if(textIn!=text)
+            document.getElementById(idErrore).textContent = "La password deve contenere almeno una lettera " +
+                "maiuscola e minuscola, un numero e deve essere di almeno 7 caratteri";
+        else
+            document.getElementById(idErrore).textContent = "La password deve essere diversa dall'originale";
+
         controllo1 = 0;
     }
 }
@@ -53,7 +59,7 @@ function checkPass(idText){
 
 function checkPassButton(){
     if(controllo1 == 1 && controllo2 == 1 && controllo3 == 1){
-        document.getElementById("passForm").action="ii";
+        document.getElementById("passForm").action="UpdatePassword";
         document.getElementById("modificaPass").style.visibility = "visible";
     }
     else{

@@ -34,10 +34,12 @@
                 if(l.size()>9)
                     nRecenti = 9;
                 else
-                    nPopolari=l.size();
+                    nRecenti=l.size();
             }
-            else
+            else{
                 nPopolari=l.size();
+                nRecenti=l.size();
+            }
             }
 
             for(int i=0; i<nPopolari; i++){

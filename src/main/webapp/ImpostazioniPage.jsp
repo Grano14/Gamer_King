@@ -57,6 +57,7 @@
     Utente user = (Utente) request.getAttribute("utente");
     String erroreNome = (String) request.getAttribute("erroreNome");
     String erroreMail = (String) request.getAttribute("erroreMail");
+    String errorePassword = (String) request.getAttribute("errorePassword");
 %>
 <div id="user">
     <div id="utenteInfo">
@@ -126,6 +127,7 @@
 
     <div id="m2" class="hiddenMenu">
         <%@include file="CambioPassword.jsp"%>
+        <p style="color:red"><%=errorePassword%></p>
     </div>
 </div>
 </body>

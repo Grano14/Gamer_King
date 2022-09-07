@@ -139,4 +139,15 @@ public class UtenteDAO {
         }
     }
 
+    public static void updatePassword(Utente u, String password){
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("update Utente set pass=? where nomeUtente=?");
+            ps.setString(1, password);
+            ps.setString(2, u.getNomeUtente());
+            ps.execute();
+        }
+        catch (SQLException e){
+            throw  new RuntimeException(e);
+        }
+    }
 }

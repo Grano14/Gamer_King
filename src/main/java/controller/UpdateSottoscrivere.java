@@ -24,11 +24,11 @@ public class UpdateSottoscrivere extends HttpServlet {
         String numCivico = request.getParameter("numCivico");
         String numCivicoOriginale = request.getParameter("numCivicoIniziale");
         //controlliamo se l'estremo di fatturazione è già presente nel DB
+        Sottoscrivere sottoscrivereIn = SottoscrivereDAO.doRetriveById(numero, citta, numCivico, cap, via, nomeUtente);
         if(SottoscrivereDAO.contains(numero, citta, numCivico, cap, via, nomeUtente)){
             //costruiamo la sottoscrizione
-            Sottoscrivere sottoscrivere = SottoscrivereDAO.doRetriveById(numero, citta, numCivico, cap, via, nomeUtente);
             //inoltriamo la sottoscrizione alla pagina di modifica per modifiche rapide
-            request.setAttribute("sottoscrivere",sottoscrivere);
+            request.setAttribute("sottoscrivere",sottoscrivereIn);
             //settiamo un messaggio di errore
             request.setAttribute("errore","Questo indirizzo è già associato a questa carta");
             //ritorniamo alla pagina delle modifiche
@@ -39,7 +39,7 @@ public class UpdateSottoscrivere extends HttpServlet {
             //salva la nuovo modifica, id DB aggiorna automaticamente gli acquisti e le tabelle dipendenti
             Sottoscrivere s = new Sottoscrivere(numero, nomeUtente, via, cap, numCivico, citta);
 
-            SottoscrivereDAO.doSave(s);
+            SottoscrivereDAO.doUpdate(s,sottoscrivereIn);
             //ritorno alla pagina delle carte di credito
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("PaginaModificaCarte");
             requestDispatcher.forward(request, response);

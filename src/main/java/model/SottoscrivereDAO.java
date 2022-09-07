@@ -100,4 +100,26 @@ public class SottoscrivereDAO {
             return true;
         return false;
     }
+
+
+    public static void doUpdate(Sottoscrivere s,Sottoscrivere sIn){
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("update Sottoscrivere set via=?, cap=?, numCivico=?, citta=? " +
+                    "where numero=? and nomeUtente=? and via=? and cap=? and numCivico=? and citta=? ");
+            ps.setString(1, s.getVia());
+            ps.setString(2, s.getCap());
+            ps.setString(3, s.getNumCivico());
+            ps.setString(4, s.getCitta());
+            ps.setString(5, sIn.getNumero());
+            ps.setString(6, sIn.getNomeUtente());
+            ps.setString(7, sIn.getVia());
+            ps.setString(8, sIn.getCap());
+            ps.setString(9, sIn.getNumCivico());
+            ps.setString(10, sIn.getCitta());
+            ps.execute();
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
 }
