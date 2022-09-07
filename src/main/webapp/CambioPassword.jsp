@@ -18,9 +18,9 @@
     <!--form per inserimento della vecchia password e della nuova-->
     <form class="formModifica" id="passForm" method="POST" action="">
         <label for="pass">Vecchia password</label><br>
-        <input type="password" class="serch" id="pass" onkeyup="checkPass('pass'),checkPassButton()"><br>
+        <input type="password" class="serch" id="pass" name="pass" onkeyup="checkPass('pass'),checkPassButton()"><br>
         <label for="passConf">Nuova password</label><br>
-        <input type="password" class="serch" id="newPass" onkeyup="checkModificaPass('newPass','errorePass'),checkPassButton()"><br>
+        <input type="password" class="serch" id="newPass" name="newPass" onkeyup="checkModificaPass('newPass','errorePass'),checkPassButton()"><br>
         <p class="errore" id="errorePass">
 
         </p><br>

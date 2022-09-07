@@ -29,7 +29,7 @@ public class UpdatePassword extends HttpServlet {
         String password = request.getParameter("newPass");
 
         //controllo se il nome inserito da aggiornare è già in uso
-        if(user.getPass().equals(passwordVecchia)){
+        if(!user.getPass().equals(passwordVecchia)){
             request.setAttribute("errorePassword","Password incorretta");
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("PaginaImpostazioni");
             requestDispatcher.forward(request, response);
